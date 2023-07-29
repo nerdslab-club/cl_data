@@ -1,0 +1,4 @@
+[submodule "git_submodules/function-representation"]
+	path = git_submodules/function-representation
+	url = https://github.com/nerdslab-club/function-representation.git
+	ref = main
