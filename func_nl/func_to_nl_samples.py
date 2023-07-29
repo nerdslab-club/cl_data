@@ -1,4 +1,6 @@
 class FuncToNlSamples:
+    TASK_TYPE = "func_to_nl_translation"
+
     def __init__(self):
         self.func_to_nl_samples = {}
         self.__set_func_to_nl_samples()

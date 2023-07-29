@@ -1,4 +1,4 @@
-[submodule "git_submodules/function-representation"]
-	path = git_submodules/function-representation
-	url = https://github.com/nerdslab-club/function-representation.git
+[submodule "git_submodules/function_representation"]
+	path = git_submodules/function_representation
+	url = https://github.com/nerdslab-club/function_representation
 	ref = main
