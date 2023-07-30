@@ -1,5 +1,8 @@
+from src.constants import TaskTypes
+
+
 class FuncToFuncSamples:
-    TASK_TYPE = "func_to_func_translation"
+    TASK_TYPE = TaskTypes.FUNC_TO_FUNC_TRANSLATION.value
 
     def __init__(self):
         self.func_to_func_samples = []
@@ -30,8 +33,4 @@ class FuncToFuncSamples:
 
     @staticmethod
     def create_output_array_from_data():
-        pass
-
-    @staticmethod
-    def create_category_map_from_data():
         pass

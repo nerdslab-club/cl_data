@@ -1,4 +1,7 @@
-import git_submodules.function_representation.src.math_functions
+from git_submodules.function_representation import MathFunctions
+from ..src.constants import CategoryType, CategorySubType, CategorySubSubType
+from ..src.utility import Utility
+from ..src.random_value_generator import RandomValueGenerator
 
 
 class AvgFuncToFuncExamples:
@@ -12,40 +15,38 @@ class AvgFuncToFuncExamples:
         self.input_tuple_arrays = [
             [
                 (
-                    "dfijs",
-                    "sdfuuhsd",
-                    {
-                        "type": 1,
-                        "subType": 2,
-                        "subSubType": 2,
-                    },
+                    MathFunctions.average,
+                    Utility.create_category_map(
+                        CategoryType.FUNCTION,
+                        CategorySubType.EXECUTE,
+                        CategorySubSubType.NONE,
+                    ),
                 ),
                 (
                     [1, 2, 3, 4],
-                    {
-                        "type": 1,
-                        "subType": 2,
-                        "subSubType": 2,
-                    },
-                ),
-                (
-                    "dfijs",
-                    "sdfuuhsd",
-                    {
-                        "sfj": 1,
-                        "sdfds": 2,
-                    },
+                    Utility.create_category_map(
+                        CategoryType.LIST,
+                        CategorySubType.PARAM,
+                        CategorySubSubType.PARAM_ONE,
+                    ),
                 ),
             ],
             [
                 (
-                    "dfijs",
-                    "sdfuuhsd",
-                    {
-                        "type": 1,
-                        "subType": 2,
-                        "subSubType": 2,
-                    },
+                    MathFunctions.average,
+                    Utility.create_category_map(
+                        CategoryType.FUNCTION,
+                        CategorySubType.EXECUTE,
+                        CategorySubSubType.NONE,
+                    ),
+                ),
+                (
+                    RandomValueGenerator.generate_random_list(5, 1, 100, 32),
+                    Utility.create_category_map(
+                        CategoryType.LIST,
+                        CategorySubType.PARAM,
+                        CategorySubSubType.PARAM_ONE,
+                    ),
                 ),
             ],
         ]
@@ -54,24 +55,86 @@ class AvgFuncToFuncExamples:
         self.output_tuple_arrays = [
             [
                 (
-                    "dfijs",
-                    "sdfuuhsd",
-                    {
-                        "type": 1,
-                        "subType": 2,
-                        "subSubType": 2,
-                    },
+                    MathFunctions.division,
+                    Utility.create_category_map(
+                        CategoryType.FUNCTION,
+                        CategorySubType.EXECUTE,
+                        CategorySubSubType.NONE,
+                    ),
+                ),
+                (
+                    MathFunctions.sum,
+                    Utility.create_category_map(
+                        CategoryType.FUNCTION,
+                        CategorySubType.EXECUTE,
+                        CategorySubSubType.NONE,
+                    ),
+                ),
+                (
+                    [1, 2, 3, 4],
+                    Utility.create_category_map(
+                        CategoryType.LIST,
+                        CategorySubType.PARAM,
+                        CategorySubSubType.PARAM_ONE,
+                    ),
+                ),
+                (
+                    MathFunctions.length,
+                    Utility.create_category_map(
+                        CategoryType.FUNCTION,
+                        CategorySubType.EXECUTE,
+                        CategorySubSubType.NONE,
+                    ),
+                ),
+                (
+                    [1, 2, 3, 4],
+                    Utility.create_category_map(
+                        CategoryType.LIST,
+                        CategorySubType.PARAM,
+                        CategorySubSubType.PARAM_ONE,
+                    ),
                 ),
             ],
             [
                 (
-                    "dfijs",
-                    "sdfuuhsd",
-                    {
-                        "type": 1,
-                        "subType": 2,
-                        "subSubType": 2,
-                    },
+                    MathFunctions.division,
+                    Utility.create_category_map(
+                        CategoryType.FUNCTION,
+                        CategorySubType.EXECUTE,
+                        CategorySubSubType.NONE,
+                    ),
+                ),
+                (
+                    MathFunctions.sum,
+                    Utility.create_category_map(
+                        CategoryType.FUNCTION,
+                        CategorySubType.EXECUTE,
+                        CategorySubSubType.NONE,
+                    ),
+                ),
+                (
+                    RandomValueGenerator.generate_random_list(5, 1, 100, 32),
+                    Utility.create_category_map(
+                        CategoryType.LIST,
+                        CategorySubType.PARAM,
+                        CategorySubSubType.PARAM_ONE,
+                    ),
+                ),
+                (
+                    MathFunctions.length,
+                    Utility.create_category_map(
+                        CategoryType.FUNCTION,
+                        CategorySubType.EXECUTE,
+                        CategorySubSubType.NONE,
+                    ),
+                ),
+                (
+                    RandomValueGenerator.generate_random_list(5, 1, 100, 32),
+                    Utility.create_category_map(
+                        CategoryType.LIST,
+                        CategorySubType.PARAM,
+                        CategorySubSubType.PARAM_ONE,
+                    ),
                 ),
             ],
         ]

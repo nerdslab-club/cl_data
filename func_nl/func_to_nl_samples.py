@@ -1,5 +1,8 @@
+from src.constants import TaskTypes
+
+
 class FuncToNlSamples:
-    TASK_TYPE = "func_to_nl_translation"
+    TASK_TYPE = TaskTypes.FUNC_TO_NL_TRANSLATION.value
 
     def __init__(self):
         self.func_to_nl_samples = {}
