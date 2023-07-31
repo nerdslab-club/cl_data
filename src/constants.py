@@ -11,19 +11,22 @@ class TaskTypes(Enum):
 
 class CategoryType(Enum):
     FUNCTION = "function"
-    NATURAL_LANGUAGE = "natural_language"  # This is string as well
+    WORD = "word"  # This is string as well
     INTEGER = "integer"
-    FLOATING_POINT = "floating_point"
+    FLOAT = "float"
     LIST = "list"
     BOOL = "bool"
 
 
 class CategorySubType(Enum):
-    EXECUTE = "execute"
-    REPRESENT = "represent"
-    WORD = "word"
-    PARAM = "param"
-    NONE = "none"
+    DEFAULT = "default"
+    PLACEHOLDER = "placeholder"
+    RETURN_VALE = "return_value"
+    WORD = "word"  # This is string as well
+    INTEGER = "integer"
+    FLOAT = "float"
+    LIST = "list"
+    BOOL = "bool"
 
 
 class CategorySubSubType(Enum):
@@ -32,12 +35,24 @@ class CategorySubSubType(Enum):
     PARAM_THREE = "param_three"
     PARAM_FOUR = "param_four"
     PARAM_FIVE = "param_five"
+    PARAM_LAST = "param_last"
     NONE = "none"
+    PLACEHOLDER = "placeholder"
+
+
+class PlaceholderTokenType(Enum):
+    FUNCTION = "@function"
+    WORD = "@word"
+    INTEGER = "@integer"
+    FLOAT = "@float"
+    LIST = "@list"
+    BOOL = "@bool"
 
 
 class Constants:
     FUNCTION_DEFAULT_VALUE = MathFunctions.average
-    NATURAL_LANGUAGE_DEFAULT_VALUE = str("String")
+    WORD_DEFAULT_VALUE = str("word")
     INTEGER_DEFAULT_VALUE = int(25)
-    FLOATING_POINT_DEFAULT_VALUE = float(25.0)
+    FLOAT_DEFAULT_VALUE = float(25.0)
     LIST_DEFAULT_VALUE = list([2, 3, 4, 5, 6])
+    BOOL_DEFAULT_VALUE = bool(True)

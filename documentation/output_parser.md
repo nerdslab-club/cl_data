@@ -13,15 +13,14 @@ categories will be used by the category router.
 
 #### Available sub-categories
 sub-categories will be used by the category router.
-1. none
-2. return_value
-3. default
-4. integer
-5. float
-6. list
-7. bool
-8. word
-9. placeholder
+1. return_value
+2. default
+3. integer
+4. float
+5. list
+6. bool
+7. word
+8. placeholder
 
 #### Available sub-sub-categories
 sub-sub-categories will not be used by category router.
@@ -64,31 +63,31 @@ sub-sub-categories will be used by Response-Parser.
 4. Natural-Language represent
    - input: function for averaging list of number
    - output: [
-   (function, {category: "word", subCategory: "none", subSubCategory: "none" }), 
-   (for, {category: "word", subCategory: "none", subSubCategory: "none" }),
-   (averaging, {category: "word", subCategory: "none", subSubCategory: "none" }),
-   (list, {category: "word", subCategory: "none", subSubCategory: "none" }),
-   (of, {category: "word", subCategory: "none", subSubCategory: "none" }),
-   (number, {category: "word", subCategory: "none", subSubCategory: "none" }),
+   (function, {category: "word", subCategory: "default", subSubCategory: "none" }), 
+   (for, {category: "word", subCategory: "default", subSubCategory: "none" }),
+   (averaging, {category: "word", subCategory: "default", subSubCategory: "none" }),
+   (list, {category: "word", subCategory: "default", subSubCategory: "none" }),
+   (of, {category: "word", subCategory: "default", subSubCategory: "none" }),
+   (number, {category: "word", subCategory: "default", subSubCategory: "none" }),
    ]
 
 5. Natural-Language represent
    - input: adding 3 plus 2
    - output: [
-   (adding, {category: "word", subCategory: "none", subSubCategory: "none" }), 
-   (3, {category: "integer", subCategory: "none", subSubCategory: "none" }),
-   (plus, {category: "word", subCategory: "none", subSubCategory: "none" }),
-   (2, {category: "integer", subCategory: "none", subSubCategory: "none" }),
+   (adding, {category: "word", subCategory: "default", subSubCategory: "none" }), 
+   (3, {category: "integer", subCategory: "default", subSubCategory: "none" }),
+   (plus, {category: "word", subCategory: "default", subSubCategory: "none" }),
+   (2, {category: "integer", subCategory: "default", subSubCategory: "none" }),
    ]
 
 6. Natural-Language represent
    - input: 3 + 2 = 5
    - output: [
-   (3, {category: "integer", subCategory: "none", subSubCategory: "none" }), 
-   (+, {category: "word", subCategory: "none", subSubCategory: "none" }),
-   (2, {category: "integer", subCategory: "none", subSubCategory: "none" }),
-   (=, {category: "word", subCategory: "none", subSubCategory: "none" }),
-   (5, {category: "integer", subCategory: "none", subSubCategory: "none" }),
+   (3, {category: "integer", subCategory: "default", subSubCategory: "none" }), 
+   (+, {category: "word", subCategory: "default", subSubCategory: "none" }),
+   (2, {category: "integer", subCategory: "default", subSubCategory: "none" }),
+   (=, {category: "word", subCategory: "default", subSubCategory: "none" }),
+   (5, {category: "integer", subCategory: "default", subSubCategory: "none" }),
    ]
 
 7. Function placeholder
