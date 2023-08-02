@@ -91,3 +91,6 @@ sub-sub-categories will be used by Response-Parser.
 N.B. param_last will be used to identify last param of a function.<br>
 N.B. subCategory: "default" is used to indicate using default router for list.<br>
 N.B. subCategory: "placeholder" is used to indicate using placeholder tag for list.<br>
+N.B. no space in function please, other than between params.<br>
+N.B. no space in array/list please.
+
