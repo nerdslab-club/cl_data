@@ -3,6 +3,7 @@ Response parser will take (value, category) tuple and produce a Natural-Language
 Input: tuple(value, category)
 Output: word
 
+#### Available categories
 categories will be used by the category router.
 1. function
 2. word

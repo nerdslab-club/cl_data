@@ -15,7 +15,7 @@ class RandomValueGenerator:
             start_range (int): The inclusive start of the random range.
             end_range (int): The exclusive end of the random range.
             seed (int, optional): The seed value for random number generation.
-                                  If provided, the same seed will produce the same random list.
+            If provided, the same seed will produce the same random list.
 
         Returns:
             list: A list of random numbers within the specified range.

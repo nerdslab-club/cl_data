@@ -51,7 +51,7 @@ sub-sub-categories will be used by Response-Parser.
    ]
 
 3. Function represent
-   - input: ##division(##sum([2,3,4], ##length([2,3,4]))
+   - input: ##division(##sum([2,3,4]), ##length([2,3,4]))
    - output: [
    (division(), {category: "function", subCategory: "float", subSubCategory: "none" }), 
    (sum(), {category: "function", subCategory: "float", subSubCategory: "param_one" }),
