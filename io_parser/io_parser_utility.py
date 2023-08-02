@@ -4,7 +4,7 @@ import re
 
 def parse_value_according_to_type(input_string: str) -> any:
     """Takes an input_string and return it into the correct format
-    Supported formats are int, float, bool, str.
+    Supported formats are int, float, bool, str and list
 
     :param input_string
     :return: correct format of the input_string
@@ -18,6 +18,8 @@ def parse_value_according_to_type(input_string: str) -> any:
         result = int(input_string)
     elif re.match(r"^[+-]?([0-9]*[.])?[0-9]+$", input_string):
         result = float(input_string)
+    elif input_string.startswith("["):
+        result = create_list_from_str(input_string)
     else:
         result = remove_quotes(input_string)
     return result
@@ -41,9 +43,57 @@ def extract_function_params(
 
     function_name, param_str = matches[0]
     function_token = convert_function_name_to_token(function_name, function_manager)
+    param_str = extract_content_between_brackets(input_func_str)
+    # print(param_str)
 
-    params = [p.strip() for p in param_str.split(",")]
+    separated_params = separate_params(param_str)
+    processed_params = []
+    for param in separated_params:
+        if type(param) is str and (
+            param.startswith("@@") or param.startswith("##") or param.startswith("$$")
+        ):
+            param = param.strip()
+            processed_params.extend(extract_function_params(param, function_manager))
+        else:
+            processed_params.append(param)
+    return [function_token] + processed_params
 
+
+def separate_params(input_string: str) -> list:
+    result = []
+    stack = []
+    current_substring = ""
+
+    for char in input_string:
+        if char == "(":
+            stack.append(char)
+        elif char == ")":
+            if stack:
+                stack.pop()
+        current_substring += char
+
+        if not stack:
+            if current_substring.startswith(","):
+                current_substring = current_substring[1:]
+
+            if "(" in current_substring:
+                result.append(current_substring)
+                current_substring = ""
+
+            if (
+                current_substring.endswith("##")
+                or current_substring.endswith("@@")
+                or current_substring.endswith("$$")
+            ) and len(current_substring) > 2:
+                result.extend(parse_param_according_to_type(current_substring[:-3]))
+                current_substring = current_substring[-2:]
+    if current_substring:
+        result.extend(parse_param_according_to_type(current_substring))
+    return result
+
+
+def parse_param_according_to_type(input_string):
+    params = [p.strip() for p in input_string.split(",")]
     internal_array = []
     processed_params = []
     for param in params:
@@ -58,7 +108,7 @@ def extract_function_params(
             internal_array = []
         else:
             processed_params.append(parse_value_according_to_type(param))
-    return [function_token] + processed_params
+    return processed_params
 
 
 def convert_function_name_to_token(
@@ -92,6 +142,17 @@ def create_list_from_str(list_str: str) -> list:
         elif param.endswith("]"):
             return_list.append(parse_value_according_to_type(param[:-1]))
     return return_list
+
+
+def extract_content_between_brackets(input_string):
+    start_index = input_string.find("(")
+    end_index = input_string.rfind(")")  # Find last occurrence of ')'
+
+    if start_index != -1 and end_index != -1:
+        content_between_brackets = input_string[start_index + 1 : end_index]
+        return content_between_brackets.strip()  # Trim leading and trailing whitespaces
+    else:
+        return None
 
 
 def remove_quotes(input_string: str):
