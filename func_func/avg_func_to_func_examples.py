@@ -18,7 +18,7 @@ class AvgFuncToFuncExamples:
                     MathFunctions.average,
                     Utility.create_category_map(
                         CategoryType.FUNCTION,
-                        CategorySubType.EXECUTE,
+                        CategorySubType.FLOAT,
                         CategorySubSubType.NONE,
                     ),
                 ),
@@ -26,8 +26,8 @@ class AvgFuncToFuncExamples:
                     [1, 2, 3, 4],
                     Utility.create_category_map(
                         CategoryType.LIST,
-                        CategorySubType.PARAM,
-                        CategorySubSubType.PARAM_ONE,
+                        CategorySubType.DEFAULT,
+                        CategorySubSubType.PARAM_LAST,
                     ),
                 ),
             ],
@@ -36,7 +36,7 @@ class AvgFuncToFuncExamples:
                     MathFunctions.average,
                     Utility.create_category_map(
                         CategoryType.FUNCTION,
-                        CategorySubType.EXECUTE,
+                        CategorySubType.FLOAT,
                         CategorySubSubType.NONE,
                     ),
                 ),
@@ -44,8 +44,8 @@ class AvgFuncToFuncExamples:
                     RandomValueGenerator.generate_random_list(5, 1, 100, 32),
                     Utility.create_category_map(
                         CategoryType.LIST,
-                        CategorySubType.PARAM,
-                        CategorySubSubType.PARAM_ONE,
+                        CategorySubType.DEFAULT,
+                        CategorySubSubType.PARAM_LAST,
                     ),
                 ),
             ],
@@ -58,7 +58,7 @@ class AvgFuncToFuncExamples:
                     MathFunctions.division,
                     Utility.create_category_map(
                         CategoryType.FUNCTION,
-                        CategorySubType.EXECUTE,
+                        CategorySubType.FLOAT,
                         CategorySubSubType.NONE,
                     ),
                 ),
@@ -66,32 +66,32 @@ class AvgFuncToFuncExamples:
                     MathFunctions.sum,
                     Utility.create_category_map(
                         CategoryType.FUNCTION,
-                        CategorySubType.EXECUTE,
-                        CategorySubSubType.NONE,
+                        CategorySubType.FLOAT,
+                        CategorySubSubType.PARAM_ONE,
                     ),
                 ),
                 (
                     [1, 2, 3, 4],
                     Utility.create_category_map(
                         CategoryType.LIST,
-                        CategorySubType.PARAM,
-                        CategorySubSubType.PARAM_ONE,
+                        CategorySubType.DEFAULT,
+                        CategorySubSubType.PARAM_LAST,
                     ),
                 ),
                 (
                     MathFunctions.length,
                     Utility.create_category_map(
                         CategoryType.FUNCTION,
-                        CategorySubType.EXECUTE,
-                        CategorySubSubType.NONE,
+                        CategorySubType.INTEGER,
+                        CategorySubSubType.PARAM_LAST,
                     ),
                 ),
                 (
                     [1, 2, 3, 4],
                     Utility.create_category_map(
                         CategoryType.LIST,
-                        CategorySubType.PARAM,
-                        CategorySubSubType.PARAM_ONE,
+                        CategorySubType.DEFAULT,
+                        CategorySubSubType.PARAM_LAST,
                     ),
                 ),
             ],
@@ -100,7 +100,7 @@ class AvgFuncToFuncExamples:
                     MathFunctions.division,
                     Utility.create_category_map(
                         CategoryType.FUNCTION,
-                        CategorySubType.EXECUTE,
+                        CategorySubType.FLOAT,
                         CategorySubSubType.NONE,
                     ),
                 ),
@@ -108,32 +108,32 @@ class AvgFuncToFuncExamples:
                     MathFunctions.sum,
                     Utility.create_category_map(
                         CategoryType.FUNCTION,
-                        CategorySubType.EXECUTE,
-                        CategorySubSubType.NONE,
+                        CategorySubType.FLOAT,
+                        CategorySubSubType.PARAM_ONE,
                     ),
                 ),
                 (
                     RandomValueGenerator.generate_random_list(5, 1, 100, 32),
                     Utility.create_category_map(
                         CategoryType.LIST,
-                        CategorySubType.PARAM,
-                        CategorySubSubType.PARAM_ONE,
+                        CategorySubType.DEFAULT,
+                        CategorySubSubType.PARAM_LAST,
                     ),
                 ),
                 (
                     MathFunctions.length,
                     Utility.create_category_map(
                         CategoryType.FUNCTION,
-                        CategorySubType.EXECUTE,
-                        CategorySubSubType.NONE,
+                        CategorySubType.INTEGER,
+                        CategorySubSubType.PARAM_LAST,
                     ),
                 ),
                 (
                     RandomValueGenerator.generate_random_list(5, 1, 100, 32),
                     Utility.create_category_map(
                         CategoryType.LIST,
-                        CategorySubType.PARAM,
-                        CategorySubSubType.PARAM_ONE,
+                        CategorySubType.DEFAULT,
+                        CategorySubSubType.PARAM_LAST,
                     ),
                 ),
             ],

@@ -93,4 +93,5 @@ N.B. subCategory: "default" is used to indicate using default router for list.<b
 N.B. subCategory: "placeholder" is used to indicate using placeholder tag for list.<br>
 N.B. no space in function please, other than between params.<br>
 N.B. no space in array/list please.
+N.B. $$ -> Execute, ## -> Represent, @@ -> Placeholder
 

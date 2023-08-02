@@ -18,7 +18,7 @@ class CombinationFuncToFuncExamples:
                     MathFunctions.combination,
                     Utility.create_category_map(
                         CategoryType.FUNCTION,
-                        CategorySubType.EXECUTE,
+                        CategorySubType.INTEGER,
                         CategorySubSubType.NONE,
                     ),
                 ),
