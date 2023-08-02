@@ -60,6 +60,13 @@ def extract_function_params(
 
 
 def separate_params(input_string: str) -> list:
+    """Given the params as string of a function, this function will
+    Return a list of the params according to their proper type.
+    Supported types: function, str, int, float, list, bool
+
+    :param input_string: params as comma seperated string
+    :return: list of param with proper type
+    """
     result = []
     stack = []
     current_substring = ""
@@ -93,6 +100,12 @@ def separate_params(input_string: str) -> list:
 
 
 def parse_param_according_to_type(input_string):
+    """This function will parser comma seperated param into the following types,
+    list, int, float, bool and str
+
+    :param input_string: comma seperated params
+    :return: list of params with proper type
+    """
     params = [p.strip() for p in input_string.split(",")]
     internal_array = []
     processed_params = []
@@ -145,6 +158,11 @@ def create_list_from_str(list_str: str) -> list:
 
 
 def extract_content_between_brackets(input_string):
+    """For function this function will extract the param string
+
+    :param input_string: function string
+    :return: comma separated params
+    """
     start_index = input_string.find("(")
     end_index = input_string.rfind(")")  # Find last occurrence of ')'
 
@@ -156,6 +174,11 @@ def extract_content_between_brackets(input_string):
 
 
 def remove_quotes(input_string: str):
+    """Remove quotes in case of string.
+
+    :param input_string: string with quote
+    :return: string without quote
+    """
     if input_string.startswith("'") and input_string.endswith("'"):
         return input_string[1:-1]
     elif input_string.startswith('"') and input_string.endswith('"'):

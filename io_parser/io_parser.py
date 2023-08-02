@@ -1,4 +1,4 @@
-from git_submodules.function_representation import MathFunctions, FunctionManager
+from git_submodules.function_representation import FunctionManager
 import io_parser_utility
 
 
@@ -20,16 +20,12 @@ class IoParser:
                 )
         return processed_params
 
-    def create_value_tuple_with_category_from_input(self, input_string) -> list:
-        # TODO
-        pass
-
 
 if __name__ == "__main__":
     input_strings = [
         "$$addition(3,50.0)",
         "##division(4.5,2)",
-        "@@average(1.5,2.5,3.5)",
+        "@@average(@list)",
         "$$combination([1,2,3],'hello',True,2.5)",
         "##division(##sum([1,2,3]),##length([4,5,6]))",
     ]
@@ -44,5 +40,3 @@ if __name__ == "__main__":
 
 # additional functionality
 # batch parse
-# tuple creating
-# N.B. no space in function please, other than between params.
