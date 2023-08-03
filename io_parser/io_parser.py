@@ -1,4 +1,5 @@
 from git_submodules.function_representation import FunctionManager
+from src.constants import Constants
 import io_parser_utility
 
 
@@ -10,7 +11,11 @@ class IoParser:
         raw_input_list = io_parser_utility.split_string_by_space(input_string)
         processed_params = []
         for i, item in enumerate(raw_input_list):
-            if item.startswith("@@") or item.startswith("##") or item.startswith("$$"):
+            if (
+                item.startswith(Constants.FUNCTION_PLACEHOLDER)
+                or item.startswith(Constants.FUNCTION_REPRESENT)
+                or item.startswith(Constants.FUNCTION_EXECUTE)
+            ):
                 processed_params.extend(
                     io_parser_utility.extract_function_params(item, self.f_m)
                 )
@@ -35,5 +40,4 @@ if __name__ == "__main__":
         output_list = IoParser().create_value_list_from_input(input_string)
         print(output_list)
 
-# additional functionality
-# batch parse
+# additional functionality 1. batch parse

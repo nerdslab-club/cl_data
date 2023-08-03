@@ -1,9 +1,14 @@
 from git_submodules.function_representation import FunctionManager, MathFunctions
+from category_parser_utility import (
+    get_sub_sub_type_for_param,
+    create_category_map,
+    get_sub_category_type,
+    get_category_type,
+)
+from src.constants import Constants, CategoryType, CategorySubType, CategorySubSubType
+
 import re
 import types
-
-from category_parser_utility import get_sub_sub_type_for_param, create_category_map
-from src.constants import CategoryType, CategorySubType, CategorySubSubType
 
 
 def parse_value_according_to_type(input_string: str) -> any:
@@ -65,7 +70,7 @@ def parse_value_according_to_type(input_string: str) -> any:
             create_category_map(
                 CategoryType.WORD,
                 CategorySubType.PLACEHOLDER
-                if temp_token.startswith("@")
+                if temp_token.startswith(Constants.PARAM_PLACEHOLDER_PRIOR)
                 else CategorySubType.DEFAULT,
                 CategorySubSubType.NONE,
             ),
@@ -74,7 +79,7 @@ def parse_value_according_to_type(input_string: str) -> any:
 
 
 def extract_function_params(
-    input_func_str: str, function_manager: FunctionManager
+        input_func_str: str, function_manager: FunctionManager
 ) -> list:
     """Give the function token it will extract function name and param
     According to their types
@@ -103,19 +108,23 @@ def extract_function_params(
     processed_params = []
     for i, param in enumerate(separated_params):
         if type(param) is str and (
-            param.startswith("@@") or param.startswith("##") or param.startswith("$$")
+                param.startswith(Constants.FUNCTION_PLACEHOLDER)
+                or param.startswith(Constants.FUNCTION_REPRESENT)
+                or param.startswith(Constants.FUNCTION_EXECUTE)
         ):
             param = param.strip()
             param_func_params = extract_function_params(param, function_manager)
-            param_func_params[0][1]["subSubType"] = get_sub_sub_type_for_param(
-                i, total_param
-            )
+            param_func_params[0][1][
+                Constants.CATEGORY_SUB_SUB_TYPE
+            ] = get_sub_sub_type_for_param(i, total_param)
             processed_params.extend(param_func_params)
         else:
-            param[1]["subSubType"] = get_sub_sub_type_for_param(i, total_param)
+            param[1][Constants.CATEGORY_SUB_SUB_TYPE] = get_sub_sub_type_for_param(
+                i, total_param
+            )
             processed_params.append(param)
 
-    if function_type == "$$":
+    if function_type == Constants.FUNCTION_EXECUTE:
         return_value = execute_function(
             function_reference, [item[0] for item in processed_params]
         )
@@ -171,9 +180,9 @@ def separate_params(input_string: str) -> list:
                 current_substring = ""
 
             if (
-                current_substring.endswith("##")
-                or current_substring.endswith("@@")
-                or current_substring.endswith("$$")
+                    current_substring.endswith(Constants.FUNCTION_REPRESENT)
+                    or current_substring.endswith(Constants.FUNCTION_EXECUTE)
+                    or current_substring.endswith(Constants.FUNCTION_PLACEHOLDER)
             ) and len(current_substring) > 2:
                 result.extend(parse_param_according_to_type(current_substring[:-3]))
                 current_substring = current_substring[-2:]
@@ -217,7 +226,7 @@ def parse_param_according_to_type(input_string):
 
 
 def convert_function_name_to_token(
-    function_name: str, function_manager: FunctionManager
+        function_name: str, function_manager: FunctionManager
 ) -> tuple:
     """This function will convert function_name into function type string and proper function reference
 
@@ -237,7 +246,7 @@ def convert_function_name_to_token(
             CategoryType.FUNCTION,
             function_return_type,
             CategorySubSubType.PLACEHOLDER
-            if function_type == "@@"
+            if function_type == Constants.FUNCTION_PLACEHOLDER
             else CategorySubSubType.NONE,
         ),
         function_name[:2],
@@ -273,7 +282,7 @@ def extract_content_between_brackets(input_string):
     end_index = input_string.rfind(")")  # Find last occurrence of ')'
 
     if start_index != -1 and end_index != -1:
-        content_between_brackets = input_string[start_index + 1 : end_index]
+        content_between_brackets = input_string[start_index + 1: end_index]
         return content_between_brackets.strip()  # Trim leading and trailing whitespaces
     else:
         return None
@@ -291,29 +300,6 @@ def remove_quotes(input_string: str):
         return input_string[1:-1]
     else:
         return input_string
-
-
-def get_category_type(return_type):
-    type_mapping = {
-        type(lambda x: x): CategoryType.FUNCTION,
-        str: CategoryType.WORD,
-        int: CategoryType.INTEGER,
-        float: CategoryType.FLOAT,
-        list: CategoryType.LIST,
-        bool: CategoryType.BOOL,
-    }
-    return type_mapping.get(return_type, None)
-
-
-def get_sub_category_type(return_type):
-    type_mapping = {
-        str: CategorySubType.WORD,
-        int: CategorySubType.INTEGER,
-        float: CategorySubType.FLOAT,
-        list: CategorySubType.LIST,
-        bool: CategorySubType.BOOL,
-    }
-    return type_mapping.get(return_type, CategorySubType.DEFAULT)
 
 
 def split_string_by_space(input_string: str):

@@ -1,5 +1,5 @@
 from git_submodules.function_representation import MathFunctions
-from src.constants import CategoryType, CategorySubType, CategorySubSubType
+from src.constants import Constants, CategoryType, CategorySubType, CategorySubSubType
 
 
 def create_category_map(
@@ -8,9 +8,9 @@ def create_category_map(
     category_sub_sub_type: CategorySubSubType,
 ) -> dict:
     return {
-        "type": category_type.value,
-        "subType": category_sub_type.value,
-        "subSubType": category_sub_sub_type.value,
+        Constants.CATEGORY_TYPE: category_type.value,
+        Constants.CATEGORY_SUB_TYPE: category_sub_type.value,
+        Constants.CATEGORY_SUB_SUB_TYPE: category_sub_sub_type.value,
     }
 
 
@@ -29,6 +29,29 @@ def get_sub_sub_type_for_param(param_order: int, total_param: int):
         return CategorySubSubType.PARAM_FIVE.value
     else:
         return CategorySubSubType.NONE.value
+
+
+def get_category_type(return_type):
+    type_mapping = {
+        type(lambda x: x): CategoryType.FUNCTION,
+        str: CategoryType.WORD,
+        int: CategoryType.INTEGER,
+        float: CategoryType.FLOAT,
+        list: CategoryType.LIST,
+        bool: CategoryType.BOOL,
+    }
+    return type_mapping.get(return_type, None)
+
+
+def get_sub_category_type(return_type):
+    type_mapping = {
+        str: CategorySubType.WORD,
+        int: CategorySubType.INTEGER,
+        float: CategorySubType.FLOAT,
+        list: CategorySubType.LIST,
+        bool: CategorySubType.BOOL,
+    }
+    return type_mapping.get(return_type, CategorySubType.DEFAULT)
 
 
 def get_example_value_list():

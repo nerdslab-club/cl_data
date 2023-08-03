@@ -56,3 +56,15 @@ class Constants:
     FLOAT_DEFAULT_VALUE = float(25.0)
     LIST_DEFAULT_VALUE = list([2, 3, 4, 5, 6])
     BOOL_DEFAULT_VALUE = bool(True)
+    WORD_PLACEHOLDER_VALUE = "@str"
+    INTEGER_PLACEHOLDER_VALUE = "@int"
+    FLOAT_PLACEHOLDER_VALUE = "@float"
+    LIST_PLACEHOLDER_VALUE = "@list"
+    BOOL_PLACEHOLDER_VALUE = "@bool"
+    PARAM_PLACEHOLDER_PRIOR = "@"
+    FUNCTION_EXECUTE = "$$"
+    FUNCTION_REPRESENT = "##"
+    FUNCTION_PLACEHOLDER = "@@"
+    CATEGORY_TYPE = "type"
+    CATEGORY_SUB_TYPE = "subType"
+    CATEGORY_SUB_SUB_TYPE = "subSubType"
