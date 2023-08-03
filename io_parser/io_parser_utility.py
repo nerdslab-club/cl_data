@@ -2,6 +2,9 @@ from git_submodules.function_representation import FunctionManager, MathFunction
 import re
 import types
 
+from category_parser_utility import get_sub_sub_type_for_param, create_category_map
+from src.constants import CategoryType, CategorySubType, CategorySubSubType
+
 
 def parse_value_according_to_type(input_string: str) -> any:
     """Takes an input_string and return it into the correct format
@@ -10,24 +13,68 @@ def parse_value_according_to_type(input_string: str) -> any:
     :param input_string
     :return: correct format of the input_string
     """
-    result = None
     if input_string.lower() == "true":
-        result = True
+        result = (
+            True,
+            create_category_map(
+                CategoryType.BOOL,
+                CategorySubType.DEFAULT,
+                CategorySubSubType.NONE,
+            ),
+        )
     elif input_string.lower() == "false":
-        result = False
+        result = (
+            False,
+            create_category_map(
+                CategoryType.BOOL,
+                CategorySubType.DEFAULT,
+                CategorySubSubType.NONE,
+            ),
+        )
     elif input_string.isdigit():
-        result = int(input_string)
+        result = (
+            int(input_string),
+            create_category_map(
+                CategoryType.INTEGER,
+                CategorySubType.DEFAULT,
+                CategorySubSubType.NONE,
+            ),
+        )
     elif re.match(r"^[+-]?([0-9]*[.])?[0-9]+$", input_string):
-        result = float(input_string)
+        result = (
+            float(input_string),
+            create_category_map(
+                CategoryType.FLOAT,
+                CategorySubType.DEFAULT,
+                CategorySubSubType.NONE,
+            ),
+        )
     elif input_string.startswith("["):
-        result = create_list_from_str(input_string)
+        result = (
+            create_list_from_str(input_string),
+            create_category_map(
+                CategoryType.LIST,
+                CategorySubType.DEFAULT,
+                CategorySubSubType.NONE,
+            ),
+        )
     else:
-        result = remove_quotes(input_string)
+        temp_token = remove_quotes(input_string)
+        result = (
+            temp_token,
+            create_category_map(
+                CategoryType.WORD,
+                CategorySubType.PLACEHOLDER
+                if temp_token.startswith("@")
+                else CategorySubType.DEFAULT,
+                CategorySubSubType.NONE,
+            ),
+        )
     return result
 
 
 def extract_function_params(
-        input_func_str: str, function_manager: FunctionManager
+    input_func_str: str, function_manager: FunctionManager
 ) -> list:
     """Give the function token it will extract function name and param
     According to their types
@@ -43,33 +90,55 @@ def extract_function_params(
         return []
 
     function_name, param_str = matches[0]
-    function_token = convert_function_name_to_token(function_name, function_manager)
+    (
+        function_reference,
+        function_category,
+        function_type,
+    ) = convert_function_name_to_token(function_name, function_manager)
     param_str = extract_content_between_brackets(input_func_str)
-    # print(param_str)
-
     separated_params = separate_params(param_str)
+    # print(separated_params)
+
+    total_param = len(separated_params)
     processed_params = []
-    for param in separated_params:
+    for i, param in enumerate(separated_params):
         if type(param) is str and (
-                param.startswith("@@") or param.startswith("##") or param.startswith("$$")
+            param.startswith("@@") or param.startswith("##") or param.startswith("$$")
         ):
             param = param.strip()
-            processed_params.extend(extract_function_params(param, function_manager))
+            param_func_params = extract_function_params(param, function_manager)
+            param_func_params[0][1]["subSubType"] = get_sub_sub_type_for_param(
+                i, total_param
+            )
+            processed_params.extend(param_func_params)
         else:
+            param[1]["subSubType"] = get_sub_sub_type_for_param(i, total_param)
             processed_params.append(param)
 
-    if function_token[0] == "$$":
-        return_value = execute_function(function_token[1], processed_params)
-        return [return_value]
+    if function_type == "$$":
+        return_value = execute_function(
+            function_reference, [item[0] for item in processed_params]
+        )
+        return [
+            (
+                return_value,
+                create_category_map(
+                    get_category_type(
+                        FunctionManager.get_function_return_type(function_reference)
+                    ),
+                    CategorySubType.RETURN_VALUE,
+                    CategorySubSubType.NONE,
+                ),
+            )
+        ]
 
-    return [function_token] + processed_params
+    return [(function_reference, function_category)] + processed_params
 
 
 def execute_function(function_reference: types.FunctionType, param_list: list) -> any:
     try:
         return function_reference(*param_list)
     except Exception as e:
-        print(e)
         raise e
 
 
@@ -102,9 +171,9 @@ def separate_params(input_string: str) -> list:
                 current_substring = ""
 
             if (
-                    current_substring.endswith("##")
-                    or current_substring.endswith("@@")
-                    or current_substring.endswith("$$")
+                current_substring.endswith("##")
+                or current_substring.endswith("@@")
+                or current_substring.endswith("$$")
             ) and len(current_substring) > 2:
                 result.extend(parse_param_according_to_type(current_substring[:-3]))
                 current_substring = current_substring[-2:]
@@ -126,12 +195,21 @@ def parse_param_according_to_type(input_string):
     for param in params:
         param = param.strip()
         if len(internal_array) != 0 and not param.endswith("]"):
-            internal_array.append(parse_value_according_to_type(param))
+            internal_array.append(parse_value_according_to_type(param)[0])
         elif param.startswith("["):
-            internal_array.append(parse_value_according_to_type(param[1:]))
+            internal_array.append(parse_value_according_to_type(param[1:])[0])
         elif param.endswith("]"):
-            internal_array.append(parse_value_according_to_type(param[:-1]))
-            processed_params.append(internal_array)
+            internal_array.append(parse_value_according_to_type(param[:-1])[0])
+            processed_params.append(
+                (
+                    internal_array,
+                    create_category_map(
+                        CategoryType.LIST,
+                        CategorySubType.DEFAULT,
+                        CategorySubSubType.NONE,
+                    ),
+                )
+            )
             internal_array = []
         else:
             processed_params.append(parse_value_according_to_type(param))
@@ -139,7 +217,7 @@ def parse_param_according_to_type(input_string):
 
 
 def convert_function_name_to_token(
-        function_name: str, function_manager: FunctionManager
+    function_name: str, function_manager: FunctionManager
 ) -> tuple:
     """This function will convert function_name into function type string and proper function reference
 
@@ -147,8 +225,22 @@ def convert_function_name_to_token(
     :param function_manager: Instance of FunctionManager
     :return: Tuple("function_type", function_reference)
     """
-    return function_name[:2], function_manager.getNameToReference().get(
-        function_name[2:]
+    function_reference = function_manager.getNameToReference().get(function_name[2:])
+    function_type = function_name[:2]
+    function_return_type = get_sub_category_type(
+        FunctionManager.get_function_return_type(function_reference)
+    )
+
+    return (
+        function_reference,
+        create_category_map(
+            CategoryType.FUNCTION,
+            function_return_type,
+            CategorySubSubType.PLACEHOLDER
+            if function_type == "@@"
+            else CategorySubSubType.NONE,
+        ),
+        function_name[:2],
     )
 
 
@@ -163,11 +255,11 @@ def create_list_from_str(list_str: str) -> list:
     for param in params:
         param = param.strip()
         if len(return_list) != 0 and not param.endswith("]"):
-            return_list.append(parse_value_according_to_type(param))
+            return_list.append(parse_value_according_to_type(param)[0])
         elif param.startswith("["):
-            return_list.append(parse_value_according_to_type(param[1:]))
+            return_list.append(parse_value_according_to_type(param[1:])[0])
         elif param.endswith("]"):
-            return_list.append(parse_value_according_to_type(param[:-1]))
+            return_list.append(parse_value_according_to_type(param[:-1])[0])
     return return_list
 
 
@@ -181,7 +273,7 @@ def extract_content_between_brackets(input_string):
     end_index = input_string.rfind(")")  # Find last occurrence of ')'
 
     if start_index != -1 and end_index != -1:
-        content_between_brackets = input_string[start_index + 1: end_index]
+        content_between_brackets = input_string[start_index + 1 : end_index]
         return content_between_brackets.strip()  # Trim leading and trailing whitespaces
     else:
         return None
@@ -199,6 +291,29 @@ def remove_quotes(input_string: str):
         return input_string[1:-1]
     else:
         return input_string
+
+
+def get_category_type(return_type):
+    type_mapping = {
+        type(lambda x: x): CategoryType.FUNCTION,
+        str: CategoryType.WORD,
+        int: CategoryType.INTEGER,
+        float: CategoryType.FLOAT,
+        list: CategoryType.LIST,
+        bool: CategoryType.BOOL,
+    }
+    return type_mapping.get(return_type, None)
+
+
+def get_sub_category_type(return_type):
+    type_mapping = {
+        str: CategorySubType.WORD,
+        int: CategorySubType.INTEGER,
+        float: CategorySubType.FLOAT,
+        list: CategorySubType.LIST,
+        bool: CategorySubType.BOOL,
+    }
+    return type_mapping.get(return_type, CategorySubType.DEFAULT)
 
 
 def split_string_by_space(input_string: str):

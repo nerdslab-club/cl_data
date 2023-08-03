@@ -26,9 +26,10 @@ if __name__ == "__main__":
         "$$addition(3,50)",
         "##division(4.5,2)",
         "@@average(@list)",
-        "##combination([1,2,3],'hello',True,2.5)",
+        "##combination(10,4)",
         "##division(##sum([1,2,3]),##length([4,5,6]))",
-        "Adding 3 plus 2 is ##addition(3,2)"
+        "$$division($$sum([1,2,3]),$$length([4,5,6]))",
+        "Adding 3 plus 2 is ##addition(3,2)",
     ]
     for input_string in input_strings:
         output_list = IoParser().create_value_list_from_input(input_string)

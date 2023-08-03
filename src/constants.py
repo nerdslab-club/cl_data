@@ -21,7 +21,7 @@ class CategoryType(Enum):
 class CategorySubType(Enum):
     DEFAULT = "default"
     PLACEHOLDER = "placeholder"
-    RETURN_VALE = "return_value"
+    RETURN_VALUE = "return_value"
     WORD = "word"  # This is string as well
     INTEGER = "integer"
     FLOAT = "float"

@@ -1,6 +1,6 @@
 from git_submodules.function_representation import MathFunctions
+from io_parser.category_parser_utility import create_category_map
 from ..src.constants import CategoryType, CategorySubType, CategorySubSubType
-from ..src.utility import Utility
 from ..src.random_value_generator import RandomValueGenerator
 
 
@@ -16,7 +16,7 @@ class CombinationFuncToFuncExamples:
             [
                 (
                     MathFunctions.combination,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.FUNCTION,
                         CategorySubType.INTEGER,
                         CategorySubSubType.NONE,
@@ -24,7 +24,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     10,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.INTEGER,
                         CategorySubType.PARAM,
                         CategorySubSubType.PARAM_ONE,
@@ -32,7 +32,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     4,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.INTEGER,
                         CategorySubType.PARAM,
                         CategorySubSubType.PARAM_TWO,
@@ -42,7 +42,7 @@ class CombinationFuncToFuncExamples:
             [
                 (
                     MathFunctions.combination,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.FUNCTION,
                         CategorySubType.EXECUTE,
                         CategorySubSubType.NONE,
@@ -50,7 +50,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     22,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.INTEGER,
                         CategorySubType.PARAM,
                         CategorySubSubType.PARAM_ONE,
@@ -58,7 +58,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     9,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.INTEGER,
                         CategorySubType.PARAM,
                         CategorySubSubType.PARAM_TWO,
@@ -76,7 +76,7 @@ class CombinationFuncToFuncExamples:
             [
                 (
                     MathFunctions.floor_division,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.FUNCTION,
                         CategorySubType.EXECUTE,
                         CategorySubSubType.NONE,
@@ -84,7 +84,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     MathFunctions.permutation,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.FUNCTION,
                         CategorySubType.EXECUTE,
                         CategorySubSubType.NONE,
@@ -92,7 +92,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     10,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.INTEGER,
                         CategorySubType.PARAM,
                         CategorySubSubType.PARAM_ONE,
@@ -100,7 +100,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     4,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.INTEGER,
                         CategorySubType.PARAM,
                         CategorySubSubType.PARAM_TWO,
@@ -108,7 +108,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     [1, 2, 3, 4],
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.LIST,
                         CategorySubType.PARAM,
                         CategorySubSubType.PARAM_ONE,
@@ -118,7 +118,7 @@ class CombinationFuncToFuncExamples:
             [
                 (
                     MathFunctions.division,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.FUNCTION,
                         CategorySubType.EXECUTE,
                         CategorySubSubType.NONE,
@@ -126,7 +126,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     MathFunctions.sum,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.FUNCTION,
                         CategorySubType.EXECUTE,
                         CategorySubSubType.NONE,
@@ -134,7 +134,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     RandomValueGenerator.generate_random_list(5, 1, 100, 32),
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.LIST,
                         CategorySubType.PARAM,
                         CategorySubSubType.PARAM_ONE,
@@ -142,7 +142,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     MathFunctions.length,
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.FUNCTION,
                         CategorySubType.EXECUTE,
                         CategorySubSubType.NONE,
@@ -150,7 +150,7 @@ class CombinationFuncToFuncExamples:
                 ),
                 (
                     RandomValueGenerator.generate_random_list(5, 1, 100, 32),
-                    Utility.create_category_map(
+                    create_category_map(
                         CategoryType.LIST,
                         CategorySubType.PARAM,
                         CategorySubSubType.PARAM_ONE,
