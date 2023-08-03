@@ -23,20 +23,16 @@ class IoParser:
 
 if __name__ == "__main__":
     input_strings = [
-        "$$addition(3,50.0)",
+        "$$addition(3,50)",
         "##division(4.5,2)",
         "@@average(@list)",
-        "$$combination([1,2,3],'hello',True,2.5)",
+        "##combination([1,2,3],'hello',True,2.5)",
         "##division(##sum([1,2,3]),##length([4,5,6]))",
+        "Adding 3 plus 2 is ##addition(3,2)"
     ]
-    fm = FunctionManager()
     for input_string in input_strings:
-        output_list = io_parser_utility.extract_function_params(input_string, fm)
+        output_list = IoParser().create_value_list_from_input(input_string)
         print(output_list)
-
-    # input_string = "[1,2,4],##sum([1,2,3]),##division(##sum([1,2,3]),10),30,40,True,##length([4,5,6]), 10.4, True, [3,4,5]"
-    # result_list = separate_params(input_string)
-    # print(result_list)
 
 # additional functionality
 # batch parse
