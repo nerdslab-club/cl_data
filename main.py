@@ -1,6 +1,8 @@
-from func_nl.func_to_nl_sample_generator import F2NSamples
+from func_nl.f2n_sample_generator import F2NSamples
+from nl_func.n2f_sample_generator import N2FSamples
 
 if __name__ == "__main__":
-    function_nl_samples = F2NSamples()
-    print(function_nl_samples.get_f2n_samples())
+    generator = F2NSamples()
+    print(generator.get_f2n_samples(2))
+    print(generator.get_next_random_f2n_sample())
     pass
