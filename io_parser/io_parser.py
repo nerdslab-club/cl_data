@@ -1,6 +1,6 @@
 from git_submodules.function_representation import FunctionManager
 from src.constants import Constants
-import io_parser_utility
+from .io_parser_utility import parse_value_according_to_type, extract_function_params, split_string_by_space
 
 
 class IoParser:
@@ -8,7 +8,7 @@ class IoParser:
         self.f_m = FunctionManager()
 
     def create_value_list_from_input(self, input_string) -> list:
-        raw_input_list = io_parser_utility.split_string_by_space(input_string)
+        raw_input_list = split_string_by_space(input_string)
         processed_params = []
         for i, item in enumerate(raw_input_list):
             if (
@@ -17,11 +17,11 @@ class IoParser:
                 or item.startswith(Constants.FUNCTION_EXECUTE)
             ):
                 processed_params.extend(
-                    io_parser_utility.extract_function_params(item, self.f_m)
+                    extract_function_params(item, self.f_m)
                 )
             else:
                 processed_params.append(
-                    io_parser_utility.parse_value_according_to_type(item)
+                    parse_value_according_to_type(item)
                 )
         return processed_params
 

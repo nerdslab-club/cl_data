@@ -1,5 +1,5 @@
 from git_submodules.function_representation import FunctionManager, MathFunctions
-from category_parser_utility import (
+from .category_parser_utility import (
     get_sub_sub_type_for_param,
     create_category_map,
     get_sub_category_type,
