@@ -96,3 +96,4 @@ sub-sub-categories will be used by Response-Parser.
 
 
 N.B. If category: function and subSubCategory: "placeholder" found once all consecutive function execution is halt. <br>
+N.B. If category: function and subSubCategory: "represent" found once all consecutive function execution is halt. <br>

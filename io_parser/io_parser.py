@@ -1,5 +1,5 @@
 from git_submodules.function_representation import FunctionManager
-from src.constants import Constants
+from src.constants import FunctionPrefix
 from .io_parser_utility import parse_value_according_to_type, extract_function_params, split_string_by_space
 
 
@@ -12,9 +12,10 @@ class IoParser:
         processed_params = []
         for i, item in enumerate(raw_input_list):
             if (
-                item.startswith(Constants.FUNCTION_PLACEHOLDER)
-                or item.startswith(Constants.FUNCTION_REPRESENT)
-                or item.startswith(Constants.FUNCTION_EXECUTE)
+                item.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
+                or item.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value)
+                or item.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
+                or item.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
             ):
                 processed_params.extend(
                     extract_function_params(item, self.f_m)
@@ -30,6 +31,7 @@ if __name__ == "__main__":
     input_strings = [
         "$$addition(3,50)",
         "##division(4.5,2)",
+        "&&division(4.5,2)",
         "@@average(@list)",
         "##combination(10,4)",
         "##division(##sum([1,2,3]),##length([4,5,6]))",

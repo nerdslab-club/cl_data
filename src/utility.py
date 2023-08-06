@@ -22,3 +22,7 @@ class Utility:
         for idx, (token, category_dict) in enumerate(input_list):
             result_list.append({"token": token, "category": category_dict, "position": idx})
         return result_list
+
+    @staticmethod
+    def remove_spaces(input_string):
+        return input_string.replace(" ", "")

@@ -4,8 +4,9 @@ from .category_parser_utility import (
     create_category_map,
     get_sub_category_type,
     get_category_type,
+    get_func_sub_sub_type,
 )
-from src.constants import Constants, CategoryType, CategorySubType, CategorySubSubType
+from src.constants import Constants, CategoryType, CategorySubType, CategorySubSubType, FunctionPrefix
 
 import re
 import types
@@ -88,7 +89,7 @@ def extract_function_params(
     :param input_func_str: example can be "$$addition(3, 50.0)"
     :return: list of extracted tokens.
     """
-    pattern = r"([\$\#@]+[a-zA-Z_][a-zA-Z0-9_]*)\(([^)]*)\)"
+    pattern = r"([\$\#@\&]+[a-zA-Z_][a-zA-Z0-9_]*)\(([^)]*)\)"
     matches = re.findall(pattern, input_func_str)
 
     if not matches:
@@ -108,9 +109,10 @@ def extract_function_params(
     processed_params = []
     for i, param in enumerate(separated_params):
         if type(param) is str and (
-                param.startswith(Constants.FUNCTION_PLACEHOLDER)
-                or param.startswith(Constants.FUNCTION_REPRESENT)
-                or param.startswith(Constants.FUNCTION_EXECUTE)
+                param.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
+                or param.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value)
+                or param.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
+                or param.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
         ):
             param = param.strip()
             param_func_params = extract_function_params(param, function_manager)
@@ -124,7 +126,7 @@ def extract_function_params(
             )
             processed_params.append(param)
 
-    if function_type == Constants.FUNCTION_EXECUTE:
+    if function_type == FunctionPrefix.FUNCTION_IO_EXECUTE.value:
         return_value = execute_function(
             function_reference, [item[0] for item in processed_params]
         )
@@ -180,9 +182,10 @@ def separate_params(input_string: str) -> list:
                 current_substring = ""
 
             if (
-                    current_substring.endswith(Constants.FUNCTION_REPRESENT)
-                    or current_substring.endswith(Constants.FUNCTION_EXECUTE)
-                    or current_substring.endswith(Constants.FUNCTION_PLACEHOLDER)
+                    current_substring.endswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
+                    or current_substring.endswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value)
+                    or current_substring.endswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
+                    or current_substring.endswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
             ) and len(current_substring) > 2:
                 result.extend(parse_param_according_to_type(current_substring[:-3]))
                 current_substring = current_substring[-2:]
@@ -234,7 +237,7 @@ def convert_function_name_to_token(
     :param function_manager: Instance of FunctionManager
     :return: Tuple("function_type", function_reference)
     """
-    function_reference = function_manager.getNameToReference().get(function_name[2:])
+    function_reference = function_manager.get_name_to_reference().get(function_name[2:])
     function_type = function_name[:2]
     function_return_type = get_sub_category_type(
         FunctionManager.get_function_return_type(function_reference)
@@ -245,9 +248,7 @@ def convert_function_name_to_token(
         create_category_map(
             CategoryType.FUNCTION,
             function_return_type,
-            CategorySubSubType.PLACEHOLDER
-            if function_type == Constants.FUNCTION_PLACEHOLDER
-            else CategorySubSubType.NONE,
+            get_func_sub_sub_type(function_type)
         ),
         function_name[:2],
     )

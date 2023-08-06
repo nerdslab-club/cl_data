@@ -45,7 +45,7 @@ sub-sub-categories will be used by Response-Parser.
 2. Function represent
    - input: ##add(3,4)
    - output: [
-   (add(), {category: "function", subCategory: "integer", subSubCategory: "none" }), 
+   (add(), {category: "function", subCategory: "integer", subSubCategory: "execute" }), 
    (3, {category: "integer", subCategory: "default", subSubCategory: "param_one" }),
    (4, {category: "integer", subCategory: "default", subSubCategory: "param_last" })
    ]
@@ -53,7 +53,7 @@ sub-sub-categories will be used by Response-Parser.
 3. Function represent
    - input: ##division(##sum([2,3,4]), ##length([2,3,4]))
    - output: [
-   (division(), {category: "function", subCategory: "float", subSubCategory: "none" }), 
+   (division(), {category: "function", subCategory: "float", subSubCategory: "execute" }), 
    (sum(), {category: "function", subCategory: "float", subSubCategory: "param_one" }),
    ([2,3,4], {category: "list", subCategory: "default", subSubCategory: "param_last" })
    (length, {category: "function", subCategory: "integer", subSubCategory: "param_last" })
@@ -97,8 +97,16 @@ sub-sub-categories will be used by Response-Parser.
    (@list, {category: "list", subCategory: "placeholder", subSubCategory: "param_last" }),
    ]
 
+8. Function IOR represent
+   - input: &&avg([1,2,3])
+   - output: [
+   (avg(), {category: "function", subCategory: "list", subSubCategory: "represent" }), 
+   ([1,2,3], {category: "list", subCategory: "placeholder", subSubCategory: "param_last" }),
+   ]
+
 N.B. param_last will be used to identify last param of a function.<br>
 N.B. subCategory: "default" is used to indicate using default router for list.<br>
 N.B. subCategory: "placeholder" is used to indicate using placeholder tag for list.<br>
 N.B. no space in function please, other than between params.<br>
-N.B. no space in array/list please.
+N.B. no space in array/list please. <br>
+N.B. for now not testing for IOR represent

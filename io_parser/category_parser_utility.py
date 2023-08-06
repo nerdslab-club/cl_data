@@ -1,11 +1,11 @@
 from git_submodules.function_representation import MathFunctions
-from src.constants import Constants, CategoryType, CategorySubType, CategorySubSubType
+from src.constants import Constants, CategoryType, CategorySubType, CategorySubSubType, FunctionPrefix
 
 
 def create_category_map(
-    category_type: CategoryType,
-    category_sub_type: CategorySubType,
-    category_sub_sub_type: CategorySubSubType,
+        category_type: CategoryType,
+        category_sub_type: CategorySubType,
+        category_sub_sub_type: CategorySubSubType,
 ) -> dict:
     return {
         Constants.CATEGORY_TYPE: category_type.value,
@@ -29,6 +29,15 @@ def get_sub_sub_type_for_param(param_order: int, total_param: int):
         return CategorySubSubType.PARAM_FIVE.value
     else:
         return CategorySubSubType.NONE.value
+
+
+def get_func_sub_sub_type(function_type: str):
+    if function_type == FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value:
+        return CategorySubSubType.PLACEHOLDER
+    elif function_type == FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value:
+        return CategorySubSubType.EXECUTE
+    else:
+        return CategorySubSubType.REPRESENT
 
 
 def get_category_type(return_type):

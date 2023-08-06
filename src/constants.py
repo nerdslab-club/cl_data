@@ -38,6 +38,8 @@ class CategorySubSubType(Enum):
     PARAM_LAST = "param_last"
     NONE = "none"
     PLACEHOLDER = "placeholder"
+    EXECUTE = "execute"
+    REPRESENT = "represent"
 
 
 class PlaceholderTokenType(Enum):
@@ -47,6 +49,13 @@ class PlaceholderTokenType(Enum):
     FLOAT = "@float"
     LIST = "@list"
     BOOL = "@bool"
+
+
+class FunctionPrefix(Enum):
+    FUNCTION_IO_EXECUTE = "$$"
+    FUNCTION_IO_REPRESENT_R_EXECUTE = "##"
+    FUNCTION_IOR_REPRESENT = "&&"
+    FUNCTION_IOR_PLACEHOLDER = "@@"
 
 
 class Constants:
@@ -62,9 +71,9 @@ class Constants:
     LIST_PLACEHOLDER_VALUE = "@list"
     BOOL_PLACEHOLDER_VALUE = "@bool"
     PARAM_PLACEHOLDER_PRIOR = "@"
-    FUNCTION_EXECUTE = "$$"
-    FUNCTION_REPRESENT = "##"
-    FUNCTION_PLACEHOLDER = "@@"
+    # FUNCTION_EXECUTE = "$$"
+    # FUNCTION_REPRESENT = "##"
+    # FUNCTION_PLACEHOLDER = "@@"
     CATEGORY_TYPE = "type"
     CATEGORY_SUB_TYPE = "subType"
     CATEGORY_SUB_SUB_TYPE = "subSubType"
