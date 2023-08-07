@@ -1,3 +1,6 @@
+### PRETRAIN_DATA
+- Long paragraph text, where function token is added for math operations.
+
 #### FUNC_TO_FUNC_TRANSLATION
 - input: ##average([1,2,3])
 - output: ##division(##sum([1,2,3]), ##length([1,2,3]))
