@@ -1,4 +1,4 @@
-from git_submodules.function_representation import MathFunctions
+from function_representation import MathFunctions
 from src.constants import Constants, CategoryType, CategorySubType, CategorySubSubType, FunctionPrefix
 
 
