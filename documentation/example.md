@@ -1,5 +1,17 @@
-### PRETRAIN_DATA
+## PRETRAIN_DATA
 - Long paragraph text, where function token is added for math operations.
+
+#### Masked Token Prediction
+No future masking
+- input: This is a sample input for testing masked <MASK> prediction.
+- output: This is a sample input for testing masked token prediction.
+
+#### Next Token Prediction
+With future masking
+- input: This is an example
+- output: paragraph.
+
+## FINETUNE_DATA
 
 #### FUNC_TO_FUNC_TRANSLATION
 - input: ##average([1,2,3])

@@ -34,14 +34,3 @@ don't use ## after function call and for showing variable outside function call 
 
 Now write a python code with the story string as the first item of an array, use python formatted string literals.
 """
-
-### Tasks
-
-For Masked Token Prediction:
-For each sentence, randomly mask out a certain percentage of tokens (typically around 15%). Replace the masked tokens with a special "[MASK]" token. The goal is to predict these masked tokens during training.
-
-For Next Token Prediction:
-Create sequences of tokens with a certain length (e.g., 128 tokens). Slide a window over your tokenized text to create overlapping sequences. The last token in each sequence becomes the label that the model should predict.
-
-### Model Archi
-Decoder only model, category probability and output probability.

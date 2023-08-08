@@ -1,21 +1,32 @@
 import random
 
+import spacy
+
 from src.random_value_generator import RandomValueGenerator
 from src.utility import Utility
 
 
-def create_pretrain_batch_one_example(count: int):
+def create_masked_token_batch_one_example(count: int, nlp: spacy.Language):
     examples = []
     for _ in range(count):
-        example = __get_batch_one_example_pair()
-        examples.append({
-            "rawInputStr": example
-        })
+        paragraphs = __get_batch_one_example_paragraph()
+        for paragraph in paragraphs:
+            masked_data = Utility.create_masked_input_output_example(paragraph, nlp)
+            examples.extend(masked_data)
     return examples
 
 
+def create_next_token_batch_one_example(count: int, nlp: spacy.Language):
+    examples = []
+    for _ in range(count):
+        paragraphs = __get_batch_one_example_paragraph()
+        for paragraph in paragraphs:
+            next_token_data = Utility.create_next_word_input_output_example(paragraph, nlp)
+            examples.extend(next_token_data)
+    return examples
 
-def __get_batch_one_example_pair():
+
+def __get_batch_one_example_paragraph():
     random_int_one = RandomValueGenerator.generate_random_integer()
     random_int_two = random_int_one + RandomValueGenerator.generate_random_integer()
     random_int_three = random_int_two + RandomValueGenerator.generate_random_integer()
@@ -43,3 +54,11 @@ def __get_batch_one_example_pair():
     ]]
 
     return random.choice(examples)
+
+
+# if __name__ == "__main__":
+#     masked_example = create_masked_token_batch_one_example(1, Utility.get_spacy_nlp())
+#     print(len(masked_example), masked_example)
+#
+#     next_token_example = create_next_token_batch_one_example(1, Utility.get_spacy_nlp())
+#     print(len(next_token_example), next_token_example)
