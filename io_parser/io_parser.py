@@ -1,6 +1,10 @@
 from function_representation import FunctionManager
 from src.constants import FunctionPrefix
-from .io_parser_utility import parse_value_according_to_type, extract_function_params, split_string_by_space
+from .io_parser_utility import (
+    parse_value_according_to_type,
+    extract_function_params,
+    split_string_by_space,
+)
 
 
 class IoParser:
@@ -17,13 +21,9 @@ class IoParser:
                 or item.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
                 or item.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
             ):
-                processed_params.extend(
-                    extract_function_params(item, self.f_m)
-                )
+                processed_params.extend(extract_function_params(item, self.f_m))
             else:
-                processed_params.append(
-                    parse_value_according_to_type(item)
-                )
+                processed_params.append(parse_value_according_to_type(item))
         return processed_params
 
 

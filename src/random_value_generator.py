@@ -86,6 +86,28 @@ class RandomValueGenerator:
         random_bool = random.choice([True, False])
         return random_bool
 
+    @staticmethod
+    def generate_random_binary_string(seed=None):
+        """
+        Generate a random binary string of the specified length.
+
+        Parameters:
+            seed (int, optional): The seed value for random binary string generation.
+                If provided, the same seed will produce the same random binary string.
+
+        Returns:
+            str: A random binary string of the specified length.
+        """
+        length = RandomValueGenerator.generate_random_integer(2, 50)
+        if seed is not None:
+            random.seed(seed)
+
+        random_binary_string = ""
+        for _ in range(length):
+            random_binary_string += str(random.choice(["0", "1"]))
+
+        return random_binary_string
+
 
 # if __name__ == "__main__":
 #     print(RandomValueGenerator.generate_random_list(6, 1, 100, 43))

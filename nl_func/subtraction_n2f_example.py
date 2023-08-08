@@ -9,10 +9,12 @@ def create_n2f_subtraction_example(count: int):
     for _ in range(count):
         num1 = random.randint(0, 1000)
         num2 = random.randint(0, num1)  # Ensure num2 is less than or equal to num1
-        examples.append({
-            "inputStr": __random_explanation(num1, num2),
-            "outputStr": f"##subtraction({num1},{num2})"
-        })
+        examples.append(
+            {
+                "inputStr": __random_explanation(num1, num2),
+                "outputStr": f"##subtraction({num1},{num2})",
+            }
+        )
     return examples
 
 
@@ -50,4 +52,6 @@ def __random_explanation(x: int, y: int) -> str:
 
 
 if __name__ == "__main__":
-    Utility.create_sample_from_example(create_n2f_subtraction_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION)
+    Utility.create_sample_from_example(
+        create_n2f_subtraction_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION
+    )

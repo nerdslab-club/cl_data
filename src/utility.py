@@ -19,8 +19,12 @@ class Utility:
     @staticmethod
     def create_sample_from_example(examples: list, task_type: Type[Enum]) -> list:
         for i, example in enumerate(examples):
-            input_list = IoParser().create_value_list_from_input(example.get("inputStr"))
-            output_list = IoParser().create_value_list_from_input(example.get("outputStr"))
+            input_list = IoParser().create_value_list_from_input(
+                example.get("inputStr")
+            )
+            output_list = IoParser().create_value_list_from_input(
+                example.get("outputStr")
+            )
             example["inputMap"] = Utility.create_io_map_from_io_tuple(input_list)
             example["outputMap"] = Utility.create_io_map_from_io_tuple(output_list)
             example["taskType"] = task_type.value
@@ -30,7 +34,9 @@ class Utility:
     def create_io_map_from_io_tuple(input_list: list) -> list:
         result_list = []
         for idx, (token, category_dict) in enumerate(input_list):
-            result_list.append({"token": token, "category": category_dict, "position": idx})
+            result_list.append(
+                {"token": token, "category": category_dict, "position": idx}
+            )
         return result_list
 
     @staticmethod
@@ -38,7 +44,9 @@ class Utility:
         return input_string.replace(" ", "")
 
     @staticmethod
-    def create_masked_input_output_example(paragraph: str, nlp=get_spacy_nlp(), mask_prob=0.15) -> list:
+    def create_masked_input_output_example(
+        paragraph: str, nlp=get_spacy_nlp(), mask_prob=0.15
+    ) -> list:
         sentences = Utility.separate_sentences(paragraph, nlp)
         data = []
 
@@ -49,8 +57,12 @@ class Utility:
             for token in tokens:
                 # Randomly decide whether to mask the token
                 if random.random() < mask_prob:
-                    input_tokens.append(SpecialTokens.MASK_TOKEN.value)  # Mask the token in the input
-                    output_tokens.append(token)  # Output should predict the original token
+                    input_tokens.append(
+                        SpecialTokens.MASK_TOKEN.value
+                    )  # Mask the token in the input
+                    output_tokens.append(
+                        token
+                    )  # Output should predict the original token
                 else:
                     input_tokens.append(token)  # Keep the token as it is in the input
                     output_tokens.append(token)  # Output should predict the same token
@@ -63,15 +75,17 @@ class Utility:
         return data
 
     @staticmethod
-    def create_next_word_input_output_example(paragraph: str, nlp=get_spacy_nlp(), minimum_token_count=4) -> list:
+    def create_next_word_input_output_example(
+        paragraph: str, nlp=get_spacy_nlp(), minimum_token_count=4
+    ) -> list:
         sentences = Utility.separate_sentences(paragraph, nlp)
         data = []
 
         for sentence in sentences:
             words = sentence.split()
             for i in range(len(words) - minimum_token_count):
-                input_text = " ".join(words[:i + minimum_token_count])
-                output_text = " ".join(words[:i + minimum_token_count + 1])
+                input_text = " ".join(words[: i + minimum_token_count])
+                output_text = " ".join(words[: i + minimum_token_count + 1])
                 data.append({"inputStr": input_text, "outputStr": output_text})
 
         return data

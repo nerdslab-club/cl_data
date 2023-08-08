@@ -9,10 +9,12 @@ def create_f2n_addition_example(count: int):
     for _ in range(count):
         num1 = random.randint(0, 1000)
         num2 = random.randint(0, 1000)
-        examples.append({
-            "inputStr": f"##addition({num1},{num2})",
-            "outputStr": __random_explanation(num1, num2)
-        })
+        examples.append(
+            {
+                "inputStr": f"##addition({num1},{num2})",
+                "outputStr": __random_explanation(num1, num2),
+            }
+        )
     return examples
 
 
@@ -38,4 +40,8 @@ def __random_explanation(x: int, y: int) -> str:
 
 
 if __name__ == "__main__":
-    print(Utility.create_sample_from_example(create_f2n_addition_example(2),TaskTypes.FUNC_TO_NL_TRANSLATION))
+    print(
+        Utility.create_sample_from_example(
+            create_f2n_addition_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+        )
+    )

@@ -17,9 +17,13 @@ class F2NSamples:
         self.f2n_samples = []
 
     def get_next_random_f2n_sample(self):
-        random_generator_index = random.randint(0, len(self.f2n_example_generators)-1)
-        selected_generator = list(self.f2n_example_generators.values())[random_generator_index]
-        return Utility.create_sample_from_example(selected_generator(1), F2NSamples.TASK_TYPE)
+        random_generator_index = random.randint(0, len(self.f2n_example_generators) - 1)
+        selected_generator = list(self.f2n_example_generators.values())[
+            random_generator_index
+        ]
+        return Utility.create_sample_from_example(
+            selected_generator(1), F2NSamples.TASK_TYPE
+        )
 
     def get_f2n_samples(self, each_example_count: int):
         self.__set_f2n_samples(each_example_count)
@@ -28,7 +32,9 @@ class F2NSamples:
     def __set_f2n_samples(self, each_example_count: int):
         for key, generator in self.f2n_example_generators.items():
             self.f2n_samples.extend(
-                Utility.create_sample_from_example(generator(each_example_count), F2NSamples.TASK_TYPE),
+                Utility.create_sample_from_example(
+                    generator(each_example_count), F2NSamples.TASK_TYPE
+                ),
             )
 
     def __set_f2n_example_generators(self):
@@ -38,5 +44,3 @@ class F2NSamples:
             "multiplication": create_f2n_multiplication_example,
             "division": create_f2n_division_example,
         }
-
-

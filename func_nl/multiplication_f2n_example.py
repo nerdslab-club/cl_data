@@ -9,10 +9,12 @@ def create_f2n_multiplication_example(count: int):
     for _ in range(count):
         num1 = random.uniform(0.1, 1000.0)
         num2 = random.uniform(0.1, 1000.0)
-        examples.append({
-            "inputStr": f"##multiplication({num1},{num2})",
-            "outputStr": __random_explanation(num1, num2)
-        })
+        examples.append(
+            {
+                "inputStr": f"##multiplication({num1},{num2})",
+                "outputStr": __random_explanation(num1, num2),
+            }
+        )
     return examples
 
 
@@ -34,4 +36,6 @@ def __random_explanation(x: float, y: float) -> str:
 
 
 if __name__ == "__main__":
-    Utility.create_sample_from_example(create_f2n_multiplication_example(2),TaskTypes.FUNC_TO_NL_TRANSLATION)
+    Utility.create_sample_from_example(
+        create_f2n_multiplication_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+    )

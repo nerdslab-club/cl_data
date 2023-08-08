@@ -1,11 +1,17 @@
 from function_representation import MathFunctions
-from src.constants import Constants, CategoryType, CategorySubType, CategorySubSubType, FunctionPrefix
+from src.constants import (
+    Constants,
+    CategoryType,
+    CategorySubType,
+    CategorySubSubType,
+    FunctionPrefix,
+)
 
 
 def create_category_map(
-        category_type: CategoryType,
-        category_sub_type: CategorySubType,
-        category_sub_sub_type: CategorySubSubType,
+    category_type: CategoryType,
+    category_sub_type: CategorySubType,
+    category_sub_sub_type: CategorySubSubType,
 ) -> dict:
     return {
         Constants.CATEGORY_TYPE: category_type.value,

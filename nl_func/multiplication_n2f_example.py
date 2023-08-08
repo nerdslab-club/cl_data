@@ -9,10 +9,12 @@ def create_n2f_multiplication_example(count: int):
     for _ in range(count):
         num1 = random.uniform(0, 1000)  # Using random float between 0 and 1000
         num2 = random.uniform(0, 1000)  # Using random float between 0 and 1000
-        examples.append({
-            "inputStr": __random_explanation(num1, num2),
-            "outputStr": f"##multiplication({num1},{num2})"
-        })
+        examples.append(
+            {
+                "inputStr": __random_explanation(num1, num2),
+                "outputStr": f"##multiplication({num1},{num2})",
+            }
+        )
     return examples
 
 
@@ -52,4 +54,6 @@ def __random_explanation(x: float, y: float) -> str:
 
 
 if __name__ == "__main__":
-    Utility.create_sample_from_example(create_n2f_multiplication_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION)
+    Utility.create_sample_from_example(
+        create_n2f_multiplication_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION
+    )

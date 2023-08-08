@@ -16,9 +16,13 @@ class F2FSamples:
         self.f2f_samples = []
 
     def get_next_random_f2f_sample(self):
-        random_generator_index = random.randint(0, len(self.f2f_example_generators)-1)
-        selected_generator = list(self.f2f_example_generators.values())[random_generator_index]
-        return Utility.create_sample_from_example(selected_generator(1), F2FSamples.TASK_TYPE)
+        random_generator_index = random.randint(0, len(self.f2f_example_generators) - 1)
+        selected_generator = list(self.f2f_example_generators.values())[
+            random_generator_index
+        ]
+        return Utility.create_sample_from_example(
+            selected_generator(1), F2FSamples.TASK_TYPE
+        )
 
     def get_f2f_samples(self, each_example_count: int):
         self.__set_f2f_samples(each_example_count)
@@ -27,7 +31,9 @@ class F2FSamples:
     def __set_f2f_samples(self, each_example_count: int):
         for key, generator in self.f2f_example_generators.items():
             self.f2f_samples.extend(
-                Utility.create_sample_from_example(generator(each_example_count), F2FSamples.TASK_TYPE),
+                Utility.create_sample_from_example(
+                    generator(each_example_count), F2FSamples.TASK_TYPE
+                ),
             )
 
     def __set_f2f_example_generators(self):
