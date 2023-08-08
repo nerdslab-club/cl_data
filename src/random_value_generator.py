@@ -87,7 +87,7 @@ class RandomValueGenerator:
         return random_bool
 
 
-if __name__ == "__main__":
-    # print(RandomValueGenerator.generate_random_list(6, 1, 100, 43))
-    # print(RandomValueGenerator.generate_random_list(6, 1, 100, 43))
-    pass
+# if __name__ == "__main__":
+#     print(RandomValueGenerator.generate_random_list(6, 1, 100, 43))
+#     print(RandomValueGenerator.generate_random_list(6, 1, 100, 43))
+#     pass

@@ -1,9 +1,10 @@
 ### Curious Learner Data
-Curious learner sample datasets.
+1. Function to Function Translation Dataset
+2. Function to Natural Language Translation Dataset
+3. Natural Language to Function Translation Dataset
+4. Natural Language & Function to Natural Language & Function Translation Dataset
 
-1. Function to Function Translation.
-2. Function to Natural Language Translation.
-3. Natural Language to Function Translation.
-   - Using Function Execution.
-4. Natural Language to Natural Language Translation.
-   - Using Function Representation.
+### Curious Learner Pre-trainer Data
+1. Masked Token Dataset
+2. Next Token Dataset
+

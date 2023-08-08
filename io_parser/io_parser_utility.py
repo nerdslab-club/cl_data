@@ -64,6 +64,15 @@ def parse_value_according_to_type(input_string: str) -> any:
                 CategorySubSubType.NONE,
             ),
         )
+    elif input_string.startswith("<") and input_string.endswith(">"):
+        result = (
+            remove_quotes(input_string),
+            create_category_map(
+                CategoryType.SPECIAL,
+                CategorySubType.WORD,
+                CategorySubSubType.NONE,
+            ),
+        )
     else:
         temp_token = remove_quotes(input_string)
         result = (
