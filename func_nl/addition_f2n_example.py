@@ -20,7 +20,7 @@ def __random_explanation(x: int, y: int) -> str:
     explanations = [
         f"Adding {x} plus {y}",
         f"{x} + {y}",
-        f"Summing {x} with {y}...",
+        f"Summing {x} with {y} ...",
         f"The result of adding {x} and {y}",
         f"{x} plus {y} equals?",
         f"Calculation: {x} + {y}",
@@ -38,4 +38,4 @@ def __random_explanation(x: int, y: int) -> str:
 
 
 if __name__ == "__main__":
-    Utility.create_sample_from_example(create_f2n_addition_example(2),TaskTypes.FUNC_TO_NL_TRANSLATION)
+    print(Utility.create_sample_from_example(create_f2n_addition_example(2),TaskTypes.FUNC_TO_NL_TRANSLATION))

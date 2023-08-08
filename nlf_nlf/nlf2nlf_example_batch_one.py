@@ -210,7 +210,6 @@ def __get_batch_one_example_pair():
             f"The total number of pencils is ##multiplication({random_int_two},{random_int_four})."
         ),
     ]
-    print(examples)
     return random.choice(examples)
 
 

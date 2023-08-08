@@ -16,6 +16,7 @@ class CategoryType(Enum):
     FLOAT = "float"
     LIST = "list"
     BOOL = "bool"
+    SPECIAL = "special"
 
 
 class CategorySubType(Enum):
@@ -58,6 +59,18 @@ class FunctionPrefix(Enum):
     FUNCTION_IOR_PLACEHOLDER = "@@"
 
 
+class PretrainTasks(Enum):
+    MASKED_TOKEN_PREDICTION = "masked_token_prediction"
+    NEXT_TOKEN_PREDICTION = "next_token_prediction"
+
+
+class SpecialTokens(Enum):
+    MASK_TOKEN = "<MASK>"
+    SEPARATOR_TOKEN = "<SEP>"
+    BEGINNING = "<BOS>"
+    ENDING = "<EOS>"
+
+
 class Constants:
     FUNCTION_DEFAULT_VALUE = MathFunctions.average
     WORD_DEFAULT_VALUE = str("word")
@@ -71,9 +84,6 @@ class Constants:
     LIST_PLACEHOLDER_VALUE = "@list"
     BOOL_PLACEHOLDER_VALUE = "@bool"
     PARAM_PLACEHOLDER_PRIOR = "@"
-    # FUNCTION_EXECUTE = "$$"
-    # FUNCTION_REPRESENT = "##"
-    # FUNCTION_PLACEHOLDER = "@@"
     CATEGORY_TYPE = "type"
     CATEGORY_SUB_TYPE = "subType"
     CATEGORY_SUB_SUB_TYPE = "subSubType"
