@@ -22,7 +22,7 @@ def __random_explanation(x: int, y: int) -> str:
     explanations = [
         f"Subtracting {y} from {x}",
         f"{x} - {y}",
-        f"Taking away {y} from {x}...",
+        f"Taking away {y} from {x} ...",
         f"The result of subtracting {y} from {x}",
         f"{x} minus {y} equals?",
         f"Calculation: {x} - {y}",

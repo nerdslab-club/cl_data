@@ -8,10 +8,10 @@ def create_n2f_division_example(count: int):
     examples = []
     for _ in range(count):
         num1 = random.uniform(
-            1, 1000
+            1, 10000
         )  # Using random float between 1 and 1000 (avoid division by zero)
         num2 = random.uniform(
-            1, 1000
+            1, 10000
         )  # Using random float between 1 and 1000 (avoid division by zero)
         examples.append(
             {
@@ -58,6 +58,8 @@ def __random_explanation(x: float, y: float) -> str:
 
 
 if __name__ == "__main__":
-    Utility.create_sample_from_example(
-        create_n2f_division_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION
+    print(
+        Utility.create_sample_from_example(
+            create_n2f_division_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION
+        )
     )
