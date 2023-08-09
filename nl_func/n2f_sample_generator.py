@@ -2,7 +2,13 @@ import random
 
 from nl_func.addition_n2f_example import create_n2f_addition_example
 from nl_func.division_n2f_example import create_n2f_division_example
+from nl_func.exponentiation_n2f_example import create_n2f_exponentiation_example
+from nl_func.floor_division_n2f_example import create_n2f_floor_division_example
+from nl_func.logarithm_n2f_example import create_n2f_logarithm_example
+from nl_func.modulus_n2f_example import create_n2f_modulus_example
 from nl_func.multiplication_n2f_example import create_n2f_multiplication_example
+from nl_func.sine_n2f_example import create_n2f_sine_example
+from nl_func.square_root_n2f_example import create_n2f_square_root_example
 from nl_func.subtraction_n2f_example import create_n2f_subtraction_example
 from src.constants import TaskTypes
 from src.utility import Utility
@@ -44,4 +50,10 @@ class N2FSamples:
             "subtraction": create_n2f_subtraction_example,
             "multiplication": create_n2f_multiplication_example,
             "division": create_n2f_division_example,
+            "exponentiation": create_n2f_exponentiation_example,
+            "square_root": create_n2f_square_root_example,
+            "floor_division": create_n2f_floor_division_example,
+            "modulus": create_n2f_modulus_example,
+            "logarithm": create_n2f_logarithm_example,
+            "sine": create_n2f_sine_example,
         }

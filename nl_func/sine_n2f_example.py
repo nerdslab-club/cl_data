@@ -5,7 +5,7 @@ from src.constants import TaskTypes
 from src.utility import Utility
 
 
-def create_n1f_sine_example(count: int):
+def create_n2f_sine_example(count: int):
     examples = []
     for _ in range(count):
         angle_degrees = random.uniform(

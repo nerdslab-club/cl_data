@@ -2,7 +2,13 @@ import random
 
 from func_nl.addition_f2n_example import create_f2n_addition_example
 from func_nl.division_f2n_example import create_f2n_division_example
+from func_nl.exponentiation_f2n_example import create_f2n_exponentiation_example
+from func_nl.floor_division_f2n_example import create_f2n_floor_division_example
+from func_nl.logarithm_f2n_example import create_f2n_logarithm_example
+from func_nl.modulus_f2n_example import create_f2n_modulus_example
 from func_nl.multiplication_f2n_example import create_f2n_multiplication_example
+from func_nl.sine_f2n_example import create_f2n_sine_example
+from func_nl.square_root_f2n_example import create_f2n_square_root_example
 from func_nl.subtraction_f2n_example import create_f2n_subtraction_example
 from src.constants import TaskTypes
 from src.utility import Utility
@@ -43,4 +49,10 @@ class F2NSamples:
             "subtraction": create_f2n_subtraction_example,
             "multiplication": create_f2n_multiplication_example,
             "division": create_f2n_division_example,
+            "exponentiation": create_f2n_exponentiation_example,
+            "square_root": create_f2n_square_root_example,
+            "floor_division": create_f2n_floor_division_example,
+            "modulus": create_f2n_modulus_example,
+            "logarithm": create_f2n_logarithm_example,
+            "sine": create_f2n_sine_example,
         }

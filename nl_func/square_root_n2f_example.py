@@ -4,7 +4,7 @@ from src.constants import TaskTypes
 from src.utility import Utility
 
 
-def create_n1f_square_root_example(count: int):
+def create_n2f_square_root_example(count: int):
     examples = []
     for _ in range(count):
         num = random.uniform(1, 99999)  # Using random float between 1 and 99999
