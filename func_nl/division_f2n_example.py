@@ -40,6 +40,8 @@ def __random_explanation(x: float, y: float) -> str:
 
 
 if __name__ == "__main__":
-    Utility.create_sample_from_example(
-        create_f2n_division_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+    print(
+        Utility.create_sample_from_example(
+            create_f2n_division_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+        )
     )
