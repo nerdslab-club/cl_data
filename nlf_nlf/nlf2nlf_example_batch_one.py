@@ -213,5 +213,5 @@ def __get_batch_one_example_pair():
 
 
 if __name__ == "__main__":
-    __get_batch_one_example_pair()
+    print(__get_batch_one_example_pair())
     pass

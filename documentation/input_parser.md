@@ -11,6 +11,7 @@ categories will be used by the category router.
 4. float
 5. list
 6. bool
+7. special
 
 #### Available sub-categories
 sub-categories will be used by the category router.
@@ -34,6 +35,8 @@ sub-sub-categories will be used by Response-Parser.
 6. param_four
 7. param_five
 8. param_last
+9. execute
+10. represent
 
 #### Examples of input and output
 

@@ -335,11 +335,15 @@ def __get_batch_one_example_paragraph():
 
 if __name__ == "__main__":
     masked_example = create_masked_token_batch_one_example(1, Utility.get_spacy_nlp())
-    print(len(masked_example), masked_example)
+    # print(len(masked_example), masked_example)
     sample = Utility.create_sample_from_example(
         masked_example, PretrainTasks.MASKED_TOKEN_PREDICTION
     )
+    # print(sample)
+
+    next_token_example = create_next_token_batch_one_example(1, Utility.get_spacy_nlp())
+    # print(len(next_token_example), next_token_example)
+    sample = Utility.create_sample_from_example(
+        next_token_example, PretrainTasks.NEXT_TOKEN_PREDICTION
+    )
     print(sample)
-#
-#     next_token_example = create_next_token_batch_one_example(1, Utility.get_spacy_nlp())
-#     print(len(next_token_example), next_token_example)
