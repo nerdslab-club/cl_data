@@ -26,16 +26,16 @@ def __random_explanation_sine(angle: float) -> str:
 
     explanations = [
         f"The sine of {angle} degrees",
-        f"sin({angle}°)",
+        f"sin({angle})",
         f"The result of taking the sine of {angle} degrees",
-        f"Calculation: sin({angle}°)",
-        f"The sine value of {angle}° is",
-        f"The value of sin({angle}°)",
-        f"The trigonometric sine function applied to {angle}°",
-        f"The sine of {angle}° equals?",
+        f"Calculation: sin({angle} °)",
+        f"The sine value of {angle} ° is",
+        f"The value of sin({angle} °)",
+        f"The trigonometric sine function applied to {angle} °",
+        f"The sine of {angle} ° equals?",
         f"The ratio of the length of the side opposite the angle to the hypotenuse",
-        f"The sine of the angle {angle}°",
-        f"The sine function output for {angle}°",
+        f"The sine of the angle {angle} °",
+        f"The sine function output for {angle} °",
         f"The sine of {angle} degrees is",
     ]
 
