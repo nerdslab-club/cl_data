@@ -4,17 +4,13 @@
 Write me a mathematics  story with lots of calculation in it use the following operations, 
 write the story in such a way so that it coherent and lots of math operation
 
-relu(x: float)
-ascending_sort(lst: list[int])
-descending_sort(lst: list[int])
-square_int(x: int)
-square(x: float)
-absolute(x: float)
-power_of_ten(x: float)
-cube(x: float)
-cube_root(x: float)
-is_even(x: int)
-is_odd(x: int)
+a_plus_b_whole_square(a: int, b: int)
+a_squared_plus_2ab_plus_b_squared(a: int, b: int)
+a_minus_b_whole_squared_plus_4ab(a: int, b: int)
+a_minus_b_whole_squared(a: int, b: int)
+a_squared_minus_2ab_plus_b_squared(a: int, b: int)
+a_plus_b_whole_squared_minus_4ab(a: int, b: int)
+a_squared_plus_b_squared(a: int, b: int)
 
 For the param of the functions use random number, let say we have the following variables in python
 random_list = Utility.remove_spaces(str(RandomValueGenerator.generate_random_list()))
