@@ -28,12 +28,9 @@ def __random_io_square_root(num1: float, prev_choice=None) -> str:
         f"##invert_number(##exponentiation({num1}, -0.5))",
         f"##nth_root({num1}, 2)",
     ]
-    if prev_choice is None:
-        return random.choice(explanations)
-    new_choice = random.choice(explanations)
-    while new_choice == prev_choice:
-        new_choice = random.choice(explanations)
-    return new_choice
+    if prev_choice is not None:
+        explanations.remove(prev_choice)
+    return random.choice(explanations)
 
 
 if __name__ == "__main__":

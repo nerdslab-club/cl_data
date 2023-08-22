@@ -26,12 +26,9 @@ def __random_io(n: int, r: int, prev_choice=None) -> str:
         f"##floor_division(##permutation({n},{r}), ##factorial({r}))",
         f"##float_to_int(##multiplication(##permutation({n},{r}), ##invert_number(##factorial({r}))))",
     ]
-    if prev_choice is None:
-        return random.choice(explanations)
-    new_choice = random.choice(explanations)
-    while new_choice == prev_choice:
-        new_choice = random.choice(explanations)
-    return new_choice
+    if prev_choice is not None:
+        explanations.remove(prev_choice)
+    return random.choice(explanations)
 
 
 if __name__ == "__main__":

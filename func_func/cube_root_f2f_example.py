@@ -26,12 +26,9 @@ def __random_io_cube_root(num1: float, prev_choice=None) -> str:
         f"##nth_root({num1}, 3)",
         f"##exponentiation({num1}, ##division(1,3))",
     ]
-    if prev_choice is None:
-        return random.choice(explanations)
-    new_choice = random.choice(explanations)
-    while new_choice == prev_choice:
-        new_choice = random.choice(explanations)
-    return new_choice
+    if prev_choice is not None:
+        explanations.remove(prev_choice)
+    return random.choice(explanations)
 
 
 if __name__ == "__main__":

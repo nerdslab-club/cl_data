@@ -26,12 +26,9 @@ def __random_io(list1: list, prev_choice=None) -> str:
         f"##mean({list1})",
         f"##division(##sum({list1}),##length({list1}))",
     ]
-    if prev_choice is None:
-        return random.choice(explanations)
-    new_choice = random.choice(explanations)
-    while new_choice == prev_choice:
-        new_choice = random.choice(explanations)
-    return new_choice
+    if prev_choice is not None:
+        explanations.remove(prev_choice)
+    return random.choice(explanations)
 
 
 if __name__ == "__main__":
