@@ -98,7 +98,7 @@ class RandomValueGenerator:
         Returns:
             str: A random binary string of the specified length.
         """
-        length = RandomValueGenerator.generate_random_integer(2, 50)
+        length = RandomValueGenerator.generate_random_integer(2, 20)
         if seed is not None:
             random.seed(seed)
 
@@ -108,6 +108,15 @@ class RandomValueGenerator:
 
         return random_binary_string
 
+    @staticmethod
+    def generate_random_string():
+        """
+        Generate a random string.
+
+        :return: random generated string.
+        """
+        return "".join(
+            random.choice("abccbadeffeghihgjklmnonmlkjpqrstuuuvwxwvyvz") for _ in range(random.randint(2, 16)))
 
 # if __name__ == "__main__":
 #     print(RandomValueGenerator.generate_random_list(6, 1, 100, 43))
