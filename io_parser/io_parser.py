@@ -3,7 +3,7 @@ from src.constants import FunctionPrefix
 from .io_parser_utility import (
     parse_value_according_to_type,
     extract_function_params,
-    split_string_by_space,
+    split_string_by_space
 )
 
 
@@ -13,6 +13,8 @@ class IoParser:
 
     def create_value_list_from_input(self, input_string) -> list:
         raw_input_list = split_string_by_space(input_string)
+        # raw_input_list = split_string_custom(input_string)
+        # print(raw_input_list)
         processed_params = []
         for i, item in enumerate(raw_input_list):
             if (
@@ -21,9 +23,11 @@ class IoParser:
                 or item.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
                 or item.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
             ):
+                # print(extract_function_params(item, self.f_m))
                 processed_params.extend(extract_function_params(item, self.f_m))
             else:
                 processed_params.append(parse_value_according_to_type(item))
+
         return processed_params
 
 
