@@ -47,7 +47,7 @@ class Utility:
 
     @staticmethod
     def create_masked_input_output_example(
-            paragraph: str, nlp=get_spacy_nlp(), mask_prob=0.15
+        paragraph: str, nlp=get_spacy_nlp(), mask_prob=0.15
     ) -> list:
         sentences = Utility.separate_sentences(paragraph, nlp)
         data = []
@@ -78,7 +78,7 @@ class Utility:
 
     @staticmethod
     def create_next_word_input_output_example(
-            paragraph: str, nlp=get_spacy_nlp(), minimum_token_count=4
+        paragraph: str, nlp=get_spacy_nlp(), minimum_token_count=4
     ) -> list:
         sentences = Utility.separate_sentences(paragraph, nlp)
         data = []
@@ -107,27 +107,33 @@ class Utility:
 
         # Iterate through each character in the input string
         for char in input_string:
-            if char == ' ' and not is_special_word:
+            if char == " " and not is_special_word:
                 # If it's a space, and we're not in a special word, split the word
                 result.append(current_word)
                 current_word = ""
-            elif current_word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value) \
-                    or current_word.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value) \
-                    or current_word.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value) \
-                    or current_word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value):
+            elif (
+                current_word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
+                or current_word.startswith(
+                    FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value
+                )
+                or current_word.startswith(
+                    FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value
+                )
+                or current_word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
+            ):
                 # If the current word starts with "##" or "$$", we're in a special word
                 is_special_word = True
                 current_word += char
                 # if char == ' ':
                 #     # If there's a space within a special word, remove it
                 #     current_word = current_word.rstrip()
-            elif char == ')' and is_special_word:
+            elif char == ")" and is_special_word:
                 # If we're in a special word and encounter ')', split the word
                 current_word += char
                 result.append(current_word)
                 current_word = ""
                 is_special_word = False
-            elif char in ('(', ')') and not is_special_word:
+            elif char in ("(", ")") and not is_special_word:
                 # If it's an adjacent '(' or ')' and we're not in a special word, split it
                 if current_word:
                     result.append(current_word)
@@ -140,15 +146,20 @@ class Utility:
         # Add the last word to the result
         if current_word:
             result.append(current_word)
-        result = [word.replace(' ', '') if word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value) \
-                                           or word.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value) \
-                                           or word.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value) \
-                                           or word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value) else word for
-                  word in result]
+        result = [
+            word.replace(" ", "")
+            if word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
+            or word.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value)
+            or word.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
+            or word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
+            else word
+            for word in result
+        ]
 
         # Join the elements in the list into a single line with spaces
-        result = ' '.join(result)
+        result = " ".join(result)
         return result
+
 
 # if __name__ == "__main__":
 #     raw_input = "This is a sample input for testing masked token prediction." \

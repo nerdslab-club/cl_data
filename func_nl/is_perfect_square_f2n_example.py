@@ -13,14 +13,20 @@ def create_f2n_is_perfect_square_example(count: int):
         examples.append(
             {
                 "inputStr": f"##is_perfect_square({x})",
-                "outputStr": __random_explanation_is_perfect_square(x, is_perfect_square_result),
+                "outputStr": __random_explanation_is_perfect_square(
+                    x, is_perfect_square_result
+                ),
             }
         )
     return examples
 
 
-def __random_explanation_is_perfect_square(x: int, is_perfect_square_result: bool) -> str:
-    square_str = "a perfect square" if is_perfect_square_result else "not a perfect square"
+def __random_explanation_is_perfect_square(
+    x: int, is_perfect_square_result: bool
+) -> str:
+    square_str = (
+        "a perfect square" if is_perfect_square_result else "not a perfect square"
+    )
     explanations = [
         f"Whether {x} is {square_str}",
         f"is_perfect_square({x})",

@@ -8,7 +8,9 @@ from src.utility import Utility
 def create_f2f_modulus_example(count: int):
     examples = []
     for _ in range(count):
-        num2 = RandomValueGenerator.generate_random_integer(1, 1000)  # Avoid division by zero
+        num2 = RandomValueGenerator.generate_random_integer(
+            1, 1000
+        )  # Avoid division by zero
         num1 = num2 + RandomValueGenerator.generate_random_integer(1, 10000)
         choice_one = __random_io_operation(num1, num2)
         choice_two = __random_io_operation(num1, num2, choice_one)

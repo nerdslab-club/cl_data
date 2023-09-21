@@ -181,7 +181,7 @@ def get_batch_ten_example_paragraph():
             f"({random_int_two} plus {random_int_three}) whole squared, a tale of numbers entwined in harmony and divergence, unfurling as ##a_plus_b_whole_squared_minus_4ab({random_int_two},{random_int_three}).",
             f"In the expansive tapestry of Mathovia, they unearthed a gem of simplicity amid complexity, the heart of their expedition encapsulated:",
             f"The sum of the squares of {random_int_two} and {random_int_three}, a harmonious blend in ({random_int_two} squared) plus ({random_int_three} squared), revealing the essence of ##a_squared_plus_b_squared({random_int_two},{random_int_three}).",
-            "Their odyssey through Mathovia continued, a symphony of exploration driven by their unyielding passion for numbers and the graceful choreography of calculations."
+            "Their odyssey through Mathovia continued, a symphony of exploration driven by their unyielding passion for numbers and the graceful choreography of calculations.",
         ]
     ]
 
@@ -190,6 +190,7 @@ def get_batch_ten_example_paragraph():
 
 if __name__ == "__main__":
     from masked_token_sample_generator import MaskedTokenSamplesGenerator
+
     masked_example = MaskedTokenSamplesGenerator.create_masked_token_batches(
         get_batch_ten_example_paragraph(),
         1,
@@ -202,6 +203,7 @@ if __name__ == "__main__":
     print(sample)
 
     from next_token_sample_generator import NextTokenSamplesGenerator
+
     next_token_example = NextTokenSamplesGenerator.create_next_token_batches(
         get_batch_ten_example_paragraph(),
         1,

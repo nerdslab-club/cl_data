@@ -25,7 +25,7 @@ def __random_io_operation(num1: float, num2: float, prev_choice=None) -> str:
     explanations = [
         f"##hypotenuse({num1}, {num2})",
         f"##square_root(##addition(##square({num1}), ##square({num2})))",
-        f"##exponentiation(##addition(##exponentiation({num1}, 2), ##exponentiation({num2}, 2)), 0.5)"
+        f"##exponentiation(##addition(##exponentiation({num1}, 2), ##exponentiation({num2}, 2)), 0.5)",
     ]
 
     if prev_choice is not None:

@@ -163,7 +163,7 @@ def get_batch_two_example_paragraph():
             f"({random_int_two} plus {random_int_three}) whole squared minus (4 times {random_int_two} times {random_int_three}), which equals ##a_plus_b_whole_squared_minus_4ab({random_int_two},{random_int_three}).",
             f"As the friends continued their journey, they encountered a simple yet beautiful relation:",
             f"The sum of the squares of {random_int_two} and {random_int_three} is given by ({random_int_two} squared) plus ({random_int_three} squared), which equals ##a_squared_plus_b_squared({random_int_two},{random_int_three}).",
-            f"And so, their mathematical adventure in Mathville continued, fueled by their passion for numbers and calculations."
+            f"And so, their mathematical adventure in Mathville continued, fueled by their passion for numbers and calculations.",
         ]
     ]
 
@@ -172,6 +172,7 @@ def get_batch_two_example_paragraph():
 
 if __name__ == "__main__":
     from masked_token_sample_generator import MaskedTokenSamplesGenerator
+
     masked_example = MaskedTokenSamplesGenerator.create_masked_token_batches(
         get_batch_two_example_paragraph(),
         1,
@@ -184,6 +185,7 @@ if __name__ == "__main__":
     print(sample)
 
     from next_token_sample_generator import NextTokenSamplesGenerator
+
     next_token_example = NextTokenSamplesGenerator.create_next_token_batches(
         get_batch_two_example_paragraph(),
         1,

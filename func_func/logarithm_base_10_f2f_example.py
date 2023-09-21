@@ -9,7 +9,7 @@ from src.utility import Utility
 def create_f2f_logarithm_base_10_example(count: int):
     examples = []
     for _ in range(count):
-        num1 = RandomValueGenerator.generate_random_integer(1,10000)
+        num1 = RandomValueGenerator.generate_random_integer(1, 10000)
         choice_one = __random_io_operation(num1)
         choice_two = __random_io_operation(num1, choice_one)
         examples.append(

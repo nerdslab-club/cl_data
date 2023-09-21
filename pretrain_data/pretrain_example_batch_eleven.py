@@ -53,6 +53,7 @@ def get_batch_eleven_example_paragraph():
 
 if __name__ == "__main__":
     from masked_token_sample_generator import MaskedTokenSamplesGenerator
+
     masked_example = MaskedTokenSamplesGenerator.create_masked_token_batches(
         get_batch_eleven_example_paragraph(),
         1,
@@ -65,6 +66,7 @@ if __name__ == "__main__":
     print(sample)
 
     from next_token_sample_generator import NextTokenSamplesGenerator
+
     next_token_example = NextTokenSamplesGenerator.create_next_token_batches(
         get_batch_eleven_example_paragraph(),
         1,

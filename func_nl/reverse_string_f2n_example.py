@@ -7,13 +7,19 @@ from src.utility import Utility
 def create_f2n_reverse_string_example(count: int):
     examples = []
     for _ in range(count):
-        input_strings = ["".join(random.choices("abcdefghijklmnopqrstuvwxyz", k=random.randint(1, 10))) for _ in
-                         range(1)]
+        input_strings = [
+            "".join(
+                random.choices("abcdefghijklmnopqrstuvwxyz", k=random.randint(1, 10))
+            )
+            for _ in range(1)
+        ]
         reversed_strings = [s[::-1] for s in input_strings]
         examples.append(
             {
                 "inputStr": f"##reverse_string('{input_strings[0]}')",
-                "outputStr": __random_explanation_reverse_string(input_strings[0], reversed_strings[0]),
+                "outputStr": __random_explanation_reverse_string(
+                    input_strings[0], reversed_strings[0]
+                ),
             }
         )
     return examples
@@ -51,28 +57,32 @@ def __random_explanation_reverse_string(input_str, reversed_str) -> str:
         f"The outcome of calculating the reverse of the string '{input_str}'",
     ]
     if input_str == reversed_str:
-        explanations.extend([
-            f"The string '{input_str}' is already a palindrome",
-            f"The given string '{input_str}' is already the same when reversed",
-            f"The string '{input_str}' remains the same when reversed",
-            f"The string '{input_str}' is unchanged when reversed",
-            f"The string '{input_str}' is a palindrome",
-            f"The given string '{input_str}' is a palindrome",
-            f"The string '{input_str}' is already symmetric",
-        ])
+        explanations.extend(
+            [
+                f"The string '{input_str}' is already a palindrome",
+                f"The given string '{input_str}' is already the same when reversed",
+                f"The string '{input_str}' remains the same when reversed",
+                f"The string '{input_str}' is unchanged when reversed",
+                f"The string '{input_str}' is a palindrome",
+                f"The given string '{input_str}' is a palindrome",
+                f"The string '{input_str}' is already symmetric",
+            ]
+        )
     else:
-        explanations.extend([
-            f"The reversed string of '{input_str}' is '{reversed_str}'",
-            f"The string '{input_str}' becomes '{reversed_str}' when reversed",
-            f"The reverse of the string '{input_str}' is '{reversed_str}'",
-            f"The string '{input_str}' changes to '{reversed_str}' when reversed",
-            f"The reversed form of the string '{input_str}' is '{reversed_str}'",
-            f"The string '{input_str}' transforms into '{reversed_str}' when reversed",
-            f"The reversed version of the string '{input_str}' is '{reversed_str}'",
-            f"The string '{input_str}' turns into '{reversed_str}' when reversed",
-            f"The reversed string of '{input_str}' becomes '{reversed_str}'",
-            f"The string '{input_str}' is transformed into '{reversed_str}' when reversed",
-        ])
+        explanations.extend(
+            [
+                f"The reversed string of '{input_str}' is '{reversed_str}'",
+                f"The string '{input_str}' becomes '{reversed_str}' when reversed",
+                f"The reverse of the string '{input_str}' is '{reversed_str}'",
+                f"The string '{input_str}' changes to '{reversed_str}' when reversed",
+                f"The reversed form of the string '{input_str}' is '{reversed_str}'",
+                f"The string '{input_str}' transforms into '{reversed_str}' when reversed",
+                f"The reversed version of the string '{input_str}' is '{reversed_str}'",
+                f"The string '{input_str}' turns into '{reversed_str}' when reversed",
+                f"The reversed string of '{input_str}' becomes '{reversed_str}'",
+                f"The string '{input_str}' is transformed into '{reversed_str}' when reversed",
+            ]
+        )
     return random.choice(explanations)
 
 

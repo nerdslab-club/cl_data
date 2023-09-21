@@ -7,7 +7,9 @@ from src.utility import Utility
 def create_f2n_binary_to_decimal_example(count: int):
     examples = []
     for _ in range(count):
-        binary = ''.join(random.choice(['0', '1']) for _ in range(random.randint(1, 10)))
+        binary = "".join(
+            random.choice(["0", "1"]) for _ in range(random.randint(1, 10))
+        )
         examples.append(
             {
                 "inputStr": f"##binary_to_decimal('{binary}')",

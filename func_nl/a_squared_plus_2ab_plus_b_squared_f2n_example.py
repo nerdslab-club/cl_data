@@ -13,7 +13,9 @@ def create_f2n_a_squared_plus_2ab_plus_b_squared_example(count: int):
         examples.append(
             {
                 "inputStr": f"##a_squared_plus_2ab_plus_b_squared({a}, {b})",
-                "outputStr": __random_explanation_a_squared_plus_2ab_plus_b_squared(a, b),
+                "outputStr": __random_explanation_a_squared_plus_2ab_plus_b_squared(
+                    a, b
+                ),
             }
         )
     return examples
@@ -53,6 +55,7 @@ def __random_explanation_a_squared_plus_2ab_plus_b_squared(a, b) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_f2n_a_squared_plus_2ab_plus_b_squared_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+            create_f2n_a_squared_plus_2ab_plus_b_squared_example(2),
+            TaskTypes.FUNC_TO_NL_TRANSLATION,
         )
     )
