@@ -11,7 +11,7 @@ categories will be used by the category router.
 4. float
 5. list
 6. bool
-7. special
+7. special Ex. <MUSK>, <BOS>, <EOS>
 
 #### Available sub-categories
 sub-categories will be used by the category router.

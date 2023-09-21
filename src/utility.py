@@ -5,7 +5,7 @@ from typing import Type
 import spacy
 
 from io_parser.io_parser import IoParser
-from src.constants import PretrainTasks, SpecialTokens, FunctionPrefix
+from src.constants import SpecialTokens, FunctionPrefix
 
 
 class Utility:
@@ -98,18 +98,7 @@ class Utility:
         sentences = [sent.text for sent in doc.sents]
         return sentences
 
-    # if __name__ == "__main__":
-    #     raw_input = "This is a sample input for testing masked token prediction." \
-    #                 "This is an example sentence for testing next word prediction."
-    #
-    #     masked_data = Utility.create_masked_input_output_example(raw_input)
-    #     sample = Utility.create_sample_from_example(masked_data, PretrainTasks.MASKED_TOKEN_PREDICTION)
-    #     print(sample)
-    #
-    #     next_word_data = Utility.create_next_word_input_output_example(raw_input)
-    #     sample = Utility.create_sample_from_example(next_word_data, PretrainTasks.NEXT_TOKEN_PREDICTION)
-    #     print(sample)
-
+    @staticmethod
     def split_string_custom(input_string: str):
         # Initialize variables
         result = []
@@ -119,7 +108,7 @@ class Utility:
         # Iterate through each character in the input string
         for char in input_string:
             if char == ' ' and not is_special_word:
-                # If it's a space and we're not in a special word, split the word
+                # If it's a space, and we're not in a special word, split the word
                 result.append(current_word)
                 current_word = ""
             elif current_word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value) \
@@ -160,3 +149,15 @@ class Utility:
         # Join the elements in the list into a single line with spaces
         result = ' '.join(result)
         return result
+
+# if __name__ == "__main__":
+#     raw_input = "This is a sample input for testing masked token prediction." \
+#                 "This is an example sentence for testing next word prediction."
+#
+#     masked_data = Utility.create_masked_input_output_example(raw_input)
+#     sample = Utility.create_sample_from_example(masked_data, PretrainTasks.MASKED_TOKEN_PREDICTION)
+#     print(sample)
+#
+#     next_word_data = Utility.create_next_word_input_output_example(raw_input)
+#     sample = Utility.create_sample_from_example(next_word_data, PretrainTasks.NEXT_TOKEN_PREDICTION)
+#     print(sample)

@@ -1,35 +1,11 @@
 import random
 
-import spacy
-
 from src.constants import PretrainTasks
 from src.random_value_generator import RandomValueGenerator
 from src.utility import Utility
 
 
-def create_masked_token_batch_two_example(count: int, nlp: spacy.Language):
-    examples = []
-    for _ in range(count):
-        paragraphs = __get_batch_two_example_paragraph()
-        for paragraph in paragraphs:
-            masked_data = Utility.create_masked_input_output_example(paragraph, nlp)
-            examples.extend(masked_data)
-    return examples
-
-
-def create_next_token_batch_two_example(count: int, nlp: spacy.Language):
-    examples = []
-    for _ in range(count):
-        paragraphs = __get_batch_two_example_paragraph()
-        for paragraph in paragraphs:
-            next_token_data = Utility.create_next_word_input_output_example(
-                paragraph, nlp
-            )
-            examples.extend(next_token_data)
-    return examples
-
-
-def __get_batch_two_example_paragraph():
+def get_batch_two_example_paragraph():
     random_int_one = RandomValueGenerator.generate_random_integer()
     random_int_two = random_int_one + RandomValueGenerator.generate_random_integer()
     random_int_three = random_int_two + RandomValueGenerator.generate_random_integer()
@@ -187,7 +163,7 @@ def __get_batch_two_example_paragraph():
             f"({random_int_two} plus {random_int_three}) whole squared minus (4 times {random_int_two} times {random_int_three}), which equals ##a_plus_b_whole_squared_minus_4ab({random_int_two},{random_int_three}).",
             f"As the friends continued their journey, they encountered a simple yet beautiful relation:",
             f"The sum of the squares of {random_int_two} and {random_int_three} is given by ({random_int_two} squared) plus ({random_int_three} squared), which equals ##a_squared_plus_b_squared({random_int_two},{random_int_three}).",
-            "And so, their mathematical adventure in Mathville continued, fueled by their passion for numbers and calculations."
+            f"And so, their mathematical adventure in Mathville continued, fueled by their passion for numbers and calculations."
         ]
     ]
 
@@ -195,12 +171,24 @@ def __get_batch_two_example_paragraph():
 
 
 if __name__ == "__main__":
-    masked_example = create_masked_token_batch_two_example(1, Utility.get_spacy_nlp())
-    print(len(masked_example), masked_example)
+    from masked_token_sample_generator import MaskedTokenSamplesGenerator
+    masked_example = MaskedTokenSamplesGenerator.create_masked_token_batches(
+        get_batch_two_example_paragraph(),
+        1,
+    )
+    # print(len(masked_example), masked_example)
     sample = Utility.create_sample_from_example(
-        masked_example, PretrainTasks.MASKED_TOKEN_PREDICTION
+        masked_example,
+        PretrainTasks.MASKED_TOKEN_PREDICTION,
     )
     print(sample)
-#
-#     next_token_example = create_next_token_batch_two_example(1, Utility.get_spacy_nlp())
-#     print(len(next_token_example), next_token_example)
+
+    from next_token_sample_generator import NextTokenSamplesGenerator
+    next_token_example = NextTokenSamplesGenerator.create_next_token_batches(
+        get_batch_two_example_paragraph(),
+        1,
+    )
+    sample = Utility.create_sample_from_example(
+        next_token_example, PretrainTasks.NEXT_TOKEN_PREDICTION
+    )
+    print(sample)
