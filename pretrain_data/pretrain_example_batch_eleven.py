@@ -1,7 +1,5 @@
 import random
 
-import spacy
-
 from src.constants import PretrainTasks
 from src.random_value_generator import RandomValueGenerator
 from src.utility import Utility
