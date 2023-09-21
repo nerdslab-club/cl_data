@@ -13,7 +13,9 @@ def create_f2n_a_plus_b_times_a_squared_minus_ab_plus_b_squared_example(count: i
         examples.append(
             {
                 "inputStr": f"##a_plus_b_times_a_squared_minus_ab_plus_b_squared({a}, {b})",
-                "outputStr": __random_explanation_a_plus_b_times_a_squared_minus_ab_plus_b_squared(a, b),
+                "outputStr": __random_explanation_a_plus_b_times_a_squared_minus_ab_plus_b_squared(
+                    a, b
+                ),
             }
         )
     return examples
@@ -52,6 +54,7 @@ def __random_explanation_a_plus_b_times_a_squared_minus_ab_plus_b_squared(a, b) 
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_f2n_a_plus_b_times_a_squared_minus_ab_plus_b_squared_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+            create_f2n_a_plus_b_times_a_squared_minus_ab_plus_b_squared_example(2),
+            TaskTypes.FUNC_TO_NL_TRANSLATION,
         )
     )

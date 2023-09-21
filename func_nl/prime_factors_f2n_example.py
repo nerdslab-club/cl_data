@@ -13,14 +13,18 @@ def create_f2n_prime_factors_example(count: int):
         examples.append(
             {
                 "inputStr": f"##prime_factors({x})",
-                "outputStr": __random_explanation_prime_factors(x, prime_factors_result),
+                "outputStr": __random_explanation_prime_factors(
+                    x, prime_factors_result
+                ),
             }
         )
     return examples
 
 
 def __random_explanation_prime_factors(x: int, prime_factors_result: dict) -> str:
-    prime_factors_str = ", ".join([f"{factor}^{exponent}" for factor, exponent in prime_factors_result.items()])
+    prime_factors_str = ", ".join(
+        [f"{factor}^{exponent}" for factor, exponent in prime_factors_result.items()]
+    )
     explanations = [
         f"The prime factors of {x}",
         f"prime_factors({x})",

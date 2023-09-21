@@ -116,7 +116,10 @@ class RandomValueGenerator:
         :return: random generated string.
         """
         return "".join(
-            random.choice("abccbadeffeghihgjklmnonmlkjpqrstuuuvwxwvyvz") for _ in range(random.randint(2, 16)))
+            random.choice("abccbadeffeghihgjklmnonmlkjpqrstuuuvwxwvyvz")
+            for _ in range(random.randint(2, 16))
+        )
+
 
 # if __name__ == "__main__":
 #     print(RandomValueGenerator.generate_random_list(6, 1, 100, 43))

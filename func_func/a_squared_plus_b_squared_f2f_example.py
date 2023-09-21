@@ -35,6 +35,7 @@ def __random_io_operation(num1: int, num2: int, prev_choice=None) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_f2f_a_squared_plus_b_squared_example(2), TaskTypes.FUNC_TO_FUNC_TRANSLATION
+            create_f2f_a_squared_plus_b_squared_example(2),
+            TaskTypes.FUNC_TO_FUNC_TRANSLATION,
         )
     )

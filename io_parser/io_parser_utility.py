@@ -95,7 +95,7 @@ def parse_value_according_to_type(input_string: str) -> any:
 
 
 def extract_function_params(
-        input_func_str: str, function_manager: FunctionManager
+    input_func_str: str, function_manager: FunctionManager
 ) -> list:
     """Give the function token it will extract function name and param
     According to their types
@@ -124,10 +124,10 @@ def extract_function_params(
     processed_params = []
     for i, param in enumerate(separated_params):
         if type(param) is str and (
-                param.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
-                or param.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value)
-                or param.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
-                or param.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
+            param.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
+            or param.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value)
+            or param.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
+            or param.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
         ):
             param = param.strip()
             param_func_params = extract_function_params(param, function_manager)
@@ -197,16 +197,16 @@ def separate_params(input_string: str) -> list:
                 current_substring = ""
 
             if (
-                    current_substring.endswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
-                    or current_substring.endswith(
-                FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value
-            )
-                    or current_substring.endswith(
-                FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value
-            )
-                    or current_substring.endswith(
-                FunctionPrefix.FUNCTION_IOR_REPRESENT.value
-            )
+                current_substring.endswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
+                or current_substring.endswith(
+                    FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value
+                )
+                or current_substring.endswith(
+                    FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value
+                )
+                or current_substring.endswith(
+                    FunctionPrefix.FUNCTION_IOR_REPRESENT.value
+                )
             ) and len(current_substring) > 2:
                 result.extend(parse_param_according_to_type(current_substring[:-3]))
                 current_substring = current_substring[-2:]
@@ -250,7 +250,7 @@ def parse_param_according_to_type(input_string):
 
 
 def convert_function_name_to_token(
-        function_name: str, function_manager: FunctionManager
+    function_name: str, function_manager: FunctionManager
 ) -> tuple:
     """This function will convert function_name into function type string and proper function reference
 
@@ -304,7 +304,7 @@ def extract_content_between_brackets(input_string):
     end_index = input_string.rfind(")")  # Find last occurrence of ')'
 
     if start_index != -1 and end_index != -1:
-        content_between_brackets = input_string[start_index + 1: end_index]
+        content_between_brackets = input_string[start_index + 1 : end_index]
         return content_between_brackets.strip()  # Trim leading and trailing whitespaces
     else:
         return None

@@ -3,7 +3,7 @@ from src.constants import FunctionPrefix
 from .io_parser_utility import (
     parse_value_according_to_type,
     extract_function_params,
-    split_string_by_space
+    split_string_by_space,
 )
 
 

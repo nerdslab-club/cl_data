@@ -7,7 +7,10 @@ from src.utility import Utility
 def create_f2b_is_palindrome_example(count: int):
     examples = []
     for _ in range(count):
-        word = "".join(random.choice("abccbadeffeghihgjklmnonmlkjpqrstuuuvwxwvyvz") for _ in range(random.randint(2, 10)))
+        word = "".join(
+            random.choice("abccbadeffeghihgjklmnonmlkjpqrstuuuvwxwvyvz")
+            for _ in range(random.randint(2, 10))
+        )
         examples.append(
             {
                 "inputStr": f"##is_palindrome('{word}')",

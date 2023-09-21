@@ -9,7 +9,10 @@ def create_f2n_length_example(count: int):
     examples = []
     for _ in range(count):
         item = RandomValueGenerator.generate_random_integer(2, 10)
-        numbers = [RandomValueGenerator.generate_random_integer(-100, 1000) for _ in range(item)]
+        numbers = [
+            RandomValueGenerator.generate_random_integer(-100, 1000)
+            for _ in range(item)
+        ]
         examples.append(
             {
                 "inputStr": f"##length({numbers})",

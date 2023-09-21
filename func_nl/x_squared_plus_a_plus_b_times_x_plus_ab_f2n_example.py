@@ -11,11 +11,13 @@ def create_f2n_x_squared_plus_a_plus_b_times_x_plus_ab_example(count: int):
         x = RandomValueGenerator.generate_random_integer(-10, 1000)
         a = RandomValueGenerator.generate_random_integer(-10, 1000)
         b = RandomValueGenerator.generate_random_integer(-10, 1000)
-        result = x ** 2 + (a + b) * (x + a * b)
+        result = x**2 + (a + b) * (x + a * b)
         examples.append(
             {
                 "inputStr": f"##x_squared_plus_a_plus_b_times_x_plus_ab({x}, {a}, {b})",
-                "outputStr": __random_explanation_x_squared_plus_a_plus_b_times_x_plus_ab(x, a, b),
+                "outputStr": __random_explanation_x_squared_plus_a_plus_b_times_x_plus_ab(
+                    x, a, b
+                ),
             }
         )
     return examples
@@ -54,6 +56,7 @@ def __random_explanation_x_squared_plus_a_plus_b_times_x_plus_ab(x, a, b) -> str
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_f2n_x_squared_plus_a_plus_b_times_x_plus_ab_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+            create_f2n_x_squared_plus_a_plus_b_times_x_plus_ab_example(2),
+            TaskTypes.FUNC_TO_NL_TRANSLATION,
         )
     )

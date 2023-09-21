@@ -1,7 +1,9 @@
 import random
 
 from pretrain_data.pretrain_example_batch_eight import get_batch_eight_example_paragraph
-from pretrain_data.pretrain_example_batch_eleven import get_batch_eleven_example_paragraph
+from pretrain_data.pretrain_example_batch_eleven import (
+    get_batch_eleven_example_paragraph,
+)
 from pretrain_data.pretrain_example_batch_five import get_batch_five_example_paragraph
 from pretrain_data.pretrain_example_batch_four import get_batch_four_example_paragraph
 from pretrain_data.pretrain_example_batch_nine import get_batch_nine_example_paragraph
@@ -46,15 +48,15 @@ class NextTokenSamplesGenerator:
                         generator(),
                         each_example_count,
                     ),
-                    NextTokenSamplesGenerator.TASK_TYPE
+                    NextTokenSamplesGenerator.TASK_TYPE,
                 ),
             )
 
     @staticmethod
     def create_next_token_batches(
-            paragraphs: list[str],
-            count: int,
-            nlp=Utility.get_spacy_nlp(),
+        paragraphs: list[str],
+        count: int,
+        nlp=Utility.get_spacy_nlp(),
     ):
         examples = []
         for _ in range(count):

@@ -12,7 +12,9 @@ def create_f2n_is_perfect_cube_example(count: int):
         examples.append(
             {
                 "inputStr": f"##is_perfect_cube({x})",
-                "outputStr": __random_explanation_is_perfect_cube(x, is_perfect_cube_result),
+                "outputStr": __random_explanation_is_perfect_cube(
+                    x, is_perfect_cube_result
+                ),
             }
         )
     return examples

@@ -9,8 +9,12 @@ def create_f2f_cosine_similarity_example(count: int):
     examples = []
     for _ in range(count):
         item = RandomValueGenerator.generate_random_integer(2, 10)
-        list1 = RandomValueGenerator.generate_random_list(length=item, start_range=-10, end_range=100)
-        list2 = RandomValueGenerator.generate_random_list(length=item, start_range=-10, end_range=100)
+        list1 = RandomValueGenerator.generate_random_list(
+            length=item, start_range=-10, end_range=100
+        )
+        list2 = RandomValueGenerator.generate_random_list(
+            length=item, start_range=-10, end_range=100
+        )
         choice_one = __random_io_operation(list1, list2)
         choice_two = __random_io_operation(list1, list2, choice_one)
         examples.append(

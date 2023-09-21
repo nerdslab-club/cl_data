@@ -10,7 +10,7 @@ def create_f2n_a_squared_plus_b_squared_example(count: int):
     for _ in range(count):
         a = RandomValueGenerator.generate_random_integer(-10, 1000)
         b = RandomValueGenerator.generate_random_integer(-10, 1000)
-        result = a ** 2 + b ** 2
+        result = a**2 + b**2
         examples.append(
             {
                 "inputStr": f"##a_squared_plus_b_squared({a}, {b})",
@@ -53,6 +53,7 @@ def __random_explanation_a_squared_plus_b_squared(a, b) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_f2n_a_squared_plus_b_squared_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+            create_f2n_a_squared_plus_b_squared_example(2),
+            TaskTypes.FUNC_TO_NL_TRANSLATION,
         )
     )

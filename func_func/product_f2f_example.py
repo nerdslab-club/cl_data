@@ -21,7 +21,7 @@ def create_f2f_product_example(count: int):
 
 
 def __random_io_operation(num1: int, prev_choice=None) -> str:
-    list1 = [i for i in range(1, num1+1)]
+    list1 = [i for i in range(1, num1 + 1)]
     explanations = [
         f"##product({list1})",
         f"##factorial({num1})",

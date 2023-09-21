@@ -8,14 +8,18 @@ from src.random_value_generator import RandomValueGenerator
 def create_f2n_calculate_dot_product_example(count: int):
     examples = []
     for _ in range(count):
-        vector1 = RandomValueGenerator.generate_random_list(RandomValueGenerator.generate_random_integer(2, 10), -100,
-                                                            10000)
-        vector2 = RandomValueGenerator.generate_random_list(RandomValueGenerator.generate_random_integer(2, 10), -100,
-                                                            10000)
+        vector1 = RandomValueGenerator.generate_random_list(
+            RandomValueGenerator.generate_random_integer(2, 10), -100, 10000
+        )
+        vector2 = RandomValueGenerator.generate_random_list(
+            RandomValueGenerator.generate_random_integer(2, 10), -100, 10000
+        )
         examples.append(
             {
                 "inputStr": f"##calculate_dot_product({vector1}, {vector2})",
-                "outputStr": __random_explanation_calculate_dot_product(vector1, vector2),
+                "outputStr": __random_explanation_calculate_dot_product(
+                    vector1, vector2
+                ),
             }
         )
     return examples
@@ -56,6 +60,7 @@ def __random_explanation_calculate_dot_product(vector1_h, vector2_h) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_f2n_calculate_dot_product_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+            create_f2n_calculate_dot_product_example(2),
+            TaskTypes.FUNC_TO_NL_TRANSLATION,
         )
     )
