@@ -33,9 +33,7 @@ class Utility:
     @staticmethod
     def create_io_map_from_io_tuple(input_list: list) -> list:
         result_list = []
-        # print(input_list)
         for idx, (token, category_dict) in enumerate(input_list):
-            # print(token)
             result_list.append(
                 {"token": token, "category": category_dict, "position": idx}
             )
@@ -124,9 +122,6 @@ class Utility:
                 # If the current word starts with "##" or "$$", we're in a special word
                 is_special_word = True
                 current_word += char
-                # if char == ' ':
-                #     # If there's a space within a special word, remove it
-                #     current_word = current_word.rstrip()
             elif char == ")" and is_special_word:
                 # If we're in a special word and encounter ')', split the word
                 current_word += char
@@ -159,16 +154,3 @@ class Utility:
         # Join the elements in the list into a single line with spaces
         result = " ".join(result)
         return result
-
-
-# if __name__ == "__main__":
-#     raw_input = "This is a sample input for testing masked token prediction." \
-#                 "This is an example sentence for testing next word prediction."
-#
-#     masked_data = Utility.create_masked_input_output_example(raw_input)
-#     sample = Utility.create_sample_from_example(masked_data, PretrainTasks.MASKED_TOKEN_PREDICTION)
-#     print(sample)
-#
-#     next_word_data = Utility.create_next_word_input_output_example(raw_input)
-#     sample = Utility.create_sample_from_example(next_word_data, PretrainTasks.NEXT_TOKEN_PREDICTION)
-#     print(sample)
