@@ -77,7 +77,7 @@ def get_batch_two_example_paragraph():
             f"The number {random_int_four} is a perfect square: ##is_perfect_square({random_int_four}).",
             f"The number {random_int_three} is a perfect cube: ##is_perfect_cube({random_int_three}).",
             f"The mean of the numbers {random_list} is ##mean({random_list}).",
-            f"The median of the numbers {random_list} is ##median({random_list})."
+            f"The median of the numbers {random_list} is ##median({random_list}).",
         ],
         [
             f"Once upon a time, in a land filled with mathematical wonders...",
@@ -118,7 +118,7 @@ def get_batch_two_example_paragraph():
             f"In a twist of characters, {random_int_one} revealed itself to be a palindrome: ##is_palindrome({random_int_one}).",
             f"Meanwhile, the digits of {random_int_two} added up to ##sum_of_digits({random_int_two}).",
             f"In the realm of right triangles, with sides {random_int_one} and {random_int_two}, the hypotenuse was ##hypotenuse({random_int_one}, {random_int_two}).",
-            f"The story came to an end, leaving behind a trail of calculations and mathematical marvels."
+            f"The story came to an end, leaving behind a trail of calculations and mathematical marvels.",
         ],
         [
             f"The area of a circle with radius {random_float} is ##circle_area({random_float}).",
@@ -130,7 +130,7 @@ def get_batch_two_example_paragraph():
             f"The sum of a geometric series with initial term {random_float}, common ratio {random_float}, and {random_int_one} terms is ##geometric_series_sum({random_float}, {random_float}, {random_int_one}).",
             f"The sigmoid value of {random_float} is ##sigmoid({random_float}).",
             f"The cosine similarity between {random_list} and {random_list} is ##cosine_similarity(eval({random_list}), eval({random_list})).",
-            f"The Euler's totient function value for {random_int_four} is ##euler_totient({random_int_four})."
+            f"The Euler's totient function value for {random_int_four} is ##euler_totient({random_int_four}).",
         ],
         [
             f"Once upon a time, in a land of numbers, there lived a vector with elements {random_list}.",
@@ -146,7 +146,7 @@ def get_batch_two_example_paragraph():
             f"Two vectors with elements {random_list} and {random_list} embarked on a journey to find their dot product.",
             f"After a grand calculation, their dot product was revealed to be ##calculate_dot_product({random_list}, {random_list}).",
             f"In a surprising twist, strings were involved. 'Racecar' remained the same when reversed: ##check_same_string('racecar', ##reverse_string('racecar')).",
-            f"The kingdom was full of mathematical wonders, where calculations and numbers ruled the day."
+            f"The kingdom was full of mathematical wonders, where calculations and numbers ruled the day.",
         ],
         [
             f"In the land of Mathville, lived two friends named {random_list[0]} and {random_list[1]}.",
@@ -164,7 +164,7 @@ def get_batch_two_example_paragraph():
             f"As the friends continued their journey, they encountered a simple yet beautiful relation:",
             f"The sum of the squares of {random_int_two} and {random_int_three} is given by ({random_int_two} squared) plus ({random_int_three} squared), which equals ##a_squared_plus_b_squared({random_int_two},{random_int_three}).",
             f"And so, their mathematical adventure in Mathville continued, fueled by their passion for numbers and calculations.",
-        ]
+        ],
     ]
 
     return random.choice(examples)

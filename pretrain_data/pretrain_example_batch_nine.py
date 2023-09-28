@@ -30,7 +30,7 @@ def get_batch_nine_example_paragraph():
             f"Their expedition then ventured into the enigma of cube disparities. The riddle unraveled, revealing the profound difference between the sacred cube of {random_int_one} and the elusive cube of {random_int_four}: ##a_cubed_minus_b_cubed({random_int_one}, {random_int_four}).",
             f"At the zenith of their journey, Maya and Eli faced the ultimate cube challenge. Their insight harmonized with cosmic vibrations, unveiling the cube of the difference between {random_int_two} and {random_int_three}, touched by the trinity of unity, emerging as: ##a_minus_b_whole_cubed_plus_3ab_times_a_minus_b({random_int_two}, {random_int_three}).",
             f"In the end, Maya and Eli discovered that in Arithmos, the language of numbers held the power to reveal the secrets of the universe, and their quest became an eternal testament to the beauty of mathematical exploration.",
-            f"Their legacy echoed through generations, inspiring the curious minds of Arithmos to embark on their own quests, guided by the enchanting allure of numbers and the infinite worlds they unveiled."
+            f"Their legacy echoed through generations, inspiring the curious minds of Arithmos to embark on their own quests, guided by the enchanting allure of numbers and the infinite worlds they unveiled.",
         ],
         [
             f"Venture into the realm of Equatia, where the young scholar, Oliver, sought to unlock the language of numbers.",
@@ -55,7 +55,7 @@ def get_batch_nine_example_paragraph():
             f"In this gathering, a prodigious child pondered the enigma of the cube root of ##hyperbolic_tangent({random_int_three}). A question that resonated with the essence of numbers and the limitless expanse of possibilities.",
             f"Amid contemplation, a sage, guardian of ancient wisdom, pondered the profound union of numbers and angles: ##logarithm_base_2({random_int_four}) raised to the celestial power of ##arcsine({random_float}).",
             f"As destiny's threads wove intricate patterns, the two mathematicians converged, merging their insights to unlock a cryptic equation: ##hyperbolic_cosine({random_float}) * ##exponentiation({random_int_one},{random_int_four}) - ##tangent({random_int_three}).",
-            f"After a symphony of calculations, the answer was revealed: {random_int_two + random_int_four}. Arctopia celebrated, a grand gala honoring intellect and discovery. Thus, the legacy of Arctopia's mathematical marvels continued to illuminate paths ahead."
+            f"After a symphony of calculations, the answer was revealed: {random_int_two + random_int_four}. Arctopia celebrated, a grand gala honoring intellect and discovery. Thus, the legacy of Arctopia's mathematical marvels continued to illuminate paths ahead.",
         ],
         [
             f"Welcome to the mystical land of Mathoria, a realm where numbers hold the keys to secrets beyond imagination. In this land, a spirited adventurer named Max embarked on a journey of numbers and magic.",
@@ -81,7 +81,7 @@ def get_batch_nine_example_paragraph():
             f"Continuing their odyssey, they unveiled the hidden truth of {random_int_three}, a concealed perfect cube: ##is_perfect_cube({random_int_three}).",
             f"With a heart ignited by the power of numbers, the mathematician returned to {random_list}, deciphering their collective story through the prism of the mean: ##mean({random_list}).",
             f"Yet, one last puzzle remained—the elusive median, the rhythmic pulse of the numbers: ##median({random_list}).",
-            f"And thus, the mathematician's odyssey through the realm of numbers pressed on, revealing the intricate tapestry woven by the language of mathematics."
+            f"And thus, the mathematician's odyssey through the realm of numbers pressed on, revealing the intricate tapestry woven by the language of mathematics.",
         ],
         [
             f"In an age where numbers held the secrets of the universe...",
@@ -136,7 +136,7 @@ def get_batch_nine_example_paragraph():
             f"In the realm of triangles, with sides {random_int_one} and {random_int_two},",
             f"the elusive hypotenuse emerged: ##hypotenuse({random_int_one}, {random_int_two}).",
             f"And so, the story of numbers, calculations, and enigmas reached its conclusion,",
-            f"leaving behind a legacy of mathematical wonder and a never-ending pursuit of knowledge."
+            f"leaving behind a legacy of mathematical wonder and a never-ending pursuit of knowledge.",
         ],
         [
             f"Venture into a realm where numbers weave tales of wonder, as a circle emerges with its mysterious radius of {random_float}. Through the incantation of ##circle_area({random_float}), we unveil its enigmatic area, a puzzle piece in the grand numerical tapestry.",
@@ -149,7 +149,7 @@ def get_batch_nine_example_paragraph():
             f"A sigmoid curve, a bridge between extremes, cradles the number {random_float}, culminating in its transformation through the spell ##sigmoid({random_float}). A revelation that mirrors the profound journey from chaos to equilibrium.",
             f"Two vectors, symbolized by {random_list} and {random_list}, engage in a dance of resonance. Their connection, measured by the cosine similarity, unfolds as ##cosine_similarity(eval({random_list}), eval({random_list})), an ode to their harmonious alignment.",
             f"Euler's totient function, an enigmatic oracle of numbers, beckons, unfurling the secrets of {random_int_four}. Its chant, ##euler_totient({random_int_four}), reveals hidden patterns as numbers whisper their tales of co-prime dance.",
-            f"As our odyssey through the numerical realm nears its conclusion, the echoes of equations and calculations linger, leaving behind a sense of wonder and reverence for the boundless world of mathematics."
+            f"As our odyssey through the numerical realm nears its conclusion, the echoes of equations and calculations linger, leaving behind a sense of wonder and reverence for the boundless world of mathematics.",
         ],
         [
             f"Amidst the universe of mathematical wonders, a vector emerged, its elements echoing the harmony of nature: {random_list}.",
@@ -164,7 +164,7 @@ def get_batch_nine_example_paragraph():
             f"In a symphony of exploration, two vectors, embodying the elements {random_list} and {random_list}, embarked on a shared voyage to unveil their dot product.",
             f"After intricate calculations, their journey culminated in the revelation of the dot product as ##calculate_dot_product({random_list}, {random_list}).",
             f"A twist in the tale unfolded as it was discovered that 'Racecar' remained unaltered even through the mirror of reversal: ##check_same_string('racecar', ##reverse_string('racecar')).",
-            f"Within the enchanting tapestry of mathematics, numbers held the key to curiosity and awe, inviting all to decipher their cryptic messages."
+            f"Within the enchanting tapestry of mathematics, numbers held the key to curiosity and awe, inviting all to decipher their cryptic messages.",
         ],
         [
             f"In the mystical domain of Numerosia, two intrepid explorers, {random_list[0]} and {random_list[1]}, embarked on a grand mathematical quest.",
@@ -182,7 +182,7 @@ def get_batch_nine_example_paragraph():
             f"In the vast tapestry of Numerosia, they uncovered a gem of simplicity amid complexity, the heart of their expedition encapsulated:",
             f"The sum of the squares of {random_int_two} and {random_int_three}, a harmonious blend in ({random_int_two} squared) plus ({random_int_three} squared), revealing the essence of ##a_squared_plus_b_squared({random_int_two},{random_int_three}).",
             f"Their odyssey through Numerosia continued, a symphony of exploration driven by their unwavering passion for numbers and the graceful choreography of calculations.",
-        ]
+        ],
     ]
 
     return random.choice(examples)
