@@ -87,3 +87,6 @@ class Constants:
     CATEGORY_TYPE = "type"
     CATEGORY_SUB_TYPE = "subType"
     CATEGORY_SUB_SUB_TYPE = "subSubType"
+    TOKEN = "token"
+    CATEGORY = "category"
+    POSITION = "position"
