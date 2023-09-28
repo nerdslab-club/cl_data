@@ -5,3 +5,4 @@ pytorch_lightning == 2.0.6
 tensorboard == 2.13.0
 black == 23.7.0
 spacy == 3.6.0
+Deprecated == 1.2.14

@@ -69,6 +69,7 @@ class SpecialTokens(Enum):
     SEPARATOR_TOKEN = "<SEP>"
     BEGINNING = "<BOS>"
     ENDING = "<EOS>"
+    PADDING = "<PAD>"
 
 
 class Constants:

@@ -1,11 +1,12 @@
 import random
 from enum import Enum
 from typing import Type
-
 import spacy
+from deprecated import deprecated
 
+from io_parser.category_parser_utility import create_category_map
 from io_parser.io_parser import IoParser
-from src.constants import SpecialTokens, FunctionPrefix
+from src.constants import SpecialTokens, FunctionPrefix, Constants, CategoryType, CategorySubType, CategorySubSubType
 
 
 class Utility:
@@ -17,7 +18,12 @@ class Utility:
         return spacy.load("en_core_web_sm")
 
     @staticmethod
-    def create_sample_from_example(examples: list, task_type: Type[Enum]) -> list:
+    def create_sample_from_example(
+            examples: list,
+            task_type: Type[Enum],
+            max_encoder_sequence_length=None,
+            max_decoder_sequence_length=None,
+    ) -> list:
         for i, example in enumerate(examples):
             input_list = IoParser().create_value_list_from_input(
                 example.get("inputStr")
@@ -25,19 +31,50 @@ class Utility:
             output_list = IoParser().create_value_list_from_input(
                 example.get("outputStr")
             )
-            example["inputMap"] = Utility.create_io_map_from_io_tuple(input_list)
-            example["outputMap"] = Utility.create_io_map_from_io_tuple(output_list)
+            example["inputMap"] = Utility.create_io_map_from_io_tuple(input_list, True, max_encoder_sequence_length)
+            example["outputMap"] = Utility.create_io_map_from_io_tuple(output_list, True, max_decoder_sequence_length)
             example["taskType"] = task_type.value
         return examples
 
     @staticmethod
-    def create_io_map_from_io_tuple(input_list: list) -> list:
+    def create_io_map_from_io_tuple(
+            input_list: list,
+            add_bos_and_eos: bool,
+            max_length=None,
+            default_padding=SpecialTokens.PADDING,
+    ) -> list:
         result_list = []
-        for idx, (token, category_dict) in enumerate(input_list):
-            result_list.append(
-                {"token": token, "category": category_dict, "position": idx}
-            )
+        start = 0
+        if add_bos_and_eos:
+            result_list.append(Utility.get_special_token(0, SpecialTokens.BEGINNING))
+            start = 1
+            max_length = max_length - 2
+        for idx, (token, category_dict) in enumerate(input_list, start=start):
+            result_list.append({Constants.TOKEN: token, Constants.CATEGORY: category_dict, Constants.POSITION: idx})
+
+        if max_length is not None:
+            current_length = len(result_list)
+            if current_length >= max_length:
+                result_list = result_list[:max_length]  # Truncate the list if it's longer than max_length
+            else:
+                num_padding = max_length - current_length
+                for i in range(num_padding):
+                    result_list.append(Utility.get_special_token(current_length + i, default_padding))
+        if add_bos_and_eos:
+            result_list.append(Utility.get_special_token(len(result_list), SpecialTokens.ENDING))
         return result_list
+
+    @staticmethod
+    def get_special_token(position: int, special_token=SpecialTokens.PADDING):
+        return {
+            Constants.TOKEN: special_token.value,
+            Constants.CATEGORY: create_category_map(
+                CategoryType.SPECIAL,
+                CategorySubType.WORD,
+                CategorySubSubType.NONE,
+            ),
+            Constants.POSITION: position,
+        }
 
     @staticmethod
     def remove_spaces(input_string):
@@ -45,7 +82,7 @@ class Utility:
 
     @staticmethod
     def create_masked_input_output_example(
-        paragraph: str, nlp=get_spacy_nlp(), mask_prob=0.15
+            paragraph: str, nlp=get_spacy_nlp(), mask_prob=0.15
     ) -> list:
         sentences = Utility.separate_sentences(paragraph, nlp)
         data = []
@@ -76,7 +113,7 @@ class Utility:
 
     @staticmethod
     def create_next_word_input_output_example(
-        paragraph: str, nlp=get_spacy_nlp(), minimum_token_count=4
+            paragraph: str, nlp=get_spacy_nlp(), minimum_token_count=4
     ) -> list:
         sentences = Utility.separate_sentences(paragraph, nlp)
         data = []
@@ -97,6 +134,7 @@ class Utility:
         return sentences
 
     @staticmethod
+    @deprecated("Function moved to io_parser_utility and apply in io_parser level")
     def split_string_custom(input_string: str):
         # Initialize variables
         result = []
@@ -110,14 +148,14 @@ class Utility:
                 result.append(current_word)
                 current_word = ""
             elif (
-                current_word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
-                or current_word.startswith(
-                    FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value
-                )
-                or current_word.startswith(
-                    FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value
-                )
-                or current_word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
+                    current_word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
+                    or current_word.startswith(
+                FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value
+            )
+                    or current_word.startswith(
+                FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value
+            )
+                    or current_word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
             ):
                 # If the current word starts with "##" or "$$", we're in a special word
                 is_special_word = True
@@ -144,9 +182,9 @@ class Utility:
         result = [
             word.replace(" ", "")
             if word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
-            or word.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value)
-            or word.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
-            or word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
+               or word.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value)
+               or word.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
+               or word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
             else word
             for word in result
         ]

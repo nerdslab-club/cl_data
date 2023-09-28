@@ -328,6 +328,64 @@ def split_string_by_space(input_string: str):
     return input_string.split()
 
 
+def split_string_custom(input_string: str):
+        result = []
+        current_word = ""
+        is_special_word = False
+
+        # Iterate through each character in the input string
+        for char in input_string:
+            if char == " " and not is_special_word:
+                # If it's a space, and we're not in a special word, split the word
+                result.append(current_word)
+                current_word = ""
+            elif (
+                current_word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
+                or current_word.startswith(
+                    FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value
+                )
+                or current_word.startswith(
+                    FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value
+                )
+                or current_word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
+            ):
+                # If the current word starts with "##" or "$$", we're in a special word
+                is_special_word = True
+                current_word += char
+            elif char == ")" and is_special_word:
+                # If we're in a special word and encounter ')', split the word
+                current_word += char
+                result.append(current_word)
+                current_word = ""
+                is_special_word = False
+            elif char in ("(", ")") and not is_special_word:
+                # If it's an adjacent '(' or ')' and we're not in a special word, split it
+                if current_word:
+                    result.append(current_word)
+                result.append(char)
+                current_word = ""
+            else:
+                # Otherwise, add the character to the current word
+                current_word += char
+
+        # Add the last word to the result
+        if current_word:
+            result.append(current_word)
+        result = [
+            word.replace(" ", "")
+            if word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
+            or word.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value)
+            or word.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
+            or word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
+            else word
+            for word in result
+        ]
+
+        # Join the elements in the list into a single line with spaces
+        result = " ".join(result)
+        return result
+
+
 def get_example_input_arrays():
     return [
         "$$addition(3,4)",
