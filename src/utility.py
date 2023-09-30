@@ -59,7 +59,7 @@ class Utility:
         if add_bos_and_eos:
             result_list.append(Utility.get_special_token(0, SpecialTokens.BEGINNING))
             start = 1
-            max_length = max_length - 2
+            max_length = max_length - 1
         for idx, (token, category_dict) in enumerate(input_list, start=start):
             result_list.append(
                 {
