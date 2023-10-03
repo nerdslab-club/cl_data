@@ -51,7 +51,7 @@ class Utility:
     def create_io_map_from_io_tuple(
         input_list: list,
         add_bos_and_eos: bool,
-        max_length=None,
+        max_length: int | None,
         default_padding=SpecialTokens.PADDING,
     ) -> list:
         result_list = []
@@ -59,7 +59,8 @@ class Utility:
         if add_bos_and_eos:
             result_list.append(Utility.get_special_token(0, SpecialTokens.BEGINNING))
             start = 1
-            max_length = max_length - 1
+            if max_length is not None:
+                max_length = max_length - 1
         for idx, (token, category_dict) in enumerate(input_list, start=start):
             result_list.append(
                 {
