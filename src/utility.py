@@ -59,6 +59,8 @@ class Utility:
         if add_bos_and_eos:
             result_list.append(Utility.get_special_token(0, SpecialTokens.BEGINNING))
             start = 1
+            if max_length is not None:
+                max_length = max_length - 1
         for idx, (token, category_dict) in enumerate(input_list, start=start):
             result_list.append(
                 {
@@ -71,24 +73,15 @@ class Utility:
         if max_length is not None:
             current_length = len(result_list)
             if current_length >= max_length:
-                # Truncate the list if it's longer than max_length
-                result_list = result_list[:max_length - 1 if add_bos_and_eos else max_length]
-                if add_bos_and_eos:
-                    result_list.append(
-                        Utility.get_special_token(len(result_list), SpecialTokens.ENDING)
-                    )
+                # Truncate if result length is greater than the max length
+                result_list = result_list[:max_length]
             else:
-                if add_bos_and_eos:
-                    result_list.append(
-                        Utility.get_special_token(len(result_list), SpecialTokens.ENDING)
-                    )
-                current_length = len(result_list)
                 num_padding = max_length - current_length
                 for i in range(num_padding):
                     result_list.append(
                         Utility.get_special_token(current_length + i, default_padding)
                     )
-        elif add_bos_and_eos:
+        if add_bos_and_eos:
             result_list.append(
                 Utility.get_special_token(len(result_list), SpecialTokens.ENDING)
             )
