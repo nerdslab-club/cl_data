@@ -55,7 +55,7 @@ class NextTokenSamplesGenerator:
     @staticmethod
     def create_next_token_batches(
         paragraphs: list[str],
-        count: int,
+        count=1,
         nlp=Utility.get_spacy_nlp(),
     ):
         examples = []

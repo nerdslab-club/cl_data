@@ -54,7 +54,7 @@ class MaskedTokenSamplesGenerator:
     @staticmethod
     def create_masked_token_batches(
         paragraphs: list[str],
-        count: int,
+        count=1,
         nlp=Utility.get_spacy_nlp(),
     ):
         examples = []
