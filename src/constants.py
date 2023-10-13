@@ -91,3 +91,6 @@ class Constants:
     TOKEN = "token"
     CATEGORY = "category"
     POSITION = "position"
+    NOT_MY_TOKEN = "nOtMyToKeN"
+    NOT_MY_TOKEN_INDEX = 0
+
