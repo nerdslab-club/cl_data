@@ -40,6 +40,7 @@ if __name__ == "__main__":
         "##division(##sum([1 ,2 , 3]),##length([4,5,6]))",
         "$$division($$sum([1 ,2 ,3 ]),$$length([4,5,6]))",
         "Adding (3 + 2) is ##addition(3,2)",
+        "The result of subtracting 1 from 5 is ##subtraction(5,1)",
     ]
     for input_string in input_strings:
         output_list = IoParser().create_value_list_from_input(input_string)

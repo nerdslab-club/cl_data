@@ -276,7 +276,6 @@ def get_batch_one_example_paragraph():
             f"Now, for a vector challenge, Alex calculated the dot product of two vectors: {random_list} and {random_list}. The result was ##calculate_dot_product({random_list}, {random_list}).",
             f"Alex's mathematical adventure continued with an exploration of exponentiation. The result of raising {random_int_one} to the power of {random_int_four} was ##exponentiation({random_int_one}, {random_int_four}).",
             f"The journey didn't end there. Alex decided to calculate the cube root of {random_int_three}. After some calculations, the result was ##cube_root({random_int_three}).",
-            f"Finally, in a moment of randomness, Alex checked if a random float {random_float} was greater than or equal to 0.5. The result was ##greater_than_or_equal({random_float}, 0.5).",
             f"As the day came to an end, Alex marveled at the beauty of mathematics and the power of calculations.",
         ],
         [
@@ -315,7 +314,6 @@ if __name__ == "__main__":
 
     masked_example = MaskedTokenSamplesGenerator.create_masked_token_batches(
         get_batch_one_example_paragraph(),
-        1,
     )
     # print(len(masked_example), masked_example)
     sample = Utility.create_sample_from_example(
@@ -328,8 +326,9 @@ if __name__ == "__main__":
 
     next_token_example = NextTokenSamplesGenerator.create_next_token_batches(
         get_batch_one_example_paragraph(),
-        1,
     )
+    # print(get_batch_one_example_paragraph()) # list of sentences
+    print(next_token_example) # list of map with input and output sentences
     sample = Utility.create_sample_from_example(
         next_token_example, PretrainTasks.NEXT_TOKEN_PREDICTION
     )
