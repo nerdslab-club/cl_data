@@ -7,7 +7,7 @@ from src.utility import Utility
 def create_n2f_square_root_example(count: int):
     examples = []
     for _ in range(count):
-        num = random.uniform(1, 99999)  # Using random float between 1 and 99999
+        num = round(random.uniform(1, 99999), 2)  # Using random float between 1 and 99999
         examples.append(
             {
                 "inputStr": __random_explanation(num),
@@ -48,6 +48,6 @@ def __random_explanation(number: float) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_n1f_square_root_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION
+            create_n2f_square_root_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION
         )
     )

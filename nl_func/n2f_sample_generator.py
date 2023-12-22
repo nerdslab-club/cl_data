@@ -1,15 +1,25 @@
 import random
 
 from nl_func.addition_n2f_example import create_n2f_addition_example
+from nl_func.arccosine_n2f_example import create_n2f_arccosine_example
+from nl_func.arcsine_n2f_example import create_n2f_arcsine_example
+from nl_func.arctangent_n2f_example import create_n2f_arctangent_example
+from nl_func.cosine_n2f_example import create_n2f_cosine_example
 from nl_func.division_n2f_example import create_n2f_division_example
 from nl_func.exponentiation_n2f_example import create_n2f_exponentiation_example
 from nl_func.floor_division_n2f_example import create_n2f_floor_division_example
+from nl_func.hyperbolic_cosine_n2f_example import create_n2f_hyperbolic_cosine_example
+from nl_func.hyperbolic_sine_n2f_example import create_n2f_hyperbolic_sine_example
+from nl_func.hyperbolic_tangent_n2f_exmaple import create_n2f_hyperbolic_tangent_example
+from nl_func.logarithm_base_10_n2f_example import create_n2f_logarithm_base_10_example
+from nl_func.logarithm_base_2_n2f_example import create_n2f_logarithm_base_2_example
 from nl_func.logarithm_n2f_example import create_n2f_logarithm_example
 from nl_func.modulus_n2f_example import create_n2f_modulus_example
 from nl_func.multiplication_n2f_example import create_n2f_multiplication_example
 from nl_func.sine_n2f_example import create_n2f_sine_example
 from nl_func.square_root_n2f_example import create_n2f_square_root_example
 from nl_func.subtraction_n2f_example import create_n2f_subtraction_example
+from nl_func.trangent_n2f_example import create_n2f_tangent_example
 from src.constants import TaskTypes
 from src.utility import Utility
 
@@ -56,4 +66,14 @@ class N2FSamples:
             "modulus": create_n2f_modulus_example,
             "logarithm": create_n2f_logarithm_example,
             "sine": create_n2f_sine_example,
+            "cosine": create_n2f_cosine_example,
+            "tangent": create_n2f_tangent_example,
+            "arcsine": create_n2f_arcsine_example,
+            "arccosine": create_n2f_arccosine_example,
+            "arctangent": create_n2f_arctangent_example,
+            "hyperbolic_sine": create_n2f_hyperbolic_sine_example,
+            "hyperbolic_cosine": create_n2f_hyperbolic_cosine_example,
+            "hyperbolic_tangent": create_n2f_hyperbolic_tangent_example,
+            "logarithm_base_10": create_n2f_logarithm_base_10_example,
+            "logarithm_base_2": create_n2f_logarithm_base_2_example,
         }

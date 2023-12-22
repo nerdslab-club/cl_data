@@ -8,9 +8,9 @@ from src.utility import Utility
 def create_n2f_sine_example(count: int):
     examples = []
     for _ in range(count):
-        angle_degrees = random.uniform(
+        angle_degrees = round(random.uniform(
             0, 360
-        )  # Using random angle in degrees between 0 and 360
+        ), 2)
         examples.append(
             {
                 "inputStr": __random_explanation(angle_degrees),
@@ -56,6 +56,6 @@ def __random_explanation(angle_degrees: float) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_n1f_sine_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION
+            create_n2f_sine_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION
         )
     )

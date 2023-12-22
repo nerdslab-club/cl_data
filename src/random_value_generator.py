@@ -49,7 +49,7 @@ class RandomValueGenerator:
         return random_int
 
     @staticmethod
-    def generate_random_float(start_range=0.0, end_range=10000, seed=None):
+    def generate_random_float(start_range=0.0, end_range=10000, round_to=2, seed=None):
         """
         Generate a random float.
 
@@ -58,14 +58,16 @@ class RandomValueGenerator:
             end_range (float): The exclusive end of the random range.
             seed (int, optional): The seed value for random number generation.
                 If provided, the same seed will produce the same random float.
+            round_to: round to the round to.
 
         Returns:
             float: A random float within the specified range.
+
         """
         if seed is not None:
             random.seed(seed)
 
-        random_float = random.uniform(start_range, end_range)
+        random_float = round(random.uniform(start_range, end_range), round_to)
         return random_float
 
     @staticmethod
