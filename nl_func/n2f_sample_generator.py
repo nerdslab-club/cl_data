@@ -9,24 +9,32 @@ from nl_func.arctangent_n2f_example import create_n2f_arctangent_example
 from nl_func.ascending_sort_n2f_example import create_n2f_ascending_sort_example
 from nl_func.binary_to_decimal_n2f_example import create_n2f_binary_to_decimal_example
 from nl_func.ceil_n2f_example import create_n2f_ceil_example
+from nl_func.circle_area_n2f_example import create_n2f_circle_area_example
+from nl_func.combination_n2f_example import create_n2f_combination_example
 from nl_func.cosine_n2f_example import create_n2f_cosine_example
+from nl_func.cosine_similarity_n2f_example import create_n2f_cosine_similarity_example
 from nl_func.cube_n2f_example import create_n2f_cube_example
 from nl_func.cube_root_n2f_example import create_n2f_cube_root_example
 from nl_func.decimal_to_binary_n2f_example import create_n2f_decimal_to_binary_example
 from nl_func.degrees_to_radians_n2f_example import create_n2f_degrees_to_radians_example
 from nl_func.descending_sort_n2f_example import create_n2f_descending_sort_example
 from nl_func.division_n2f_example import create_n2f_division_example
+from nl_func.euler_totient_n2f_example import create_n2f_euler_totient_example
 from nl_func.exponentiation_n2f_example import create_n2f_exponentiation_example
 from nl_func.factorial_n2f_example import create_n2f_factorial_example
+from nl_func.float_to_int_n2f_example import create_n2f_float_to_int_example
 from nl_func.floor_division_n2f_example import create_n2f_floor_division_example
 from nl_func.floor_n2f_example import create_n2f_floor_example
 from nl_func.gcd_n2f_example import create_n2f_gcd_example
 from nl_func.geometric_mean_n2f_example import create_n2f_geometric_mean_example
+from nl_func.geometric_series_sum_n2f_example import create_n2f_geometric_series_sum_example
 from nl_func.greatest_value_n2f_example import create_n2f_greatest_value_example
 from nl_func.hyperbolic_cosine_n2f_example import create_n2f_hyperbolic_cosine_example
 from nl_func.hyperbolic_sine_n2f_example import create_n2f_hyperbolic_sine_example
 from nl_func.hyperbolic_tangent_n2f_exmaple import create_n2f_hyperbolic_tangent_example
 from nl_func.hypotenuse_n2f_example import create_n2f_hypotenuse_example
+from nl_func.int_to_float_n2f_example import create_n2f_int_to_float_example
+from nl_func.invert_number_n2f_example import create_n2f_invert_number_example
 from nl_func.is_even_n2f_example import create_n2f_is_even_example
 from nl_func.is_odd_n2f_example import create_n2f_is_odd_example
 from nl_func.is_palindrome_n2f_example import create_n2f_is_palindrome_example
@@ -46,6 +54,7 @@ from nl_func.min_value_n2f_example import create_n2f_min_value_example
 from nl_func.modulus_n2f_example import create_n2f_modulus_example
 from nl_func.multiplication_n2f_example import create_n2f_multiplication_example
 from nl_func.nth_root_n2f_example import create_n2f_nth_root_example
+from nl_func.permutation_n2f_example import create_n2f_permutation_example
 from nl_func.pow_mod_n2f_example import create_n2f_pow_mod_example
 from nl_func.power_of_ten_n2f_example import create_n2f_power_of_ten_example
 from nl_func.prime_factors_n2f_example import create_n2f_prime_factors_example
@@ -53,6 +62,7 @@ from nl_func.product_n2f_example import create_n2f_product_example
 from nl_func.radians_to_degrees_n2f_example import create_n2f_radians_to_degrees_example
 from nl_func.relu_n2f_example import create_n2f_relu_example
 from nl_func.round_n2f_example import create_n2f_round_example
+from nl_func.sigmoid_n2f_example import create_n2f_sigmoid_example
 from nl_func.sine_n2f_example import create_n2f_sine_example
 from nl_func.smallest_value_n2f_example import create_n2f_smallest_value_example
 from nl_func.square_int_n2f_example import create_n2f_square_int_example
@@ -158,4 +168,14 @@ class N2FSamples:
             "is_palindrome": create_n2f_is_palindrome_example,
             "sum_of_digits": create_n2f_sum_of_digits_example,
             "hypotenuse": create_n2f_hypotenuse_example,
+            "circle_area": create_n2f_circle_area_example,
+            "permutation": create_n2f_permutation_example,
+            "combination": create_n2f_combination_example,
+            "invert_number": create_n2f_invert_number_example,
+            "float_to_int": create_n2f_float_to_int_example,
+            "int_to_float": create_n2f_int_to_float_example,
+            "geometric_series_sum": create_n2f_geometric_series_sum_example,
+            "sigmoid": create_n2f_sigmoid_example,
+            "cosine_similarity": create_n2f_cosine_similarity_example,
+            "euler_totient": create_n2f_euler_totient_example,
         }

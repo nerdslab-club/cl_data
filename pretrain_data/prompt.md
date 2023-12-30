@@ -103,7 +103,6 @@ is_palindrome(x: str)
 sum_of_digits(x: int)
 hypotenuse(a: float, b: float)
 
-
 circle_area(radius: float)
 permutation(n: int, r: int)
 combination(n: int, r: int)
@@ -114,6 +113,7 @@ geometric_series_sum(a: float, r: float, n: int)
 sigmoid(x: float)
 cosine_similarity(vector1: list, vector2: list)
 euler_totient(n: int)
+
 
 l1_norm(vector: list)
 l2_norm(vector: list)
