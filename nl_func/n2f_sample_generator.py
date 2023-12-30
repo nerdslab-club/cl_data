@@ -10,23 +10,33 @@ from nl_func.cosine_n2f_example import create_n2f_cosine_example
 from nl_func.degrees_to_radians_n2f_example import create_n2f_degrees_to_radians_example
 from nl_func.division_n2f_example import create_n2f_division_example
 from nl_func.exponentiation_n2f_example import create_n2f_exponentiation_example
+from nl_func.factorial_n2f_example import create_n2f_factorial_example
 from nl_func.floor_division_n2f_example import create_n2f_floor_division_example
 from nl_func.floor_n2f_example import create_n2f_floor_example
 from nl_func.gcd_n2f_example import create_n2f_gcd_example
+from nl_func.greatest_value_n2f_example import create_n2f_greatest_value_example
 from nl_func.hyperbolic_cosine_n2f_example import create_n2f_hyperbolic_cosine_example
 from nl_func.hyperbolic_sine_n2f_example import create_n2f_hyperbolic_sine_example
 from nl_func.hyperbolic_tangent_n2f_exmaple import create_n2f_hyperbolic_tangent_example
+from nl_func.is_perfect_cube_n2f_example import create_n2f_is_perfect_cube_example
+from nl_func.is_perfect_square_n2f_example import create_n2f_is_perfect_square_example
+from nl_func.is_prime_n2f_example import create_n2f_is_prime_example
 from nl_func.isqrt_n2f_example import create_n2f_isqrt_example
 from nl_func.lcm_n2f_example import create_n2f_lcm_example
 from nl_func.logarithm_base_10_n2f_example import create_n2f_logarithm_base_10_example
 from nl_func.logarithm_base_2_n2f_example import create_n2f_logarithm_base_2_example
 from nl_func.logarithm_n2f_example import create_n2f_logarithm_example
+from nl_func.mean_n2f_example import create_n2f_mean_example
+from nl_func.median_n2f_example import create_n2f_median_example
 from nl_func.modulus_n2f_example import create_n2f_modulus_example
 from nl_func.multiplication_n2f_example import create_n2f_multiplication_example
 from nl_func.pow_mod_n2f_example import create_n2f_pow_mod_example
+from nl_func.prime_factors_n2f_example import create_n2f_prime_factors_example
+from nl_func.product_n2f_example import create_n2f_product_example
 from nl_func.radians_to_degrees_n2f_example import create_n2f_radians_to_degrees_example
 from nl_func.round_n2f_example import create_n2f_round_example
 from nl_func.sine_n2f_example import create_n2f_sine_example
+from nl_func.smallest_value_n2f_example import create_n2f_smallest_value_example
 from nl_func.square_root_n2f_example import create_n2f_square_root_example
 from nl_func.subtraction_n2f_example import create_n2f_subtraction_example
 from nl_func.trangent_n2f_example import create_n2f_tangent_example
@@ -96,4 +106,14 @@ class N2FSamples:
             "floor": create_n2f_floor_example,
             "round": create_n2f_round_example,
             "absolute_difference": create_n2f_absolute_difference_example,
+            "greatest_value": create_n2f_greatest_value_example,
+            "smallest_value": create_n2f_smallest_value_example,
+            "product": create_n2f_product_example,
+            "factorial": create_n2f_factorial_example,
+            "is_prime": create_n2f_is_prime_example,
+            "prime_factors": create_n2f_prime_factors_example,
+            "is_perfect_square": create_n2f_is_perfect_square_example,
+            "is_perfect_cube": create_n2f_is_perfect_cube_example,
+            "mean": create_n2f_mean_example,
+            "median": create_n2f_median_example,
         }
