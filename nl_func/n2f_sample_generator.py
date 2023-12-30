@@ -7,10 +7,12 @@ from nl_func.arccosine_n2f_example import create_n2f_arccosine_example
 from nl_func.arcsine_n2f_example import create_n2f_arcsine_example
 from nl_func.arctangent_n2f_example import create_n2f_arctangent_example
 from nl_func.ascending_sort_n2f_example import create_n2f_ascending_sort_example
+from nl_func.binary_to_decimal_n2f_example import create_n2f_binary_to_decimal_example
 from nl_func.ceil_n2f_example import create_n2f_ceil_example
 from nl_func.cosine_n2f_example import create_n2f_cosine_example
 from nl_func.cube_n2f_example import create_n2f_cube_example
 from nl_func.cube_root_n2f_example import create_n2f_cube_root_example
+from nl_func.decimal_to_binary_n2f_example import create_n2f_decimal_to_binary_example
 from nl_func.degrees_to_radians_n2f_example import create_n2f_degrees_to_radians_example
 from nl_func.descending_sort_n2f_example import create_n2f_descending_sort_example
 from nl_func.division_n2f_example import create_n2f_division_example
@@ -19,24 +21,31 @@ from nl_func.factorial_n2f_example import create_n2f_factorial_example
 from nl_func.floor_division_n2f_example import create_n2f_floor_division_example
 from nl_func.floor_n2f_example import create_n2f_floor_example
 from nl_func.gcd_n2f_example import create_n2f_gcd_example
+from nl_func.geometric_mean_n2f_example import create_n2f_geometric_mean_example
 from nl_func.greatest_value_n2f_example import create_n2f_greatest_value_example
 from nl_func.hyperbolic_cosine_n2f_example import create_n2f_hyperbolic_cosine_example
 from nl_func.hyperbolic_sine_n2f_example import create_n2f_hyperbolic_sine_example
 from nl_func.hyperbolic_tangent_n2f_exmaple import create_n2f_hyperbolic_tangent_example
+from nl_func.hypotenuse_n2f_example import create_n2f_hypotenuse_example
 from nl_func.is_even_n2f_example import create_n2f_is_even_example
 from nl_func.is_odd_n2f_example import create_n2f_is_odd_example
+from nl_func.is_palindrome_n2f_example import create_n2f_is_palindrome_example
 from nl_func.is_perfect_cube_n2f_example import create_n2f_is_perfect_cube_example
 from nl_func.is_perfect_square_n2f_example import create_n2f_is_perfect_square_example
+from nl_func.is_power_of_two_n2f_example import create_n2f_is_power_of_two_example
 from nl_func.is_prime_n2f_example import create_n2f_is_prime_example
 from nl_func.isqrt_n2f_example import create_n2f_isqrt_example
 from nl_func.lcm_n2f_example import create_n2f_lcm_example
 from nl_func.logarithm_base_10_n2f_example import create_n2f_logarithm_base_10_example
 from nl_func.logarithm_base_2_n2f_example import create_n2f_logarithm_base_2_example
 from nl_func.logarithm_n2f_example import create_n2f_logarithm_example
+from nl_func.max_value_n2f_example import create_n2f_max_value_example
 from nl_func.mean_n2f_example import create_n2f_mean_example
 from nl_func.median_n2f_example import create_n2f_median_example
+from nl_func.min_value_n2f_example import create_n2f_min_value_example
 from nl_func.modulus_n2f_example import create_n2f_modulus_example
 from nl_func.multiplication_n2f_example import create_n2f_multiplication_example
+from nl_func.nth_root_n2f_example import create_n2f_nth_root_example
 from nl_func.pow_mod_n2f_example import create_n2f_pow_mod_example
 from nl_func.power_of_ten_n2f_example import create_n2f_power_of_ten_example
 from nl_func.prime_factors_n2f_example import create_n2f_prime_factors_example
@@ -50,6 +59,7 @@ from nl_func.square_int_n2f_example import create_n2f_square_int_example
 from nl_func.square_n2f_example import create_n2f_square_example
 from nl_func.square_root_n2f_example import create_n2f_square_root_example
 from nl_func.subtraction_n2f_example import create_n2f_subtraction_example
+from nl_func.sum_of_digits_n2f_example import create_n2f_sum_of_digits_example
 from nl_func.trangent_n2f_example import create_n2f_tangent_example
 from src.constants import TaskTypes
 from src.utility import Utility
@@ -138,4 +148,14 @@ class N2FSamples:
             "cube_root": create_n2f_cube_root_example,
             "is_even": create_n2f_is_even_example,
             "is_odd": create_n2f_is_odd_example,
+            "max_value": create_n2f_max_value_example,
+            "min_value": create_n2f_min_value_example,
+            "nth_root": create_n2f_nth_root_example,
+            "geometric_mean": create_n2f_geometric_mean_example,
+            "is_power_of_two": create_n2f_is_power_of_two_example,
+            "binary_to_decimal": create_n2f_binary_to_decimal_example,
+            "decimal_to_binary": create_n2f_decimal_to_binary_example,
+            "is_palindrome": create_n2f_is_palindrome_example,
+            "sum_of_digits": create_n2f_sum_of_digits_example,
+            "hypotenuse": create_n2f_hypotenuse_example,
         }

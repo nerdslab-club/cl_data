@@ -80,8 +80,6 @@ is_perfect_cube(x: int)
 mean(numbers: list)
 median(numbers: list)
 
-
-
 relu(x: float)
 ascending_sort(lst: list[int])
 descending_sort(lst: list[int])
@@ -104,6 +102,7 @@ decimal_to_binary(decimal)
 is_palindrome(x: str)
 sum_of_digits(x: int)
 hypotenuse(a: float, b: float)
+
 
 circle_area(radius: float)
 permutation(n: int, r: int)
