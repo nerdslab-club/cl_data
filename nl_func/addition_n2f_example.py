@@ -1,14 +1,15 @@
 import random
 
 from src.constants import TaskTypes
+from src.random_value_generator import RandomValueGenerator
 from src.utility import Utility
 
 
 def create_n2f_addition_example(count: int):
     examples = []
     for _ in range(count):
-        num1 = random.randint(0, 1000)
-        num2 = random.randint(0, 1000)
+        num1 = RandomValueGenerator.generate_random_integer(0, 1000)
+        num2 = RandomValueGenerator.generate_random_integer(0, 1000)
         examples.append(
             {
                 "inputStr": __random_explanation(num1, num2),
