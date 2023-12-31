@@ -311,11 +311,9 @@ def get_batch_one_example_paragraph():
 
 if __name__ == "__main__":
     from masked_token_sample_generator import MaskedTokenSamplesGenerator
-
     masked_example = MaskedTokenSamplesGenerator.create_masked_token_batches(
         get_batch_one_example_paragraph(),
     )
-    # print(len(masked_example), masked_example)
     sample = Utility.create_sample_from_example(
         masked_example,
         PretrainTasks.MASKED_TOKEN_PREDICTION,
@@ -323,13 +321,11 @@ if __name__ == "__main__":
     print(sample)
 
     from next_token_sample_generator import NextTokenSamplesGenerator
-
     next_token_example = NextTokenSamplesGenerator.create_next_token_batches(
         get_batch_one_example_paragraph(),
     )
-    # print(get_batch_one_example_paragraph()) # list of sentences
-    print(next_token_example) # list of map with input and output sentences
     sample = Utility.create_sample_from_example(
-        next_token_example, PretrainTasks.NEXT_TOKEN_PREDICTION
+        next_token_example,
+        PretrainTasks.NEXT_TOKEN_PREDICTION
     )
     print(sample)
