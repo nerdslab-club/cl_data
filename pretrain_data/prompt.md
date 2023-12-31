@@ -114,7 +114,6 @@ sigmoid(x: float)
 cosine_similarity(vector1: list, vector2: list)
 euler_totient(n: int)
 
-
 l1_norm(vector: list)
 l2_norm(vector: list)
 average(numbers: list)

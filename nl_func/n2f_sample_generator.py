@@ -1,5 +1,22 @@
 import random
 
+from nl_func.a_cubed_minus_b_cubed_n2f_example import create_n2f_a_cubed_minus_b_cubed_example
+from nl_func.a_cubed_plus_b_cubed_n2f_example import create_n2f_a_cubed_plus_b_cubed_example
+from nl_func.a_minus_b_times_a_squared_plus_ab_plus_b_squared_n2f_example import \
+    create_n2f_a_minus_b_times_a_squared_plus_ab_plus_b_squared_example
+from nl_func.a_minus_b_whole_cubed_plus_3ab_times_a_minus_b_n2f_example import \
+    create_n2f_a_minus_b_whole_cubed_plus_3ab_times_a_minus_b_example
+from nl_func.a_minus_b_whole_squared_n2f_example import create_n2f_a_minus_b_whole_squared_example
+from nl_func.a_minus_b_whole_squared_plus_4ab_n2f_example import create_n2f_a_minus_b_whole_squared_plus_4ab_example
+from nl_func.a_plus_b_times_a_squared_minus_ab_plus_b_squared_n2f_example import \
+    create_n2f_a_plus_b_times_a_squared_minus_ab_plus_b_squared_example
+from nl_func.a_plus_b_whole_cubed_minus_3ab_times_a_plus_b_n2f_example import \
+    create_n2f_a_plus_b_whole_cubed_minus_3ab_times_a_plus_b_example
+from nl_func.a_plus_b_whole_square_n2f_example import create_n2f_a_plus_b_whole_square_example
+from nl_func.a_plus_b_whole_squared_minus_4ab_n2f_example import create_n2f_a_plus_b_whole_squared_minus_4ab_example
+from nl_func.a_squared_minus_2ab_plus_b_squared_n2f_example import create_n2f_a_squared_minus_2ab_plus_b_squared_example
+from nl_func.a_squared_plus_2ab_plus_b_squared_n2f_example import create_n2f_a_squared_plus_2ab_plus_b_squared_example
+from nl_func.a_squared_plus_b_squared_n2f_example import create_n2f_a_squared_plus_b_squared_example
 from nl_func.absolute_difference_n2f_example import create_n2f_absolute_difference_example
 from nl_func.absolute_n2f_example import create_n2f_absolute_example
 from nl_func.addition_n2f_example import create_n2f_addition_example
@@ -61,8 +78,10 @@ from nl_func.median_n2f_example import create_n2f_median_example
 from nl_func.min_value_n2f_example import create_n2f_min_value_example
 from nl_func.modulus_n2f_example import create_n2f_modulus_example
 from nl_func.multiplication_n2f_example import create_n2f_multiplication_example
+from nl_func.negative_2ab_n2f_example import create_n2f_negative_2ab_example
 from nl_func.nth_root_n2f_example import create_n2f_nth_root_example
 from nl_func.permutation_n2f_example import create_n2f_permutation_example
+from nl_func.positive_2ab_n2f_example import create_n2f_positive_2ab_example
 from nl_func.pow_mod_n2f_example import create_n2f_pow_mod_example
 from nl_func.power_of_ten_n2f_example import create_n2f_power_of_ten_example
 from nl_func.prime_factors_n2f_example import create_n2f_prime_factors_example
@@ -81,6 +100,9 @@ from nl_func.subtraction_n2f_example import create_n2f_subtraction_example
 from nl_func.sum_n2f_example import create_n2f_sum_example
 from nl_func.sum_of_digits_n2f_example import create_n2f_sum_of_digits_example
 from nl_func.trangent_n2f_example import create_n2f_tangent_example
+from nl_func.x_plus_a_times_x_plus_b_n2f_example import create_n2f_x_plus_a_times_x_plus_b_example
+from nl_func.x_squared_plus_a_plus_b_times_x_plus_ab_n2f_example import \
+    create_n2f_x_squared_plus_a_plus_b_times_x_plus_ab_example
 from src.constants import TaskTypes
 from src.utility import Utility
 
@@ -198,4 +220,21 @@ class N2FSamples:
             "get_pi": create_n2f_get_pi_example,
             "get_e": create_n2f_get_e_example,
             "calculate_dot_product": create_n2f_calculate_dot_product_example,
+            "a_plus_b_whole_square": create_n2f_a_plus_b_whole_square_example,
+            "a_squared_plus_2ab_plus_b_squared": create_n2f_a_squared_plus_2ab_plus_b_squared_example,
+            "a_minus_b_whole_squared_plus_4ab": create_n2f_a_minus_b_whole_squared_plus_4ab_example,
+            "a_minus_b_whole_squared": create_n2f_a_minus_b_whole_squared_example,
+            "a_squared_minus_2ab_plus_b_squared": create_n2f_a_squared_minus_2ab_plus_b_squared_example,
+            "a_plus_b_whole_squared_minus_4ab": create_n2f_a_plus_b_whole_squared_minus_4ab_example,
+            "a_squared_plus_b_squared": create_n2f_a_squared_plus_b_squared_example,
+            "negative_2ab": create_n2f_negative_2ab_example,
+            "positive_2ab": create_n2f_positive_2ab_example,
+            "x_plus_a_times_x_plus_b": create_n2f_x_plus_a_times_x_plus_b_example,
+            "x_squared_plus_a_plus_b_times_x_plus_ab": create_n2f_x_squared_plus_a_plus_b_times_x_plus_ab_example,
+            "a_cubed_plus_b_cubed": create_n2f_a_cubed_plus_b_cubed_example,
+            "a_plus_b_whole_cubed_minus_3ab_times_a_plus_b": create_n2f_a_plus_b_whole_cubed_minus_3ab_times_a_plus_b_example,
+            "a_plus_b_times_a_squared_minus_ab_plus_b_squared": create_n2f_a_plus_b_times_a_squared_minus_ab_plus_b_squared_example,
+            "a_cubed_minus_b_cubed": create_n2f_a_cubed_minus_b_cubed_example,
+            "a_minus_b_whole_cubed_plus_3ab_times_a_minus_b": create_n2f_a_minus_b_whole_cubed_plus_3ab_times_a_minus_b_example,
+            "a_minus_b_times_a_squared_plus_ab_plus_b_squared": create_n2f_a_minus_b_times_a_squared_plus_ab_plus_b_squared_example,
         }
