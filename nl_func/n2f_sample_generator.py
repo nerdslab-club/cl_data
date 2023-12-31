@@ -7,8 +7,11 @@ from nl_func.arccosine_n2f_example import create_n2f_arccosine_example
 from nl_func.arcsine_n2f_example import create_n2f_arcsine_example
 from nl_func.arctangent_n2f_example import create_n2f_arctangent_example
 from nl_func.ascending_sort_n2f_example import create_n2f_ascending_sort_example
+from nl_func.average_n2f_example import create_n2f_average_example
 from nl_func.binary_to_decimal_n2f_example import create_n2f_binary_to_decimal_example
+from nl_func.calculate_dot_product_n2f_example import create_n2f_calculate_dot_product_example
 from nl_func.ceil_n2f_example import create_n2f_ceil_example
+from nl_func.check_same_string_n2f_example import create_n2f_check_same_string_example
 from nl_func.circle_area_n2f_example import create_n2f_circle_area_example
 from nl_func.combination_n2f_example import create_n2f_combination_example
 from nl_func.cosine_n2f_example import create_n2f_cosine_example
@@ -28,6 +31,8 @@ from nl_func.floor_n2f_example import create_n2f_floor_example
 from nl_func.gcd_n2f_example import create_n2f_gcd_example
 from nl_func.geometric_mean_n2f_example import create_n2f_geometric_mean_example
 from nl_func.geometric_series_sum_n2f_example import create_n2f_geometric_series_sum_example
+from nl_func.get_e_n2f_example import create_n2f_get_e_example
+from nl_func.get_pi_n2f_example import create_n2f_get_pi_example
 from nl_func.greatest_value_n2f_example import create_n2f_greatest_value_example
 from nl_func.hyperbolic_cosine_n2f_example import create_n2f_hyperbolic_cosine_example
 from nl_func.hyperbolic_sine_n2f_example import create_n2f_hyperbolic_sine_example
@@ -43,7 +48,10 @@ from nl_func.is_perfect_square_n2f_example import create_n2f_is_perfect_square_e
 from nl_func.is_power_of_two_n2f_example import create_n2f_is_power_of_two_example
 from nl_func.is_prime_n2f_example import create_n2f_is_prime_example
 from nl_func.isqrt_n2f_example import create_n2f_isqrt_example
+from nl_func.l1_norm_n2f_example import create_n2f_l1_norm_example
+from nl_func.l2_norm_n2f_example import create_n2f_l2_norm_example
 from nl_func.lcm_n2f_example import create_n2f_lcm_example
+from nl_func.length_n2f_example import create_n2f_length_example
 from nl_func.logarithm_base_10_n2f_example import create_n2f_logarithm_base_10_example
 from nl_func.logarithm_base_2_n2f_example import create_n2f_logarithm_base_2_example
 from nl_func.logarithm_n2f_example import create_n2f_logarithm_example
@@ -61,6 +69,7 @@ from nl_func.prime_factors_n2f_example import create_n2f_prime_factors_example
 from nl_func.product_n2f_example import create_n2f_product_example
 from nl_func.radians_to_degrees_n2f_example import create_n2f_radians_to_degrees_example
 from nl_func.relu_n2f_example import create_n2f_relu_example
+from nl_func.reverse_string_n2f_example import create_n2f_reverse_string_example
 from nl_func.round_n2f_example import create_n2f_round_example
 from nl_func.sigmoid_n2f_example import create_n2f_sigmoid_example
 from nl_func.sine_n2f_example import create_n2f_sine_example
@@ -69,6 +78,7 @@ from nl_func.square_int_n2f_example import create_n2f_square_int_example
 from nl_func.square_n2f_example import create_n2f_square_example
 from nl_func.square_root_n2f_example import create_n2f_square_root_example
 from nl_func.subtraction_n2f_example import create_n2f_subtraction_example
+from nl_func.sum_n2f_example import create_n2f_sum_example
 from nl_func.sum_of_digits_n2f_example import create_n2f_sum_of_digits_example
 from nl_func.trangent_n2f_example import create_n2f_tangent_example
 from src.constants import TaskTypes
@@ -178,4 +188,14 @@ class N2FSamples:
             "sigmoid": create_n2f_sigmoid_example,
             "cosine_similarity": create_n2f_cosine_similarity_example,
             "euler_totient": create_n2f_euler_totient_example,
+            "l1_norm": create_n2f_l1_norm_example,
+            "l2_norm": create_n2f_l2_norm_example,
+            "average": create_n2f_average_example,
+            "sum": create_n2f_sum_example,
+            "length": create_n2f_length_example,
+            "check_same_string": create_n2f_check_same_string_example,
+            "reverse_string": create_n2f_reverse_string_example,
+            "get_pi": create_n2f_get_pi_example,
+            "get_e": create_n2f_get_e_example,
+            "calculate_dot_product": create_n2f_calculate_dot_product_example,
         }
