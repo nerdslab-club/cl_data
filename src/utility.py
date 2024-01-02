@@ -39,10 +39,10 @@ class Utility:
                 example.get("outputStr")
             )
             example["inputMap"] = Utility.create_io_map_from_io_tuple(
-                input_list, True, max_encoder_sequence_length
+                input_list, True, max_encoder_sequence_length, is_eos_finishing_token=False
             )
             example["outputMap"] = Utility.create_io_map_from_io_tuple(
-                output_list, True, max_decoder_sequence_length
+                output_list, True, max_decoder_sequence_length, is_eos_finishing_token=False
             )
             example["taskType"] = task_type.value
         return examples
@@ -53,13 +53,14 @@ class Utility:
             add_bos_and_eos: bool,
             max_length: int | None,
             default_padding=SpecialTokens.PADDING,
+            is_eos_finishing_token: bool = True,
     ) -> list:
         result_list = []
         start = 0
         if add_bos_and_eos:
             result_list.append(Utility.get_special_token(0, SpecialTokens.BEGINNING))
             start = 1
-            if max_length is not None:
+            if max_length is not None and is_eos_finishing_token:
                 max_length = max_length - 1
         for idx, (token, category_dict) in enumerate(input_list, start=start):
             result_list.append(
@@ -69,7 +70,10 @@ class Utility:
                     Constants.POSITION: idx,
                 }
             )
-
+        if add_bos_and_eos and not is_eos_finishing_token:
+            result_list.append(
+                Utility.get_special_token(len(result_list), SpecialTokens.ENDING)
+            )
         if max_length is not None:
             current_length = len(result_list)
             if current_length >= max_length:
@@ -81,7 +85,7 @@ class Utility:
                     result_list.append(
                         Utility.get_special_token(current_length + i, default_padding)
                     )
-        if add_bos_and_eos:
+        if add_bos_and_eos and is_eos_finishing_token:
             result_list.append(
                 Utility.get_special_token(len(result_list), SpecialTokens.ENDING)
             )
