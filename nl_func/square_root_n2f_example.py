@@ -17,30 +17,30 @@ def create_n2f_square_root_example(count: int):
     return examples
 
 
-def __random_explanation(number: float) -> str:
+def __random_explanation(f1: float) -> str:
     explanations = [
-        f"Finding the square root of {number}",
-        f"The square root of {number}",
-        f"Square root of {number}",
-        f"Root of {number}, what is it?",
-        f"Calculate the square root of {number}",
-        f"The number whose square root is {number}",
-        f"Square root of {number}, equals?",
-        f"Taking the square root of {number}",
-        f"Square root of {number}, the answer?",
-        f"The square root of {number}, find it",
-        f"The root of {number}, the value?",
-        f"Square root of {number}, what do you get?",
-        f"Square root of {number}, result is",
-        f"The result of square root of {number}",
-        f"Let's find the square root of {number}",
-        f"Root calculation for {number}",
-        f"Square root: √{number}",
-        f"Find the square root of {number}, result?",
-        f"The value when square root is taken for {number}",
-        f"The square root of {number}, the outcome?",
-        f"The square root of {number}, in decimal",
-        f"The square root of {number}, in numerical form",
+        f"Finding the square root of {f1}",
+        f"The square root of {f1}",
+        f"Square root of {f1}",
+        f"Root of {f1}, what is it?",
+        f"Calculate the square root of {f1}",
+        f"The number whose square root is {f1}",
+        f"Square root of {f1}, equals?",
+        f"Taking the square root of {f1}",
+        f"Square root of {f1}, the answer?",
+        f"The square root of {f1}, find it",
+        f"The root of {f1}, the value?",
+        f"Square root of {f1}, what do you get?",
+        f"Square root of {f1}, result is",
+        f"The result of square root of {f1}",
+        f"Let's find the square root of {f1}",
+        f"Root calculation for {f1}",
+        f"Square root: √{f1}",
+        f"Find the square root of {f1}, result?",
+        f"The value when square root is taken for {f1}",
+        f"The square root of {f1}, the outcome?",
+        f"The square root of {f1}, in decimal",
+        f"The square root of {f1}, in numerical form",
     ]
     return random.choice(explanations)
 

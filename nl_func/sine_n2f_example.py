@@ -8,9 +8,7 @@ from src.utility import Utility
 def create_n2f_sine_example(count: int):
     examples = []
     for _ in range(count):
-        angle_degrees = round(random.uniform(
-            0, 360
-        ), 2)
+        angle_degrees = round(random.uniform(0, 360), 2)
         examples.append(
             {
                 "inputStr": __random_explanation(angle_degrees),
