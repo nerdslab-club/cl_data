@@ -7,9 +7,9 @@ from src.utility import Utility
 def create_n2f_floor_division_example(count: int):
     examples = []
     for _ in range(count):
-        num1 = random.randint(1, 10000)  # Using random integer between 1 and 100
+        num1 = random.randint(1, 1000)  # Using random integer between 1 and 100
         num2 = random.randint(
-            1, 19990
+            1, 1000
         )  # Using random integer between 1 and 100 (avoid division by zero)
         examples.append(
             {
@@ -20,36 +20,36 @@ def create_n2f_floor_division_example(count: int):
     return examples
 
 
-def __random_explanation(x: int, y: int) -> str:
+def __random_explanation(a: int, b: int) -> str:
     explanations = [
-        f"Floor dividing {x} by {y}",
-        f"{x} floor divided by {y}",
-        f"{x} divided by {y} using floor division",
-        f"The result of {x} floor divided by {y}",
-        f"{x} divided by {y} using floor division, what is it?",
-        f"Calculation: {x} // {y}",
-        f"{x} floor divided by {y}, equals?",
-        f"Taking {x} and floor dividing by {y}",
-        f"{x} divided by {y} with floor division, the answer?",
-        f"Quotient when {x} is floor divided by {y}",
-        f"{x} and {y} floor division",
-        f"The floor division of {x} and {y}",
-        f"{x} divided by {y} using floor division, is?",
-        f"{x} divided by {y} using floor division, result is",
-        f"{x} and {y} floor divided, the result?",
-        f"Floor division: {x} // {y}",
-        f"Let's floor divide {x} by {y}",
-        f"Find the result of {x} divided by {y} using floor division",
-        f"{x} and {y}, their floor division?",
-        f"{x} divided by {y} using floor division, the outcome?",
-        f"{x} and {y}, what will be the quotient using floor division?",
-        f"Floor division calculation: {x} // {y}",
-        f"{x} divided by {y} using floor division, result?",
-        f"{x} divided into {y} parts using floor division",
-        f"{x} distributed over {y} with floor division",
-        f"The result when {x} is divided by {y} using floor division",
-        f"{x} divided by {y} with floor division, in whole numbers",
-        f"The quotient when {x} is floor divided by {y}",
+        f"Floor dividing {a} by {b}",
+        f"{a} floor divided by {b}",
+        f"{a} divided by {b} using floor division",
+        f"The result of {a} floor divided by {b}",
+        f"{a} divided by {b} using floor division, what is it?",
+        f"Calculation: {a} // {b}",
+        f"{a} floor divided by {b}, equals?",
+        f"Taking {a} and floor dividing by {b}",
+        f"{a} divided by {b} with floor division, the answer?",
+        f"Quotient when {a} is floor divided by {b}",
+        f"{a} and {b} floor division",
+        f"The floor division of {a} and {b}",
+        f"{a} divided by {b} using floor division, is?",
+        f"{a} divided by {b} using floor division, result is",
+        f"{a} and {b} floor divided, the result?",
+        f"Floor division: {a} // {b}",
+        f"Let's floor divide {a} by {b}",
+        f"Find the result of {a} divided by {b} using floor division",
+        f"{a} and {b}, their floor division?",
+        f"{a} divided by {b} using floor division, the outcome?",
+        f"{a} and {b}, what will be the quotient using floor division?",
+        f"Floor division calculation: {a} // {b}",
+        f"{a} divided by {b} using floor division, result?",
+        f"{a} divided into {b} parts using floor division",
+        f"{a} distributed over {b} with floor division",
+        f"The result when {a} is divided by {b} using floor division",
+        f"{a} divided by {b} with floor division, in whole numbers",
+        f"The quotient when {a} is floor divided by {b}",
     ]
     return random.choice(explanations)
 

@@ -7,7 +7,7 @@ from src.utility import Utility
 def create_n2f_exponentiation_example(count: int):
     examples = []
     for _ in range(count):
-        num1 = random.uniform(1, 1000)  # Base: random float between 1 and 10
+        num1 = random.uniform(1, 100)  # Base: random float between 1 and 10
         num2 = random.randint(0, 50)  # Exponent: random integer between 0 and 5
         examples.append(
             {
@@ -18,33 +18,33 @@ def create_n2f_exponentiation_example(count: int):
     return examples
 
 
-def __random_explanation(base: float, exponent: int) -> str:
+def __random_explanation(f1: float, f2: int) -> str:
     explanations = [
-        f"Raising {base} to the power of {exponent}",
-        f"{base} raised to the power of {exponent}",
-        f"{base} to the power of {exponent}",
-        f"{base} exponentiated by {exponent}",
-        f"The result of {base} raised to {exponent}",
-        f"{base} raised to {exponent}, what is it?",
-        f"Calculation: {base} ** {exponent}",
-        f"{base} raised to {exponent}, equals?",
-        f"Taking {base} and exponentiating by {exponent}",
-        f"{base} raised to {exponent}, the answer?",
-        f"{base} to the power of {exponent}, find the result",
-        f"{base} and {exponent} exponentiation",
-        f"The exponentiation of {base} and {exponent}",
-        f"{base} raised to {exponent} is?",
-        f"{base} raised to {exponent} is equal to?",
-        f"{base} and {exponent} exponentiated, the result?",
-        f"Exponentiation: {base} ** {exponent}",
-        f"Let's raise {base} to the power of {exponent}",
-        f"Find the result of {base} raised to {exponent}",
-        f"{base} and {exponent}, their exponentiation?",
-        f"{base} raised to {exponent}, result is",
-        f"{base} and {exponent}, what will be the result?",
-        f"Exponentiation: {base} ** {exponent}, what is it?",
-        f"{base} raised to {exponent}, result?",
-        f"{base} exponentiated by {exponent}, the outcome?",
+        f"Raising {f1} to the power of {f2}",
+        f"{f1} raised to the power of {f2}",
+        f"{f1} to the power of {f2}",
+        f"{f1} exponentiated by {f2}",
+        f"The result of {f1} raised to {f2}",
+        f"{f1} raised to {f2}, what is it?",
+        f"Calculation: {f1} ** {f2}",
+        f"{f1} raised to {f2}, equals?",
+        f"Taking {f1} and exponentiating by {f2}",
+        f"{f1} raised to {f2}, the answer?",
+        f"{f1} to the power of {f2}, find the result",
+        f"{f1} and {f2} exponentiation",
+        f"The exponentiation of {f1} and {f2}",
+        f"{f1} raised to {f2} is?",
+        f"{f1} raised to {f2} is equal to?",
+        f"{f1} and {f2} exponentiated, the result?",
+        f"Exponentiation: {f1} ** {f2}",
+        f"Let's raise {f1} to the power of {f2}",
+        f"Find the result of {f1} raised to {f2}",
+        f"{f1} and {f2}, their exponentiation?",
+        f"{f1} raised to {f2}, result is",
+        f"{f1} and {f2}, what will be the result?",
+        f"Exponentiation: {f1} ** {f2}, what is it?",
+        f"{f1} raised to {f2}, result?",
+        f"{f1} exponentiated by {f2}, the outcome?",
     ]
     return random.choice(explanations)
 

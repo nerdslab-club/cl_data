@@ -21,7 +21,6 @@ def get_batch_one_example_paragraph():
         [
             f"In  the town of Mathematicville, where numbers ruled the day, lived a young mathematician named Alex.",
             f"Alex's favorite pastime was solving mathematical puzzles. One sunny morning, they woke up to a challenge.",
-            f"(They (were) asked to )add {random_int_one} and {random_int_two}. Eager to begin, Alex quickly solved it using ##addition( {random_int_one},   {random_int_two}).",
             f"They were asked to add {random_int_one} and {random_int_two}. Eager to begin, Alex quickly solved it using ##division( ##sum( {random_list}), ##length({random_list}) ).",
             f"Next, they encountered a tricky subtraction problem: {random_int_three} minus {random_int_one}. The answer was found using ##subtraction({random_int_three},{random_int_one}).",
             f"Venturing deeper into the world of numbers, they were faced with a multiplication puzzle. How much is {random_float} multiplied by {random_int_four}? The answer was revealed through ##multiplication({random_float},{random_int_four}).",

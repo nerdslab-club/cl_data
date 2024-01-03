@@ -7,44 +7,44 @@ from src.utility import Utility
 def create_n2f_absolute_example(count: int):
     examples = []
     for _ in range(count):
-        num = RandomValueGenerator.generate_random_float(-10.0, 10.0)
+        f1 = RandomValueGenerator.generate_random_float(-10.0, 10.0)
         examples.append({
-            "inputStr": __random_explanation(num),
-            "outputStr": f"##absolute({num})",
+            "inputStr": __random_explanation(f1),
+            "outputStr": f"##absolute({f1})",
         })
     return examples
 
 
-def __random_explanation(x: float) -> str:
+def __random_explanation(f1: float) -> str:
     explanations = [
-        f"Calculate the absolute value of the number {x}",
-        f"ABSOLUTE({x})",
-        f"Find the absolute value for the number {x}",
-        f"The result of taking the absolute value of {x}",
-        f"Performing the absolute operation on the number {x}",
-        f"The absolute value of the number {x}",
-        f"ABSOLUTE calculation: {x}",
-        f"The result after taking the absolute value of {x}, what is it?",
-        f"The absolute value of {x}, what does it give?",
-        f"Let's find the absolute value of {x}",
-        f"Absolute value of {x}, result is",
-        f"Calculating the absolute value for {x}",
-        f"The absolute result after taking the absolute value of {x}",
-        f"The absolute value of the number {x}, what is its value?",
-        f"Let's determine the absolute value of {x}",
-        f"The absolute value of {x}",
-        f"Absolute value of {x}, what is the result?",
-        f"The absolute value of {x}, what does it give?",
-        f"Absolute value of {x} and provide the result",
-        f"ABSOLUTE({x}), what does it yield?",
-        f"The absolute value of {x}, ignoring order",
-        f"The result after taking the absolute value of {x}",
-        f"The absolute value of the number {x}, what is it?",
-        f"Calculate the absolute value for {x}, find the answer",
-        f"The absolute value of {x}, what does it give?",
-        f"Let's find the result after taking the absolute value of {x}",
-        f"Absolute value of {x}, what is the output?",
-        f"The absolute result after taking the absolute value of {x}, what is it?",
+        f"Calculate the absolute value of the number {f1}",
+        f"ABSOLUTE({f1})",
+        f"Find the absolute value for the number {f1}",
+        f"The result of taking the absolute value of {f1}",
+        f"Performing the absolute operation on the number {f1}",
+        f"The absolute value of the number {f1}",
+        f"ABSOLUTE calculation: {f1}",
+        f"The result after taking the absolute value of {f1}, what is it?",
+        f"The absolute value of {f1}, what does it give?",
+        f"Let's find the absolute value of {f1}",
+        f"Absolute value of {f1}, result is",
+        f"Calculating the absolute value for {f1}",
+        f"The absolute result after taking the absolute value of {f1}",
+        f"The absolute value of the number {f1}, what is its value?",
+        f"Let's determine the absolute value of {f1}",
+        f"The absolute value of {f1}",
+        f"Absolute value of {f1}, what is the result?",
+        f"The absolute value of {f1}, what does it give?",
+        f"Absolute value of {f1} and provide the result",
+        f"ABSOLUTE({f1}), what does it yield?",
+        f"The absolute value of {f1}, ignoring order",
+        f"The result after taking the absolute value of {f1}",
+        f"The absolute value of the number {f1}, what is it?",
+        f"Calculate the absolute value for {f1}, find the answer",
+        f"The absolute value of {f1}, what does it give?",
+        f"Let's find the result after taking the absolute value of {f1}",
+        f"Absolute value of {f1}, what is the output?",
+        f"The absolute result after taking the absolute value of {f1}, what is it?",
     ]
     return random.choice(explanations)
 
