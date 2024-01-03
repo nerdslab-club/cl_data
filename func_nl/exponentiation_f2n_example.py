@@ -11,7 +11,7 @@ def create_f2n_exponentiation_example(count: int):
         base = RandomValueGenerator.generate_random_float(1.0, 100.0)
         exponent = RandomValueGenerator.generate_random_float(1.0, 100.0)
         examples.append(
-            {
+            {##exponentiation({x},{y})
                 "inputStr": f"##exponentiation({base},{exponent})",
                 "outputStr": __random_explanation_exp(
                     base,

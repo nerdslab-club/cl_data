@@ -7,44 +7,44 @@ from src.utility import Utility
 def create_f2n_logarithm_base_2_example(count: int):
     examples = []
     for _ in range(count):
-        x = random.uniform(0.1, 100.0)
+        m = random.uniform(0.1, 100.0)
         examples.append(
             {
-                "inputStr": f"##logarithm_base_2({x})",
-                "outputStr": __random_explanation_logarithm_base_2(x),
+                "inputStr": f"##logarithm_base_2({m})",
+                "outputStr": __random_explanation_logarithm_base_2(m),
             }
         )
     return examples
 
 
-def __random_explanation_logarithm_base_2(x: float) -> str:
+def __random_explanation_logarithm_base_2(m: float) -> str:
     explanations = [
-        f"The base-2 logarithm of {x}",
-        f"logarithm_base_2({x})",
-        f"The value of the base-2 logarithm function for {x}",
-        f"Calculation: logarithm_base_2({x})",
-        f"The base-2 logarithm value for {x} is",
-        f"The result of applying the base-2 logarithm function to {x}",
-        f"The logarithm corresponding to base 2 for {x}",
-        f"The value of the logarithm function with base 2 at {x}",
-        f"The logarithm function with base 2 applied to the input {x}",
-        f"The value of log2({x})",
-        f"The logarithm function with base 2 evaluated at {x}",
-        f"The logarithm function output for {x}",
-        f"The result of the base-2 logarithm function at {x}",
-        f"The value of the logarithm function with base 2 for the input {x}",
-        f"The base-2 logarithm of the input {x}",
-        f"The value of the logarithm_base_2 function at {x}",
-        f"The base-2 log value for {x}",
-        f"The value of the logarithm_base_2 function for the input {x}",
-        f"The value of the logarithm_base_2 function evaluated at {x}",
-        f"The value of log2(x) for the given input {x}",
-        f"The base-2 logarithm function value for {x}",
-        f"The value of log2(x) at the input {x}",
-        f"The logarithm function value for the input {x}",
-        f"The value of the logarithm_base_2 function at {x} is",
-        f"The log2 value for {x}",
-        f"The output of the base-2 logarithm function at {x}",
+        f"The base-2 logarithm of {m}",
+        f"logarithm_base_2({m})",
+        f"The value of the base-2 logarithm function for {m}",
+        f"Calculation: logarithm_base_2({m})",
+        f"The base-2 logarithm value for {m} is",
+        f"The result of applying the base-2 logarithm function to {m}",
+        f"The logarithm corresponding to base 2 for {m}",
+        f"The value of the logarithm function with base 2 at {m}",
+        f"The logarithm function with base 2 applied to the input {m}",
+        f"The value of log2({m})",
+        f"The logarithm function with base 2 evaluated at {m}",
+        f"The logarithm function output for {m}",
+        f"The result of the base-2 logarithm function at {m}",
+        f"The value of the logarithm function with base 2 for the input {m}",
+        f"The base-2 logarithm of the input {m}",
+        f"The value of the logarithm_base_2 function at {m}",
+        f"The base-2 log value for {m}",
+        f"The value of the logarithm_base_2 function for the input {m}",
+        f"The value of the logarithm_base_2 function evaluated at {m}",
+        f"The value of log2(x) for the given input {m}",
+        f"The base-2 logarithm function value for {m}",
+        f"The value of log2(x) at the input {m}",
+        f"The logarithm function value for the input {m}",
+        f"The value of the logarithm_base_2 function at {m} is",
+        f"The log2 value for {m}",
+        f"The output of the base-2 logarithm function at {m}",
     ]
     return random.choice(explanations)
 

@@ -8,9 +8,9 @@ from src.utility import Utility
 def create_f2n_x_plus_a_times_x_plus_b_example(count: int):
     examples = []
     for _ in range(count):
-        x = RandomValueGenerator.generate_random_integer(-10, 1000)
-        a = RandomValueGenerator.generate_random_integer(-10, 1000)
-        b = RandomValueGenerator.generate_random_integer(-10, 1000)
+        x = RandomValueGenerator.generate_random_integer(-10, 100)
+        a = RandomValueGenerator.generate_random_integer(-10, 100)
+        b = RandomValueGenerator.generate_random_integer(-10, 100)
         examples.append(
             {
                 "inputStr": f"##x_plus_a_times_x_plus_b({x}, {a}, {b})",
@@ -20,32 +20,32 @@ def create_f2n_x_plus_a_times_x_plus_b_example(count: int):
     return examples
 
 
-def __random_explanation_x_plus_a_times_x_plus_b(x, a, b) -> str:
+def __random_explanation_x_plus_a_times_x_plus_b(n, a, b) -> str:
     explanations = [
-        f"Calculating the value of ({x} + {a}) * ({x} + {b})",
-        f"x_plus_a_times_x_plus_b({x}, {a}, {b})",
-        f"The result of evaluating ({x} + {a}) * ({x} + {b})",
-        f"Calculation: x_plus_a_times_x_plus_b({x}, {a}, {b})",
-        f"The expression ({x} + {a}) * ({x} + {b})",
-        f"The outcome of evaluating x_plus_a_times_x_plus_b({x}, {a}, {b})",
-        f"The result obtained by calculating ({x} + {a}) * ({x} + {b})",
-        f"The value of ({x} + {a}) multiplied by ({x} + {b})",
-        f"The computed result of evaluating ({x} + {a}) * ({x} + {b})",
-        f"The product of ({x} + {a}) and ({x} + {b})",
-        f"The outcome of determining ({x} + {a}) * ({x} + {b})",
-        f"The numerical value of ({x} + {a}) times ({x} + {b})",
-        f"The result of evaluating x_plus_a_times_x_plus_b({x}, {a}, {b})",
-        f"The value of ({x} + {a}) * ({x} + {b}) is",
-        f"The result derived from evaluating x_plus_a_times_x_plus_b({x}, {a}, {b})",
-        f"The calculated result of ({x} + {a}) * ({x} + {b})",
-        f"The value of ({x} + {a}) multiplied by ({x} + {b}) is",
-        f"The value of ({x} + {a}) * ({x} + {b}) equals",
-        f"The value of ({x} + {a}) times ({x} + {b}) is",
-        f"The computed value of ({x} + {a}) * ({x} + {b})",
-        f"The calculated outcome of ({x} + {a}) * ({x} + {b})",
-        f"The outcome of evaluating x_plus_a_times_x_plus_b({x}, {a}, {b})",
-        f"The outcome of determining the product of ({x} + {a}) and ({x} + {b})",
-        f"The outcome of evaluating x_plus_a_times_x_plus_b({x}, {a}, {b})",
+        f"Calculating the value of ({n} + {a}) * ({n} + {b})",
+        f"x_plus_a_times_x_plus_b({n}, {a}, {b})",
+        f"The result of evaluating ({n} + {a}) * ({n} + {b})",
+        f"Calculation: x_plus_a_times_x_plus_b({n}, {a}, {b})",
+        f"The expression ({n} + {a}) * ({n} + {b})",
+        f"The outcome of evaluating x_plus_a_times_x_plus_b({n}, {a}, {b})",
+        f"The result obtained by calculating ({n} + {a}) * ({n} + {b})",
+        f"The value of ({n} + {a}) multiplied by ({n} + {b})",
+        f"The computed result of evaluating ({n} + {a}) * ({n} + {b})",
+        f"The product of ({n} + {a}) and ({n} + {b})",
+        f"The outcome of determining ({n} + {a}) * ({n} + {b})",
+        f"The numerical value of ({n} + {a}) times ({n} + {b})",
+        f"The result of evaluating x_plus_a_times_x_plus_b({n}, {a}, {b})",
+        f"The value of ({n} + {a}) * ({n} + {b}) is",
+        f"The result derived from evaluating x_plus_a_times_x_plus_b({n}, {a}, {b})",
+        f"The calculated result of ({n} + {a}) * ({n} + {b})",
+        f"The value of ({n} + {a}) multiplied by ({n} + {b}) is",
+        f"The value of ({n} + {a}) * ({n} + {b}) equals",
+        f"The value of ({n} + {a}) times ({n} + {b}) is",
+        f"The computed value of ({n} + {a}) * ({n} + {b})",
+        f"The calculated outcome of ({n} + {a}) * ({n} + {b})",
+        f"The outcome of evaluating x_plus_a_times_x_plus_b({n}, {a}, {b})",
+        f"The outcome of determining the product of ({n} + {a}) and ({n} + {b})",
+        f"The outcome of evaluating x_plus_a_times_x_plus_b({n}, {a}, {b})",
     ]
     return random.choice(explanations)
 

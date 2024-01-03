@@ -9,10 +9,10 @@ def create_f2n_calculate_dot_product_example(count: int):
     examples = []
     for _ in range(count):
         vector1 = RandomValueGenerator.generate_random_list(
-            RandomValueGenerator.generate_random_integer(2, 10), -100, 10000
+            RandomValueGenerator.generate_random_integer(2, 10), -10, 100
         )
         vector2 = RandomValueGenerator.generate_random_list(
-            RandomValueGenerator.generate_random_integer(2, 10), -100, 10000
+            RandomValueGenerator.generate_random_integer(2, 10), -10, 100
         )
         examples.append(
             {

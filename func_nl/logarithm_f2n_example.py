@@ -8,13 +8,13 @@ from src.utility import Utility
 def create_f2n_logarithm_example(count: int):
     examples = []
     for _ in range(count):
-        x = random.uniform(1.0, 1000.0)
+        m = random.uniform(1.0, 100.0)
         base = random.uniform(2.0, 10.0)
         examples.append(
             {
-                "inputStr": f"##logarithm({x},{base})",
+                "inputStr": f"##logarithm({m},{base})",
                 "outputStr": __random_explanation_log(
-                    x,
+                    m,
                     base,
                 ),
             }
@@ -22,21 +22,21 @@ def create_f2n_logarithm_example(count: int):
     return examples
 
 
-def __random_explanation_log(x: float, base: float) -> str:
+def __random_explanation_log(m: float, base: float) -> str:
     explanations = [
-        f"The logarithm of {x} to the base {base}",
-        f"log_{base}({x})",
-        f"The result of taking the logarithm of {x} to the base {base}",
-        f"Calculation: log_{base}({x})",
-        f"The logarithm of {x} with base {base} is",
-        f"The value of log_{base}({x})",
-        f"The power to which {base} must be raised to get {x}",
-        f"The logarithm of {x} with base {base} equals?",
-        f"The exponent that produces {x} when {base} is raised to it",
-        f"The logarithm with base {base} of {x}",
-        f"The logarithm of {x} to the {base} base",
-        f"The logarithm of {x} having base {base}",
-        f"log_{base}({x}) is",
+        f"The logarithm of {m} to the base {base}",
+        f"log_{base}({m})",
+        f"The result of taking the logarithm of {m} to the base {base}",
+        f"Calculation: log_{base}({m})",
+        f"The logarithm of {m} with base {base} is",
+        f"The value of log_{base}({m})",
+        f"The power to which {base} must be raised to get {m}",
+        f"The logarithm of {m} with base {base} equals?",
+        f"The exponent that produces {m} when {base} is raised to it",
+        f"The logarithm with base {base} of {m}",
+        f"The logarithm of {m} to the {base} base",
+        f"The logarithm of {m} having base {base}",
+        f"log_{base}({m}) is",
     ]
     return random.choice(explanations)
 

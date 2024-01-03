@@ -21,36 +21,30 @@ def create_f2n_prime_factors_example(count: int):
     return examples
 
 
-def __random_explanation_prime_factors(x: int, prime_factors_result: dict) -> str:
-    prime_factors_str = ", ".join(
-        [f"{factor}^{exponent}" for factor, exponent in prime_factors_result.items()]
-    )
+def __random_explanation_prime_factors(n: int, prime_factors_result: dict) -> str:
     explanations = [
-        f"The prime factors of {x}",
-        f"prime_factors({x})",
-        f"The factors of {x} that are prime numbers",
-        f"Calculation: prime_factors({x})",
-        f"The prime numbers that divide {x}",
-        f"The list of prime factors for {x}",
-        f"The result of finding the prime factors of {x}",
-        f"The prime divisors of {x}",
-        f"The factors that are prime numbers for the value {x}",
-        f"The prime factorization of {x}",
-        f"The result of decomposing {x} into prime factors",
-        f"The prime numbers that can divide {x}",
-        f"The outcome of determining the prime factors of {x}",
-        f"The prime factors of the number {x} are",
-        f"The prime factors of the integer {x}",
-        f"The prime factors of {x} are represented as {prime_factors_str}",
-        f"The prime numbers that are divisors of {x}",
-        f"The list of prime divisors for the value {x}",
-        f"The calculated prime factors of {x} are",
-        f"The prime factorization result of {x} is",
-        f"The prime factors of {x} are given by {prime_factors_str}",
-        f"The prime factor decomposition of {x} is",
-        f"The prime divisors of {x} are",
-        f"The prime factors for the integer {x} are",
-        f"The prime factors of {x} are determined as {prime_factors_str}",
+        f"The prime factors of {n}",
+        f"prime_factors({n})",
+        f"The factors of {n} that are prime numbers",
+        f"Calculation: prime_factors({n})",
+        f"The prime numbers that divide {n}",
+        f"The list of prime factors for {n}",
+        f"The result of finding the prime factors of {n}",
+        f"The prime divisors of {n}",
+        f"The factors that are prime numbers for the value {n}",
+        f"The prime factorization of {n}",
+        f"The result of decomposing {n} into prime factors",
+        f"The prime numbers that can divide {n}",
+        f"The outcome of determining the prime factors of {n}",
+        f"The prime factors of the number {n} are",
+        f"The prime factors of the integer {n}",
+        f"The prime numbers that are divisors of {n}",
+        f"The list of prime divisors for the value {n}",
+        f"The calculated prime factors of {n} are",
+        f"The prime factorization result of {n} is",
+        f"The prime factor decomposition of {n} is",
+        f"The prime divisors of {n} are",
+        f"The prime factors for the integer {n} are",
     ]
     return random.choice(explanations)
 

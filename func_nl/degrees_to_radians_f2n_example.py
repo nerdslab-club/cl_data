@@ -39,7 +39,6 @@ def __random_explanation_degrees_to_radians(x: float) -> str:
         f"The angle in radians corresponding to {x} degrees",
         f"The radian value for the input angle of {x} degrees",
         f"The radian representation of {x} degrees",
-        f"The angle conversion from degrees to radians yields",
         f"The radian value of {x} degrees",
         f"The value of radians after converting {x} degrees is",
         f"The radian equivalent for the angle {x} degrees",

@@ -18,19 +18,19 @@ def create_f2n_multiplication_example(count: int):
     return examples
 
 
-def __random_explanation(x: float, y: float) -> str:
+def __random_explanation(m: float, n: float) -> str:
     explanations = [
-        f"Multiplying {x} with {y}",
-        f"{x} * {y}",
-        f"The result of multiplying {x} and {y}",
-        f"{x} times {y} equals?",
-        f"Calculation: {x} * {y}",
-        f"{x} multiplied by {y}",
-        f"The product of {x} and {y}",
-        f"{x} * {y} =",
-        f"The total when {x} is multiplied by {y}",
-        f"{x} and {y} multiplied together",
-        f"{x} * {y} results in",
+        f"Multiplying {m} with {n}",
+        f"{m} * {n}",
+        f"The result of multiplying {m} and {n}",
+        f"{m} times {n} equals?",
+        f"Calculation: {m} * {n}",
+        f"{m} multiplied by {n}",
+        f"The product of {m} and {n}",
+        f"{m} * {n} =",
+        f"The total when {m} is multiplied by {n}",
+        f"{m} and {n} multiplied together",
+        f"{m} * {n} results in",
     ]
     return random.choice(explanations)
 

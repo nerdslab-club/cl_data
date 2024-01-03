@@ -10,7 +10,7 @@ def create_f2n_division_example(count: int):
         num1 = random.uniform(0.1, 1000.0)
         num2 = random.uniform(0.1, num1)  # To ensure no division by zero
         examples.append(
-            {
+            {##division({x},{y})
                 "inputStr": f"##division({num1},{num2})",
                 "outputStr": __random_explanation(
                     num1,

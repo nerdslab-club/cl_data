@@ -17,36 +17,28 @@ def create_f2n_min_value_example(count: int):
     return examples
 
 
-def __random_explanation_min_value(lst_one: list[int]) -> str:
-    min_value_result = "what ?"
-    lst = ", ".join(str(num) for num in lst_one)
+def __random_explanation_min_value(vector: list[int]) -> str:
+    lst_str = ", ".join(str(num) for num in vector)
     explanations = [
-        f"The minimum value in the list {lst}",
-        f"min_value({lst})",
-        f"The result of finding the minimum value in {lst}",
-        f"Calculation: min_value({lst})",
-        f"The lowest value among the elements in {lst}",
-        f"The outcome of determining the minimum value in {lst}",
-        f"The minimum value found in the list {lst}",
-        f"The smallest value among the numbers in {lst}",
-        f"The computed result of finding the minimum value in {lst}",
-        f"The value of the smallest element in {lst}",
-        f"The least value among the integers in {lst}",
-        f"The minimum result obtained from the numbers in {lst}",
-        f"The outcome of evaluating min_value({lst}) is",
-        f"The value calculated by finding the minimum value in {lst}",
-        f"The result of evaluating min_value({lst}) is",
-        f"The minimum value in the list is {min_value_result}",
-        f"The computed minimum value in the list is {min_value_result}",
-        f"The smallest number found in the list is {min_value_result}",
-        f"The outcome of finding the smallest value in the list {lst} is {min_value_result}",
-        f"The lowest value in the list is {min_value_result}",
-        f"The result of finding the minimum value among {lst} is {min_value_result}",
-        f"The minimum element in the list is {min_value_result}",
-        f"The calculated outcome of evaluating min_value({lst}) is {min_value_result}",
-        f"The least result obtained from the elements in {lst} is {min_value_result}",
-        f"The smallest value among the elements is {min_value_result}",
-        f"The value of the minimum element in the list is {min_value_result}",
+        f"The minimum value in the list {lst_str}",
+        f"min_value({vector})",
+        f"The result of finding the minimum value in {lst_str}",
+        f"Calculation: min_value({vector})",
+        f"The lowest value among the elements in {lst_str}",
+        f"The outcome of determining the minimum value in {lst_str}",
+        f"The minimum value found in the list {lst_str}",
+        f"The smallest value among the numbers in {lst_str}",
+        f"The computed result of finding the minimum value in {lst_str}",
+        f"The value of the smallest element in {lst_str}",
+        f"The least value among the integers in {lst_str}",
+        f"The minimum result obtained from the numbers in {lst_str}",
+        f"The outcome of evaluating min_value({vector}) is",
+        f"The value calculated by finding the minimum value in {lst_str}",
+        f"The result of evaluating min_value({vector}) is",
+        f"The outcome of finding the smallest value in the list {lst_str} is",
+        f"The result of finding the minimum value among {lst_str} is",
+        f"The calculated outcome of evaluating min_value({vector}) is",
+        f"The least result obtained from the elements in {lst_str} is",
     ]
     return random.choice(explanations)
 

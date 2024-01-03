@@ -5,7 +5,7 @@ from src.random_value_generator import RandomValueGenerator
 from src.utility import Utility
 
 
-def get_batch_twelve_example_paragraph():
+def get_batch_thirteen_example_paragraph():
     random_int_one = RandomValueGenerator.generate_random_integer()
     random_int_two = random_int_one + RandomValueGenerator.generate_random_integer()
     random_int_three = random_int_two + RandomValueGenerator.generate_random_integer()
@@ -170,7 +170,7 @@ if __name__ == "__main__":
     from masked_token_sample_generator import MaskedTokenSamplesGenerator
 
     masked_example = MaskedTokenSamplesGenerator.create_masked_token_batches(
-        get_batch_twelve_example_paragraph(),
+        get_batch_thirteen_example_paragraph(),
     )
     sample = Utility.create_sample_from_example(
         masked_example,
@@ -181,7 +181,7 @@ if __name__ == "__main__":
     from next_token_sample_generator import NextTokenSamplesGenerator
 
     next_token_example = NextTokenSamplesGenerator.create_next_token_batches(
-        get_batch_twelve_example_paragraph(),
+        get_batch_thirteen_example_paragraph(),
     )
     sample = Utility.create_sample_from_example(
         next_token_example,

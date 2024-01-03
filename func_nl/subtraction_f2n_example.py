@@ -18,22 +18,22 @@ def create_f2n_subtraction_example(count: int):
     return examples
 
 
-def __random_explanation(x: int, y: int) -> str:
+def __random_explanation(a: int, b: int) -> str:
     explanations = [
-        f"Subtracting {y} from {x}",
-        f"{x} - {y}",
-        f"Taking away {y} from {x} ...",
-        f"The result of subtracting {y} from {x}",
-        f"{x} minus {y} equals?",
-        f"Calculation: {x} - {y}",
-        f"{y} subtracted from {x} is?",
-        f"Subtracting {y} from {x}",
-        f"{x} minus {y}",
-        f"The difference between {x} and {y}",
-        f"{x} - {y} =",
-        f"{x} take away {y}",
-        f"{x} - {y} results in",
-        f"{y} removed from {x}",
+        f"Subtracting {b} from {a}",
+        f"{a} - {b}",
+        f"Taking away {b} from {a} ...",
+        f"The result of subtracting {b} from {a}",
+        f"{a} minus {b} equals?",
+        f"Calculation: {a} - {b}",
+        f"{b} subtracted from {a} is?",
+        f"Subtracting {b} from {a}",
+        f"{a} minus {b}",
+        f"The difference between {a} and {b}",
+        f"{a} - {b} =",
+        f"{a} take away {b}",
+        f"{a} - {b} results in",
+        f"{b} removed from {a}",
     ]
     return random.choice(explanations)
 

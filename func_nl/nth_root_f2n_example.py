@@ -8,47 +8,44 @@ def create_f2n_nth_root_example(count: int):
     examples = []
     for _ in range(count):
         x = random.uniform(0.0, 1000.0)
-        n = random.randint(1, 10)
+        m = random.randint(1, 10)
         examples.append(
             {
-                "inputStr": f"##nth_root({x}, {n})",
-                "outputStr": __random_explanation_nth_root(x, n),
+                "inputStr": f"##nth_root({x}, {m})",
+                "outputStr": __random_explanation_nth_root(x, m),
             }
         )
     return examples
 
 
-def __random_explanation_nth_root(x: float, n: int) -> str:
-    nth_root_result = "what ?"
+def __random_explanation_nth_root(x: float, m: int) -> str:
     explanations = [
-        f"The {n}th root of the number {x}",
-        f"nth_root({x}, {n})",
-        f"The result of finding the {n}th root of {x}",
-        f"Calculation: nth_root({x}, {n})",
-        f"The value obtained by taking the {n}th root of {x}",
-        f"The outcome of calculating the {n}th root of {x}",
-        f"The {n}th root value of {x}",
-        f"The result of finding the {n}th root of the number {x}",
-        f"The computed result of finding the {n}th root of {x}",
-        f"The value of {x} under the {n}th root",
-        f"The {n}th root of the quantity {x}",
-        f"The {n}th root result of the number {x}",
-        f"The outcome of evaluating nth_root({x}, {n}) is",
-        f"The value calculated by finding the {n}th root of {x} is",
-        f"The result of evaluating nth_root({x}, {n}) is",
-        f"The {n}th root of the number {x} is {nth_root_result}",
-        f"The computed {n}th root of the number {x} is {nth_root_result}",
-        f"The value obtained by finding the {n}th root of {x} is {nth_root_result}",
-        f"The outcome of finding the {n}th root value of {x} is {nth_root_result}",
-        f"The {n}th root in the expression is {nth_root_result}",
-        f"The result of finding the {n}th root among {x} is {nth_root_result}",
-        f"The {n}th root element in the expression is {nth_root_result}",
-        f"The calculated outcome of evaluating nth_root({x}, {n}) is {nth_root_result}",
-        f"The value of the {n}th root of {x} is {nth_root_result}",
-        f"The computed value of nth_root({x}, {n}) is {nth_root_result}",
-        f"The calculated result of finding the {n}th root of {x} is {nth_root_result}",
-        f"The {n}th root value of {x} is {nth_root_result}",
-        f"The result of finding the {n}th root of the number {x} is {nth_root_result}",
+        f"The {m}th root of the number {x}",
+        f"nth_root({x}, {m})",
+        f"The result of finding the {m}th root of {x}",
+        f"Calculation: nth_root({x}, {m})",
+        f"The value obtained by taking the {m}th root of {x}",
+        f"The outcome of calculating the {m}th root of {x}",
+        f"The {m}th root value of {x}",
+        f"The result of finding the {m}th root of the number {x}",
+        f"The computed result of finding the {m}th root of {x}",
+        f"The value of {x} under the {m}th root",
+        f"The {m}th root of the quantity {x}",
+        f"The {m}th root result of the number {x}",
+        f"The outcome of evaluating nth_root({x}, {m}) is",
+        f"The value calculated by finding the {m}th root of {x} is",
+        f"The result of evaluating nth_root({x}, {m}) is",
+        f"The {m}th root of the number {x} is",
+        f"The computed {m}th root of the number {x} is",
+        f"The value obtained by finding the {m}th root of {x} is",
+        f"The outcome of finding the {m}th root value of {x} is",
+        f"The result of finding the {m}th root among {x} is",
+        f"The calculated outcome of evaluating nth_root({x}, {m}) is",
+        f"The value of the {m}th root of {x} is",
+        f"The computed value of nth_root({x}, {m}) is",
+        f"The calculated result of finding the {m}th root of {x} is",
+        f"The {m}th root value of {x} is",
+        f"The result of finding the {m}th root of the number {x} is",
     ]
     return random.choice(explanations)
 

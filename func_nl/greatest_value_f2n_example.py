@@ -44,7 +44,6 @@ def __random_explanation_greatest_value(x: float, y: float) -> str:
         f"The result of finding the maximum value between {x} and {y}",
         f"The greater of the two inputs {x} and {y}",
         f"The more substantial value among {x} and {y}",
-        f"The greatest value is",
         f"The result of evaluating greatest_value({x}, {y}) is",
     ]
     return random.choice(explanations)

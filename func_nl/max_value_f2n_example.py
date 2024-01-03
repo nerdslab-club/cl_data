@@ -18,35 +18,27 @@ def create_f2n_max_value_example(count: int):
 
 
 def __random_explanation_max_value(lst_one: list[int]) -> str:
-    max_value_result = "what ?"
-    lst = ", ".join(str(num) for num in lst_one)
+
+    lst_str = ", ".join(str(num) for num in lst_one)
     explanations = [
-        f"The maximum value in the list {lst}",
-        f"max_value({lst})",
-        f"The result of finding the maximum value in {lst}",
-        f"Calculation: max_value({lst})",
-        f"The highest value among the elements in {lst}",
-        f"The outcome of determining the maximum value in {lst}",
-        f"The maximum value found in the list {lst}",
-        f"The largest value among the numbers in {lst}",
-        f"The computed result of finding the maximum value in {lst}",
-        f"The value of the largest element in {lst}",
-        f"The greatest value among the integers in {lst}",
-        f"The maximum result obtained from the numbers in {lst}",
-        f"The outcome of evaluating max_value({lst}) is",
-        f"The value calculated by finding the maximum value in {lst}",
-        f"The result of evaluating max_value({lst}) is",
-        f"The maximum value in the list is {max_value_result}",
-        f"The computed maximum value in the list is {max_value_result}",
-        f"The largest number found in the list is {max_value_result}",
-        f"The outcome of finding the largest value in the list {lst} is {max_value_result}",
-        f"The highest value in the list is {max_value_result}",
-        f"The result of finding the maximum value among {lst} is {max_value_result}",
-        f"The maximum element in the list is {max_value_result}",
-        f"The calculated outcome of evaluating max_value({lst}) is {max_value_result}",
-        f"The greatest result obtained from the elements in {lst} is {max_value_result}",
-        f"The largest value among the elements is {max_value_result}",
-        f"The value of the maximum element in the list is {max_value_result}",
+        f"The maximum value in the list {lst_str}",
+        f"max_value({lst_str})",
+        f"The result of finding the maximum value in {lst_str}",
+        f"Calculation: max_value({lst_str})",
+        f"The highest value among the elements in {lst_str}",
+        f"The outcome of determining the maximum value in {lst_str}",
+        f"The maximum value found in the list {lst_str}",
+        f"The largest value among the numbers in {lst_str}",
+        f"The computed result of finding the maximum value in {lst_str}",
+        f"The value of the largest element in {lst_str}",
+        f"The greatest value among the integers in {lst_str}",
+        f"The maximum result obtained from the numbers in {lst_str}",
+        f"The outcome of evaluating max_value({lst_str}) is",
+        f"The value calculated by finding the maximum value in {lst_str}",
+        f"The result of evaluating max_value({lst_str}) is",
+        f"The outcome of finding the largest value in the list {lst_str} is",
+        f"The calculated outcome of evaluating max_value({lst_str}) is",
+        f"The greatest result obtained from the elements in {lst_str} is",
     ]
     return random.choice(explanations)
 

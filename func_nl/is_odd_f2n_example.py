@@ -9,7 +9,7 @@ def create_f2b_is_odd_example(count: int):
     for _ in range(count):
         x = random.randint(-100, 100)
         examples.append(
-            {
+            {##is_odd({n})
                 "inputStr": f"##is_odd({x})",
                 "outputStr": __random_explanation_is_odd(x),
             }
@@ -17,34 +17,34 @@ def create_f2b_is_odd_example(count: int):
     return examples
 
 
-def __random_explanation_is_odd(x: int) -> str:
+def __random_explanation_is_odd(n: int) -> str:
     explanations = [
-        f"Whether the number {x} is odd",
-        f"is_odd({x})",
-        f"Whether {x} is not divisible by 2 without remainder",
-        f"Calculation: is_odd({x})",
-        f"Whether the remainder of {x} divided by 2 is not 0",
-        f"Whether {x} is not an even number",
-        f"Whether {x} is not evenly divisible by 2",
-        f"Whether {x} is not a multiple of 2",
-        f"Whether {x} is not a whole number divisible by 2",
-        f"Whether the integer {x} is not an even number",
-        f"Whether {x} cannot be divided by 2 without leaving a remainder",
-        f"Whether {x} cannot be evenly divided by 2",
-        f"Whether {x} is not an integer that is divisible by 2",
-        f"Whether the result of evaluating is_odd({x}) is true",
-        f"Whether {x} is not a number that is divisible by 2",
-        f"Whether {x} is not evenly divisible by 2 or not",
-        f"Whether {x} cannot be divided by 2 without having a remainder",
-        f"Whether {x} is not an integer that can be divided by 2",
-        f"Whether {x} is not a whole number that is divisible by 2",
-        f"Whether the value of is_odd({x}) is true or not",
-        f"Whether {x} is not evenly divisible by 2 or not",
-        f"Whether {x} is not a number that can be divided by 2",
-        f"Whether the result of evaluating {x} % 2 != 0 is true",
-        f"Whether {x} is not a multiple of 2 or not",
-        f"Whether the integer {x} is not divisible by 2 or not",
-        f"Whether {x} is not a whole number that can be divided by 2",
+        f"Whether the number {n} is odd",
+        f"is_odd({n})",
+        f"Whether {n} is not divisible by 2 without remainder",
+        f"Calculation: is_odd({n})",
+        f"Whether the remainder of {n} divided by 2 is not 0",
+        f"Whether {n} is not an even number",
+        f"Whether {n} is not evenly divisible by 2",
+        f"Whether {n} is not a multiple of 2",
+        f"Whether {n} is not a whole number divisible by 2",
+        f"Whether the integer {n} is not an even number",
+        f"Whether {n} cannot be divided by 2 without leaving a remainder",
+        f"Whether {n} cannot be evenly divided by 2",
+        f"Whether {n} is not an integer that is divisible by 2",
+        f"Whether the result of evaluating is_odd({n}) is true",
+        f"Whether {n} is not a number that is divisible by 2",
+        f"Whether {n} is not evenly divisible by 2 or not",
+        f"Whether {n} cannot be divided by 2 without having a remainder",
+        f"Whether {n} is not an integer that can be divided by 2",
+        f"Whether {n} is not a whole number that is divisible by 2",
+        f"Whether the value of is_odd({n}) is true or not",
+        f"Whether {n} is not evenly divisible by 2 or not",
+        f"Whether {n} is not a number that can be divided by 2",
+        f"Whether the result of evaluating {n} % 2 != 0 is true",
+        f"Whether {n} is not a multiple of 2 or not",
+        f"Whether the integer {n} is not divisible by 2 or not",
+        f"Whether {n} is not a whole number that can be divided by 2",
     ]
     return random.choice(explanations)
 
