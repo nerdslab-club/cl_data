@@ -930,12 +930,6 @@ def get_batch_twenty_example_paragraph():
             f"The maximum value in the list {list_str}, what is the output? = ##max_value({list_str})",
             f"The result after finding the maximum value in the list {list_str}, what is it? = ##max_value({list_str})",
         ],
-        [
-
-        ],
-        [
-
-        ],
     ]
     return random.choice(examples)
 
