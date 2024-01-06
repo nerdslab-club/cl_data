@@ -40,7 +40,7 @@ sub-sub-categories will be used by Response-Parser.
 
 #### Examples of input and output
 
-1. Function execute
+1. Function execute (IO parser specific only)
    - input: $$add(3,4)
    - output: [
    (7, {category: "integer", subCategory: "return_value", subSubCategory: "none"})
@@ -104,4 +104,5 @@ N.B. subCategory: "placeholder" is used to indicate using placeholder tag for li
 N.B. no space in function please, other than between params.<br>
 N.B. no space in array/list please. <br>
 N.B. $$ -> IO Execute, ## -> IO Represent R Execute, @@ -> IOR Placeholder, && -> IOR Represent
+N.B. && -> IOR Represent is for model writing code for use. For other party to use them.
 
