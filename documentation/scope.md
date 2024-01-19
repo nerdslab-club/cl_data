@@ -12,7 +12,6 @@ So we can train part by part.
 
 ### Task: 
 - Next word prediction
-  - Taklami detector is a NWP model
   - https://thecleverprogrammer.com/2023/07/17/next-word-prediction-model-using-python/
 - Musked word prediction. -> https://www.youtube.com/watch?v=fmnFOzmdUBE&ab_channel=DataScienceinyourpocket
 
@@ -21,7 +20,4 @@ NEXT Reinforcement learning:
  - Do an action.
  - Choose a reward.
 
-OpenAi embedding(text-embedding-ada-002) vs Sentence Transformer embedding 
-
-### Model Archi
-Decoder only model, category probability and output probability.
+OpenAi embedding(text-embedding-ada-002) vs Sentence Transformer embedding
