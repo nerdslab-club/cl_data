@@ -1,5 +1,6 @@
 import random
 
+from src.constants import TaskTypes
 from src.random_value_generator import RandomValueGenerator
 from src.utility import Utility
 
@@ -213,5 +214,8 @@ def __get_batch_one_example_pair():
 
 
 if __name__ == "__main__":
-    print(__get_batch_one_example_pair())
-    pass
+    print(
+        Utility.create_sample_from_example(
+            create_nlf2nlf_batch_one_example(2), TaskTypes.NL_TO_NL_TRANSLATION
+        )
+    )

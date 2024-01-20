@@ -1,6 +1,7 @@
 import random
 
 from nlf_nlf.nlf2nlf_example_batch_one import create_nlf2nlf_batch_one_example
+from nlf_nlf.nlf2nlf_example_batch_two import create_nlf2nlf_batch_two_example
 from src.constants import TaskTypes
 from src.utility import Utility
 
@@ -39,4 +40,5 @@ class NlToNlSamples:
     def __set_nlf2nlf_example_generators(self):
         self.f2f_example_generators = {
             "batch_one": create_nlf2nlf_batch_one_example,
+            "batch_two": create_nlf2nlf_batch_two_example,
         }

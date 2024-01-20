@@ -4,7 +4,7 @@ from src.constants import TaskTypes
 from src.utility import Utility
 
 
-def create_f2b_is_palindrome_example(count: int):
+def create_f2n_is_palindrome_example(count: int):
     examples = []
     for _ in range(count):
         word = "".join(
@@ -55,6 +55,6 @@ def __random_explanation_is_palindrome(word: str) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_f2b_is_palindrome_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+            create_f2n_is_palindrome_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
         )
     )

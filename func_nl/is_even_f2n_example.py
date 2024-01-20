@@ -4,7 +4,7 @@ from src.constants import TaskTypes
 from src.utility import Utility
 
 
-def create_f2b_is_even_example(count: int):
+def create_f2n_is_even_example(count: int):
     examples = []
     for _ in range(count):
         x = random.randint(-100, 100)
@@ -52,6 +52,6 @@ def __random_explanation_is_even(n: int) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_f2b_is_even_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
+            create_f2n_is_even_example(2), TaskTypes.FUNC_TO_NL_TRANSLATION
         )
     )
