@@ -19,7 +19,7 @@ def create_f2n_mean_example(count: int):
 
 
 def __random_explanation_mean(numbers: list) -> str:
-    lst_str = ", ".join(str(num) for num in numbers)
+    lst_str = " , ".join(str(num) for num in numbers)
     explanations = [
         f"The mean of the numbers {lst_str}",
         f"mean({lst_str})",

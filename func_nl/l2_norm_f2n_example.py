@@ -18,7 +18,7 @@ def create_f2n_l2_norm_example(count: int):
 
 
 def __random_explanation_l2_norm(vector) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
 
     explanations = [
         f"The L2 norm (Euclidean norm) of the vector {lst_str}",

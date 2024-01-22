@@ -26,8 +26,8 @@ def create_f2n_calculate_dot_product_example(count: int):
 
 
 def __random_explanation_calculate_dot_product(vector1_h, vector2_h) -> str:
-    vector1 = ", ".join(str(num) for num in vector1_h)
-    vector2 = ", ".join(str(num) for num in vector2_h)
+    vector1 = " , ".join(str(num) for num in vector1_h)
+    vector2 = " , ".join(str(num) for num in vector2_h)
     explanations = [
         f"Calculating the dot product of the vectors {vector1} and {vector2}",
         f"calculate_dot_product( {vector1_h}, {vector2_h} )",

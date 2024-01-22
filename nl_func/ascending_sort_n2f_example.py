@@ -18,7 +18,7 @@ def create_n2f_ascending_sort_example(count: int, max_list_length: int = 5):
 
 
 def __random_explanation(vector: list) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"Sort the list {lst_str} in ascending order",
         f"ASCENDING_SORT({vector})",

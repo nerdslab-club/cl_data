@@ -20,7 +20,7 @@ def get_batch_fifteen_example_paragraph():
     random_list = Utility.remove_spaces(
         str(RandomValueGenerator.generate_random_list())
     )
-    lst_str = ", ".join(str(num) for num in random_list)
+    lst_str = " , ".join(str(num) for num in random_list)
 
     examples = [
         [

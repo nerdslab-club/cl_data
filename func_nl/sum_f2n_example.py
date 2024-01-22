@@ -20,7 +20,7 @@ def create_f2n_sum_example(count: int):
 
 
 def __random_explanation_sum(vector: list) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"The sum of the lst_str {lst_str}",
         f"sum({lst_str})",

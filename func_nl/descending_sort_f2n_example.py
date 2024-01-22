@@ -19,7 +19,7 @@ def create_f2n_descending_sort_example(count: int):
 
 
 def __random_explanation_descending_sort(lst: list) -> str:
-    lst_str = ", ".join(str(num) for num in lst)
+    lst_str = " , ".join(str(num) for num in lst)
     explanations = [
         f"The list {lst_str} sorted in descending order",
         f"descending_sort({lst_str})",

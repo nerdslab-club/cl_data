@@ -17,7 +17,7 @@ def create_n2f_median_example(count: int, max_list_length: int = 5):
 
 
 def __random_explanation(list_str: list) -> str:
-    list_str = ", ".join(str(num) for num in list_str)
+    list_str = " , ".join(str(num) for num in list_str)
 
     explanations = [
         f"Calculate the median of the numbers {list_str}",

@@ -18,7 +18,7 @@ def create_f2n_l1_norm_example(count: int):
 
 
 def __random_explanation_l1_norm(vector) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
 
     explanations = [
         f"The L1 norm (Manhattan norm) of the vector {lst_str}",

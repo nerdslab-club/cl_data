@@ -18,7 +18,7 @@ def create_f2n_min_value_example(count: int):
 
 
 def __random_explanation_min_value(vector: list[int]) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"The minimum value in the list {lst_str}",
         f"min_value({vector})",

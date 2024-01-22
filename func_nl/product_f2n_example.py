@@ -19,7 +19,7 @@ def create_f2n_product_example(count: int):
 
 
 def __random_explanation_product(vector: list) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"The product of the numbers {lst_str}",
         f"product({vector})",

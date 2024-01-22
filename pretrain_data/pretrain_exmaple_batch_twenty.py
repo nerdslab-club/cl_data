@@ -30,7 +30,7 @@ def get_batch_twenty_example_paragraph():
     vector = RandomValueGenerator.generate_random_list(
         RandomValueGenerator.generate_random_integer(2, 10), -10, 100
     )
-    list_str = ", ".join(str(num) for num in vector)
+    list_str = " , ".join(str(num) for num in vector)
 
     examples = [
         [

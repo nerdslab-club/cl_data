@@ -16,12 +16,12 @@ def get_batch_nineteen_example_paragraph():
     vector = RandomValueGenerator.generate_random_list(
         RandomValueGenerator.generate_random_integer(2, 10), -10, 100
     )
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
 
     vector1 = RandomValueGenerator.generate_random_list(
         RandomValueGenerator.generate_random_integer(2, 10), -10, 100
     )
-    lst_str1 = ", ".join(str(num) for num in vector1)
+    lst_str1 = " , ".join(str(num) for num in vector1)
 
     binary_string = RandomValueGenerator.generate_random_binary_string()
 

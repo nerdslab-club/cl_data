@@ -17,8 +17,8 @@ def create_n2f_cosine_similarity_example(count: int):
 
 
 def __random_explanation(vector: list, vector1: list) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
-    lst_str1 = ", ".join(str(num) for num in vector1)
+    lst_str = " , ".join(str(num) for num in vector)
+    lst_str1 = " , ".join(str(num) for num in vector1)
     explanations = [
         f"Calculate the cosine similarity between vectors {lst_str} and {lst_str1}",
         f"COSINE_SIMILARITY({vector}, {vector1})",

@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 from cl_data.src.constants import Constants
 
 
-class NlToNlSamples:
+class Nl2NlSamples:
     TASK_TYPE = TaskTypes.NL_TO_NL_TRANSLATION
 
     def __init__(self):
@@ -31,7 +31,7 @@ class NlToNlSamples:
         ]
         list_of_samples = selected_generator(count, identifier)
         for my_dict in list_of_samples:
-            my_dict[Constants.TASK_TYPE] = NlToNlSamples.TASK_TYPE.value
+            my_dict[Constants.TASK_TYPE] = Nl2NlSamples.TASK_TYPE.value
         return list_of_samples
 
     def get_nlf2nlf_samples(self, each_example_count: int):
@@ -42,7 +42,7 @@ class NlToNlSamples:
         for key, generator in self.nlf2nlf_example_generators.items():
             self.nlf2nlf_samples.extend(
                 Utility.create_sample_from_example(
-                    generator(each_example_count), NlToNlSamples.TASK_TYPE
+                    generator(each_example_count), Nl2NlSamples.TASK_TYPE
                 ),
             )
 

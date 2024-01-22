@@ -17,8 +17,8 @@ def create_n2f_calculate_dot_product_example(count: int):
 
 
 def __random_explanation(vector: list, vector1: list) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
-    lst_str1 = ", ".join(str(num) for num in vector1)
+    lst_str = " , ".join(str(num) for num in vector)
+    lst_str1 = " , ".join(str(num) for num in vector1)
     explanations = [
         f"Calculate the dot product of vectors {lst_str} and {lst_str1}",
         f"CALCULATE_DOT_PRODUCT({lst_str}, {lst_str1})",

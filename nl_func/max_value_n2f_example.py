@@ -16,7 +16,7 @@ def create_n2f_max_value_example(count: int):
 
 
 def __random_explanation(list_str: list[int]) -> str:
-    list_str = ", ".join(str(num) for num in list_str)
+    list_str = " , ".join(str(num) for num in list_str)
 
     explanations = [
         f"Find the maximum value in the list {list_str}",

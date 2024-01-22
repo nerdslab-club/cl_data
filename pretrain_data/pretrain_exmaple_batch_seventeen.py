@@ -26,7 +26,7 @@ def get_batch_seventeen_example_paragraph():
     vector = RandomValueGenerator.generate_random_list(
         RandomValueGenerator.generate_random_integer(2, 10), -10, 100
     )
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
 
     m = random.uniform(0.1, 100.0)
     n = random.uniform(0.1, 100.0)

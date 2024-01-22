@@ -19,7 +19,7 @@ def create_f2n_median_example(count: int):
 
 
 def __random_explanation_median(numbers: list) -> str:
-    lst_str = ", ".join(str(num) for num in numbers)
+    lst_str = " , ".join(str(num) for num in numbers)
     explanations = [
         f"The median of the numbers {lst_str}",
         f"median({lst_str})",

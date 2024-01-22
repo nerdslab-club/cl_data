@@ -15,8 +15,8 @@ def get_batch_sixteen_example_paragraph():
     vector2_list = RandomValueGenerator.generate_random_list(
         RandomValueGenerator.generate_random_integer(2, 10), -10, 100
     )
-    vector1 = lst_str = ", ".join(str(num) for num in vector1_list)
-    vector2 = ", ".join(str(num) for num in vector2_list)
+    vector1 = lst_str = " , ".join(str(num) for num in vector1_list)
+    vector2 = " , ".join(str(num) for num in vector2_list)
 
     x = RandomValueGenerator.generate_random_float(-10.0, 100.0)
     y = random.uniform(1, x)

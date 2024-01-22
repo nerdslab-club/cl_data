@@ -18,7 +18,7 @@ def create_f2n_geometric_mean_example(count: int):
 
 
 def __random_explanation_geometric_mean(lst_one: list[float]) -> str:
-    lst_str = ", ".join(str(num) for num in lst_one)
+    lst_str = " , ".join(str(num) for num in lst_one)
     explanations = [
         f"The geometric mean of the numbers in the list {lst_str}",
         f"geometric_mean({lst_str})",

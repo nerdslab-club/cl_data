@@ -19,7 +19,7 @@ def create_f2n_max_value_example(count: int):
 
 def __random_explanation_max_value(lst_one: list[int]) -> str:
 
-    lst_str = ", ".join(str(num) for num in lst_one)
+    lst_str = " , ".join(str(num) for num in lst_one)
     explanations = [
         f"The maximum value in the list {lst_str}",
         f"max_value({lst_str})",

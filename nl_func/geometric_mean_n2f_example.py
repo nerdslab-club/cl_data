@@ -16,7 +16,7 @@ def create_n2f_geometric_mean_example(count: int):
 
 
 def __random_explanation(vector: list[float]) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"Calculate the geometric mean of the list {lst_str}",
         f"GEOMETRIC_MEAN({vector})",

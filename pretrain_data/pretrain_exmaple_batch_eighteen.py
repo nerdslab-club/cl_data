@@ -20,7 +20,7 @@ def get_batch_eighteen_example_paragraph():
     vector = RandomValueGenerator.generate_random_list(
         RandomValueGenerator.generate_random_integer(2, 10), -10, 100
     )
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
 
     input_str = "".join(random.choices("abcdefghijklmnopqrstuvwxyz", k=random.randint(1, 10)))
     examples = [

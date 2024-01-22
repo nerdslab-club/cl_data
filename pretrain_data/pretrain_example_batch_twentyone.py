@@ -22,12 +22,12 @@ def get_batch_twenty_example_paragraph():
     vector = RandomValueGenerator.generate_random_list(
         RandomValueGenerator.generate_random_integer(2, 6), -10, 100
     )
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
 
     vector1 = RandomValueGenerator.generate_random_list(
         RandomValueGenerator.generate_random_integer(2, 6), -10, 100
     )
-    lst_str1 = ", ".join(str(num) for num in vector1)
+    lst_str1 = " , ".join(str(num) for num in vector1)
     examples = [
         [
             f"Check if the strings '{str1}' and '{str2}' are the same = ##check_same_string('{str1}', '{str2}')",

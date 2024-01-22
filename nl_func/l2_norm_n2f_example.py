@@ -16,7 +16,7 @@ def create_n2f_l2_norm_example(count: int):
 
 
 def __random_explanation(vector: list) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"Calculate the L2 norm of the vector {lst_str}",
         f"L2_NORM({vector})",

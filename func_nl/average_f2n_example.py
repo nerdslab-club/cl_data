@@ -20,7 +20,7 @@ def create_f2n_average_example(count: int):
 
 
 def __random_explanation_average(lst: list) -> str:
-    lst_str = ", ".join(str(num) for num in lst)
+    lst_str = " , ".join(str(num) for num in lst)
     explanations = [
         f"Calculate the average of the numbers {lst_str}",
         f"AVERAGE({lst})",
