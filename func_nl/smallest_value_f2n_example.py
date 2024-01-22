@@ -1,7 +1,7 @@
 import random
 
-from src.constants import TaskTypes
-from src.utility import Utility
+from cl_data.src.constants import TaskTypes
+from cl_data.src.utility import Utility
 
 
 def create_f2n_smallest_value_example(count: int):
@@ -11,7 +11,7 @@ def create_f2n_smallest_value_example(count: int):
         y = random.uniform(-100.0, 100.0)
         examples.append(
             {
-                "inputStr": f"##smallest_value({f}, {g})",
+                "inputStr": f"##smallest_value({x}, {y})",
                 "outputStr": __random_explanation_smallest_value(x, y),
             }
         )

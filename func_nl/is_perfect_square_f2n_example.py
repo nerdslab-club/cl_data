@@ -1,8 +1,8 @@
 import random
 import math
 
-from src.constants import TaskTypes
-from src.utility import Utility
+from cl_data.src.constants import TaskTypes
+from cl_data.src.utility import Utility
 
 
 def create_f2n_is_perfect_square_example(count: int):

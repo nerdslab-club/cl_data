@@ -1,4 +1,4 @@
-from function_representation import FunctionManager, MathFunctions
+from cl_data.function_representation import FunctionManager, MathFunctions
 from .category_parser_utility import (
     get_sub_sub_type_for_param,
     create_category_map,
@@ -6,7 +6,7 @@ from .category_parser_utility import (
     get_category_type,
     get_func_sub_sub_type,
 )
-from src.constants import (
+from cl_data.src.constants import (
     Constants,
     CategoryType,
     CategorySubType,

@@ -1,10 +1,10 @@
 import random
 
-from src.constants import TaskTypes
-from src.utility import Utility
+from cl_data.src.constants import TaskTypes
+from cl_data.src.utility import Utility
 
 
-def create_f2n_addition_example(count: int):
+def create_f2n_addition_example(count: int, identifier: int | None):
     examples = []
     for _ in range(count):
         num1 = random.randint(0, 1000)
@@ -12,13 +12,13 @@ def create_f2n_addition_example(count: int):
         examples.append(
             {
                 "inputStr": f"##addition({num1},{num2})",
-                "outputStr": __random_explanation(num1, num2),
+                "outputStr": __random_explanation(num1, num2, identifier),
             }
         )
     return examples
 
 
-def __random_explanation(x: int, y: int) -> str:
+def __random_explanation(x: int, y: int, identifier: int | None) -> str:
     explanations = [
         f"Adding {x} plus {y}",
         f"{x} + {y}",
@@ -36,7 +36,10 @@ def __random_explanation(x: int, y: int) -> str:
         f"{x} and {y} added together",
         f"{x} + {y} results in",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

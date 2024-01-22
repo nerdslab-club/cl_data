@@ -1,5 +1,5 @@
-from function_representation import FunctionManager
-from src.constants import FunctionPrefix
+from cl_data.function_representation import FunctionManager
+from cl_data.src.constants import FunctionPrefix
 from .io_parser_utility import (
     parse_value_according_to_type,
     extract_function_params,

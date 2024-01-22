@@ -1,8 +1,8 @@
 import random
 
-from src.constants import PretrainTasks
-from src.random_value_generator import RandomValueGenerator
-from src.utility import Utility
+from cl_data.src.constants import PretrainTasks
+from cl_data.src.random_value_generator import RandomValueGenerator
+from cl_data.src.utility import Utility
 
 
 def get_batch_nine_example_paragraph():

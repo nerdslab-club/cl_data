@@ -1,7 +1,7 @@
 import random
-from src.constants import TaskTypes
-from src.random_value_generator import RandomValueGenerator
-from src.utility import Utility
+from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
+from cl_data.src.utility import Utility
 
 
 def create_n2f_calculate_dot_product_example(count: int):
@@ -11,7 +11,7 @@ def create_n2f_calculate_dot_product_example(count: int):
         vector2 = RandomValueGenerator.generate_random_list(3, -10, 10)
         examples.append({
             "inputStr": __random_explanation(vector1, vector2),
-            "outputStr": f"##calculate_dot_product({vector}, {vector1})",
+            "outputStr": f"##calculate_dot_product({vector1}, {vector2})",
         })
     return examples
 

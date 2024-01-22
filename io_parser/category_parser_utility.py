@@ -1,5 +1,5 @@
-from function_representation import MathFunctions
-from src.constants import (
+from cl_data.function_representation import MathFunctions
+from cl_data.src.constants import (
     Constants,
     CategoryType,
     CategorySubType,

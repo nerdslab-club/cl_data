@@ -1,4 +1,4 @@
-from function_representation import MathFunctions
+from cl_data.function_representation import MathFunctions
 from enum import Enum
 
 
@@ -93,4 +93,7 @@ class Constants:
     POSITION = "position"
     NOT_MY_TOKEN = "nOtMyToKeN"
     NOT_MY_TOKEN_INDEX = 0
+    TASK_TYPE = "taskType"
+    INPUT_TOKEN_COUNT = "inputTokenCount"
+    IO_PARSER_OUTPUT = "ioParserOutput"
 

@@ -1,7 +1,7 @@
 import random
 
-from src.constants import TaskTypes
-from src.utility import Utility
+from cl_data.src.constants import TaskTypes
+from cl_data.src.utility import Utility
 
 
 def create_n2f_division_example(count: int):

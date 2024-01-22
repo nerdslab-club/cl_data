@@ -4,9 +4,9 @@ from typing import Type
 import spacy
 from deprecated import deprecated
 
-from io_parser.category_parser_utility import create_category_map
-from io_parser.io_parser import IoParser
-from src.constants import (
+from cl_data.io_parser.category_parser_utility import create_category_map
+from cl_data.io_parser.io_parser import IoParser
+from cl_data.src.constants import (
     SpecialTokens,
     FunctionPrefix,
     Constants,

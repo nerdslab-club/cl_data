@@ -1,7 +1,7 @@
 import random
-from src.constants import TaskTypes
-from src.random_value_generator import RandomValueGenerator
-from src.utility import Utility
+from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
+from cl_data.src.utility import Utility
 
 
 def create_n2f_length_example(count: int):
@@ -16,7 +16,7 @@ def create_n2f_length_example(count: int):
 
 
 def __random_explanation(vector: list) -> str:
-    lst_str = ", ".join(str(num) for num in vector)
+    lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"Calculate the length of the list {lst_str}",
         f"LENGTH({vector})",
@@ -26,27 +26,27 @@ def __random_explanation(vector: list) -> str:
         f"Performing the length calculation for the list {lst_str}",
         f"The length of the list {lst_str}",
         f"LENGTH calculation: {lst_str}",
-        f"The result after calculating the length of the list {lst_str}, what is it?",
-        f"The length of the list {lst_str}, what does it give?",
+        f"The result after calculating the length of the list {lst_str} what is it?",
+        f"The length of the list {lst_str} what does it give?",
         f"Let's calculate the length of the list {lst_str}",
-        f"The length of the list {lst_str}, result is",
+        f"The length of the list {lst_str} result is",
         f"Calculating the length of the list {lst_str}",
         f"The length result after calculating length for the list {lst_str}",
-        f"The length of the list {lst_str}, what is its value?",
+        f"The length of the list {lst_str} what is its value?",
         f"Let's determine the length of the list {lst_str}",
         f"The length of the list {lst_str}",
-        f"The length of the list {lst_str}, what is the result?",
-        f"The length of the list {lst_str}, what does it give?",
+        f"The length of the list {lst_str} what is the result?",
+        f"The length of the list {lst_str} what does it give?",
         f"The length of the list {lst_str} and provide the result",
-        f"LENGTH({vector}), what does it yield?",
-        f"The length of the list {lst_str}, ignoring order",
+        f"LENGTH({vector}) what does it yield?",
+        f"The length of the list {lst_str} ignoring order",
         f"The result after calculating the length of the list {lst_str}",
-        f"The length of the list {lst_str}, what is it?",
-        f"Calculate the length of the list {lst_str}, find the answer",
-        f"The length of the list {lst_str}, what does it give?",
+        f"The length of the list {lst_str} what is it?",
+        f"Calculate the length of the list {lst_str} find the answer",
+        f"The length of the list {lst_str} what does it give?",
         f"Let's find the result after calculating the length of the list {lst_str}",
-        f"The length of the list {lst_str}, what is the output?",
-        f"The result after calculating the length of the list {lst_str}, what is it?",
+        f"The length of the list {lst_str} what is the output?",
+        f"The result after calculating the length of the list {lst_str} what is it?",
     ]
     return random.choice(explanations)
 

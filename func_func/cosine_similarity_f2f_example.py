@@ -1,8 +1,8 @@
 import random
 
-from src.constants import TaskTypes
-from src.random_value_generator import RandomValueGenerator
-from src.utility import Utility
+from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
+from cl_data.src.utility import Utility
 
 
 def create_f2f_cosine_similarity_example(count: int):

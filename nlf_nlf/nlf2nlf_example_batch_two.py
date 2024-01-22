@@ -1,8 +1,8 @@
 import random
 
-from src.constants import TaskTypes
-from src.random_value_generator import RandomValueGenerator
-from src.utility import Utility
+from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
+from cl_data.src.utility import Utility
 
 
 def create_nlf2nlf_batch_two_example(count: int):
@@ -14,10 +14,8 @@ def create_nlf2nlf_batch_two_example(count: int):
 
 
 def __get_batch_two_example_pair():
-    random_list = Utility.remove_spaces(
-        str(RandomValueGenerator.generate_random_list())
-    )
-    lst_str = ", ".join(str(num) for num in random_list)
+    random_list = RandomValueGenerator.generate_random_list()
+    lst_str = " , ".join(str(num) for num in random_list)
     random_int_one = RandomValueGenerator.generate_random_integer()
     random_int_two = random_int_one + RandomValueGenerator.generate_random_integer()
     random_int_three = random_int_two + RandomValueGenerator.generate_random_integer()

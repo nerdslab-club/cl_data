@@ -1,7 +1,7 @@
 import random
 
-from src.constants import TaskTypes
-from src.utility import Utility
+from cl_data.src.constants import TaskTypes
+from cl_data.src.utility import Utility
 
 
 def create_n2f_subtraction_example(count: int):
@@ -24,24 +24,24 @@ def __random_explanation(x: int, y: int) -> str:
         f"{x} minus {y}",
         f"Deducting {y} from {x}",
         f"The result of {x} minus {y}",
-        f"{x} minus {y}, what is it?",
+        f"{x} minus {y} what is it?",
         f"Calculation: {x} - {y}",
-        f"{x} minus {y}, equals?",
+        f"{x} minus {y} equals?",
         f"Taking away {y} from {x}",
         f"{y} subtracted from {x}",
         f"The subtraction of {y} from {x}",
         f"{x} minus {y} is?",
         f"{x} minus {y} is equal to?",
-        f"{y} subtracted from {x}, what does it give?",
-        f"{x} and {y} subtracted, the result?",
-        f"{x} less {y}, the answer?",
-        f"{x} take away {y}, find the answer",
+        f"{y} subtracted from {x} what does it give?",
+        f"{x} and {y} subtracted the result?",
+        f"{x} less {y} the answer?",
+        f"{x} take away {y} find the answer",
         f"Difference: {x} - {y}",
         f"Let's subtract {y} from {x}",
         f"Find the difference between {x} and {y}",
-        f"{y} and {x}, their subtraction?",
-        f"{x} minus {y}, result is",
-        f"{x} and {y}, what will be the difference?",
+        f"{y} and {x} their subtraction?",
+        f"{x} minus {y} result is",
+        f"{x} and {y} what will be the difference?",
         f"Subtraction: {x} - {y}",
         f"{x} decreased by {y}",
         f"{y} reduced from {x}",
