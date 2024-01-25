@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_euler_totient_example(count: int):
+def create_n2f_euler_totient_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         n = RandomValueGenerator.generate_random_integer(2, 100)
         examples.append({
-            "inputStr": __random_explanation(n),
+            "inputStr": __random_explanation(n, (None if identifier is None else identifier+i)),
             "outputStr": f"##euler_totient({n})",
         })
     return examples
 
 
-def __random_explanation(a: int) -> str:
+def __random_explanation(a: int, identifier: int | None) -> str:
     explanations = [
         f"Calculate the Euler's totient function value for {a}",
         f"EULER_TOTIENT({a})",
@@ -47,7 +47,10 @@ def __random_explanation(a: int) -> str:
         f"The Euler's totient value for {a}, what is the output?",
         f"The result after applying Euler's totient function to {a}, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

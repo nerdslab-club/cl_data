@@ -5,9 +5,9 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2f_cosine_similarity_example(count: int):
+def create_f2f_cosine_similarity_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         item = RandomValueGenerator.generate_random_integer(2, 10)
         list1 = RandomValueGenerator.generate_random_list(
             length=item, start_range=-10, end_range=100
@@ -15,8 +15,8 @@ def create_f2f_cosine_similarity_example(count: int):
         list2 = RandomValueGenerator.generate_random_list(
             length=item, start_range=-10, end_range=100
         )
-        choice_one = __random_io_operation(list1, list2)
-        choice_two = __random_io_operation(list1, list2, choice_one)
+        choice_one = __random_io_operation(list1, list2, (None if identifier is None else identifier+i))
+        choice_two = __random_io_operation(list1, list2, (None if identifier is None else identifier+i), choice_one)
         examples.append(
             {
                 "inputStr": Utility.remove_spaces(choice_one),
@@ -26,7 +26,7 @@ def create_f2f_cosine_similarity_example(count: int):
     return examples
 
 
-def __random_io_operation(list1, list2, prev_choice=None) -> str:
+def __random_io_operation(list1, list2, identifier: int | None, prev_choice=None) -> str:
     explanations = [
         f"##cosine_similarity({list1}, {list2})",
         f"##division(##calculate_dot_product({list1}, {list2}), ##multiplication( ##l2_norm({list1}), ##l2_norm({list2})))",
@@ -35,7 +35,10 @@ def __random_io_operation(list1, list2, prev_choice=None) -> str:
     if prev_choice is not None:
         explanations.remove(prev_choice)
 
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

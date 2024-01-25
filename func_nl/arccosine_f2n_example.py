@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_arccosine_example(count: int):
+def create_f2n_arccosine_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-1.0, 1.0)
         examples.append(
             {
                 "inputStr": f"##arccosine({x})",
-                "outputStr": __random_explanation_arccosine(x),
+                "outputStr": __random_explanation_arccosine(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_arccosine(x: float) -> str:
+def __random_explanation_arccosine(x: float, identifier: int | None) -> str:
     explanations = [
         f"The arccosine of {x}",
         f"arccos({x})",
@@ -39,7 +39,10 @@ def __random_explanation_arccosine(x: float) -> str:
         f"The angle for which the cosine value is {x}",
         f"The angle whose cosine is given by {x}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

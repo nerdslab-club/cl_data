@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_square_root_example(count: int):
+def create_n2f_square_root_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num = round(random.uniform(1, 99999), 2)  # Using random float between 1 and 99999
         examples.append(
             {
-                "inputStr": __random_explanation(num),
+                "inputStr": __random_explanation(num, (None if identifier is None else identifier+i)),
                 "outputStr": f"##square_root({num})",
             }
         )
     return examples
 
 
-def __random_explanation(f1: float) -> str:
+def __random_explanation(f1: float, identifier: int | None) -> str:
     explanations = [
         f"Finding the square root of {f1}",
         f"The square root of {f1}",
@@ -42,7 +42,10 @@ def __random_explanation(f1: float) -> str:
         f"The square root of {f1}, in decimal",
         f"The square root of {f1}, in numerical form",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

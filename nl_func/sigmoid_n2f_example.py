@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_sigmoid_example(count: int):
+def create_n2f_sigmoid_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = RandomValueGenerator.generate_random_float(-10.0, 10.0)
         examples.append({
-            "inputStr": __random_explanation(x),
+            "inputStr": __random_explanation(x, (None if identifier is None else identifier+i)),
             "outputStr": f"##sigmoid({x})",
         })
     return examples
 
 
-def __random_explanation(x: float) -> str:
+def __random_explanation(x: float, identifier: int | None) -> str:
     explanations = [
         f"Calculate the sigmoid function value for {x}",
         f"SIGMOID({x})",
@@ -47,7 +47,10 @@ def __random_explanation(x: float) -> str:
         f"The sigmoid value for {x}, what is the output?",
         f"The result after applying the sigmoid function to {x}, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

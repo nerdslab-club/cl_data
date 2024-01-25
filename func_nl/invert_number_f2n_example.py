@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_invert_number_example(count: int):
+def create_f2n_invert_number_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         number = random.uniform(0.1, 10.0)
         examples.append(
             {##invert_number({x})
                 "inputStr": f"##invert_number({number})",
-                "outputStr": __random_explanation_invert_number(number),
+                "outputStr": __random_explanation_invert_number(number, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_invert_number(x: float) -> str:
+def __random_explanation_invert_number(x: float, identifier: int | None) -> str:
     explanations = [
         f"The multiplicative inverse of the number {x}",
         f"invert_number({x})",
@@ -46,7 +46,10 @@ def __random_explanation_invert_number(x: float) -> str:
         f"The reciprocal fraction for the number {x}",
         f"The calculated inverse value of the number {x}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

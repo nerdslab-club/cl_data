@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_float_to_int_example(count: int):
+def create_f2n_float_to_int_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         value = random.uniform(-100.0, 100.0)
         examples.append(
             {
                 "inputStr": f"##float_to_int({value})",
-                "outputStr": __random_explanation_float_to_int(value),
+                "outputStr": __random_explanation_float_to_int(value, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_float_to_int(value: float) -> str:
+def __random_explanation_float_to_int(value: float, identifier: int | None) -> str:
     explanations = [
         f"The integer part of the floating-point number {value}",
         f"float_to_int({value})",
@@ -46,7 +46,10 @@ def __random_explanation_float_to_int(value: float) -> str:
         f"The calculated integer part of the floating-point number {value}",
         f"The calculated integer obtained by truncating the decimal part of the float {value}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

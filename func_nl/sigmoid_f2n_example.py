@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_sigmoid_example(count: int):
+def create_f2n_sigmoid_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-10.0, 10.0)
         examples.append(
             {
                 "inputStr": f"##sigmoid({x})",
-                "outputStr": __random_explanation_sigmoid(x),
+                "outputStr": __random_explanation_sigmoid(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_sigmoid(f: float) -> str:
+def __random_explanation_sigmoid(f: float, identifier: int | None) -> str:
     explanations = [
         f"The sigmoid function value of the number {f}",
         f"sigmoid({f})",
@@ -47,7 +47,10 @@ def __random_explanation_sigmoid(f: float) -> str:
         f"The logistic sigmoid value at the input {f}",
         f"The calculated sigmoid curve value of the number {f}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_cube_root_example(count: int):
+def create_f2n_cube_root_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-1000.0, 1000.0)
         examples.append(
             {
                 "inputStr": f"##cube_root({x})",
-                "outputStr": __random_explanation_cube_root(x),
+                "outputStr": __random_explanation_cube_root(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_cube_root(x: float) -> str:
+def __random_explanation_cube_root(x: float, identifier: int | None) -> str:
     explanations = [
         f"The cube root of the number {x}",
         f"cube_root({x})",
@@ -47,7 +47,10 @@ def __random_explanation_cube_root(x: float) -> str:
         f"The cube root value of {x} is",
         f"The result of finding the cube root of the number {x} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

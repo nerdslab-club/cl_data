@@ -5,21 +5,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_is_prime_example(count: int):
+def create_f2n_is_prime_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.randint(1, 100)
         is_prime_result = sympy.isprime(x)
         examples.append(
             {
                 "inputStr": f"##is_prime({x})",
-                "outputStr": __random_explanation_is_prime(x, is_prime_result),
+                "outputStr": __random_explanation_is_prime(x, is_prime_result, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_is_prime(x: int, is_prime_result: bool) -> str:
+def __random_explanation_is_prime(x: int, is_prime_result: bool, identifier: int | None) -> str:
     prime_str = "prime" if is_prime_result else "not prime"
     explanations = [
         f"Whether {x} is a prime number",
@@ -49,7 +49,10 @@ def __random_explanation_is_prime(x: int, is_prime_result: bool) -> str:
         f"Checking if {x} is a prime number is",
         f"The boolean result of is_prime({x}) is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

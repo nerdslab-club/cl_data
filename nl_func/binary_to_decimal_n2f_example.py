@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_binary_to_decimal_example(count: int):
+def create_n2f_binary_to_decimal_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         binary_string = RandomValueGenerator.generate_random_binary_string()
         examples.append({
-            "inputStr": __random_explanation(binary_string),
+            "inputStr": __random_explanation(binary_string, (None if identifier is None else identifier+i)),
             "outputStr": f"##binary_to_decimal('{binary_string}')",
         })
     return examples
 
 
-def __random_explanation(binary_string: str) -> str:
+def __random_explanation(binary_string: str, identifier: int | None) -> str:
     explanations = [
         f"Convert the binary string '{binary_string}' to decimal",
         f"BINARY_TO_DECIMAL('{binary_string}')",
@@ -46,7 +46,10 @@ def __random_explanation(binary_string: str) -> str:
         f"The decimal value of the binary string '{binary_string}', what is the output?",
         f"The result after converting the binary string '{binary_string}' to decimal, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

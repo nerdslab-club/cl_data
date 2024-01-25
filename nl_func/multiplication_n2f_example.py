@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_multiplication_example(count: int):
+def create_n2f_multiplication_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num1 = random.uniform(0, 1000)  # Using random float between 0 and 1000
         num2 = random.uniform(0, 1000)  # Using random float between 0 and 1000
         examples.append(
             {
-                "inputStr": __random_explanation(num1, num2),
+                "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
                 "outputStr": f"##multiplication({num1},{num2})",
             }
         )
     return examples
 
 
-def __random_explanation(f2: float, f3: float) -> str:
+def __random_explanation(f2: float, f3: float, identifier: int | None) -> str:
     explanations = [
         f"Multiplying {f2} by {f3}",
         f"{f2} times {f3}",
@@ -50,7 +50,10 @@ def __random_explanation(f2: float, f3: float) -> str:
         f"{f2} times {f3} equals?",
         f"{f2} multiplied by {f3}, in decimal",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_is_perfect_cube_example(count: int):
+def create_n2f_is_perfect_cube_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num = RandomValueGenerator.generate_random_integer(1, 100)
         examples.append({
-            "inputStr": __random_explanation(num),
+            "inputStr": __random_explanation(num, (None if identifier is None else identifier+i)),
             "outputStr": f"##is_perfect_cube({num})",
         })
     return examples
 
 
-def __random_explanation(a: int) -> str:
+def __random_explanation(a: int, identifier: int | None) -> str:
     explanations = [
         f"Check if {a} is a perfect cube",
         f"IS_PERFECT_CUBE({a})",
@@ -47,7 +47,10 @@ def __random_explanation(a: int) -> str:
         f"Is {a} a perfect cube? Let's find out",
         f"Is perfect cube status for {a}, is it a perfect cube or not?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

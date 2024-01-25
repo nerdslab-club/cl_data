@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_geometric_mean_example(count: int):
+def create_f2n_geometric_mean_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         lst = [random.uniform(0.1, 1000.0) for _ in range(random.randint(2, 10))]
         examples.append(
             {##geometric_mean({vector1_list})
                 "inputStr": f"##geometric_mean({lst})",
-                "outputStr": __random_explanation_geometric_mean(lst),
+                "outputStr": __random_explanation_geometric_mean(lst, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_geometric_mean(lst_one: list[float]) -> str:
+def __random_explanation_geometric_mean(lst_one: list[float], identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in lst_one)
     explanations = [
         f"The geometric mean of the numbers in the list {lst_str}",
@@ -47,7 +47,10 @@ def __random_explanation_geometric_mean(lst_one: list[float]) -> str:
         f"The result obtained by finding the geometric mean of the provided numbers {lst_str}",
         f"The computed mean value of the numbers using the geometric mean formula for the numbers {lst_str}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

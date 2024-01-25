@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_square_int_example(count: int):
+def create_n2f_square_int_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num = RandomValueGenerator.generate_random_integer(1, 10)
         examples.append({
-            "inputStr": __random_explanation(num),
+            "inputStr": __random_explanation(num, (None if identifier is None else identifier+i)),
             "outputStr": f"##square_int({num})",
         })
     return examples
 
 
-def __random_explanation(x: int) -> str:
+def __random_explanation(x: int, identifier: int | None) -> str:
     explanations = [
         f"Calculate the square of the integer {x}",
         f"SQUARE_INT({x})",
@@ -47,7 +47,10 @@ def __random_explanation(x: int) -> str:
         f"Square {x}, what is the output?",
         f"The squared result after squaring the integer {x}, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

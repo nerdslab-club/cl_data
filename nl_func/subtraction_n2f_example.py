@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_subtraction_example(count: int):
+def create_n2f_subtraction_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num1 = random.randint(0, 1000)
         num2 = random.randint(0, num1)  # Ensure num2 is less than or equal to num1
         examples.append(
             {
-                "inputStr": __random_explanation(num1, num2),
+                "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
                 "outputStr": f"##subtraction({num1},{num2})",
             }
         )
     return examples
 
 
-def __random_explanation(x: int, y: int) -> str:
+def __random_explanation(x: int, y: int, identifier: int | None) -> str:
     explanations = [
         f"Subtracting {y} from {x}",
         f"{x} minus {y}",
@@ -48,7 +48,10 @@ def __random_explanation(x: int, y: int) -> str:
         f"The remainder when {y} is subtracted from {x}",
         f"{x} take away {y} equals?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

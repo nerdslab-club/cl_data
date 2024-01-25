@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_is_odd_example(count: int):
+def create_f2n_is_odd_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.randint(-100, 100)
         examples.append(
             {##is_odd({n})
                 "inputStr": f"##is_odd({x})",
-                "outputStr": __random_explanation_is_odd(x),
+                "outputStr": __random_explanation_is_odd(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_is_odd(n: int) -> str:
+def __random_explanation_is_odd(n: int, identifier: int | None) -> str:
     explanations = [
         f"Whether the number {n} is odd",
         f"is_odd({n})",
@@ -46,7 +46,10 @@ def __random_explanation_is_odd(n: int) -> str:
         f"Whether the integer {n} is not divisible by 2 or not",
         f"Whether {n} is not a whole number that can be divided by 2",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

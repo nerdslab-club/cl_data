@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_isqrt_example(count: int):
+def create_f2n_isqrt_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.randint(0, 1000)
         examples.append(
             {
                 "inputStr": f"##isqrt({x})",
-                "outputStr": __random_explanation_isqrt(x),
+                "outputStr": __random_explanation_isqrt(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_isqrt(x: int) -> str:
+def __random_explanation_isqrt(x: int, identifier: int | None) -> str:
     explanations = [
         f"The integer square root of {x}",
         f"isqrt({x})",
@@ -44,7 +44,10 @@ def __random_explanation_isqrt(x: int) -> str:
         f"The floor square root of {x} is",
         f"The integer square root of {x} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

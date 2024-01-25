@@ -6,20 +6,20 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_hyperbolic_cosine_example(count: int):
+def create_n2f_hyperbolic_cosine_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         value = RandomValueGenerator.generate_random_float(-10, 10, round_to=2)  # Random value in a suitable range
         examples.append(
             {
-                "inputStr": __random_explanation_hyperbolic_cosine(value),
+                "inputStr": __random_explanation_hyperbolic_cosine(value, (None if identifier is None else identifier+i)),
                 "outputStr": f"##hyperbolic_cosine({value})",
             }
         )
     return examples
 
 
-def __random_explanation_hyperbolic_cosine(value: float) -> str:
+def __random_explanation_hyperbolic_cosine(value: float, identifier: int | None) -> str:
     value = math.cosh(value)
     explanations = [
         f"Hyperbolic cosine of {value}",
@@ -45,7 +45,10 @@ def __random_explanation_hyperbolic_cosine(value: float) -> str:
         f"Hyperbolic cosine function for input {value}",
         f"Hyperbolic cosine of {value}, what is the result?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

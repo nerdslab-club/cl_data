@@ -4,19 +4,19 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_product_example(count: int, max_list_length: int = 5):
+def create_n2f_product_example(count: int, identifier: int | None, max_list_length: int = 5):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         length = RandomValueGenerator.generate_random_integer(2, max_list_length + 1)
         numbers = RandomValueGenerator.generate_random_list(length, -10, 10)
         examples.append({
-            "inputStr": __random_explanation(numbers),
+            "inputStr": __random_explanation(numbers, (None if identifier is None else identifier+i)),
             "outputStr": f"##product({numbers})",
         })
     return examples
 
 
-def __random_explanation(list_str: list) -> str:
+def __random_explanation(list_str: list, identifier: int | None) -> str:
     list_str = " , ".join(str(num) for num in list_str)
 
     explanations = [
@@ -51,7 +51,10 @@ def __random_explanation(list_str: list) -> str:
         f"Let's find the result of multiplying the numbers {list_str}",
         f"{list_str}, their product, what is the result?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

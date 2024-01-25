@@ -5,22 +5,23 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_sine_example(count: int):
+def create_f2n_sine_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         angle = random.uniform(0.0, 360.0)
         examples.append(
             {
                 "inputStr": f"##sine({angle})",
                 "outputStr": __random_explanation_sine(
                     angle,
+                    (None if identifier is None else identifier+i)
                 ),
             }
         )
     return examples
 
 
-def __random_explanation_sine(angle: float) -> str:
+def __random_explanation_sine(angle: float, identifier: int | None) -> str:
     radians = math.radians(angle)
     sine_value = round(math.sin(radians), 4)
 

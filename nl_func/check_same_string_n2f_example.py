@@ -4,19 +4,19 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_check_same_string_example(count: int):
+def create_n2f_check_same_string_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         str1 = RandomValueGenerator.generate_random_string()
         str2 = RandomValueGenerator.generate_random_string()
         examples.append({
-            "inputStr": __random_explanation(str1, str2),
+            "inputStr": __random_explanation(str1, str2, (None if identifier is None else identifier+i)),
             "outputStr": f"##check_same_string('{str1}', '{str2}')",
         })
     return examples
 
 
-def __random_explanation(str1: str, str2: str) -> str:
+def __random_explanation(str1: str, str2: str, identifier: int | None) -> str:
     explanations = [
         f"Check if the strings '{str1}' and '{str2}' are the same",
         f"CHECK_SAME_STRING('{str1}', '{str2}')",
@@ -48,7 +48,10 @@ def __random_explanation(str1: str, str2: str) -> str:
         f"The check_same_string result for '{str1}' and '{str2}', what is the output?",
         f"The result after checking if '{str1}' and '{str2}' are the same, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_power_of_ten_example(count: int):
+def create_n2f_power_of_ten_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         exponent = RandomValueGenerator.generate_random_integer(-5, 5)
         examples.append({
-            "inputStr": __random_explanation(exponent),
+            "inputStr": __random_explanation(exponent, (None if identifier is None else identifier+i)),
             "outputStr": f"##power_of_ten({exponent})",
         })
     return examples
 
 
-def __random_explanation(x: int) -> str:
+def __random_explanation(x: int, identifier: int | None) -> str:
     explanations = [
         f"Calculate 10 raised to the power of {x}",
         f"POWER_OF_TEN({x})",
@@ -46,7 +46,10 @@ def __random_explanation(x: int) -> str:
         f"10 to the power of {x}, what is the output?",
         f"The result after raising 10 to the power of {x}, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

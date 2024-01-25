@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_is_palindrome_example(count: int):
+def create_n2f_is_palindrome_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         word = RandomValueGenerator.generate_random_string()
         examples.append({
-            "inputStr": __random_explanation(word),
+            "inputStr": __random_explanation(word, (None if identifier is None else identifier+i)),
             "outputStr": f"##is_palindrome('{word}')",
         })
     return examples
 
 
-def __random_explanation(word: str) -> str:
+def __random_explanation(word: str, identifier: int | None) -> str:
     explanations = [
         f"Determine if the string '{word}' is a palindrome",
         f"IS_PALINDROME('{word}')",
@@ -48,7 +48,10 @@ def __random_explanation(word: str) -> str:
         f"Determine if '{word}' is a palindrome without spaces",
         f"Is '{word}' a palindrome or not, what is the answer?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

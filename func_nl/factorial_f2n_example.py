@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_factorial_example(count: int):
+def create_f2n_factorial_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.randint(0, 10)  # Generate integers from 0 to 10
         examples.append(
             {
                 "inputStr": f"##factorial({x})",
-                "outputStr": __random_explanation_factorial(x),
+                "outputStr": __random_explanation_factorial(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_factorial(x: int) -> str:
+def __random_explanation_factorial(x: int, identifier: int | None) -> str:
     explanations = [
         f"The factorial of {x}",
         f"factorial({x})",
@@ -45,7 +45,10 @@ def __random_explanation_factorial(x: int) -> str:
         f"The calculated result of {x} factorial is",
         f"The outcome of calculating factorial({x}) is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

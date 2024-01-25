@@ -4,19 +4,19 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_smallest_value_example(count: int):
+def create_n2f_smallest_value_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num1 = RandomValueGenerator.generate_random_float(-100.0, 100.0)
         num2 = RandomValueGenerator.generate_random_float(-100.0, 100.0)
         examples.append({
-            "inputStr": __random_explanation(num1, num2),
+            "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
             "outputStr": f"##smallest_value({num1}, {num2})",
         })
     return examples
 
 
-def __random_explanation(x: float, y: float) -> str:
+def __random_explanation(x: float, y: float, identifier: int | None) -> str:
     explanations = [
         f"The smaller value between {x} and {y}",
         f"SMALLEST_VALUE({x}, {y})",
@@ -46,7 +46,10 @@ def __random_explanation(x: float, y: float) -> str:
         f"smallest value({x}, {y}), what does it yield?",
         f"The smaller value between {x} and {y}, ignoring direction",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

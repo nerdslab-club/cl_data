@@ -6,13 +6,13 @@ from cl_data.src.utility import Utility
 
 def create_f2n_addition_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num1 = random.randint(0, 1000)
         num2 = random.randint(0, 1000)
         examples.append(
             {
                 "inputStr": f"##addition({num1},{num2})",
-                "outputStr": __random_explanation(num1, num2, identifier),
+                "outputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
             }
         )
     return examples

@@ -4,19 +4,19 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_gcd_example(count: int):
+def create_n2f_gcd_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num1 = RandomValueGenerator.generate_random_integer(1, 1000)
         num2 = RandomValueGenerator.generate_random_integer(1, 1000)
         examples.append({
-            "inputStr": __random_explanation(num1, num2),
+            "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
             "outputStr": f"##gcd({num1}, {num2})",
         })
     return examples
 
 
-def __random_explanation(f1: int, f2: int) -> str:
+def __random_explanation(f1: int, f2: int, identifier: int | None) -> str:
     explanations = [
         f"The greatest common divisor of {f1} and {f2}",
         f"GCD of {f1} and {f2}",
@@ -47,7 +47,10 @@ def __random_explanation(f1: int, f2: int) -> str:
         f"The greatest common divisor of numbers {f1} and {f2}",
         f"GCD: {f1} and {f2}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

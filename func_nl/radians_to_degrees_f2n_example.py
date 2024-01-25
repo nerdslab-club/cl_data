@@ -5,20 +5,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_radians_to_degrees_example(count: int):
+def create_f2n_radians_to_degrees_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(0.0, 2 * math.pi)
         examples.append(
             {
                 "inputStr": f"##radians_to_degrees({x})",
-                "outputStr": __random_explanation_radians_to_degrees(x),
+                "outputStr": __random_explanation_radians_to_degrees(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_radians_to_degrees(x: float) -> str:
+def __random_explanation_radians_to_degrees(x: float, identifier: int | None) -> str:
     explanations = [
         f"Convert {x} radians to degrees",
         f"radians_to_degrees({x})",
@@ -46,7 +46,10 @@ def __random_explanation_radians_to_degrees(x: float) -> str:
         f"The degree equivalent for the angle {x} radians",
         f"The result of converting {x} radians to degrees is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

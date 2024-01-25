@@ -5,9 +5,9 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2n_length_example(count: int):
+def create_f2n_length_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         item = RandomValueGenerator.generate_random_integer(2, 10)
         vector = [
             RandomValueGenerator.generate_random_integer(-100, 1000)
@@ -16,13 +16,13 @@ def create_f2n_length_example(count: int):
         examples.append(
             {
                 "inputStr": f"##length({vector})",
-                "outputStr": __random_explanation_length(numbers),
+                "outputStr": __random_explanation_length(vector, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_length(vector: list) -> str:
+def __random_explanation_length(vector: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"The length (number of elements) of the list {lst_str}",
@@ -55,7 +55,10 @@ def __random_explanation_length(vector: list) -> str:
         f"The outcome of evaluating length({vector})",
         f"The outcome of calculating the length value of the list {lst_str}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

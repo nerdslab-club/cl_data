@@ -4,19 +4,19 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_permutation_example(count: int):
+def create_n2f_permutation_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         n = RandomValueGenerator.generate_random_integer(2, 10)
         r = RandomValueGenerator.generate_random_integer(1, n)
         examples.append({
-            "inputStr": __random_explanation(n, r),
+            "inputStr": __random_explanation(n, r, (None if identifier is None else identifier+i)),
             "outputStr": f"##permutation({n}, {r})",
         })
     return examples
 
 
-def __random_explanation(x: int, y: int) -> str:
+def __random_explanation(x: int, y: int, identifier: int | None) -> str:
     explanations = [
         f"Calculate the permutation of {x} objects taken {y} at a time",
         f"PERMUTATION({x}, {y})",
@@ -48,7 +48,10 @@ def __random_explanation(x: int, y: int) -> str:
         f"The permutation of {x} objects taken {y} at a time, what is the output?",
         f"The result after calculating the permutation of {x} objects taken {y} at a time, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

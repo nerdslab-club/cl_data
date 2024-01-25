@@ -4,20 +4,20 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_pow_mod_example(count: int):
+def create_n2f_pow_mod_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         base = RandomValueGenerator.generate_random_integer(1, 100)
         exponent = RandomValueGenerator.generate_random_integer(0, 10)
         modulus = RandomValueGenerator.generate_random_integer(1, 50)
         examples.append({
-            "inputStr": __random_explanation(base, exponent, modulus),
+            "inputStr": __random_explanation(base, exponent, modulus, (None if identifier is None else identifier+i)),
             "outputStr": f"##pow_mod({base}, {exponent}, {modulus})",
         })
     return examples
 
 
-def __random_explanation(a: int, b: int, x: int) -> str:
+def __random_explanation(a: int, b: int, x: int, identifier: int | None) -> str:
     explanations = [
         f"The result of {a} raised to the power of {b} modulo {x}",
         f"POW_MOD({a}, {b}, {x})",
@@ -47,7 +47,10 @@ def __random_explanation(a: int, b: int, x: int) -> str:
         f"Find the result of {a} raised to the power of {b} modulo {x}",
         f"The remainder when {a} to the power of {b} is divided by {x}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

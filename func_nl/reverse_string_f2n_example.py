@@ -4,24 +4,24 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_reverse_string_example(count: int):
+def create_f2n_reverse_string_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         input_strings = "".join(
                 random.choices("abcdefghijklmnopqrstuvwxyz", k=random.randint(1, 10))
             )
         examples.append(
             {
-                "inputStr": f"##reverse_string('{input_str}')",
+                "inputStr": f"##reverse_string('{input_strings}')",
                 "outputStr": __random_explanation_reverse_string(
-                    input_strings[0]
+                    input_strings[0], (None if identifier is None else identifier+i)
                 ),
             }
         )
     return examples
 
 
-def __random_explanation_reverse_string(input_str) -> str:
+def __random_explanation_reverse_string(input_str, identifier: int | None) -> str:
     explanations = [
         f"Reversing the string '{input_str}'",
         f"reverse_string('{input_str}')",
@@ -52,7 +52,10 @@ def __random_explanation_reverse_string(input_str) -> str:
         f"The outcome of evaluating reverse_string('{input_str}')",
         f"The outcome of calculating the reverse of the string '{input_str}'",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

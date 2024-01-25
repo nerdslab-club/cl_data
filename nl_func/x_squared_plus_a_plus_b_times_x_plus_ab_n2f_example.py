@@ -4,20 +4,20 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_x_squared_plus_a_plus_b_times_x_plus_ab_example(count: int):
+def create_n2f_x_squared_plus_a_plus_b_times_x_plus_ab_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = RandomValueGenerator.generate_random_integer(1, 20)
         a = RandomValueGenerator.generate_random_integer(1, 20)
         b = RandomValueGenerator.generate_random_integer(1, 20)
         examples.append({
-            "inputStr": __random_explanation(x, a, b),
+            "inputStr": __random_explanation(x, a, b, (None if identifier is None else identifier+i)),
             "outputStr": f"##x_squared_plus_a_plus_b_times_x_plus_ab({x}, {a}, {b})",
         })
     return examples
 
 
-def __random_explanation(x: int, a: int, b: int) -> str:
+def __random_explanation(x: int, a: int, b: int, identifier: int | None) -> str:
     explanations = [
         f"Calculate {x}^2 + ({a} + {b}) * ({x} + {a * b})",
         f"X_SQUARED_PLUS_A_PLUS_B_TIMES_X_PLUS_AB({x}, {a}, {b})",
@@ -48,7 +48,10 @@ def __random_explanation(x: int, a: int, b: int) -> str:
         f"The expression {x}^2 + ({a} + {b}) * ({x} + {a * b}), what is the output?",
         f"The result after calculating the expression {x}^2 + ({a} + {b}) * ({x} + {a * b}), what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

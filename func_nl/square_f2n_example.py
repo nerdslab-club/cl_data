@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_square_example(count: int):
+def create_f2n_square_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-10.0, 10.0)
         examples.append(
             {
                 "inputStr": f"##square({x})",
-                "outputStr": __random_explanation_square(x),
+                "outputStr": __random_explanation_square(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_square(f: float) -> str:
+def __random_explanation_square(f: float, identifier: int | None) -> str:
     explanations = [
         f"The square of the number {f}",
         f"square({f})",
@@ -45,7 +45,10 @@ def __random_explanation_square(f: float) -> str:
         f"The squared value of {f} is",
         f"The value calculated by squaring {f} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

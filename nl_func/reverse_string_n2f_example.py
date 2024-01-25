@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_reverse_string_example(count: int):
+def create_n2f_reverse_string_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         input_str = RandomValueGenerator.generate_random_string()
         examples.append({
-            "inputStr": __random_explanation(input_str),
+            "inputStr": __random_explanation(input_str, (None if identifier is None else identifier+i)),
             "outputStr": f"##reverse_string('{input_str}')",
         })
     return examples
 
 
-def __random_explanation(input_str: str) -> str:
+def __random_explanation(input_str: str, identifier: int | None) -> str:
     explanations = [
         f"Reverse the string '{input_str}'",
         f"REVERSE_STRING('{input_str}')",
@@ -46,7 +46,10 @@ def __random_explanation(input_str: str) -> str:
         f"The reversed form of the string '{input_str}', what is the output?",
         f"The result after reversing the string '{input_str}', what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_max_value_example(count: int):
+def create_n2f_max_value_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         numbers = RandomValueGenerator.generate_random_list(5, 0, 100)
         examples.append({
-            "inputStr": __random_explanation(numbers),
+            "inputStr": __random_explanation(numbers, (None if identifier is None else identifier+i)),
             "outputStr": f"##max_value({numbers})",
         })
     return examples
 
 
-def __random_explanation(list_str: list[int]) -> str:
+def __random_explanation(list_str: list[int], identifier: int | None) -> str:
     list_str = " , ".join(str(num) for num in list_str)
 
     explanations = [
@@ -48,7 +48,10 @@ def __random_explanation(list_str: list[int]) -> str:
         f"The maximum value in the list {list_str}, what is the output?",
         f"The result after finding the maximum value in the list {list_str}, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

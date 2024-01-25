@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_hypotenuse_example(count: int):
+def create_f2n_hypotenuse_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         a = random.uniform(1.0, 100.0)
         b = random.uniform(1.0, 100.0)
         examples.append(
             {
                 "inputStr": f"##hypotenuse({a}, {b})",
-                "outputStr": __random_explanation_hypotenuse(a, b),
+                "outputStr": __random_explanation_hypotenuse(a, b, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_hypotenuse(a: float, b: float) -> str:
+def __random_explanation_hypotenuse(a: float, b: float, identifier: int | None) -> str:
     explanations = [
         f"The length of the hypotenuse in a right triangle with perpendicular sides of lengths {a} and {b}",
         f"hypotenuse({a}, {b})",
@@ -46,7 +46,10 @@ def __random_explanation_hypotenuse(a: float, b: float) -> str:
         f"The computed hypotenuse value for a right triangle with legs {a} and {b}",
         f"The calculated length of the hypotenuse for a right triangle with sides {a} and {b}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

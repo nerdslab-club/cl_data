@@ -5,20 +5,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_sine_example(count: int):
+def create_n2f_sine_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         angle_degrees = round(random.uniform(0, 360), 2)
         examples.append(
             {
-                "inputStr": __random_explanation(angle_degrees),
+                "inputStr": __random_explanation(angle_degrees, (None if identifier is None else identifier+i)),
                 "outputStr": f"##sine({angle_degrees})",
             }
         )
     return examples
 
 
-def __random_explanation(angle_degrees: float) -> str:
+def __random_explanation(angle_degrees: float, identifier: int | None) -> str:
     explanations = [
         f"The sine of {angle_degrees} degrees",
         f"Sine of {angle_degrees}°",
@@ -48,7 +48,10 @@ def __random_explanation(angle_degrees: float) -> str:
         f"The outcome of calculating sin({angle_degrees}°)",
         f"The value of sin({angle_degrees}°), the result?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

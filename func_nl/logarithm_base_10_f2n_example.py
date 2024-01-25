@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_logarithm_base_10_example(count: int):
+def create_f2n_logarithm_base_10_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         m = random.uniform(0.1, 100.0)
         examples.append(
             {
                 "inputStr": f"##logarithm_base_10({m})",
-                "outputStr": __random_explanation_logarithm_base_10(m),
+                "outputStr": __random_explanation_logarithm_base_10(m, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_logarithm_base_10(m: float) -> str:
+def __random_explanation_logarithm_base_10(m: float, identifier: int | None) -> str:
     explanations = [
         f"The base-10 logarithm of {m}",
         f"logarithm_base_10({m})",
@@ -46,7 +46,10 @@ def __random_explanation_logarithm_base_10(m: float) -> str:
         f"The log10 value for {m}",
         f"The output of the base-10 logarithm function at {m}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_mean_example(count: int):
+def create_f2n_mean_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num_count = random.randint(2, 10)  # Generate 2 to 5 numbers
         numbers = [random.uniform(-100.0, 1000.0) for _ in range(num_count)]
         examples.append(
             {
                 "inputStr": f"##mean({numbers})",
-                "outputStr": __random_explanation_mean(numbers),
+                "outputStr": __random_explanation_mean(numbers, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_mean(numbers: list) -> str:
+def __random_explanation_mean(numbers: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in numbers)
     explanations = [
         f"The mean of the numbers {lst_str}",
@@ -47,7 +47,10 @@ def __random_explanation_mean(numbers: list) -> str:
         f"The average value calculated from {lst_str} is",
         f"The value of the average of the numbers {lst_str} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

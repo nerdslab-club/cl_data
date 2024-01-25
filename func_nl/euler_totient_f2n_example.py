@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_euler_totient_example(count: int):
+def create_f2n_euler_totient_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         n = random.randint(1, 50)
         examples.append(
             {
                 "inputStr": f"##euler_totient({n})",
-                "outputStr": __random_explanation_euler_totient(n),
+                "outputStr": __random_explanation_euler_totient(n, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_euler_totient(n: int) -> str:
+def __random_explanation_euler_totient(n: int, identifier: int | None) -> str:
     explanations = [
         f"The Euler's totient function value for the integer {n}",
         f"euler_totient({n})",
@@ -46,7 +46,10 @@ def __random_explanation_euler_totient(n: int) -> str:
         f"The calculated outcome of evaluating euler_totient({n})",
         f"The computed totient value of the integer {n} using Euler's totient function",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

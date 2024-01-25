@@ -4,19 +4,19 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_greatest_value_example(count: int):
+def create_n2f_greatest_value_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num1 = RandomValueGenerator.generate_random_float(-100.0, 100.0)
         num2 = RandomValueGenerator.generate_random_float(-100.0, 100.0)
         examples.append({
-            "inputStr": __random_explanation(num1, num2),
+            "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
             "outputStr": f"##greatest_value({num1}, {num2})",
         })
     return examples
 
 
-def __random_explanation(f1: float, f2: float) -> str:
+def __random_explanation(f1: float, f2: float, identifier: int | None) -> str:
     explanations = [
         f"The greater value between {f1} and {f2}",
         f"GREATEST_VALUE({f1}, {f2})",
@@ -46,7 +46,10 @@ def __random_explanation(f1: float, f2: float) -> str:
         f"greatest value({f1}, {f2}), what does it yield?",
         f"The greater value between {f1} and {f2}, ignoring direction",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

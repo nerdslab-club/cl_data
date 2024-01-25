@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_hyperbolic_cosine_example(count: int):
+def create_f2n_hyperbolic_cosine_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-10.0, 10.0)
         examples.append(
             {
                 "inputStr": f"##hyperbolic_cosine({x})",
-                "outputStr": __random_explanation_hyperbolic_cosine(x),
+                "outputStr": __random_explanation_hyperbolic_cosine(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_hyperbolic_cosine(x: float) -> str:
+def __random_explanation_hyperbolic_cosine(x: float, identifier: int | None) -> str:
     explanations = [
         f"The hyperbolic cosine of {x}",
         f"hyperbolic_cosine({x})",
@@ -46,7 +46,10 @@ def __random_explanation_hyperbolic_cosine(x: float) -> str:
         f"The value of the hyperbolic cosine function at {x} is",
         f"The cosh value for {x}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

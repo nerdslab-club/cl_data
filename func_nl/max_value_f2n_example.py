@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_max_value_example(count: int):
+def create_f2n_max_value_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         lst = [random.randint(-100, 100) for _ in range(random.randint(2, 10))]
         examples.append(
             {
                 "inputStr": f"##max_value({lst})",
-                "outputStr": __random_explanation_max_value(lst),
+                "outputStr": __random_explanation_max_value(lst, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_max_value(lst_one: list[int]) -> str:
+def __random_explanation_max_value(lst_one: list[int], identifier: int | None) -> str:
 
     lst_str = " , ".join(str(num) for num in lst_one)
     explanations = [
@@ -40,7 +40,10 @@ def __random_explanation_max_value(lst_one: list[int]) -> str:
         f"The calculated outcome of evaluating max_value({lst_str}) is",
         f"The greatest result obtained from the elements in {lst_str} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

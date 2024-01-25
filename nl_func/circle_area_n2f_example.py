@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_circle_area_example(count: int):
+def create_n2f_circle_area_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         radius = RandomValueGenerator.generate_random_float(1.0, 10.0)
         examples.append({
-            "inputStr": __random_explanation(radius),
+            "inputStr": __random_explanation(radius, (None if identifier is None else identifier+i)),
             "outputStr": f"##circle_area({radius})",
         })
     return examples
 
 
-def __random_explanation(f1: float) -> str:
+def __random_explanation(f1: float, identifier: int | None) -> str:
     explanations = [
         f"Calculate the area of a circle with radius {f1}",
         f"CIRCLE_AREA({f1})",
@@ -47,7 +47,10 @@ def __random_explanation(f1: float) -> str:
         f"The area of a circle with radius {f1}, what is the output?",
         f"The result after calculating the area of a circle with radius {f1}, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

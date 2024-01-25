@@ -5,12 +5,12 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2f_average_example(count: int):
+def create_f2f_average_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         list1 = RandomValueGenerator.generate_random_list()
-        choice_one = __random_io(list1)
-        choice_two = __random_io(list1, choice_one)
+        choice_one = __random_io(list1, (None if identifier is None else identifier+i))
+        choice_two = __random_io(list1, (None if identifier is None else identifier+i), choice_one)
         examples.append(
             {
                 "inputStr": Utility.remove_spaces(choice_one),
@@ -20,7 +20,7 @@ def create_f2f_average_example(count: int):
     return examples
 
 
-def __random_io(list1: list, prev_choice=None) -> str:
+def __random_io(list1: list, identifier: int | None, prev_choice=None) -> str:
     explanations = [
         f"##average({list1})",
         f"##mean({list1})",
@@ -28,7 +28,11 @@ def __random_io(list1: list, prev_choice=None) -> str:
     ]
     if prev_choice is not None:
         explanations.remove(prev_choice)
-    return random.choice(explanations)
+
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

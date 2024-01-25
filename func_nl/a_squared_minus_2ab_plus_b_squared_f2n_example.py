@@ -5,23 +5,23 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2n_a_squared_minus_2ab_plus_b_squared_example(count: int):
+def create_f2n_a_squared_minus_2ab_plus_b_squared_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         a = RandomValueGenerator.generate_random_integer(-10, 1000)
         b = RandomValueGenerator.generate_random_integer(-10, 1000)
         examples.append(
             {
                 "inputStr": f"##a_squared_minus_2ab_plus_b_squared({a}, {b})",
                 "outputStr": __random_explanation_a_squared_minus_2ab_plus_b_squared(
-                    a, b
+                    a, b, (None if identifier is None else identifier+i)
                 ),
             }
         )
     return examples
 
 
-def __random_explanation_a_squared_minus_2ab_plus_b_squared(a, b) -> str:
+def __random_explanation_a_squared_minus_2ab_plus_b_squared(a, b, identifier: int | None) -> str:
     explanations = [
         f"Calculating the value of {a}^2 - 2*{a}*{b} + {b}^2",
         f"a_squared_minus_2ab_plus_b_squared({a}, {b})",
@@ -49,7 +49,10 @@ def __random_explanation_a_squared_minus_2ab_plus_b_squared(a, b) -> str:
         f"The outcome of determining the sum of {a} squared, -2 times {a} times {b}, and {b} squared",
         f"The outcome of evaluating a_squared_minus_2ab_plus_b_squared({a}, {b})",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

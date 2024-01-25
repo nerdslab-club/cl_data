@@ -4,9 +4,9 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_division_example(count: int):
+def create_n2f_division_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num1 = random.uniform(
             1, 10000
         )  # Using random float between 1 and 1000 (avoid division by zero)
@@ -15,14 +15,14 @@ def create_n2f_division_example(count: int):
         )  # Using random float between 1 and 1000 (avoid division by zero)
         examples.append(
             {
-                "inputStr": __random_explanation(num1, num2),
+                "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
                 "outputStr": f"##division({num1},{num2})",
             }
         )
     return examples
 
 
-def __random_explanation(f1: float, f2: float) -> str:
+def __random_explanation(f1: float, f2: float, identifier: int | None) -> str:
     explanations = [
         f"Dividing {f1} by {f2}",
         f"{f1} divided by {f2}",
@@ -54,7 +54,10 @@ def __random_explanation(f1: float, f2: float) -> str:
         f"{f1} divided by {f2}, in decimal",
         f"The quotient when {f1} is divided by {f2}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

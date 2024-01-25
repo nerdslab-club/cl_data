@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_greatest_value_example(count: int):
+def create_f2n_greatest_value_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-100.0, 100.0)
         y = random.uniform(-100.0, 100.0)
         examples.append(
             {
                 "inputStr": f"##greatest_value({x}, {y})",
-                "outputStr": __random_explanation_greatest_value(x, y),
+                "outputStr": __random_explanation_greatest_value(x, y, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_greatest_value(x: float, y: float) -> str:
+def __random_explanation_greatest_value(x: float, y: float, identifier: int | None) -> str:
     explanations = [
         f"The greater of {x} and {y}",
         f"greatest_value({x}, {y})",
@@ -46,7 +46,10 @@ def __random_explanation_greatest_value(x: float, y: float) -> str:
         f"The more substantial value among {x} and {y}",
         f"The result of evaluating greatest_value({x}, {y}) is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

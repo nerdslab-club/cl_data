@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_floor_example(count: int):
+def create_f2n_floor_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-100.0, 100.0)
         examples.append(
             {
                 "inputStr": f"##floor({x})",
-                "outputStr": __random_explanation_floor(x),
+                "outputStr": __random_explanation_floor(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_floor(x: float) -> str:
+def __random_explanation_floor(x: float, identifier: int | None) -> str:
     explanations = [
         f"The largest integer less than or equal to {x}",
         f"floor({x})",
@@ -48,7 +48,10 @@ def __random_explanation_floor(x: float) -> str:
         f"The result of calculating floor({x}) is",
         f"The previous integer below {x}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

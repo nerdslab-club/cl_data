@@ -5,15 +5,20 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_nlf2nlf_batch_one_example(count: int):
+def create_nlf2nlf_batch_one_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
-        example = __get_batch_one_example_pair()
-        examples.append({"inputStr": example[0], "outputStr": example[1]})
+    for i in range(count):
+        example = __get_batch_one_example_pair((None if identifier is None else identifier+i))
+        examples.append(
+            {
+                "inputStr": example[0],
+                "outputStr": example[1]
+            }
+        )
     return examples
 
 
-def __get_batch_one_example_pair():
+def __get_batch_one_example_pair(identifier: int | None):
     random_list = Utility.remove_spaces(
         str(RandomValueGenerator.generate_random_list())
     )
@@ -210,7 +215,10 @@ def __get_batch_one_example_pair():
             f"The total number of pencils is ##multiplication({random_int_two},{random_int_four}).",
         ),
     ]
-    return random.choice(examples)
+    if identifier is not None:
+        return examples[identifier % len(examples)]
+    else:
+        return random.choice(examples)
 
 
 if __name__ == "__main__":

@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_l1_norm_example(count: int):
+def create_f2n_l1_norm_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         vector = [random.uniform(-10.0, 10.0) for _ in range(3)]
         examples.append(
             {
                 "inputStr": f"##l1_norm({vector})",
-                "outputStr": __random_explanation_l1_norm(vector),
+                "outputStr": __random_explanation_l1_norm(vector, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_l1_norm(vector) -> str:
+def __random_explanation_l1_norm(vector, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in vector)
 
     explanations = [
@@ -51,7 +51,10 @@ def __random_explanation_l1_norm(vector) -> str:
         f"The outcome of evaluating l1_norm({vector})",
         f"The outcome of calculating the L1 norm value of the vector {lst_str}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

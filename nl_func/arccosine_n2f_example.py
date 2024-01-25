@@ -6,21 +6,21 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_arccosine_example(count: int):
+def create_n2f_arccosine_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         value = RandomValueGenerator.generate_random_float(-1, 1, round_to=2)  # Random value in the range [-1, 1]
         angle = math.degrees(math.acos(value))  # Calculate corresponding angle in degrees
         examples.append(
             {
-                "inputStr": __random_explanation_arccosine(value),
+                "inputStr": __random_explanation_arccosine(value, (None if identifier is None else identifier+i)),
                 "outputStr": f"##arccosine({value})",
             }
         )
     return examples
 
 
-def __random_explanation_arccosine(value: float) -> str:
+def __random_explanation_arccosine(value: float, identifier: int | None) -> str:
     value = round(math.degrees(math.acos(value)), 2)  # Round the angle to two decimal places
     explanations = [
         f"Arccosine of {value}",
@@ -46,7 +46,10 @@ def __random_explanation_arccosine(value: float) -> str:
         f"Arccosine function for input {value}",
         f"Arccosine of {value}, what is the result?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

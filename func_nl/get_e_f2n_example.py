@@ -5,20 +5,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_get_e_example(count: int):
+def create_f2n_get_e_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         e_value = math.e
         examples.append(
             {
                 "inputStr": "##get_e()",
-                "outputStr": __random_explanation_get_e(e_value),
+                "outputStr": __random_explanation_get_e(e_value, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_get_e(e_value) -> str:
+def __random_explanation_get_e(e_value, identifier: int | None) -> str:
     explanations = [
         "The mathematical constant e",
         "get_e()",
@@ -52,7 +52,10 @@ def __random_explanation_get_e(e_value) -> str:
         "The outcome of calculating the constant e",
         "The outcome of evaluating get_e() is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

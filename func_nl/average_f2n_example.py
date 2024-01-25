@@ -5,21 +5,21 @@ from cl_data.src.utility import Utility
 from cl_data.src.random_value_generator import RandomValueGenerator
 
 
-def create_f2n_average_example(count: int):
+def create_f2n_average_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         item = RandomValueGenerator.generate_random_integer(2, 10)
         numbers = [random.uniform(-10.0, 1000.0) for _ in range(item)]
         examples.append(
             {
                 "inputStr": f"##average({numbers})",
-                "outputStr": __random_explanation_average(numbers),
+                "outputStr": __random_explanation_average(numbers, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_average(lst: list) -> str:
+def __random_explanation_average(lst: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in lst)
     explanations = [
         f"Calculate the average of the numbers {lst_str}",
@@ -52,7 +52,10 @@ def __random_explanation_average(lst: list) -> str:
         f"The average of the numbers {lst_str}, what is the output?",
         f"The result after calculating the average of the numbers {lst_str}, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

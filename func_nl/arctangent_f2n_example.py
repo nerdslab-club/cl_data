@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_arctangent_example(count: int):
+def create_f2n_arctangent_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-10.0, 10.0)
         examples.append(
             {
                 "inputStr": f"##arctangent({x})",
-                "outputStr": __random_explanation_arctangent(x),
+                "outputStr": __random_explanation_arctangent(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_arctangent(x: float) -> str:
+def __random_explanation_arctangent(x: float, identifier: int | None) -> str:
     explanations = [
         f"The arctangent of {x}",
         f"arctan({x})",
@@ -46,7 +46,10 @@ def __random_explanation_arctangent(x: float) -> str:
         f"The inverse tangent function output for {x}",
         f"The value of the arctangent function at {x}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

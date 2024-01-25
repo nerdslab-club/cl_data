@@ -5,9 +5,9 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_logarithm_example(count: int):
+def create_f2n_logarithm_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         m = random.uniform(1.0, 100.0)
         base = random.uniform(2.0, 10.0)
         examples.append(
@@ -16,13 +16,14 @@ def create_f2n_logarithm_example(count: int):
                 "outputStr": __random_explanation_log(
                     m,
                     base,
+                    (None if identifier is None else identifier+i)
                 ),
             }
         )
     return examples
 
 
-def __random_explanation_log(m: float, base: float) -> str:
+def __random_explanation_log(m: float, base: float, identifier: int | None) -> str:
     explanations = [
         f"The logarithm of {m} to the base {base}",
         f"log_{base}({m})",
@@ -38,7 +39,10 @@ def __random_explanation_log(m: float, base: float) -> str:
         f"The logarithm of {m} having base {base}",
         f"log_{base}({m}) is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

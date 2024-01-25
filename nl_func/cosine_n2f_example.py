@@ -4,20 +4,20 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_cosine_example(count: int):
+def create_n2f_cosine_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         angle = RandomValueGenerator.generate_random_float(0, 360, round_to=2)  # Random angle in degrees
         examples.append(
             {
-                "inputStr": __random_cosine_explanation(angle),
+                "inputStr": __random_cosine_explanation(angle, (None if identifier is None else identifier+i)),
                 "outputStr": f"##cosine({angle})",
             }
         )
     return examples
 
 
-def __random_cosine_explanation(angle: float) -> str:
+def __random_cosine_explanation(angle: float, identifier: int | None) -> str:
     explanations = [
         f"Calculate the cosine of {angle} degrees",
         f"Cosine value for {angle} degrees",
@@ -40,7 +40,10 @@ def __random_cosine_explanation(angle: float) -> str:
         f"The result of cos({angle}) calculation",
         f"Cosine function value at {angle} degrees",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

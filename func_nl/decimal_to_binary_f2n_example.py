@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_decimal_to_binary_example(count: int):
+def create_f2n_decimal_to_binary_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         decimal = random.randint(1, 1000)
         examples.append(
             {
                 "inputStr": f"##decimal_to_binary({decimal})",
-                "outputStr": __random_explanation_decimal_to_binary(decimal),
+                "outputStr": __random_explanation_decimal_to_binary(decimal, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_decimal_to_binary(decimal: int) -> str:
+def __random_explanation_decimal_to_binary(decimal: int, identifier: int | None) -> str:
     explanations = [
         f"The binary representation of the decimal number {decimal}",
         f"decimal_to_binary({decimal})",
@@ -45,7 +45,10 @@ def __random_explanation_decimal_to_binary(decimal: int) -> str:
         f"The computed binary equivalent of the decimal number {decimal}",
         f"The calculated binary value obtained from the decimal number {decimal}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

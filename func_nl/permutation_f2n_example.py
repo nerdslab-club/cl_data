@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_permutation_example(count: int):
+def create_f2n_permutation_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         n = random.randint(2, 10)
         r = random.randint(1, n)
         examples.append(
             {
                 "inputStr": f"##permutation({n}, {r})",
-                "outputStr": __random_explanation_permutation(n, r),
+                "outputStr": __random_explanation_permutation(n, r, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_permutation(n: int, r: int) -> str:
+def __random_explanation_permutation(n: int, r: int, identifier: int | None) -> str:
     explanations = [
         f"The number of permutations of {r} items taken from a set of {n} items",
         f"permutation({n}, {r})",
@@ -46,7 +46,10 @@ def __random_explanation_permutation(n: int, r: int) -> str:
         f"The computed permutation value of {r} items from a set of {n} items",
         f"The calculated count of permutations of {r} items chosen from {n} items",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

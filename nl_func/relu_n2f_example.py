@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_relu_example(count: int):
+def create_n2f_relu_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num = RandomValueGenerator.generate_random_float(-10.0, 10.0)
         examples.append({
-            "inputStr": __random_explanation(num),
+            "inputStr": __random_explanation(num, (None if identifier is None else identifier+i)),
             "outputStr": f"##relu({num})",
         })
     return examples
 
 
-def __random_explanation(x: float) -> str:
+def __random_explanation(x: float, identifier: int | None) -> str:
     explanations = [
         f"Apply the Rectified Linear Unit (ReLU) activation to {x}",
         f"RELU({x})",
@@ -48,7 +48,10 @@ def __random_explanation(x: float) -> str:
         f"Apply ReLU to {x}, what is the output?",
         f"The result after ReLU activation of {x}, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

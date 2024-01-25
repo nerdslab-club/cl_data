@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_relu_example(count: int):
+def create_f2n_relu_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-10.0, 10.0)
         examples.append(
             {
                 "inputStr": f"##relu({x})",
-                "outputStr": __random_explanation_relu(x),
+                "outputStr": __random_explanation_relu(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_relu(f: float) -> str:
+def __random_explanation_relu(f: float, identifier: int | None) -> str:
     explanations = [
         f"The Rectified Linear Unit (ReLU) activation of {f}",
         f"relu({f})",
@@ -46,7 +46,10 @@ def __random_explanation_relu(f: float) -> str:
         f"The ReLU result of applying to {f} is",
         f"The outcome of evaluating the ReLU activation on {f} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

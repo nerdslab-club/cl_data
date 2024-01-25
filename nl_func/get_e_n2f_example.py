@@ -3,17 +3,17 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_get_e_example(count: int):
+def create_n2f_get_e_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         examples.append({
-            "inputStr": __random_explanation(),
+            "inputStr": __random_explanation((None if identifier is None else identifier+i)),
             "outputStr": "##get_e()",
         })
     return examples
 
 
-def __random_explanation() -> str:
+def __random_explanation(identifier: int | None) -> str:
     explanations = [
         "Get the mathematical constant e",
         "GET_E()",
@@ -44,7 +44,10 @@ def __random_explanation() -> str:
         "The constant e, what is the output?",
         "The result after calling the get_e function, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

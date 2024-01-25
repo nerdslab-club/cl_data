@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_min_value_example(count: int):
+def create_f2n_min_value_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         lst = [random.randint(-100, 100) for _ in range(random.randint(2, 10))]
         examples.append(
             {
                 "inputStr": f"##min_value({lst})",
-                "outputStr": __random_explanation_min_value(lst),
+                "outputStr": __random_explanation_min_value(lst, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_min_value(vector: list[int]) -> str:
+def __random_explanation_min_value(vector: list[int], identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"The minimum value in the list {lst_str}",
@@ -40,7 +40,10 @@ def __random_explanation_min_value(vector: list[int]) -> str:
         f"The calculated outcome of evaluating min_value({vector}) is",
         f"The least result obtained from the elements in {lst_str} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

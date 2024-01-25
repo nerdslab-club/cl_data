@@ -5,16 +5,16 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_is_perfect_square_example(count: int):
+def create_f2n_is_perfect_square_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.randint(1, 100)
         is_perfect_square_result = math.isqrt(x) ** 2 == x
         examples.append(
             {
                 "inputStr": f"##is_perfect_square({x})",
                 "outputStr": __random_explanation_is_perfect_square(
-                    x, is_perfect_square_result
+                    x, is_perfect_square_result, (None if identifier is None else identifier+i)
                 ),
             }
         )
@@ -22,7 +22,7 @@ def create_f2n_is_perfect_square_example(count: int):
 
 
 def __random_explanation_is_perfect_square(
-    x: int, is_perfect_square_result: bool
+    x: int, is_perfect_square_result: bool, identifier: int | None
 ) -> str:
     square_str = (
         "a perfect square" if is_perfect_square_result else "not a perfect square"
@@ -52,7 +52,10 @@ def __random_explanation_is_perfect_square(
         f"Verifying if {x} is a number that can be squared is",
         f"The boolean value indicating if {x} is {square_str} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

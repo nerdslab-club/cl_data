@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_product_example(count: int):
+def create_f2n_product_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num_count = random.randint(2, 5)  # Generate 2 to 5 numbers
         numbers = [random.uniform(-100.0, 100.0) for _ in range(num_count)]
         examples.append(
             {
                 "inputStr": f"##product({numbers})",
-                "outputStr": __random_explanation_product(numbers),
+                "outputStr": __random_explanation_product(numbers, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_product(vector: list) -> str:
+def __random_explanation_product(vector: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"The product of the numbers {lst_str}",
@@ -46,7 +46,10 @@ def __random_explanation_product(vector: list) -> str:
         f"The calculated result of multiplying the numbers {lst_str}",
         f"The value achieved by product({vector}) is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

@@ -4,22 +4,22 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_binary_to_decimal_example(count: int):
+def create_f2n_binary_to_decimal_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         binary = "".join(
             random.choice(["0", "1"]) for _ in range(random.randint(1, 10))
         )
         examples.append(
             {
                 "inputStr": f"##binary_to_decimal('{binary}')",
-                "outputStr": __random_explanation_binary_to_decimal(binary),
+                "outputStr": __random_explanation_binary_to_decimal(binary, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_binary_to_decimal(binary: str) -> str:
+def __random_explanation_binary_to_decimal(binary: str, identifier: int | None) -> str:
     explanations = [
         f"The decimal equivalent of the binary number '{binary}'",
         f"binary_to_decimal('{binary}')",
@@ -48,7 +48,10 @@ def __random_explanation_binary_to_decimal(binary: str) -> str:
         f"The computed decimal equivalent of the binary number '{binary}'",
         f"The calculated decimal value obtained from the binary number '{binary}'",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

@@ -4,9 +4,9 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_check_same_string_example(count: int):
+def create_f2n_check_same_string_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         strings = [
             "".join(
                 random.choices("abcdefghijklmnopqrstuvwxyz", k=random.randint(1, 10))
@@ -18,14 +18,14 @@ def create_f2n_check_same_string_example(count: int):
             {
                 "inputStr": f"##check_same_string('{strings[0]}', '{strings[1]}')",
                 "outputStr": __random_explanation_check_same_string(
-                    strings[0], strings[1], are_same
+                    strings[0], strings[1], are_same, (None if identifier is None else identifier+i)
                 ),
             }
         )
     return examples
 
 
-def __random_explanation_check_same_string(str1, str2, are_same) -> str:
+def __random_explanation_check_same_string(str1, str2, are_same, identifier: int | None) -> str:
     explanations = [
         f"Checking if the strings '{str1}' and '{str2}' are the same",
         f"check_same_string('{str1}', '{str2}')",
@@ -85,7 +85,10 @@ def __random_explanation_check_same_string(str1, str2, are_same) -> str:
                 f"The strings '{str1}' and '{str2}' do not match",
             ]
         )
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

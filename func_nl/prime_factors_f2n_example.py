@@ -5,23 +5,23 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_prime_factors_example(count: int):
+def create_f2n_prime_factors_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.randint(2, 100)
         prime_factors_result = sympy.factorint(x)
         examples.append(
             {
                 "inputStr": f"##prime_factors({x})",
                 "outputStr": __random_explanation_prime_factors(
-                    x, prime_factors_result
+                    x, prime_factors_result, (None if identifier is None else identifier+i)
                 ),
             }
         )
     return examples
 
 
-def __random_explanation_prime_factors(n: int, prime_factors_result: dict) -> str:
+def __random_explanation_prime_factors(n: int, prime_factors_result: dict, identifier: int | None) -> str:
     explanations = [
         f"The prime factors of {n}",
         f"prime_factors({n})",
@@ -46,7 +46,10 @@ def __random_explanation_prime_factors(n: int, prime_factors_result: dict) -> st
         f"The prime divisors of {n} are",
         f"The prime factors for the integer {n} are",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

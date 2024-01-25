@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_ceil_example(count: int):
+def create_f2n_ceil_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-100.0, 100.0)
         examples.append(
             {
                 "inputStr": f"##ceil({x})",
-                "outputStr": __random_explanation_ceil(x),
+                "outputStr": __random_explanation_ceil(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_ceil(x: float) -> str:
+def __random_explanation_ceil(x: float, identifier: int | None) -> str:
     explanations = [
         f"The smallest integer greater than or equal to {x}",
         f"ceil({x})",
@@ -48,7 +48,10 @@ def __random_explanation_ceil(x: float) -> str:
         f"The result of calculating ceil({x}) is",
         f"The next integer above {x}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

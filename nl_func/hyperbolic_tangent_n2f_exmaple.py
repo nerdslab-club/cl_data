@@ -5,20 +5,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_hyperbolic_tangent_example(count: int):
+def create_n2f_hyperbolic_tangent_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         value = round(random.uniform(-10, 10), 2) # Random value in a suitable range
         examples.append(
             {
-                "inputStr": __random_explanation_hyperbolic_tangent(value),
+                "inputStr": __random_explanation_hyperbolic_tangent(value, (None if identifier is None else identifier+i)),
                 "outputStr": f"##hyperbolic_tangent({value})",
             }
         )
     return examples
 
 
-def __random_explanation_hyperbolic_tangent(value: float) -> str:
+def __random_explanation_hyperbolic_tangent(value: float, identifier: int | None) -> str:
     result = math.tanh(value)
     explanations = [
         f"Hyperbolic tangent of {value}",
@@ -44,7 +44,10 @@ def __random_explanation_hyperbolic_tangent(value: float) -> str:
         f"Hyperbolic tangent function for input {value}",
         f"Hyperbolic tangent of {value}, what is the result?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

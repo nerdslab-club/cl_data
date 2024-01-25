@@ -4,19 +4,19 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_get_pi_example(count: int):
+def create_f2n_get_pi_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         examples.append(
             {
                 "inputStr": "##get_pi()",
-                "outputStr": __random_explanation_get_pi(),
+                "outputStr": __random_explanation_get_pi((None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_get_pi() -> str:
+def __random_explanation_get_pi(identifier: int | None) -> str:
     explanations = [
         "The mathematical constant pi (π)",
         "get_pi()",
@@ -50,7 +50,10 @@ def __random_explanation_get_pi() -> str:
         "The outcome of calculating the constant pi (π)",
         "The outcome of evaluating get_pi() is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

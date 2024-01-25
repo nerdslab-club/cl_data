@@ -5,21 +5,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_lcm_example(count: int):
+def create_f2n_lcm_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.randint(1, 100)
         y = random.randint(1, 100)
         examples.append(
             {
                 "inputStr": f"##lcm({x}, {y})",
-                "outputStr": __random_explanation_lcm(x, y),
+                "outputStr": __random_explanation_lcm(x, y, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_lcm(x: int, y: int) -> str:
+def __random_explanation_lcm(x: int, y: int, identifier: int | None) -> str:
     explanations = [
         f"The least common multiple of {x} and {y}",
         f"lcm({x}, {y})",
@@ -48,7 +48,10 @@ def __random_explanation_lcm(x: int, y: int) -> str:
         f"The smallest multiple that is divisible by both {x} and {y} is",
         f"The least shared multiple of {x} and {y} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

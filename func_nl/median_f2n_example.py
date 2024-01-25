@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_median_example(count: int):
+def create_f2n_median_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num_count = random.randint(3, 6)  # Generate 3 to 6 numbers
         numbers = [random.uniform(-100.0, 100.0) for _ in range(num_count)]
         examples.append(
             {
                 "inputStr": f"##median({numbers})",
-                "outputStr": __random_explanation_median(numbers),
+                "outputStr": __random_explanation_median(numbers, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_median(numbers: list) -> str:
+def __random_explanation_median(numbers: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in numbers)
     explanations = [
         f"The median of the numbers {lst_str}",
@@ -48,7 +48,10 @@ def __random_explanation_median(numbers: list) -> str:
         f"The value in the middle of the sorted list {lst_str} is",
         f"The value that separates the numbers {lst_str} into two halves is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

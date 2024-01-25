@@ -4,19 +4,19 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_nth_root_example(count: int):
+def create_n2f_nth_root_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num = RandomValueGenerator.generate_random_float(1.0, 1000.0)
         root = RandomValueGenerator.generate_random_integer(2, 5)
         examples.append({
-            "inputStr": __random_explanation(num, root),
+            "inputStr": __random_explanation(num, root, (None if identifier is None else identifier+i)),
             "outputStr": f"##nth_root({num}, {root})",
         })
     return examples
 
 
-def __random_explanation(x: float, n: int) -> str:
+def __random_explanation(x: float, n: int, identifier: int | None) -> str:
     explanations = [
         f"Calculate the {n}-th root of the number {x}",
         f"NTH_ROOT({x}, {n})",
@@ -47,7 +47,10 @@ def __random_explanation(x: float, n: int) -> str:
         f"{n}-th root {x}, what is the output?",
         f"The {n}-th root result after taking the {n}-th root of {x}, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

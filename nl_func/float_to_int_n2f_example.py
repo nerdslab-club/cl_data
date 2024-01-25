@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_float_to_int_example(count: int):
+def create_n2f_float_to_int_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         value = RandomValueGenerator.generate_random_float(1.0, 100.0)
         examples.append({
-            "inputStr": __random_explanation(value),
+            "inputStr": __random_explanation(value, (None if identifier is None else identifier+i)),
             "outputStr": f"##float_to_int({value})",
         })
     return examples
 
 
-def __random_explanation(f1: float) -> str:
+def __random_explanation(f1: float, identifier: int | None) -> str:
     explanations = [
         f"Convert the float value {f1} to an integer",
         f"FLOAT_TO_INT({f1})",
@@ -47,7 +47,10 @@ def __random_explanation(f1: float) -> str:
         f"The integer equivalent of the float value {f1}, what is the output?",
         f"The result after converting the float value {f1} to an integer, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

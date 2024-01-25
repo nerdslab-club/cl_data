@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_cosine_similarity_example(count: int):
+def create_f2n_cosine_similarity_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         vector1 = [random.uniform(-1.0, 1.0) for _ in range(3)]
         vector2 = [random.uniform(-1.0, 1.0) for _ in range(3)]
         examples.append(
             {
                 "inputStr": f"##cosine_similarity({vector1}, {vector2})",
-                "outputStr": __random_explanation_cosine_similarity(vector1, vector2),
+                "outputStr": __random_explanation_cosine_similarity(vector1, vector2, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_cosine_similarity(vector1, vector2) -> str:
+def __random_explanation_cosine_similarity(vector1, vector2, identifier: int | None) -> str:
     explanations = [
         f"The cosine similarity between the vectors {vector1} and {vector2}",
         f"cosine_similarity({vector1}, {vector2})",
@@ -48,7 +48,10 @@ def __random_explanation_cosine_similarity(vector1, vector2) -> str:
         f"The calculated outcome of evaluating cosine_similarity({vector1}, {vector2})",
         f"The computed similarity index between the vectors {vector1} and {vector2} using cosine similarity",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

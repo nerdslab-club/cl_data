@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_radians_to_degrees_example(count: int):
+def create_n2f_radians_to_degrees_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         radians = RandomValueGenerator.generate_random_float(0.0, 2 * 3.14159)
         examples.append({
-            "inputStr": __random_explanation(radians),
+            "inputStr": __random_explanation(radians, (None if identifier is None else identifier+i)),
             "outputStr": f"##radians_to_degrees({radians})",
         })
     return examples
 
 
-def __random_explanation(radians: float) -> str:
+def __random_explanation(radians: float, identifier: int | None) -> str:
     explanations = [
         f"Converting {radians} radians to degrees",
         f"{radians} radians in degrees",
@@ -44,7 +44,10 @@ def __random_explanation(radians: float) -> str:
         f"Let's find the degrees for {radians} radians",
         f"{radians} radians, what will be its degrees?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

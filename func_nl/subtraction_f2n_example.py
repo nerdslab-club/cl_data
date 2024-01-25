@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_subtraction_example(count: int):
+def create_f2n_subtraction_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num1 = random.randint(0, 1000)
         num2 = random.randint(0, num1)  # To ensure no negative results
         examples.append(
             {
                 "inputStr": f"##subtraction({num1},{num2})",
-                "outputStr": __random_explanation(num1, num2),
+                "outputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation(a: int, b: int) -> str:
+def __random_explanation(a: int, b: int, identifier: int | None) -> str:
     explanations = [
         f"Subtracting {b} from {a}",
         f"{a} - {b}",
@@ -35,7 +35,10 @@ def __random_explanation(a: int, b: int) -> str:
         f"{a} - {b} results in",
         f"{b} removed from {a}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

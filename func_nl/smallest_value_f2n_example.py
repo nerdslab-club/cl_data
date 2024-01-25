@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_smallest_value_example(count: int):
+def create_f2n_smallest_value_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.uniform(-100.0, 100.0)
         y = random.uniform(-100.0, 100.0)
         examples.append(
             {
                 "inputStr": f"##smallest_value({x}, {y})",
-                "outputStr": __random_explanation_smallest_value(x, y),
+                "outputStr": __random_explanation_smallest_value(x, y, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_smallest_value(f: float, g: float) -> str:
+def __random_explanation_smallest_value(f: float, g: float, identifier: int | None) -> str:
     explanations = [
         f"The smaller of {f} and {g}",
         f"smallest_value({f}, {g})",
@@ -46,7 +46,10 @@ def __random_explanation_smallest_value(f: float, g: float) -> str:
         f"The less substantial value among {f} and {g}",
         f"The result of evaluating smallest_value({f}, {g}) is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

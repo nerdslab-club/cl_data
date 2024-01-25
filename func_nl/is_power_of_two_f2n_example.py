@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_is_power_of_two_example(count: int):
+def create_f2n_is_power_of_two_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = 2 ** random.randint(0, 10)
         examples.append(
             {
                 "inputStr": f"##is_power_of_two({x})",
-                "outputStr": __random_explanation_is_power_of_two(x),
+                "outputStr": __random_explanation_is_power_of_two(x, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_is_power_of_two(x: int) -> str:
+def __random_explanation_is_power_of_two(x: int, identifier: int | None) -> str:
     explanations = [
         f"Whether the number {x} is a power of two",
         f"is_power_of_two({x})",
@@ -46,7 +46,10 @@ def __random_explanation_is_power_of_two(x: int) -> str:
         f"Whether the binary representation of {x} has only one '1' bit in it",
         f"Whether {x} is a power of two or not (2^k)",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

@@ -4,19 +4,19 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_calculate_dot_product_example(count: int):
+def create_n2f_calculate_dot_product_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         vector1 = RandomValueGenerator.generate_random_list(3, -10, 10)
         vector2 = RandomValueGenerator.generate_random_list(3, -10, 10)
         examples.append({
-            "inputStr": __random_explanation(vector1, vector2),
+            "inputStr": __random_explanation(vector1, vector2, (None if identifier is None else identifier+i)),
             "outputStr": f"##calculate_dot_product({vector1}, {vector2})",
         })
     return examples
 
 
-def __random_explanation(vector: list, vector1: list) -> str:
+def __random_explanation(vector: list, vector1: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in vector)
     lst_str1 = " , ".join(str(num) for num in vector1)
     explanations = [
@@ -49,7 +49,10 @@ def __random_explanation(vector: list, vector1: list) -> str:
         f"The dot product result of vectors {lst_str} and {lst_str1}, what is the output?",
         f"The result after calculating the dot product of vectors {lst_str} and {lst_str1}, what is it?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

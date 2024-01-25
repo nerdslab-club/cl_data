@@ -6,21 +6,20 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_hyperbolic_sine_example(count: int):
+def create_n2f_hyperbolic_sine_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         value = RandomValueGenerator.generate_random_float(-10, 10, round_to=2)  # Random value in a suitable range
         examples.append(
             {
-                "inputStr": __random_explanation_hyperbolic_sine(value),
+                "inputStr": __random_explanation_hyperbolic_sine(value, (None if identifier is None else identifier+i)),
                 "outputStr": f"##hyperbolic_sine({value})",
             }
         )
     return examples
 
 
-def __random_explanation_hyperbolic_sine(value: float) -> str:
-    result = math.sinh(value)
+def __random_explanation_hyperbolic_sine(value: float, identifier: int | None) -> str:
     explanations = [
         f"Hyperbolic sine of {value}",
         f"Sinh({value})",
@@ -45,7 +44,10 @@ def __random_explanation_hyperbolic_sine(value: float) -> str:
         f"Hyperbolic sine function for input {value}",
         f"Hyperbolic sine of {value}, what is the result?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

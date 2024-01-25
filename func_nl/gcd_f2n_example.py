@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_gcd_example(count: int):
+def create_f2n_gcd_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.randint(1, 100)
         y = random.randint(1, 100)
         examples.append(
             {
                 "inputStr": f"##gcd({x}, {y})",
-                "outputStr": __random_explanation_gcd(x, y),
+                "outputStr": __random_explanation_gcd(x, y, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_gcd(x: int, y: int) -> str:
+def __random_explanation_gcd(x: int, y: int, identifier: int | None) -> str:
     explanations = [
         f"The greatest common divisor of {x} and {y}",
         f"gcd({x}, {y})",
@@ -49,7 +49,10 @@ def __random_explanation_gcd(x: int, y: int) -> str:
         f"The largest factor that divides both {x} and {y} evenly",
         f"The highest shared divisor of {x} and {y} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

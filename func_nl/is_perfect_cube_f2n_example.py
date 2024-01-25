@@ -4,23 +4,23 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_is_perfect_cube_example(count: int):
+def create_f2n_is_perfect_cube_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         x = random.randint(1, 100)
         is_perfect_cube_result = round(x ** (1 / 3)) ** 3 == x
         examples.append(
             {
                 "inputStr": f"##is_perfect_cube({x})",
                 "outputStr": __random_explanation_is_perfect_cube(
-                    x, is_perfect_cube_result
+                    x, is_perfect_cube_result, (None if identifier is None else identifier+i)
                 ),
             }
         )
     return examples
 
 
-def __random_explanation_is_perfect_cube(x: int, is_perfect_cube_result: bool) -> str:
+def __random_explanation_is_perfect_cube(x: int, is_perfect_cube_result: bool, identifier: int | None) -> str:
     cube_str = "a perfect cube" if is_perfect_cube_result else "not a perfect cube"
     explanations = [
         f"Whether {x} is {cube_str}",
@@ -47,7 +47,10 @@ def __random_explanation_is_perfect_cube(x: int, is_perfect_cube_result: bool) -
         f"Verifying if {x} is a number that can be cubed is",
         f"The boolean value indicating if {x} is {cube_str} is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

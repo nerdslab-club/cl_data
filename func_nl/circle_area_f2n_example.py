@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_circle_area_example(count: int):
+def create_f2n_circle_area_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         radius = random.uniform(1.0, 50.0)
         examples.append(
             {
                 "inputStr": f"##circle_area({radius})",
-                "outputStr": __random_explanation_circle_area(radius),
+                "outputStr": __random_explanation_circle_area(radius, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_circle_area(radius: float) -> str:
+def __random_explanation_circle_area(radius: float, identifier: int | None) -> str:
     explanations = [
         f"The area of a circle with radius {radius}",
         f"circle_area({radius})",
@@ -45,7 +45,10 @@ def __random_explanation_circle_area(radius: float) -> str:
         f"The computed circle area value for a circle with radius {radius}",
         f"The calculated area of a circle with radius {radius}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

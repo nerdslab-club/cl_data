@@ -4,18 +4,18 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_factorial_example(count: int):
+def create_n2f_factorial_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num = RandomValueGenerator.generate_random_integer(0, 10)
         examples.append({
-            "inputStr": __random_explanation(num),
+            "inputStr": __random_explanation(num, (None if identifier is None else identifier+i)),
             "outputStr": f"##factorial({num})",
         })
     return examples
 
 
-def __random_explanation(a: int) -> str:
+def __random_explanation(a: int, identifier: int | None) -> str:
     explanations = [
         f"The factorial of {a}",
         f"FACTORIAL({a})",
@@ -49,7 +49,10 @@ def __random_explanation(a: int) -> str:
         f"Let's find the result of multiplying all integers up to {a}",
         f"{a}!, its value, what is the result?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

@@ -4,21 +4,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_descending_sort_example(count: int):
+def create_f2n_descending_sort_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         lst_len = random.randint(3, 6)  # Generate a list of 3 to 6 numbers
         lst = [random.randint(-100, 100) for _ in range(lst_len)]
         examples.append(
             {
                 "inputStr": f"##descending_sort({lst})",
-                "outputStr": __random_explanation_descending_sort(lst),
+                "outputStr": __random_explanation_descending_sort(lst, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_descending_sort(lst: list) -> str:
+def __random_explanation_descending_sort(lst: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in lst)
     explanations = [
         f"The list {lst_str} sorted in descending order",
@@ -49,7 +49,10 @@ def __random_explanation_descending_sort(lst: list) -> str:
         f"The ordered form of the list {lst_str} in descending order is",
         f"The result of sorting the list {lst_str} in descending order is",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

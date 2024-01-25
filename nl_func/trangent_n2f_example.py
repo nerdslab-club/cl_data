@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_tangent_example(count: int):
+def create_n2f_tangent_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         angle = round(random.uniform(0, 360), 2)  # Random angle in degrees
         examples.append(
             {
-                "inputStr": __random_explanation_tangent(angle),
+                "inputStr": __random_explanation_tangent(angle, (None if identifier is None else identifier+i)),
                 "outputStr": f"##tangent({angle})",
             }
         )
     return examples
 
 
-def __random_explanation_tangent(angle: float) -> str:
+def __random_explanation_tangent(angle: float, identifier: int | None) -> str:
     angle_degrees = round(angle, 2)  # Round the angle to two decimal places
     explanations = [
         f"Tangent of {angle_degrees} degrees",
@@ -44,7 +44,10 @@ def __random_explanation_tangent(angle: float) -> str:
         f"Tangent function for angle {angle_degrees}",
         f"Tangent of {angle_degrees} degrees, what is the result?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

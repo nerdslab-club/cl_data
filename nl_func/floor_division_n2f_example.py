@@ -4,23 +4,23 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_floor_division_example(count: int):
+def create_n2f_floor_division_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num1 = random.randint(1, 1000)  # Using random integer between 1 and 100
         num2 = random.randint(
             1, 1000
         )  # Using random integer between 1 and 100 (avoid division by zero)
         examples.append(
             {
-                "inputStr": __random_explanation(num1, num2),
+                "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
                 "outputStr": f"##floor_division({num1},{num2})",
             }
         )
     return examples
 
 
-def __random_explanation(a: int, b: int) -> str:
+def __random_explanation(a: int, b: int, identifier: int | None) -> str:
     explanations = [
         f"Floor dividing {a} by {b}",
         f"{a} floor divided by {b}",
@@ -51,7 +51,10 @@ def __random_explanation(a: int, b: int) -> str:
         f"{a} divided by {b} with floor division, in whole numbers",
         f"The quotient when {a} is floor divided by {b}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

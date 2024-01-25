@@ -4,9 +4,9 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_is_palindrome_example(count: int):
+def create_f2n_is_palindrome_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         word = "".join(
             random.choice("abccbadeffeghihgjklmnonmlkjpqrstuuuvwxwvyvz")
             for _ in range(random.randint(2, 10))
@@ -14,13 +14,13 @@ def create_f2n_is_palindrome_example(count: int):
         examples.append(
             {
                 "inputStr": f"##is_palindrome('{word}')",
-                "outputStr": __random_explanation_is_palindrome(word),
+                "outputStr": __random_explanation_is_palindrome(word, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_is_palindrome(word: str) -> str:
+def __random_explanation_is_palindrome(word: str, identifier: int | None) -> str:
     explanations = [
         f"Whether the string '{word}' is a palindrome",
         f"is_palindrome('{word}')",
@@ -49,7 +49,10 @@ def __random_explanation_is_palindrome(word: str) -> str:
         f"Whether '{word}' is a string that mirrors itself when reversed",
         f"Whether the string '{word}' is a palindromic sequence",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

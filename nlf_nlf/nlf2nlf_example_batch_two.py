@@ -5,15 +5,15 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_nlf2nlf_batch_two_example(count: int):
+def create_nlf2nlf_batch_two_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
-        example = __get_batch_two_example_pair()
+    for i in range(count):
+        example = __get_batch_two_example_pair((None if identifier is None else identifier+i))
         examples.append({"inputStr": example[0], "outputStr": example[1]})
     return examples
 
 
-def __get_batch_two_example_pair():
+def __get_batch_two_example_pair(identifier: int | None):
     random_list = RandomValueGenerator.generate_random_list()
     lst_str = " , ".join(str(num) for num in random_list)
     random_int_one = RandomValueGenerator.generate_random_integer()
@@ -407,7 +407,10 @@ def __get_batch_two_example_pair():
             f"The product of the difference of {random_int_one} and {random_int_two} and the sum of {random_int_one} squared plus {random_int_two} squared is ##a_minus_b_times_a_squared_plus_ab_plus_b_squared({random_int_one}, {random_int_two})"
         ),
     ]
-    return random.choice(examples)
+    if identifier is not None:
+        return examples[identifier % len(examples)]
+    else:
+        return random.choice(examples)
 
 
 if __name__ == "__main__":

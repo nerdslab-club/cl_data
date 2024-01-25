@@ -4,22 +4,22 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_geometric_series_sum_example(count: int):
+def create_f2n_geometric_series_sum_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         a = random.uniform(1.0, 10.0)
         r = random.uniform(0.1, 2.0)
         n = random.randint(1, 10)
         examples.append(
             {
                 "inputStr": f"##geometric_series_sum({a}, {r}, {n})",
-                "outputStr": __random_explanation_geometric_series_sum(a, r, n),
+                "outputStr": __random_explanation_geometric_series_sum(a, r, n, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_geometric_series_sum(a: float, r: float, n: int) -> str:
+def __random_explanation_geometric_series_sum(a: float, r: float, n: int, identifier: int | None) -> str:
     explanations = [
         f"The sum of a geometric series with initial term {a}, common ratio {r}, and {n} terms",
         f"geometric_series_sum({a}, {r}, {n})",
@@ -47,7 +47,10 @@ def __random_explanation_geometric_series_sum(a: float, r: float, n: int) -> str
         f"The calculated sum of the geometric progression with initial term {a}, common ratio {r}, and {n} terms",
         f"The calculated value of the sum of the geometric series with initial term {a}, common ratio {r}, and {n} terms",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

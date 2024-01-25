@@ -5,21 +5,21 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_logarithm_example(count: int):
+def create_n2f_logarithm_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         num = random.uniform(1, 1000)  # Using random float between 1 and 1000
         base = random.uniform(2, 10)  # Using random float between 2 and 10 for base
         examples.append(
             {
-                "inputStr": __random_explanation(num, base),
+                "inputStr": __random_explanation(num, base, (None if identifier is None else identifier+i)),
                 "outputStr": f"##logarithm({num},{base})",
             }
         )
     return examples
 
 
-def __random_explanation(f1: float, base: float) -> str:
+def __random_explanation(f1: float, base: float, identifier: int | None) -> str:
     explanations = [
         f"Finding the logarithm of {f1} to the base {base}",
         f"The logarithm of {f1} with base {base}",
@@ -50,7 +50,10 @@ def __random_explanation(f1: float, base: float) -> str:
         f"Calculating the value of log({f1}, {base})",
         f"Finding the result of log({f1}, {base})",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

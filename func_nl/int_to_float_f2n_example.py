@@ -4,20 +4,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_f2n_int_to_float_example(count: int):
+def create_f2n_int_to_float_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         value = random.randint(-100, 100)
         examples.append(
             {##int_to_float({n})
                 "inputStr": f"##int_to_float({value})",
-                "outputStr": __random_explanation_int_to_float(value),
+                "outputStr": __random_explanation_int_to_float(value, (None if identifier is None else identifier+i)),
             }
         )
     return examples
 
 
-def __random_explanation_int_to_float(n: int) -> str:
+def __random_explanation_int_to_float(n: int, identifier: int | None) -> str:
     explanations = [
         f"The floating-point representation of the integer {n}",
         f"int_to_float({n})",
@@ -46,7 +46,10 @@ def __random_explanation_int_to_float(n: int) -> str:
         f"The calculated floating-point representation of the integer {n}",
         f"The calculated floating-point value obtained by converting the integer {n}",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

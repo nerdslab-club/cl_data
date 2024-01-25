@@ -5,20 +5,20 @@ from cl_data.src.constants import TaskTypes
 from cl_data.src.utility import Utility
 
 
-def create_n2f_logarithm_base_2_example(count: int):
+def create_n2f_logarithm_base_2_example(count: int, identifier: int | None):
     examples = []
-    for _ in range(count):
+    for i in range(count):
         value = round(random.uniform(0.1, 1000), 2)  # Random positive value in a suitable range
         examples.append(
             {
-                "inputStr": __random_explanation_logarithm_base_2(value),
+                "inputStr": __random_explanation_logarithm_base_2(value, (None if identifier is None else identifier+i)),
                 "outputStr": f"##logarithm_base_2({value})",
             }
         )
     return examples
 
 
-def __random_explanation_logarithm_base_2(f1: float) -> str:
+def __random_explanation_logarithm_base_2(f1: float, identifier: int | None) -> str:
     explanations = [
         f"Logarithm base 2 of {f1}",
         f"log2({f1})",
@@ -43,7 +43,10 @@ def __random_explanation_logarithm_base_2(f1: float) -> str:
         f"Logarithm base 2 function for input {f1}",
         f"Logarithm base 2 of {f1}, what is the result?",
     ]
-    return random.choice(explanations)
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":
