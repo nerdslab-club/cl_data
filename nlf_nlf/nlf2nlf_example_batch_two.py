@@ -31,23 +31,23 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"{random_int_one}*{random_int_four}",
+            f"{random_int_one} * {random_int_four}",
             f"The result of multiplying {random_int_one} by {random_int_four} is ##multiplication({random_int_one},{random_int_four})",
         ),
         (
-            f"{random_int_two}+{random_int_three}",
+            f"{random_int_two} + {random_int_three}",
             f"The result of adding {random_int_two} and {random_int_three} is ##addition({random_int_two},{random_int_three})",
         ),
         (
-            f"{random_int_three}-{random_int_one}",
+            f"{random_int_three} - {random_int_one}",
             f"The result of subtracting {random_int_three} from {random_int_one} is ##subtraction({random_int_one},{random_int_three})",
         ),
         (
-            f"{random_int_two}/{random_int_one}",
+            f"{random_int_two} / {random_int_one}",
             f"The result of dividing {random_int_two} by {random_int_one} is ##division({random_int_two},{random_int_one})",
         ),
         (
-            f"{random_int_one}**{random_int_two}",
+            f"{random_int_one} ** {random_int_two}",
             f"The result of exponentiation {random_int_one} to the power of {random_int_two} is ##exponentiation({random_int_one},{random_int_two})",
         ),
         (
@@ -55,11 +55,11 @@ def __get_batch_two_example_pair(identifier: int | None):
             f"The square root of {random_int_two} is ##square_root({random_int_two})",
         ),
         (
-            f"{random_int_three}//{random_int_one}",
+            f"{random_int_three} // {random_int_one}",
             f"The result of floor division {random_int_three} by {random_int_one} is ##floor_division({random_int_three},{random_int_one})",
         ),
         (
-            f"{random_int_four}%{random_int_two}",
+            f"{random_int_four} % {random_int_two}",
             f"The remainder of dividing {random_int_four} by {random_int_two} is ##modulus({random_int_four},{random_int_two})",
         ),
         (
