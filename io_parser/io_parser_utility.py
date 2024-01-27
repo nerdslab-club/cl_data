@@ -1,5 +1,5 @@
 from cl_data.function_representation import FunctionManager, MathFunctions
-from .category_parser_utility import (
+from cl_data.io_parser.category_parser_utility import (
     get_sub_sub_type_for_param,
     create_category_map,
     get_sub_category_type,
@@ -332,30 +332,34 @@ def split_string_custom(input_string: str):
     result = []
     current_word = ""
     is_special_word = False
+    stack = []
 
     # Iterate through each character in the input string
     for char in input_string:
         if char == " " and not is_special_word:
             # If it's a space, and we're not in a special word, split the word
-            result.append(current_word)
+            if current_word != "":
+                result.append(current_word)
             current_word = ""
+        elif char == ")" and is_special_word:
+            # If we're in a special word and encounter ')', split the word
+            current_word += char
+            stack.pop()
+            if len(stack) == 0:
+                result.append(current_word)
+                current_word = ""
+                is_special_word = False
         elif (
             current_word.startswith(FunctionPrefix.FUNCTION_IO_EXECUTE.value)
-            or current_word.startswith(
-                FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value
-            )
+            or current_word.startswith(FunctionPrefix.FUNCTION_IO_REPRESENT_R_EXECUTE.value)
             or current_word.startswith(FunctionPrefix.FUNCTION_IOR_PLACEHOLDER.value)
             or current_word.startswith(FunctionPrefix.FUNCTION_IOR_REPRESENT.value)
         ):
             # If the current word starts with "##" or "$$", we're in a special word
             is_special_word = True
+            if char == "(":
+                stack.append(")")
             current_word += char
-        elif char == ")" and is_special_word:
-            # If we're in a special word and encounter ')', split the word
-            current_word += char
-            result.append(current_word)
-            current_word = ""
-            is_special_word = False
         elif char in ("(", ")") and not is_special_word:
             # If it's an adjacent '(' or ')' and we're not in a special word, split it
             if current_word:
@@ -379,8 +383,6 @@ def split_string_custom(input_string: str):
         for word in result
     ]
 
-    # Join the elements in the list into a single line with spaces
-    result = " ".join(result)
     return result
 
 
