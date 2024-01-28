@@ -336,8 +336,8 @@ def split_string_custom(input_string: str):
 
     # Iterate through each character in the input string
     for char in input_string:
-        if char == " " and not is_special_word:
-            # If it's a space, and we're not in a special word, split the word
+        if (char == " " or char == ",") and not is_special_word:
+            # If it's a space or comma, and we're not in a special word, split the word
             if current_word != "":
                 result.append(current_word)
             current_word = ""
