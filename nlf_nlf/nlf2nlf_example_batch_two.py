@@ -22,7 +22,7 @@ def __get_batch_two_example_pair(identifier: int | None):
     random_int_four = RandomValueGenerator.generate_random_integer()
     random_float = RandomValueGenerator.generate_random_float()
     random_arc_int = RandomValueGenerator.generate_random_integer(-1, 1)
-    random_degree =random.uniform(0, 2 * 3.14159)
+    random_degree = round(random.uniform(0, 2 * 3.14159), 1)
     str1 = RandomValueGenerator.generate_random_string()
     if random_int_one % 2:
         str2 = RandomValueGenerator.generate_random_string()
@@ -323,10 +323,6 @@ def __get_batch_two_example_pair(identifier: int | None):
             f"The length of the vector {lst_str} is ##length({random_list})"
         ),
         (
-            f"check_same_string('{str1}', '{str2}')",
-            f"Are '{str1}' and '{str2}' the same string? ##check_same_string('{str1}', '{str2}')"
-        ),
-        (
             f"reverse_string('{str1}')",
             f"The reverse of the string '{str1}' is ##reverse_string('{str1}')"
         ),
@@ -416,7 +412,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_nlf2nlf_batch_two_example(2), TaskTypes.NL_TO_NL_TRANSLATION
+            create_nlf2nlf_batch_two_example(2, None), TaskTypes.NL_TO_NL_TRANSLATION
         )
     )
 

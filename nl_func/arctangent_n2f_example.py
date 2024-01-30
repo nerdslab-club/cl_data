@@ -9,7 +9,7 @@ from cl_data.src.utility import Utility
 def create_n2f_arctangent_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        value = RandomValueGenerator.generate_random_float(-1000, 1000, round_to=2)  # Random value in a wider range
+        value = RandomValueGenerator.generate_random_float(-1000, 1000, round_to=1)  # Random value in a wider range
         angle = math.degrees(math.atan(value))  # Calculate corresponding angle in degrees
         examples.append(
             {
@@ -28,23 +28,23 @@ def __random_explanation_arctangent(value: float, identifier: int | None) -> str
         f"The arctangent value for {value}",
         f"Calculate arctangent for {value}",
         f"Arctangent function applied to {value}",
-        f"Arctan({value}), what is it?",
+        f"Arctan({value}), what is it",
         f"The result of arctan({value})",
         f"Find the arctangent of {value}",
         f"Arctangent value when input is {value}",
-        f"Input: {value}, arctangent?",
+        f"Input: {value}, arctangent",
         f"Arctangent of {value}, tell me",
-        f"Arctan({value}), the answer?",
+        f"Arctan({value}), the answer",
         f"Calculate arctan({value})",
         f"The arctangent for input {value}",
-        f"What is arctan({value})?",
-        f"Arctangent of {value}, result?",
+        f"What is arctan({value})",
+        f"Arctangent of {value}, result",
         f"Arctan({value}), find the value",
         f"The arctangent value for input {value}",
-        f"Arctangent of input {value}, what does it give?",
+        f"Arctangent of input {value}, what does it give",
         f"Find arctan({value})",
         f"Arctangent function for input {value}",
-        f"Arctangent of {value}, what is the result?",
+        f"Arctangent of {value}, what is the result",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

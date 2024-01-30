@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_n2f_multiplication_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = random.uniform(0, 1000)  # Using random float between 0 and 1000
-        num2 = random.uniform(0, 1000)  # Using random float between 0 and 1000
+        num1 = RandomValueGenerator.generate_random_float()
+        num2 = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
@@ -24,30 +25,30 @@ def __random_explanation(f2: float, f3: float, identifier: int | None) -> str:
         f"{f2} times {f3}",
         f"{f2} multiplied by {f3}",
         f"The result of {f2} times {f3}",
-        f"{f2} multiplied by {f3}, what is it?",
+        f"{f2} multiplied by {f3}, what is it",
         f"Calculation: {f2} * {f3}",
-        f"{f2} times {f3}, equals?",
+        f"{f2} times {f3}, equals",
         f"Taking {f2} and multiplying by {f3}",
         f"{f2} and {f3} product",
         f"The multiplication of {f2} and {f3}",
-        f"{f2} times {f3} is?",
-        f"{f2} times {f3} is equal to?",
+        f"{f2} times {f3} is",
+        f"{f2} times {f3} is equal to",
         f"The product of {f2} and {f3}",
-        f"{f2} and {f3} multiplied, the result?",
-        f"{f2} multiplied by {f3}, the answer?",
+        f"{f2} and {f3} multiplied, the result",
+        f"{f2} multiplied by {f3}, the answer",
         f"{f2} times {f3}, find the result",
         f"Product: {f2} * {f3}",
         f"Let's multiply {f2} and {f3}",
         f"Find the product of {f2} and {f3}",
-        f"{f2} and {f3}, their multiplication?",
+        f"{f2} and {f3}, their multiplication",
         f"{f2} multiplied by {f3}, result is",
-        f"{f2} and {f3}, what will be the product?",
+        f"{f2} and {f3}, what will be the product",
         f"Multiplication: {f2} * {f3}",
-        f"{f2} times {f3}, result?",
+        f"{f2} times {f3}, result",
         f"{f2} increased {f3}-fold",
         f"{f3} scaled by {f2}",
         f"The total when {f2} is multiplied by {f3}",
-        f"{f2} times {f3} equals?",
+        f"{f2} times {f3} equals",
         f"{f2} multiplied by {f3}, in decimal",
     ]
     if identifier is not None:

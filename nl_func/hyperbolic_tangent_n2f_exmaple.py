@@ -1,14 +1,14 @@
 import random
-import math  # Import the math module for hyperbolic tangent function
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_n2f_hyperbolic_tangent_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        value = round(random.uniform(-10, 10), 2) # Random value in a suitable range
+        value = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": __random_explanation_hyperbolic_tangent(value, (None if identifier is None else identifier+i)),
@@ -19,30 +19,28 @@ def create_n2f_hyperbolic_tangent_example(count: int, identifier: int | None):
 
 
 def __random_explanation_hyperbolic_tangent(value: float, identifier: int | None) -> str:
-    result = math.tanh(value)
     explanations = [
         f"Hyperbolic tangent of {value}",
-        f"Tanh({value})",
         f"The hyperbolic tangent value for {value}",
         f"Calculate hyperbolic tangent for {value}",
         f"Hyperbolic tangent function applied to {value}",
-        f"Tanh({value}), what is it?",
+        f"Tanh({value}), what is it",
         f"The result of tanh({value})",
         f"Find the hyperbolic tangent of {value}",
         f"Hyperbolic tangent value when input is {value}",
-        f"Input: {value}, hyperbolic tangent?",
+        f"Input: {value}, hyperbolic tangent",
         f"Hyperbolic tangent of {value}, tell me",
-        f"Tanh({value}), the answer?",
+        f"Tanh({value}), the answer",
         f"Calculate tanh({value})",
         f"The hyperbolic tangent for input {value}",
-        f"What is tanh({value})?",
-        f"Hyperbolic tangent of {value}, result?",
+        f"What is tanh({value})",
+        f"Hyperbolic tangent of {value}, result",
         f"Tanh({value}), find the value",
         f"The hyperbolic tangent value for input {value}",
-        f"Hyperbolic tangent of input {value}, what does it give?",
+        f"Hyperbolic tangent of input {value}, what does it give",
         f"Find tanh({value})",
         f"Hyperbolic tangent function for input {value}",
-        f"Hyperbolic tangent of {value}, what is the result?",
+        f"Hyperbolic tangent of {value}, what is the result",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

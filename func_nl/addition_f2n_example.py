@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_addition_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = random.randint(0, 1000)
-        num2 = random.randint(0, 1000)
+        num1 = RandomValueGenerator.generate_random_integer(0, 100)
+        num2 = RandomValueGenerator.generate_random_integer(0, 100)
         examples.append(
             {
                 "inputStr": f"##addition({num1},{num2})",

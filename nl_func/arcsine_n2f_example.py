@@ -9,7 +9,7 @@ from cl_data.src.utility import Utility
 def create_n2f_arcsine_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        value = RandomValueGenerator.generate_random_float(-1, 1, round_to=2)  # Random value in the range [-1, 1]
+        value = RandomValueGenerator.generate_random_float(-1, 1, round_to=1)  # Random value in the range [-1, 1]
         angle = math.degrees(math.asin(value))  # Calculate corresponding angle in degrees
         examples.append(
             {
@@ -28,23 +28,23 @@ def __random_explanation_arcsine(value: float, identifier: int | None) -> str:
         f"The arcsine value for {value}",
         f"Calculate arcsine for {value}",
         f"Arcsine function applied to {value}",
-        f"Arcsin({value}), what is it?",
+        f"Arcsin({value}), what is it",
         f"The result of arcsin({value})",
         f"Find the arcsine of {value}",
         f"Arcsine value when input is {value}",
-        f"Input: {value}, arcsine?",
+        f"Input: {value}, arcsine",
         f"Arcsine of {value}, tell me",
-        f"Arcsin({value}), the answer?",
+        f"Arcsin({value}), the answer",
         f"Calculate arcsin({value})",
         f"The arcsine for input {value}",
-        f"What is arcsin({value})?",
-        f"Arcsine of {value}, result?",
+        f"What is arcsin({value})",
+        f"Arcsine of {value}, result",
         f"Arcsin({value}), find the value",
         f"The arcsine value for input {value}",
-        f"Arcsine of input {value}, what does it give?",
+        f"Arcsine of input {value}, what does it give",
         f"Find arcsin({value})",
         f"Arcsine function for input {value}",
-        f"Arcsine of {value}, what is the result?",
+        f"Arcsine of {value}, what is the result",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

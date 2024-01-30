@@ -7,7 +7,7 @@ from cl_data.src.utility import Utility
 def create_n2f_cosine_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        angle = RandomValueGenerator.generate_random_float(0, 360, round_to=2)  # Random angle in degrees
+        angle = RandomValueGenerator.generate_random_float(0, 360, round_to=1)  # Random angle in degrees
         examples.append(
             {
                 "inputStr": __random_cosine_explanation(angle, (None if identifier is None else identifier+i)),
@@ -22,7 +22,7 @@ def __random_cosine_explanation(angle: float, identifier: int | None) -> str:
         f"Calculate the cosine of {angle} degrees",
         f"Cosine value for {angle} degrees",
         f"The result of cosine({angle})",
-        f"Cos({angle}), what is it?",
+        f"Cos({angle}), what is it",
         f"Find the cosine of {angle} degrees",
         f"Compute cos({angle})",
         f"Cosine of {angle} degrees",
@@ -33,7 +33,7 @@ def __random_cosine_explanation(angle: float, identifier: int | None) -> str:
         f"Evaluate cos({angle})",
         f"Cos({angle}), find the result",
         f"The cosine of the angle {angle}",
-        f"Cosine({angle}), what does it give?",
+        f"Cosine({angle}), what does it give",
         f"Cosine of the angle {angle}, calculate",
         f"Find cos({angle})",
         f"Cos({angle}) value",

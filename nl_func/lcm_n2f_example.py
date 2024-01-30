@@ -7,8 +7,8 @@ from cl_data.src.utility import Utility
 def create_n2f_lcm_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer(1, 1000)
-        num2 = RandomValueGenerator.generate_random_integer(1, 1000)
+        num1 = RandomValueGenerator.generate_random_integer()
+        num2 = RandomValueGenerator.generate_random_integer()
         examples.append({
             "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
             "outputStr": f"##lcm({num1}, {num2})",
@@ -22,29 +22,25 @@ def __random_explanation(a: int, b: int, identifier: int | None) -> str:
         f"LCM of {a} and {b}",
         f"Find the least common multiple of {a} and {b}",
         f"The result of finding LCM({a}, {b})",
-        f"LCM for {a} and {b}",
         f"Calculate the least common multiple of {a} and {b}",
         f"Finding LCM for {a} and {b}",
-        f"{a} and {b}, what is their least common multiple?",
+        f"{a} and {b}, what is their least common multiple",
         f"LCM calculation: {a} and {b}",
         f"The smallest number that is a multiple of both {a} and {b}",
-        f"LCM({a}, {b}), what does it give?",
+        f"LCM({a}, {b}), what does it give",
         f"The LCM for {a} and {b}",
         f"Let's find the least common multiple of {a} and {b}",
         f"Find the LCM for {a} and {b}",
-        f"{a} and {b}, their LCM?",
+        f"{a} and {b}, their LCM",
         f"The least common multiple when you have {a} and {b}",
-        f"LCM({a}, {b}), result is",
         f"Common multiple of {a} and {b}",
         f"The multiple common to {a} and {b}",
         f"LCM of {a} and {b}, find the answer",
-        f"Calculate LCM({a}, {b})",
         f"The smallest number that is divisible by both {a} and {b}",
         f"Let's determine the LCM of {a} and {b}",
-        f"{a} and {b}, what is their common multiple?",
+        f"{a} and {b}, what is their common multiple",
         f"LCM calculation for {a} and {b}",
         f"The least common multiple of numbers {a} and {b}",
-        f"LCM: {a} and {b}",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

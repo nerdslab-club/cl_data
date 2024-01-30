@@ -6,7 +6,7 @@ class RandomValueGenerator:
         pass
 
     @staticmethod
-    def generate_random_list(length=4, start_range=0, end_range=500, seed=None):
+    def generate_random_list(length=4, start_range=1, end_range=99, seed=None):
         """
         Generate a random list of numbers.
 
@@ -29,7 +29,7 @@ class RandomValueGenerator:
         return random_list
 
     @staticmethod
-    def generate_random_integer(start_range=0, end_range=10000, seed=None):
+    def generate_random_integer(start_range=1, end_range=99, seed=None):
         """
         Generate a random integer.
 
@@ -49,7 +49,7 @@ class RandomValueGenerator:
         return random_int
 
     @staticmethod
-    def generate_random_float(start_range=0.0, end_range=10000, round_to=2, seed=None):
+    def generate_random_float(start_range=1.0, end_range=99, round_to=1, seed=None):
         """
         Generate a random float.
 
@@ -123,7 +123,6 @@ class RandomValueGenerator:
         )
 
 
-# if __name__ == "__main__":
-#     print(RandomValueGenerator.generate_random_list(6, 1, 100, 43))
-#     print(RandomValueGenerator.generate_random_list(6, 1, 100, 43))
-#     pass
+if __name__ == "__main__":
+    print(RandomValueGenerator.generate_random_float())
+    print(RandomValueGenerator.generate_random_list(6, 1, 100, 43))

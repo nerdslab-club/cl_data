@@ -1,18 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_n2f_division_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = random.uniform(
-            1, 10000
-        )  # Using random float between 1 and 1000 (avoid division by zero)
-        num2 = random.uniform(
-            1, 10000
-        )  # Using random float between 1 and 1000 (avoid division by zero)
+        num1 = RandomValueGenerator.generate_random_float()
+        num2 = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
@@ -28,25 +25,25 @@ def __random_explanation(f1: float, f2: float, identifier: int | None) -> str:
         f"{f1} divided by {f2}",
         f"{f1} over {f2}",
         f"The result of {f1} divided by {f2}",
-        f"{f1} divided by {f2}, what is it?",
+        f"{f1} divided by {f2}, what is it",
         f"Calculation: {f1} / {f2}",
-        f"{f1} divided by {f2}, equals?",
+        f"{f1} divided by {f2}, equals",
         f"Taking {f1} and dividing by {f2}",
-        f"{f1} divided by {f2}, the answer?",
+        f"{f1} divided by {f2}, the answer",
         f"{f1} and {f2} division",
         f"The division of {f1} and {f2}",
-        f"{f1} divided by {f2} is?",
-        f"{f1} divided by {f2} is equal to?",
-        f"{f1} and {f2} divided, the result?",
+        f"{f1} divided by {f2} is",
+        f"{f1} divided by {f2} is equal to",
+        f"{f1} and {f2} divided, the result",
         f"{f1} divided by {f2}, find the result",
         f"Quotient: {f1} / {f2}",
         f"Let's divide {f1} by {f2}",
         f"Find the result of {f1} divided by {f2}",
-        f"{f1} and {f2}, their division?",
+        f"{f1} and {f2}, their division",
         f"{f1} divided by {f2}, result is",
-        f"{f1} and {f2}, what will be the quotient?",
+        f"{f1} and {f2}, what will be the quotient",
         f"Division: {f1} / {f2}",
-        f"{f1} divided by {f2}, result?",
+        f"{f1} divided by {f2}, result",
         f"{f1} separated into {f2} parts",
         f"{f1} distributed over {f2}",
         f"{f1} split into {f2} groups",
