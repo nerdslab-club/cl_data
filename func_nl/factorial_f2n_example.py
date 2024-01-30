@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_factorial_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.randint(0, 10)  # Generate integers from 0 to 10
+        x = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##factorial({x})",

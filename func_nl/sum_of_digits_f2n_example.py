@@ -1,12 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
+
 
 def create_f2n_sum_of_digits_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num = random.randint(1, 10000)
+        num = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##sum_of_digits({num})",
@@ -19,7 +21,6 @@ def create_f2n_sum_of_digits_example(count: int, identifier: int | None):
 def __random_explanation_sum_of_digits(a: int, identifier: int | None) -> str:
     explanations = [
         f"The sum of the digits of the number {a}",
-        f"sum_of_digits({a})",
         f"The result of adding up the digits of the number {a}",
         f"Calculation: sum_of_digits({a})",
         f"The sum obtained by adding the digits of the number {a}",

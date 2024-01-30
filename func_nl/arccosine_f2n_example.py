@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_arccosine_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-1.0, 1.0)
+        x = RandomValueGenerator.generate_random_float(-1.0, 1.0)
         examples.append(
             {
                 "inputStr": f"##arccosine({x})",
@@ -20,7 +21,6 @@ def create_f2n_arccosine_example(count: int, identifier: int | None):
 def __random_explanation_arccosine(x: float, identifier: int | None) -> str:
     explanations = [
         f"The arccosine of {x}",
-        f"arccos({x})",
         f"The angle whose cosine is {x}",
         f"Calculation: arccos({x})",
         f"The inverse cosine function applied to {x}",

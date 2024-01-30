@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_modulus_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = random.randint(1, 1000)
-        num2 = random.randint(1, 1000)
+        num1 = RandomValueGenerator.generate_random_integer()
+        num2 = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##modulus({num1},{num2})",
@@ -31,7 +32,7 @@ def __random_explanation_modulus(x: int, y: int, identifier: int | None) -> str:
         f"Calculation: {x} % {y}",
         f"The remainder after dividing {x} by {y}",
         f"{x} modulus {y}",
-        f"{x} % {y} equals?",
+        f"{x} % {y} equals",
         f"The modulo result of {x} divided by {y}",
         f"The remainder of {x} divided by {y}",
         f"The value of {x} % {y}",

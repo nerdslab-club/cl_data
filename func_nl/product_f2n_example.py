@@ -1,14 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_product_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num_count = random.randint(2, 5)  # Generate 2 to 5 numbers
-        numbers = [random.uniform(-100.0, 100.0) for _ in range(num_count)]
+        numbers = RandomValueGenerator.generate_random_list()
         examples.append(
             {
                 "inputStr": f"##product({numbers})",
@@ -22,7 +22,6 @@ def __random_explanation_product(vector: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"The product of the numbers {lst_str}",
-        f"product({vector})",
         f"The result of multiplying the numbers {lst_str}",
         f"Calculation: product({vector})",
         f"The value obtained by multiplying the numbers {lst_str}",

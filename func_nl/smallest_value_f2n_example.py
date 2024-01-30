@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_smallest_value_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-100.0, 100.0)
-        y = random.uniform(-100.0, 100.0)
+        x = RandomValueGenerator.generate_random_float()
+        y = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##smallest_value({x}, {y})",
@@ -21,7 +22,6 @@ def create_f2n_smallest_value_example(count: int, identifier: int | None):
 def __random_explanation_smallest_value(f: float, g: float, identifier: int | None) -> str:
     explanations = [
         f"The smaller of {f} and {g}",
-        f"smallest_value({f}, {g})",
         f"The lesser value between {f} and {g}",
         f"Calculation: smallest_value({f}, {g})",
         f"The lower of the two numbers {f} and {g}",

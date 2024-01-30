@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_floor_division_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = random.randint(1, 1000)
-        num2 = random.randint(1, num1)  # To ensure non-zero denominator
+        num1 = RandomValueGenerator.generate_random_integer()
+        num2 = RandomValueGenerator.generate_random_integer(1, num1+1)  # To ensure non-zero denominator
         examples.append(
             {
                 "inputStr": f"##floor_division({num1},{num2})",
@@ -33,7 +34,7 @@ def __random_explanation_floor_div(x: int, y: int, identifier: int | None) -> st
         f"{x} floor divided by {y}",
         f"{x} divided by {y} using the floor division operator",
         f"The integer division result of {x} by {y}",
-        f"{x} // {y} equals?",
+        f"{x} // {y} equals",
         f"{x} divided by {y} using floor division gives",
         f"The largest integer quotient of {x} and {y}",
         f"The floor division of {x} and {y} is",

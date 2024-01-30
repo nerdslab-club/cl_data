@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_cosine_similarity_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        vector1 = [random.uniform(-1.0, 1.0) for _ in range(3)]
-        vector2 = [random.uniform(-1.0, 1.0) for _ in range(3)]
+        vector1 = RandomValueGenerator.generate_random_list()
+        vector2 = RandomValueGenerator.generate_random_list()
         examples.append(
             {
                 "inputStr": f"##cosine_similarity({vector1}, {vector2})",
@@ -21,7 +22,6 @@ def create_f2n_cosine_similarity_example(count: int, identifier: int | None):
 def __random_explanation_cosine_similarity(vector1, vector2, identifier: int | None) -> str:
     explanations = [
         f"The cosine similarity between the vectors {vector1} and {vector2}",
-        f"cosine_similarity({vector1}, {vector2})",
         f"The result of calculating the cosine similarity between the vectors {vector1} and {vector2}",
         f"Calculation: cosine_similarity({vector1}, {vector2})",
         f"The cosine similarity value between the vectors {vector1} and {vector2}",

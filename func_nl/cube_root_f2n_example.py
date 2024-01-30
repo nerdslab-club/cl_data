@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_cube_root_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-1000.0, 1000.0)
+        x = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##cube_root({x})",
@@ -20,7 +21,6 @@ def create_f2n_cube_root_example(count: int, identifier: int | None):
 def __random_explanation_cube_root(x: float, identifier: int | None) -> str:
     explanations = [
         f"The cube root of the number {x}",
-        f"cube_root({x})",
         f"The result of finding the cube root of {x}",
         f"Calculation: cube_root({x})",
         f"The value obtained by taking the cube root of {x}",

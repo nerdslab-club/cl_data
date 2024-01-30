@@ -8,12 +8,8 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 def create_f2n_calculate_dot_product_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        vector1 = RandomValueGenerator.generate_random_list(
-            RandomValueGenerator.generate_random_integer(2, 10), -10, 100
-        )
-        vector2 = RandomValueGenerator.generate_random_list(
-            RandomValueGenerator.generate_random_integer(2, 10), -10, 100
-        )
+        vector1 = RandomValueGenerator.generate_random_list()
+        vector2 = RandomValueGenerator.generate_random_list()
         examples.append(
             {
                 "inputStr": f"##calculate_dot_product({vector1}, {vector2})",
@@ -30,7 +26,6 @@ def __random_explanation_calculate_dot_product(vector1_h, vector2_h, identifier:
     vector2 = " , ".join(str(num) for num in vector2_h)
     explanations = [
         f"Calculating the dot product of the vectors {vector1} and {vector2}",
-        f"calculate_dot_product( {vector1_h}, {vector2_h} )",
         f"The result of calculating the dot product of the vectors {vector1} and {vector2}",
         f"Calculation: calculate_dot_product( {vector1_h}, {vector2_h} )",
         f"The scalar product of the vectors {vector1} and {vector2}",

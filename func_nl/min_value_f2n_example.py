@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_min_value_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        lst = [random.randint(-100, 100) for _ in range(random.randint(2, 10))]
+        lst = RandomValueGenerator.generate_random_list()
         examples.append(
             {
                 "inputStr": f"##min_value({lst})",
@@ -21,7 +22,6 @@ def __random_explanation_min_value(vector: list[int], identifier: int | None) ->
     lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"The minimum value in the list {lst_str}",
-        f"min_value({vector})",
         f"The result of finding the minimum value in {lst_str}",
         f"Calculation: min_value({vector})",
         f"The lowest value among the elements in {lst_str}",

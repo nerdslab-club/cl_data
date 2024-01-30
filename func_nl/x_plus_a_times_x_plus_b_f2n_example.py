@@ -8,9 +8,9 @@ from cl_data.src.utility import Utility
 def create_f2n_x_plus_a_times_x_plus_b_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_integer(-10, 100)
-        a = RandomValueGenerator.generate_random_integer(-10, 100)
-        b = RandomValueGenerator.generate_random_integer(-10, 100)
+        x = RandomValueGenerator.generate_random_integer()
+        a = RandomValueGenerator.generate_random_integer()
+        b = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##x_plus_a_times_x_plus_b({x}, {a}, {b})",
@@ -23,7 +23,6 @@ def create_f2n_x_plus_a_times_x_plus_b_example(count: int, identifier: int | Non
 def __random_explanation_x_plus_a_times_x_plus_b(n, a, b, identifier: int | None) -> str:
     explanations = [
         f"Calculating the value of ({n} + {a}) * ({n} + {b})",
-        f"x_plus_a_times_x_plus_b({n}, {a}, {b})",
         f"The result of evaluating ({n} + {a}) * ({n} + {b})",
         f"Calculation: x_plus_a_times_x_plus_b({n}, {a}, {b})",
         f"The expression ({n} + {a}) * ({n} + {b})",

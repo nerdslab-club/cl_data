@@ -11,7 +11,7 @@ def create_f2f_modulus_example(count: int, identifier: int | None):
         num2 = RandomValueGenerator.generate_random_integer(
             1, 1000
         )  # Avoid division by zero
-        num1 = num2 + RandomValueGenerator.generate_random_integer(1, 10000)
+        num1 = num2 + RandomValueGenerator.generate_random_integer()
         choice_one = __random_io_operation(num1, num2, (None if identifier is None else identifier+i))
         choice_two = __random_io_operation(num1, num2, (None if identifier is None else identifier+i), choice_one)
         examples.append(

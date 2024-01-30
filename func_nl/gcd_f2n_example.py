@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_gcd_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.randint(1, 100)
-        y = random.randint(1, 100)
+        x = RandomValueGenerator.generate_random_integer()
+        y = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##gcd({x}, {y})",
@@ -21,7 +22,6 @@ def create_f2n_gcd_example(count: int, identifier: int | None):
 def __random_explanation_gcd(x: int, y: int, identifier: int | None) -> str:
     explanations = [
         f"The greatest common divisor of {x} and {y}",
-        f"gcd({x}, {y})",
         f"The largest number that divides both {x} and {y}",
         f"Calculation: gcd({x}, {y})",
         f"The highest common factor of {x} and {y}",

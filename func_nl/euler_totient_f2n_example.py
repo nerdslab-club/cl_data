@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_euler_totient_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        n = random.randint(1, 50)
+        n = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##euler_totient({n})",
@@ -20,9 +21,7 @@ def create_f2n_euler_totient_example(count: int, identifier: int | None):
 def __random_explanation_euler_totient(n: int, identifier: int | None) -> str:
     explanations = [
         f"The Euler's totient function value for the integer {n}",
-        f"euler_totient({n})",
         f"The result of calculating Euler's totient function for the integer {n}",
-        f"Calculation: euler_totient({n})",
         f"The value of Euler's totient function for the number {n}",
         f"The outcome of finding the value of Euler's totient function for the integer {n}",
         f"The phi value of the integer {n} using Euler's totient function",

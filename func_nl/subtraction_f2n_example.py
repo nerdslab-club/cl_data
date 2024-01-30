@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_subtraction_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = random.randint(0, 1000)
-        num2 = random.randint(0, num1)  # To ensure no negative results
+        num1 = RandomValueGenerator.generate_random_integer()
+        num2 = RandomValueGenerator.generate_random_integer(0, num1)  # To ensure no negative results
         examples.append(
             {
                 "inputStr": f"##subtraction({num1},{num2})",
@@ -24,9 +25,9 @@ def __random_explanation(a: int, b: int, identifier: int | None) -> str:
         f"{a} - {b}",
         f"Taking away {b} from {a} ...",
         f"The result of subtracting {b} from {a}",
-        f"{a} minus {b} equals?",
+        f"{a} minus {b} equals",
         f"Calculation: {a} - {b}",
-        f"{b} subtracted from {a} is?",
+        f"{b} subtracted from {a} is",
         f"Subtracting {b} from {a}",
         f"{a} minus {b}",
         f"The difference between {a} and {b}",

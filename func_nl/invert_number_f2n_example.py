@@ -1,15 +1,16 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_invert_number_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        number = random.uniform(0.1, 10.0)
+        number = RandomValueGenerator.generate_random_float()
         examples.append(
-            {##invert_number({x})
+            {
                 "inputStr": f"##invert_number({number})",
                 "outputStr": __random_explanation_invert_number(number, (None if identifier is None else identifier+i)),
             }
@@ -20,7 +21,6 @@ def create_f2n_invert_number_example(count: int, identifier: int | None):
 def __random_explanation_invert_number(x: float, identifier: int | None) -> str:
     explanations = [
         f"The multiplicative inverse of the number {x}",
-        f"invert_number({x})",
         f"The result of calculating the reciprocal of the number {x}",
         f"Calculation: invert_number({x})",
         f"The reciprocal value of the number {x}",

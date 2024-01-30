@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_is_even_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.randint(-100, 100)
+        x = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##is_even({x})",
@@ -20,7 +21,6 @@ def create_f2n_is_even_example(count: int, identifier: int | None):
 def __random_explanation_is_even(n: int, identifier: int | None) -> str:
     explanations = [
         f"Whether the number {n} is even",
-        f"is_even({n})",
         f"Whether {n} is divisible by 2 without remainder",
         f"Calculation: is_even({n})",
         f"Whether the remainder of {n} divided by 2 is 0",

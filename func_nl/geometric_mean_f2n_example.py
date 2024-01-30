@@ -1,15 +1,16 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_geometric_mean_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        lst = [random.uniform(0.1, 1000.0) for _ in range(random.randint(2, 10))]
+        lst = RandomValueGenerator.generate_random_list()
         examples.append(
-            {##geometric_mean({vector1_list})
+            {
                 "inputStr": f"##geometric_mean({lst})",
                 "outputStr": __random_explanation_geometric_mean(lst, (None if identifier is None else identifier+i)),
             }
@@ -21,7 +22,6 @@ def __random_explanation_geometric_mean(lst_one: list[float], identifier: int | 
     lst_str = " , ".join(str(num) for num in lst_one)
     explanations = [
         f"The geometric mean of the numbers in the list {lst_str}",
-        f"geometric_mean({lst_str})",
         f"The result of calculating the geometric mean of {lst_str}",
         f"Calculation: geometric_mean({lst_str})",
         f"The mean value obtained by using the geometric mean formula for the numbers {lst_str}",

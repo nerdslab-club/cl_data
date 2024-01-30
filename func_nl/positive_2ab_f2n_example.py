@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2n_positive_2ab_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        a = RandomValueGenerator.generate_random_integer(-10, 1000)
-        b = RandomValueGenerator.generate_random_integer(-10, 1000)
+        a = RandomValueGenerator.generate_random_integer()
+        b = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##positive_2ab({a}, {b})",
@@ -22,7 +22,6 @@ def create_f2n_positive_2ab_example(count: int, identifier: int | None):
 def __random_explanation_positive_2ab(a, b, identifier: int | None) -> str:
     explanations = [
         f"Calculating the value of 2 * {a} * {b}",
-        f"positive_2ab({a}, {b})",
         f"The result of evaluating 2 * {a} * {b}",
         f"Calculation: positive_2ab({a}, {b})",
         f"The expression 2 * {a} * {b}",

@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_permutation_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        n = random.randint(2, 10)
-        r = random.randint(1, n)
+        n = RandomValueGenerator.generate_random_integer()
+        r = RandomValueGenerator.generate_random_integer(1, n+1)
         examples.append(
             {
                 "inputStr": f"##permutation({n}, {r})",
@@ -21,7 +22,6 @@ def create_f2n_permutation_example(count: int, identifier: int | None):
 def __random_explanation_permutation(n: int, r: int, identifier: int | None) -> str:
     explanations = [
         f"The number of permutations of {r} items taken from a set of {n} items",
-        f"permutation({n}, {r})",
         f"The result of calculating the permutations of {r} items from a set of {n} items",
         f"Calculation: permutation({n}, {r})",
         f"The count of possible arrangements of {r} items from a set of {n} items",

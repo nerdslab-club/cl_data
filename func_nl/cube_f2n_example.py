@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_cube_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-10.0, 10.0)
+        x = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##cube({x})",
@@ -20,7 +21,6 @@ def create_f2n_cube_example(count: int, identifier: int | None):
 def __random_explanation_cube(x: float, identifier: int | None) -> str:
     explanations = [
         f"The cube of the number {x}",
-        f"cube({x})",
         f"The result of cubing {x}",
         f"Calculation: cube({x})",
         f"The value obtained by raising {x} to the power of 3",

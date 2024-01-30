@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_max_value_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        lst = [random.randint(-100, 100) for _ in range(random.randint(2, 10))]
+        lst = RandomValueGenerator.generate_random_list()
         examples.append(
             {
                 "inputStr": f"##max_value({lst})",
@@ -22,7 +23,6 @@ def __random_explanation_max_value(lst_one: list[int], identifier: int | None) -
     lst_str = " , ".join(str(num) for num in lst_one)
     explanations = [
         f"The maximum value in the list {lst_str}",
-        f"max_value({lst_str})",
         f"The result of finding the maximum value in {lst_str}",
         f"Calculation: max_value({lst_str})",
         f"The highest value among the elements in {lst_str}",

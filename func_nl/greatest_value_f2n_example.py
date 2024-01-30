@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_greatest_value_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-100.0, 100.0)
-        y = random.uniform(-100.0, 100.0)
+        x = RandomValueGenerator.generate_random_float()
+        y = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##greatest_value({x}, {y})",
@@ -21,7 +22,6 @@ def create_f2n_greatest_value_example(count: int, identifier: int | None):
 def __random_explanation_greatest_value(x: float, y: float, identifier: int | None) -> str:
     explanations = [
         f"The greater of {x} and {y}",
-        f"greatest_value({x}, {y})",
         f"The larger value between {x} and {y}",
         f"Calculation: greatest_value({x}, {y})",
         f"The higher of the two numbers {x} and {y}",

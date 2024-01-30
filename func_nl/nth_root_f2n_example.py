@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_nth_root_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(0.0, 1000.0)
-        m = random.randint(1, 10)
+        x = RandomValueGenerator.generate_random_float()
+        m = RandomValueGenerator.generate_random_integer(1, 10)
         examples.append(
             {
                 "inputStr": f"##nth_root({x}, {m})",
@@ -21,7 +22,6 @@ def create_f2n_nth_root_example(count: int, identifier: int | None):
 def __random_explanation_nth_root(x: float, m: int, identifier: int | None) -> str:
     explanations = [
         f"The {m}th root of the number {x}",
-        f"nth_root({x}, {m})",
         f"The result of finding the {m}th root of {x}",
         f"Calculation: nth_root({x}, {m})",
         f"The value obtained by taking the {m}th root of {x}",

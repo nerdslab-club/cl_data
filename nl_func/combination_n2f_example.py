@@ -8,7 +8,7 @@ def create_n2f_combination_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
         n = RandomValueGenerator.generate_random_integer()
-        r = RandomValueGenerator.generate_random_integer(1, n)
+        r = RandomValueGenerator.generate_random_integer(1, n+1)
         examples.append({
             "inputStr": __random_explanation(n, r, (None if identifier is None else identifier+i)),
             "outputStr": f"##combination({n}, {r})",

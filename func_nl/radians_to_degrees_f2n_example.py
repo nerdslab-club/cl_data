@@ -2,13 +2,14 @@ import random
 import math
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_radians_to_degrees_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(0.0, 2 * math.pi)
+        x = RandomValueGenerator.generate_random_float(0.0, 2 * math.pi)
         examples.append(
             {
                 "inputStr": f"##radians_to_degrees({x})",
@@ -21,7 +22,6 @@ def create_f2n_radians_to_degrees_example(count: int, identifier: int | None):
 def __random_explanation_radians_to_degrees(x: float, identifier: int | None) -> str:
     explanations = [
         f"Convert {x} radians to degrees",
-        f"radians_to_degrees({x})",
         f"The value of {x} radians in degrees",
         f"Calculation: radians_to_degrees({x})",
         f"The equivalent degrees for {x} radians",

@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_arcsine_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-1.0, 1.0)
+        x = RandomValueGenerator.generate_random_float(-1.0, 1.0)
         examples.append(
             {
                 "inputStr": f"##arcsine({x})",
@@ -20,7 +21,6 @@ def create_f2n_arcsine_example(count: int, identifier: int | None):
 def __random_explanation_arcsine(x: float, identifier: int | None) -> str:
     explanations = [
         f"The arcsine of {x}",
-        f"arcsine({x})",
         f"The angle whose sine is {x}",
         f"Calculation: arcsine({x})",
         f"The inverse sine function applied to {x}",

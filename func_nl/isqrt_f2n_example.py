@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_isqrt_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.randint(0, 1000)
+        x = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##isqrt({x})",
@@ -20,7 +21,6 @@ def create_f2n_isqrt_example(count: int, identifier: int | None):
 def __random_explanation_isqrt(x: int, identifier: int | None) -> str:
     explanations = [
         f"The integer square root of {x}",
-        f"isqrt({x})",
         f"The largest integer that, when squared, is less than or equal to {x}",
         f"Calculation: isqrt({x})",
         f"The floor value of the square root of {x}",

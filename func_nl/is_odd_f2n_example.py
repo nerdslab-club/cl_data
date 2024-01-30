@@ -1,15 +1,16 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_is_odd_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.randint(-100, 100)
+        x = RandomValueGenerator.generate_random_integer()
         examples.append(
-            {##is_odd({n})
+            {
                 "inputStr": f"##is_odd({x})",
                 "outputStr": __random_explanation_is_odd(x, (None if identifier is None else identifier+i)),
             }
@@ -20,7 +21,6 @@ def create_f2n_is_odd_example(count: int, identifier: int | None):
 def __random_explanation_is_odd(n: int, identifier: int | None) -> str:
     explanations = [
         f"Whether the number {n} is odd",
-        f"is_odd({n})",
         f"Whether {n} is not divisible by 2 without remainder",
         f"Calculation: is_odd({n})",
         f"Whether the remainder of {n} divided by 2 is not 0",

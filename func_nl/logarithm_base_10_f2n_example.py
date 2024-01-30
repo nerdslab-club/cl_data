@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_logarithm_base_10_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        m = random.uniform(0.1, 100.0)
+        m = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##logarithm_base_10({m})",
@@ -20,7 +21,6 @@ def create_f2n_logarithm_base_10_example(count: int, identifier: int | None):
 def __random_explanation_logarithm_base_10(m: float, identifier: int | None) -> str:
     explanations = [
         f"The base-10 logarithm of {m}",
-        f"logarithm_base_10({m})",
         f"The value of the base-10 logarithm function for {m}",
         f"Calculation: logarithm_base_10({m})",
         f"The base-10 logarithm value for {m} is",

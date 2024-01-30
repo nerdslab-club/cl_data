@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2n_a_cubed_minus_b_cubed_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        a = RandomValueGenerator.generate_random_integer(-10, 1000)
-        b = RandomValueGenerator.generate_random_integer(-10, 1000)
+        a = RandomValueGenerator.generate_random_integer()
+        b = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##a_cubed_minus_b_cubed({a}, {b})",

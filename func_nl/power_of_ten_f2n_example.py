@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_power_of_ten_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-10.0, 10.0)
+        x = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##power_of_ten({x})",
@@ -20,7 +21,6 @@ def create_f2n_power_of_ten_example(count: int, identifier: int | None):
 def __random_explanation_power_of_ten(a: float, identifier: int | None) -> str:
     explanations = [
         f"10 raised to the power of {a}",
-        f"power_of_ten({a})",
         f"The result of 10 raised to the power of {a}",
         f"Calculation: power_of_ten({a})",
         f"The value obtained by exponentiating 10 with the power of {a}",

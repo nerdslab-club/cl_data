@@ -8,9 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2f_absolute_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer(
-            -1000, -1
-        )  # Generate negative integers
+        num1 = RandomValueGenerator.generate_random_integer()  # Generate negative integers
         choice_one = __random_io_operation(num1, (None if identifier is None else identifier+i))
         choice_two = __random_io_operation(num1, (None if identifier is None else identifier+i), choice_one)
         examples.append(

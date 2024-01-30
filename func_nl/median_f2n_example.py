@@ -1,14 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_median_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num_count = random.randint(3, 6)  # Generate 3 to 6 numbers
-        numbers = [random.uniform(-100.0, 100.0) for _ in range(num_count)]
+        numbers = RandomValueGenerator.generate_random_list()
         examples.append(
             {
                 "inputStr": f"##median({numbers})",
@@ -22,7 +22,6 @@ def __random_explanation_median(numbers: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in numbers)
     explanations = [
         f"The median of the numbers {lst_str}",
-        f"median({lst_str})",
         f"The middle value of the numbers {lst_str}",
         f"Calculation: median({lst_str})",
         f"The value at the center of the sorted numbers {lst_str}",

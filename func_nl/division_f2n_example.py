@@ -1,16 +1,17 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_division_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = random.uniform(0.1, 1000.0)
-        num2 = random.uniform(0.1, num1)  # To ensure no division by zero
+        num1 = RandomValueGenerator.generate_random_float()
+        num2 = RandomValueGenerator.generate_random_float(0.1, num1)  # To ensure no division by zero
         examples.append(
-            {##division({x},{y})
+            {
                 "inputStr": f"##division({num1},{num2})",
                 "outputStr": __random_explanation(
                     num1,
@@ -27,7 +28,7 @@ def __random_explanation(x: float, y: float, identifier: int | None) -> str:
         f"Dividing {x} by {y}",
         f"{x} / {y}",
         f"The result of dividing {x} by {y}",
-        f"{x} divided by {y} equals?",
+        f"{x} divided by {y} equals",
         f"Calculation: {x} / {y}",
         f"{x} divided by {y}",
         f"{x} over {y}",

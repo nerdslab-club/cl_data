@@ -8,8 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2f_geometric_mean_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        list_length = RandomValueGenerator.generate_random_integer(2, 10)
-        list1 = RandomValueGenerator.generate_random_list(list_length)
+        list1 = RandomValueGenerator.generate_random_list()
         choice_one = __random_io_operation(list1, (None if identifier is None else identifier+i))
         choice_two = __random_io_operation(list1, (None if identifier is None else identifier+i), choice_one)
         examples.append(

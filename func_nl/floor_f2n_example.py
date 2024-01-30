@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_floor_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-100.0, 100.0)
+        x = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##floor({x})",
@@ -20,7 +21,6 @@ def create_f2n_floor_example(count: int, identifier: int | None):
 def __random_explanation_floor(x: float, identifier: int | None) -> str:
     explanations = [
         f"The largest integer less than or equal to {x}",
-        f"floor({x})",
         f"The greatest whole number that is not greater than {x}",
         f"Calculation: floor({x})",
         f"The integer immediately below {x}",

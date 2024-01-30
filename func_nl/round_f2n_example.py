@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_round_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-100.0, 100.0)
+        x = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##round({x})",
@@ -20,7 +21,6 @@ def create_f2n_round_example(count: int, identifier: int | None):
 def __random_explanation_round(f: float, identifier: int | None) -> str:
     explanations = [
         f"The integer closest to {f} after rounding",
-        f"round({f})",
         f"The nearest whole number to {f}",
         f"Calculation: round({f})",
         f"The integer that is closest to {f} and has the same magnitude",

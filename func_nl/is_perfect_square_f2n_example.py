@@ -2,13 +2,14 @@ import random
 import math
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_is_perfect_square_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.randint(1, 100)
+        x = RandomValueGenerator.generate_random_integer()
         is_perfect_square_result = math.isqrt(x) ** 2 == x
         examples.append(
             {
@@ -29,7 +30,6 @@ def __random_explanation_is_perfect_square(
     )
     explanations = [
         f"Whether {x} is {square_str}",
-        f"is_perfect_square({x})",
         f"Checking if {x} is a perfect square",
         f"Calculation: is_perfect_square({x})",
         f"Whether the integer {x} is a perfect square",

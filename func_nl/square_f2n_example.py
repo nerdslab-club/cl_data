@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_square_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-10.0, 10.0)
+        x = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##square({x})",
@@ -20,7 +21,6 @@ def create_f2n_square_example(count: int, identifier: int | None):
 def __random_explanation_square(f: float, identifier: int | None) -> str:
     explanations = [
         f"The square of the number {f}",
-        f"square({f})",
         f"The result of squaring {f}",
         f"Calculation: square({f})",
         f"The value obtained by multiplying {f} by itself",

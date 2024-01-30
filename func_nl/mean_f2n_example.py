@@ -1,14 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_mean_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num_count = random.randint(2, 10)  # Generate 2 to 5 numbers
-        numbers = [random.uniform(-100.0, 1000.0) for _ in range(num_count)]
+        numbers = RandomValueGenerator.generate_random_list()
         examples.append(
             {
                 "inputStr": f"##mean({numbers})",
@@ -22,7 +22,6 @@ def __random_explanation_mean(numbers: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in numbers)
     explanations = [
         f"The mean of the numbers {lst_str}",
-        f"mean({lst_str})",
         f"The average value of the numbers {lst_str}",
         f"Calculation: mean({lst_str})",
         f"The value obtained by averaging the numbers {lst_str}",

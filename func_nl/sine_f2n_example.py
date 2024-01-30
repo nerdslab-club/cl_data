@@ -1,14 +1,14 @@
 import random
-import math
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_sine_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        angle = random.uniform(0.0, 360.0)
+        angle = RandomValueGenerator.generate_random_float(0.0, 360.0)
         examples.append(
             {
                 "inputStr": f"##sine({angle})",
@@ -22,24 +22,23 @@ def create_f2n_sine_example(count: int, identifier: int | None):
 
 
 def __random_explanation_sine(angle: float, identifier: int | None) -> str:
-    radians = math.radians(angle)
-    sine_value = round(math.sin(radians), 4)
-
     explanations = [
         f"The sine of {angle} degrees",
         f"sin({angle})",
         f"The result of taking the sine of {angle} degrees",
-        f"Calculation: sin({angle} °)",
-        f"The sine value of {angle} ° is",
-        f"The value of sin({angle} °)",
-        f"The trigonometric sine function applied to {angle} °",
-        f"The sine of {angle} ° equals?",
-        f"The sine of the angle {angle} °",
-        f"The sine function output for {angle} °",
+        f"Calculation: sin({angle} degree)",
+        f"The sine value of {angle} degree is",
+        f"The value of sin({angle} degree)",
+        f"The trigonometric sine function applied to {angle} degree",
+        f"The sine of {angle} degree equals",
+        f"The sine of the angle {angle} degree",
+        f"The sine function output for {angle} degree",
         f"The sine of {angle} degrees is",
     ]
-
-    return f"{random.choice(explanations)} {sine_value}"
+    if identifier is not None:
+        return explanations[identifier % len(explanations)]
+    else:
+        return random.choice(explanations)
 
 
 if __name__ == "__main__":

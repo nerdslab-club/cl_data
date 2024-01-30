@@ -13,19 +13,18 @@ def create_f2n_check_same_string_example(count: int, identifier: int | None):
             )
             for _ in range(2)
         ]
-        are_same = strings[0] == strings[1]
         examples.append(
             {
                 "inputStr": f"##check_same_string('{strings[0]}', '{strings[1]}')",
                 "outputStr": __random_explanation_check_same_string(
-                    strings[0], strings[1], are_same, (None if identifier is None else identifier+i)
+                    strings[0], strings[1], (None if identifier is None else identifier+i)
                 ),
             }
         )
     return examples
 
 
-def __random_explanation_check_same_string(str1, str2, are_same, identifier: int | None) -> str:
+def __random_explanation_check_same_string(str1, str2, identifier: int | None) -> str:
     explanations = [
         f"Checking if the strings '{str1}' and '{str2}' are the same",
         f"check_same_string('{str1}', '{str2}')",
@@ -53,38 +52,6 @@ def __random_explanation_check_same_string(str1, str2, are_same, identifier: int
         f"The result obtained by evaluating check_same_string('{str1}', '{str2}')",
         f"The result of checking if the strings '{str1}' and '{str2}' are the same",
     ]
-    if are_same:
-        explanations.extend(
-            [
-                f"The strings '{str1}' and '{str2}' are the same",
-                f"The given strings '{str1}' and '{str2}' are identical",
-                f"The strings '{str1}' and '{str2}' have the same content",
-                f"The strings '{str1}' and '{str2}' match",
-                f"The strings '{str1}' and '{str2}' are equal",
-                f"The strings '{str1}' and '{str2}' are identical",
-                f"The strings '{str1}' and '{str2}' have the same value",
-                f"The strings '{str1}' and '{str2}' are equal",
-                f"The given strings '{str1}' and '{str2}' are the same",
-                f"The given strings '{str1}' and '{str2}' are equal",
-                f"The strings '{str1}' and '{str2}' match",
-            ]
-        )
-    else:
-        explanations.extend(
-            [
-                f"The strings '{str1}' and '{str2}' are not the same",
-                f"The given strings '{str1}' and '{str2}' are different",
-                f"The strings '{str1}' and '{str2}' have different content",
-                f"The strings '{str1}' and '{str2}' do not match",
-                f"The strings '{str1}' and '{str2}' are not equal",
-                f"The strings '{str1}' and '{str2}' are not the same",
-                f"The strings '{str1}' and '{str2}' have different values",
-                f"The strings '{str1}' and '{str2}' are different",
-                f"The given strings '{str1}' and '{str2}' are not equal",
-                f"The given strings '{str1}' and '{str2}' are different",
-                f"The strings '{str1}' and '{str2}' do not match",
-            ]
-        )
     if identifier is not None:
         return explanations[identifier % len(explanations)]
     else:

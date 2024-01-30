@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_ceil_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-100.0, 100.0)
+        x = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##ceil({x})",
@@ -20,7 +21,6 @@ def create_f2n_ceil_example(count: int, identifier: int | None):
 def __random_explanation_ceil(x: float, identifier: int | None) -> str:
     explanations = [
         f"The smallest integer greater than or equal to {x}",
-        f"ceil({x})",
         f"The smallest whole number that is not less than {x}",
         f"Calculation: ceil({x})",
         f"The integer immediately above {x}",

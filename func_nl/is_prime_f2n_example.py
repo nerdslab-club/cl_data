@@ -2,13 +2,14 @@ import random
 import sympy
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_is_prime_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.randint(1, 100)
+        x = RandomValueGenerator.generate_random_integer()
         is_prime_result = sympy.isprime(x)
         examples.append(
             {

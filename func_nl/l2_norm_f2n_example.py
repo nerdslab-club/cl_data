@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_l2_norm_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        vector = [random.uniform(-10.0, 10.0) for _ in range(3)]
+        vector = RandomValueGenerator.generate_random_list()
         examples.append(
             {
                 "inputStr": f"##l2_norm({vector})",
@@ -22,7 +23,6 @@ def __random_explanation_l2_norm(vector, identifier: int | None) -> str:
 
     explanations = [
         f"The L2 norm (Euclidean norm) of the vector {lst_str}",
-        f"l2_norm({vector})",
         f"The result of calculating the L2 norm of the vector {lst_str}",
         f"Calculation: l2_norm({vector})",
         f"The Euclidean norm value of the vector {lst_str}",

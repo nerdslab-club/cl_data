@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_relu_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-10.0, 10.0)
+        x = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##relu({x})",
@@ -20,7 +21,6 @@ def create_f2n_relu_example(count: int, identifier: int | None):
 def __random_explanation_relu(f: float, identifier: int | None) -> str:
     explanations = [
         f"The Rectified Linear Unit (ReLU) activation of {f}",
-        f"relu({f})",
         f"The result of applying ReLU to {f}",
         f"Calculation: relu({f})",
         f"The output of the ReLU activation function for the input {f}",

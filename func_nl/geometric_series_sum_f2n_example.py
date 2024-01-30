@@ -1,15 +1,16 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_geometric_series_sum_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        a = random.uniform(1.0, 10.0)
-        r = random.uniform(0.1, 2.0)
-        n = random.randint(1, 10)
+        a = RandomValueGenerator.generate_random_float(1.0, 10.0)
+        r = RandomValueGenerator.generate_random_float(0.1, 2.0)
+        n = RandomValueGenerator.generate_random_integer(1, 10)
         examples.append(
             {
                 "inputStr": f"##geometric_series_sum({a}, {r}, {n})",
@@ -22,7 +23,6 @@ def create_f2n_geometric_series_sum_example(count: int, identifier: int | None):
 def __random_explanation_geometric_series_sum(a: float, r: float, n: int, identifier: int | None) -> str:
     explanations = [
         f"The sum of a geometric series with initial term {a}, common ratio {r}, and {n} terms",
-        f"geometric_series_sum({a}, {r}, {n})",
         f"The result of calculating the sum of the geometric series with initial term {a}, common ratio {r}, and {n} terms",
         f"Calculation: geometric_series_sum({a}, {r}, {n})",
         f"The total sum of a geometric sequence with initial term {a}, ratio {r}, and {n} terms",

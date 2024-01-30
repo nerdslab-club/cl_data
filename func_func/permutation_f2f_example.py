@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2f_permutation_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        n = random.randint(5, 1000)  # Random integer for n, between 5 and 15
-        r = random.randint(2, n - 1)
+        n = RandomValueGenerator.generate_random_integer()  # Random integer for n, between 5 and 15
+        r = RandomValueGenerator.generate_random_integer(1, n + 1)
         choice_one = __random_io_permutation(n, r, (None if identifier is None else identifier+i))
         choice_two = __random_io_permutation(n, r, (None if identifier is None else identifier+i), choice_one)
         examples.append(

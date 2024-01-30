@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_arctangent_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-10.0, 10.0)
+        x = RandomValueGenerator.generate_random_float(-10.0, 10.0)
         examples.append(
             {
                 "inputStr": f"##arctangent({x})",
@@ -20,7 +21,6 @@ def create_f2n_arctangent_example(count: int, identifier: int | None):
 def __random_explanation_arctangent(x: float, identifier: int | None) -> str:
     explanations = [
         f"The arctangent of {x}",
-        f"arctan({x})",
         f"The angle whose tangent is {x}",
         f"Calculation: arctan({x})",
         f"The inverse tangent function applied to {x}",

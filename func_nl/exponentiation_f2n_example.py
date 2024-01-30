@@ -8,10 +8,10 @@ from cl_data.src.utility import Utility
 def create_f2n_exponentiation_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        base = RandomValueGenerator.generate_random_float(1.0, 100.0)
-        exponent = RandomValueGenerator.generate_random_float(1.0, 100.0)
+        base = RandomValueGenerator.generate_random_float()
+        exponent = RandomValueGenerator.generate_random_float()
         examples.append(
-            {##exponentiation({x},{y})
+            {
                 "inputStr": f"##exponentiation({base},{exponent})",
                 "outputStr": __random_explanation_exp(
                     base,
@@ -26,7 +26,6 @@ def create_f2n_exponentiation_example(count: int, identifier: int | None):
 def __random_explanation_exp(base: float, exponent: float, identifier: int | None) -> str:
     explanations = [
         f"{base} raised to the power of {exponent}",
-        f"{base} ^ ({exponent})",
         f"The result of {base} raised to the power of {exponent}",
         f"Calculation: {base} ^ {exponent}",
         f"{base} raised to {exponent}",
@@ -34,7 +33,7 @@ def __random_explanation_exp(base: float, exponent: float, identifier: int | Non
         f"The value of {base} ^ ({exponent})",
         f"{base} to the power of {exponent} is",
         f"{base} raised to the exponent {exponent}",
-        f"{base} ^ ({exponent}) equals?",
+        f"{base} ^ ({exponent}) equals",
         f"{base} raised to the {exponent} power",
         f"{base} to the {exponent} exponent",
         f"The exponentiation of {base} and {exponent}",

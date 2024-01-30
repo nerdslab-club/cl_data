@@ -1,15 +1,16 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_pow_mod_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.randint(1, 100)
-        y = random.randint(1, 20)
-        mod = random.randint(2, 100)
+        x = RandomValueGenerator.generate_random_integer(1, 99)
+        y = RandomValueGenerator.generate_random_integer(1, 20)
+        mod = RandomValueGenerator.generate_random_integer(2, 99)
         examples.append(
             {
                 "inputStr": f"##pow_mod({x}, {y}, {mod})",
@@ -22,7 +23,6 @@ def create_f2n_pow_mod_example(count: int, identifier: int | None):
 def __random_explanation_pow_mod(n: int, r: int, mod: int, identifier: int | None) -> str:
     explanations = [
         f"The modular exponentiation of {n} raised to the power {r} modulo {mod}",
-        f"pow_mod({n}, {r}, {mod})",
         f"The result of raising {n} to the power {r} and then taking modulo {mod}",
         f"Calculation: pow_mod({n}, {r}, {mod})",
         f"The value of ({n}^{r}) % {mod}",

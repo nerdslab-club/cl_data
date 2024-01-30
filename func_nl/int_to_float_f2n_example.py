@@ -1,15 +1,16 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_int_to_float_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        value = random.randint(-100, 100)
+        value = RandomValueGenerator.generate_random_integer()
         examples.append(
-            {##int_to_float({n})
+            {
                 "inputStr": f"##int_to_float({value})",
                 "outputStr": __random_explanation_int_to_float(value, (None if identifier is None else identifier+i)),
             }
@@ -20,7 +21,6 @@ def create_f2n_int_to_float_example(count: int, identifier: int | None):
 def __random_explanation_int_to_float(n: int, identifier: int | None) -> str:
     explanations = [
         f"The floating-point representation of the integer {n}",
-        f"int_to_float({n})",
         f"The result of converting the integer value {n} to a floating-point value",
         f"Calculation: int_to_float({n})",
         f"The decimal representation of the integer {n}",

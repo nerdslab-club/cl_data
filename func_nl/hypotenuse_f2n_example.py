@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_hypotenuse_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        a = random.uniform(1.0, 100.0)
-        b = random.uniform(1.0, 100.0)
+        a = RandomValueGenerator.generate_random_float()
+        b = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##hypotenuse({a}, {b})",
@@ -21,7 +22,6 @@ def create_f2n_hypotenuse_example(count: int, identifier: int | None):
 def __random_explanation_hypotenuse(a: float, b: float, identifier: int | None) -> str:
     explanations = [
         f"The length of the hypotenuse in a right triangle with perpendicular sides of lengths {a} and {b}",
-        f"hypotenuse({a}, {b})",
         f"The result of calculating the length of the hypotenuse for a right triangle with sides {a} and {b}",
         f"Calculation: hypotenuse({a}, {b})",
         f"The length of the diagonal side in a right triangle with sides {a} and {b}",

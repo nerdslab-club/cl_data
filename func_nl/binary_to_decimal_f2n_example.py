@@ -22,7 +22,6 @@ def create_f2n_binary_to_decimal_example(count: int, identifier: int | None):
 def __random_explanation_binary_to_decimal(binary: str, identifier: int | None) -> str:
     explanations = [
         f"The decimal equivalent of the binary number '{binary}'",
-        f"binary_to_decimal('{binary}')",
         f"The result of converting the binary number '{binary}' to decimal",
         f"Calculation: binary_to_decimal('{binary}')",
         f"The decimal representation obtained by converting the binary number '{binary}'",

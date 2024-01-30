@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_absolute_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-100.0, 100.0)
+        x = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##absolute({x})",
@@ -20,7 +21,6 @@ def create_f2n_absolute_example(count: int, identifier: int | None):
 def __random_explanation_absolute(x: float, identifier: int | None) -> str:
     explanations = [
         f"The absolute value of the number {x}",
-        f"absolute({x})",
         f"The result of taking the absolute value of {x}",
         f"Calculation: absolute({x})",
         f"The magnitude of the number {x}",

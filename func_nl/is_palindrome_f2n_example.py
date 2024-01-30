@@ -23,7 +23,6 @@ def create_f2n_is_palindrome_example(count: int, identifier: int | None):
 def __random_explanation_is_palindrome(word: str, identifier: int | None) -> str:
     explanations = [
         f"Whether the string '{word}' is a palindrome",
-        f"is_palindrome('{word}')",
         f"Whether the word '{word}' reads the same forwards and backwards",
         f"Calculation: is_palindrome('{word}')",
         f"Whether '{word}' is a word that is the same when reversed",

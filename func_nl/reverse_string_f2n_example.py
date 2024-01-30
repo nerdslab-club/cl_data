@@ -24,7 +24,6 @@ def create_f2n_reverse_string_example(count: int, identifier: int | None):
 def __random_explanation_reverse_string(input_str, identifier: int | None) -> str:
     explanations = [
         f"Reversing the string '{input_str}'",
-        f"reverse_string('{input_str}')",
         f"The result of reversing the string '{input_str}'",
         f"Calculation: reverse_string('{input_str}')",
         f"The reversed form of the string '{input_str}'",

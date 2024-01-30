@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_circle_area_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        radius = random.uniform(1.0, 50.0)
+        radius = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##circle_area({radius})",
@@ -20,7 +21,6 @@ def create_f2n_circle_area_example(count: int, identifier: int | None):
 def __random_explanation_circle_area(radius: float, identifier: int | None) -> str:
     explanations = [
         f"The area of a circle with radius {radius}",
-        f"circle_area({radius})",
         f"The result of calculating the area of a circle with radius {radius}",
         f"Calculation: circle_area({radius})",
         f"The area enclosed by a circle with radius {radius}",

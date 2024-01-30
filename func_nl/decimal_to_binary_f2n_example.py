@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_decimal_to_binary_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        decimal = random.randint(1, 1000)
+        decimal = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##decimal_to_binary({decimal})",
@@ -20,7 +21,6 @@ def create_f2n_decimal_to_binary_example(count: int, identifier: int | None):
 def __random_explanation_decimal_to_binary(decimal: int, identifier: int | None) -> str:
     explanations = [
         f"The binary representation of the decimal number {decimal}",
-        f"decimal_to_binary({decimal})",
         f"The result of converting the decimal number {decimal} to binary",
         f"Calculation: decimal_to_binary({decimal})",
         f"The binary number obtained by converting the decimal number {decimal}",

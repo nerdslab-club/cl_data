@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_hyperbolic_tangent_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-10.0, 10.0)
+        x = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##hyperbolic_tangent({x})",
@@ -20,7 +21,6 @@ def create_f2n_hyperbolic_tangent_example(count: int, identifier: int | None):
 def __random_explanation_hyperbolic_tangent(x: float, identifier: int | None) -> str:
     explanations = [
         f"The hyperbolic tangent of {x}",
-        f"hyperbolic_tangent({x})",
         f"The value of the hyperbolic tangent function for {x}",
         f"Calculation: hyperbolic_tangent({x})",
         f"The hyperbolic tangent value for {x} is",

@@ -1,14 +1,15 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_absolute_difference_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.uniform(-100.0, 100.0)
-        y = random.uniform(-100.0, 100.0)
+        x = RandomValueGenerator.generate_random_float()
+        y = RandomValueGenerator.generate_random_float()
         examples.append(
             {
                 "inputStr": f"##absolute_difference({x}, {y})",

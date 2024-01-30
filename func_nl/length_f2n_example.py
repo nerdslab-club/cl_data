@@ -8,11 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_length_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        item = RandomValueGenerator.generate_random_integer(2, 10)
-        vector = [
-            RandomValueGenerator.generate_random_integer(-100, 1000)
-            for _ in range(item)
-        ]
+        vector = RandomValueGenerator.generate_random_list()
         examples.append(
             {
                 "inputStr": f"##length({vector})",
@@ -26,7 +22,6 @@ def __random_explanation_length(vector: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in vector)
     explanations = [
         f"The length (number of elements) of the list {lst_str}",
-        f"length({vector})",
         f"The result of calculating the length of the list {lst_str}",
         f"Calculation: length({vector})",
         f"The number of elements in the list {lst_str}",

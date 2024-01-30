@@ -1,30 +1,28 @@
 import random
-import sympy
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_prime_factors_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = random.randint(2, 100)
-        prime_factors_result = sympy.factorint(x)
+        x = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##prime_factors({x})",
                 "outputStr": __random_explanation_prime_factors(
-                    x, prime_factors_result, (None if identifier is None else identifier+i)
+                    x, (None if identifier is None else identifier+i)
                 ),
             }
         )
     return examples
 
 
-def __random_explanation_prime_factors(n: int, prime_factors_result: dict, identifier: int | None) -> str:
+def __random_explanation_prime_factors(n: int, identifier: int | None) -> str:
     explanations = [
         f"The prime factors of {n}",
-        f"prime_factors({n})",
         f"The factors of {n} that are prime numbers",
         f"Calculation: prime_factors({n})",
         f"The prime numbers that divide {n}",

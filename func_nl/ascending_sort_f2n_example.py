@@ -1,14 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_ascending_sort_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        lst_len = random.randint(3, 6)  # Generate a list of 3 to 6 numbers
-        lst = [random.randint(-100, 100) for _ in range(lst_len)]
+        lst = RandomValueGenerator.generate_random_list()
         examples.append(
             {
                 "inputStr": f"##ascending_sort({lst})",
@@ -22,7 +22,6 @@ def __random_explanation_ascending_sort(lst: list, identifier: int | None) -> st
     lst_str = " , ".join(str(num) for num in lst)
     explanations = [
         f"The list {lst_str} sorted in ascending order",
-        f"ascending_sort({lst_str})",
         f"The sorted version of the list {lst_str}",
         f"Calculation: ascending_sort({lst_str})",
         f"The list {lst_str} arranged in increasing order",

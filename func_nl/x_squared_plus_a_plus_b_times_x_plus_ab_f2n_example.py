@@ -8,10 +8,9 @@ from cl_data.src.utility import Utility
 def create_f2n_x_squared_plus_a_plus_b_times_x_plus_ab_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_integer(-10, 100)
-        a = RandomValueGenerator.generate_random_integer(-10, 100)
-        b = RandomValueGenerator.generate_random_integer(-10, 100)
-        result = x**2 + (a + b) * (x + a * b)
+        x = RandomValueGenerator.generate_random_integer()
+        a = RandomValueGenerator.generate_random_integer()
+        b = RandomValueGenerator.generate_random_integer()
         examples.append(
             {
                 "inputStr": f"##x_squared_plus_a_plus_b_times_x_plus_ab({x}, {a}, {b})",
@@ -26,7 +25,6 @@ def create_f2n_x_squared_plus_a_plus_b_times_x_plus_ab_example(count: int, ident
 def __random_explanation_x_squared_plus_a_plus_b_times_x_plus_ab(n, a, b, identifier: int | None) -> str:
     explanations = [
         f"Calculating the value of {n}^2 + ({a} + {b}) * ({n} + {a} * {b})",
-        f"x_squared_plus_a_plus_b_times_x_plus_ab({n}, {a}, {b})",
         f"The result of evaluating {n}^2 + ({a} + {b}) * ({n} + {a} * {b})",
         f"Calculation: x_squared_plus_a_plus_b_times_x_plus_ab({n}, {a}, {b})",
         f"The expression {n}^2 + ({a} + {b}) * ({n} + {a} * {b})",

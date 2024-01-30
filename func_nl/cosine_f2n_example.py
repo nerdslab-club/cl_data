@@ -1,13 +1,14 @@
 import random
 
 from cl_data.src.constants import TaskTypes
+from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
 def create_f2n_cosine_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        angle = random.uniform(0.0, 360.0)
+        angle = RandomValueGenerator.generate_random_float(0.0, 360.0, round_to=1)
         examples.append(
             {
                 "inputStr": f"##cosine({angle})",
@@ -20,16 +21,15 @@ def create_f2n_cosine_example(count: int, identifier: int | None):
 def __random_explanation_cosine(angle: float, identifier: int | None) -> str:
     explanations = [
         f"The cosine of {angle} degrees",
-        f"cos({angle} °)",
         f"The result of taking the cosine of {angle} degrees",
-        f"Calculation: cos({angle} °)",
-        f"The cosine value of {angle} ° is",
-        f"The value of cos({angle} °)",
-        f"The trigonometric cosine function applied to {angle} °",
-        f"The cosine of {angle} ° equals?",
+        f"Calculation: cos({angle} degree)",
+        f"The cosine value of {angle} degree is",
+        f"The value of cos({angle} degree)",
+        f"The trigonometric cosine function applied to {angle} degree",
+        f"The cosine of {angle} degree equals",
         f"The ratio of the length of the adjacent side to the hypotenuse",
-        f"The cosine of the angle {angle} °",
-        f"The cosine function output for {angle} °",
+        f"The cosine of the angle {angle} degree",
+        f"The cosine function output for {angle} degree",
         f"The cosine of {angle} degrees is",
     ]
     if identifier is not None:
