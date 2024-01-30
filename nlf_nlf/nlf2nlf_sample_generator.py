@@ -19,7 +19,7 @@ class Nl2NlSamples:
     def get_length_of_sample_generators(self):
         return len(self.nlf2nlf_example_generators)
 
-    def get_next_random_sample(self, count: int, generator_index: int | None, identifier: int | None):
+    def get_next_random_sample(self, batch_size: int, generator_index: int | None, identifier: int | None):
         if generator_index is not None:
             random_generator_index = generator_index
         else:
@@ -29,7 +29,7 @@ class Nl2NlSamples:
         selected_generator = list(self.nlf2nlf_example_generators.values())[
             random_generator_index
         ]
-        list_of_samples = selected_generator(count, identifier)
+        list_of_samples = selected_generator(batch_size, identifier)
         for my_dict in list_of_samples:
             my_dict[Constants.TASK_TYPE] = Nl2NlSamples.TASK_TYPE.value
         return list_of_samples

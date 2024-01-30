@@ -96,4 +96,7 @@ class Constants:
     TASK_TYPE = "taskType"
     INPUT_TOKEN_COUNT = "inputTokenCount"
     IO_PARSER_OUTPUT = "ioParserOutput"
+    SENTENCE = "sentence"
+    INPUT_STR = "inputStr"
+    OUTPUT_STR = "outputStr"
 
