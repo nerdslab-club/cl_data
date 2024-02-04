@@ -95,6 +95,7 @@ class Constants:
     NOT_MY_TOKEN_INDEX = 0
     TASK_TYPE = "taskType"
     INPUT_TOKEN_COUNT = "inputTokenCount"
+    INITIAL_TOKEN_COUNT = "initialTokenCount"
     IO_PARSER_OUTPUT = "ioParserOutput"
     SENTENCE = "sentence"
     INPUT_STR = "inputStr"

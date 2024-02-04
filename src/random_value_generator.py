@@ -6,7 +6,7 @@ class RandomValueGenerator:
         pass
 
     @staticmethod
-    def generate_random_list(length=4, start_range=1, end_range=99, seed=None):
+    def generate_random_list(length=4, start_range=1, end_range=99, seed=54):
         """
         Generate a random list of numbers.
 
@@ -29,7 +29,7 @@ class RandomValueGenerator:
         return random_list
 
     @staticmethod
-    def generate_random_integer(start_range=1, end_range=99, seed=None):
+    def generate_random_integer(start_range=1, end_range=99, seed=54):
         """
         Generate a random integer.
 
@@ -49,7 +49,7 @@ class RandomValueGenerator:
         return random_int
 
     @staticmethod
-    def generate_random_float(start_range=1.0, end_range=99, round_to=1, seed=None):
+    def generate_random_float(start_range=1.0, end_range=99, round_to=1, seed=54):
         """
         Generate a random float.
 
@@ -71,7 +71,7 @@ class RandomValueGenerator:
         return random_float
 
     @staticmethod
-    def generate_random_boolean(seed=None):
+    def generate_random_boolean(seed=54):
         """
         Generate a random boolean (True or False).
 
@@ -89,7 +89,7 @@ class RandomValueGenerator:
         return random_bool
 
     @staticmethod
-    def generate_random_binary_string(seed=None):
+    def generate_random_binary_string(seed=54):
         """
         Generate a random binary string of the specified length.
 
@@ -111,15 +111,17 @@ class RandomValueGenerator:
         return random_binary_string
 
     @staticmethod
-    def generate_random_string():
+    def generate_random_string(seed=54):
         """
         Generate a random string.
 
         :return: random generated string.
         """
+        if seed is not None:
+            random.seed(seed)
         return "".join(
             random.choice("abccbadeffeghihgjklmnonmlkjpqrstuuuvwxwvyvz")
-            for _ in range(random.randint(2, 16))
+            for _ in range(RandomValueGenerator.generate_random_integer(2, 16))
         )
 
 
