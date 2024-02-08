@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_sum_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        numbers = RandomValueGenerator.generate_random_list()
+        numbers = RandomValueGenerator.generate_random_list(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##sum({numbers})",
@@ -23,12 +23,10 @@ def __random_explanation_sum(vector: list, identifier: int | None) -> str:
     explanations = [
         f"The sum of the lst_str {lst_str}",
         f"The result of calculating the sum of the lst_str {lst_str}",
-        f"Calculation: sum({lst_str})",
         f"The total value of the lst_str {lst_str}",
         f"The outcome of finding the sum of the lst_str {lst_str}",
         f"The summation value of the lst_str {lst_str}",
         f"The result of determining the sum of the lst_str {lst_str}",
-        f"The computed result of calculating the sum of the lst_str {lst_str}",
         f"The sum of the given lst_str {lst_str}",
         f"The outcome of evaluating sum({lst_str})",
         f"The value obtained by calculating the sum of the lst_str {lst_str}",

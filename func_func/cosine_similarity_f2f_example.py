@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2f_cosine_similarity_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        list1 = RandomValueGenerator.generate_random_list()
-        list2 = RandomValueGenerator.generate_random_list()
+        list1 = RandomValueGenerator.generate_random_list(seed=(None if identifier is None else identifier+i))
+        list2 = RandomValueGenerator.generate_random_list(seed=(None if identifier is None else identifier+i+1))
         choice_one = __random_io_operation(list1, list2, (None if identifier is None else identifier+i))
         choice_two = __random_io_operation(list1, list2, (None if identifier is None else identifier+i), choice_one)
         examples.append(

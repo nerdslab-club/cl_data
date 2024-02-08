@@ -7,9 +7,9 @@ from cl_data.src.utility import Utility
 def create_n2f_pow_mod_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        base = RandomValueGenerator.generate_random_integer()
-        exponent = RandomValueGenerator.generate_random_integer(0, 10)
-        modulus = RandomValueGenerator.generate_random_integer(1, 50)
+        base = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        exponent = RandomValueGenerator.generate_random_integer(0, 10, seed=(None if identifier is None else identifier+i+1))
+        modulus = RandomValueGenerator.generate_random_integer(1, 50, seed=(None if identifier is None else identifier+i+2))
         examples.append({
             "inputStr": __random_explanation(base, exponent, modulus, (None if identifier is None else identifier+i)),
             "outputStr": f"##pow_mod({base}, {exponent}, {modulus})",
@@ -24,11 +24,9 @@ def __random_explanation(a: int, b: int, x: int, identifier: int | None) -> str:
         f"The modular exponentiation of {a} raised to {b} modulo {x}",
         f"Raise {a} to the power of {b} and take modulo {x}",
         f"Finding POW_MOD for {a}, {b}, and {x}",
-        f"{a} raised to {b} modulo {x}, what does it give",
         f"The remainder when {a} to the power of {b} is divided by {x}",
         f"POW_MOD calculation: {a}, {b}, {x}",
         f"The result of raising {a} to the power of {b} and taking modulo {x}",
-        f"POW_MOD({a}, {b}, {x}), what does it yield",
         f"The modular exponentiation result for {a}, {b}, and {x}",
         f"Let's find {a} to the power of {b} modulo {x}",
         f"The remainder when you raise {a} to the power of {b} and divide by {x}",

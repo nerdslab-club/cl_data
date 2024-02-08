@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2n_gcd_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_integer()
-        y = RandomValueGenerator.generate_random_integer()
+        x = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        y = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##gcd({x}, {y})",
@@ -23,7 +23,6 @@ def __random_explanation_gcd(x: int, y: int, identifier: int | None) -> str:
     explanations = [
         f"The greatest common divisor of {x} and {y}",
         f"The largest number that divides both {x} and {y}",
-        f"Calculation: gcd({x}, {y})",
         f"The highest common factor of {x} and {y}",
         f"The greatest common factor of {x} and {y}",
         f"The greatest common divisor for the numbers {x} and {y}",

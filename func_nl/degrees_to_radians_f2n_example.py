@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_degrees_to_radians_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float(0.0, 360.0)
+        x = RandomValueGenerator.generate_random_float(0.0, 360.0, seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##degrees_to_radians({x})",
@@ -22,7 +22,6 @@ def __random_explanation_degrees_to_radians(x: float, identifier: int | None) ->
     explanations = [
         f"Convert {x} degrees to radians",
         f"The value of {x} degrees in radians",
-        f"Calculation: degrees_to_radians({x})",
         f"The equivalent radians for {x} degrees",
         f"Converting {x} degrees to radians",
         f"The radian measure for {x} degrees",

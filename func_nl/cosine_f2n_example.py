@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_cosine_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        angle = RandomValueGenerator.generate_random_float(0.0, 360.0, round_to=1)
+        angle = RandomValueGenerator.generate_random_float(0.0, 360.0, round_to=1, seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##cosine({angle})",
@@ -26,8 +26,6 @@ def __random_explanation_cosine(angle: float, identifier: int | None) -> str:
         f"The cosine value of {angle} degree is",
         f"The value of cos({angle} degree)",
         f"The trigonometric cosine function applied to {angle} degree",
-        f"The cosine of {angle} degree equals",
-        f"The ratio of the length of the adjacent side to the hypotenuse",
         f"The cosine of the angle {angle} degree",
         f"The cosine function output for {angle} degree",
         f"The cosine of {angle} degrees is",

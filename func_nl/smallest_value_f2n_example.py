@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2n_smallest_value_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float()
-        y = RandomValueGenerator.generate_random_float()
+        x = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
+        y = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##smallest_value({x}, {y})",
@@ -23,7 +23,6 @@ def __random_explanation_smallest_value(f: float, g: float, identifier: int | No
     explanations = [
         f"The smaller of {f} and {g}",
         f"The lesser value between {f} and {g}",
-        f"Calculation: smallest_value({f}, {g})",
         f"The lower of the two numbers {f} and {g}",
         f"The minimum value between {f} and {g}",
         f"The smaller number among {f} and {g}",

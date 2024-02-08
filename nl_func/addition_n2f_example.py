@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_n2f_addition_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer()
-        num2 = RandomValueGenerator.generate_random_integer()
+        num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        num2 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
@@ -25,16 +25,12 @@ def __random_explanation(a: int, b: int, identifier: int | None) -> str:
         f"{a} plus {b}",
         f"Summing {a} and {b}",
         f"The result of {a} plus {b}",
-        f"{a} plus {b}, what is it",
         f"Calculation: {a} + {b}",
-        f"{a} plus {b}, equals",
         f"Summing up {a} with {b}",
         f"{a} combined with {b}",
         f"The sum of {a} and {b}",
         f"{a} plus {b} is",
-        f"{a} plus {b} is equal to",
         f"{a} added to {b}",
-        f"{a} plus {b}, what does it give",
         f"{a} and {b} added together",
         f"{a} + {b}, the result",
         f"{a} summed with {b}",
@@ -46,7 +42,6 @@ def __random_explanation(a: int, b: int, identifier: int | None) -> str:
         f"Find the sum of {a} and {b}",
         f"{a} and {b}, their sum",
         f"{a} plus {b}, result is",
-        f"{a} and {b}, what will be the sum",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

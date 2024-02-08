@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_median_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        numbers = RandomValueGenerator.generate_random_list()
+        numbers = RandomValueGenerator.generate_random_list(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##median({numbers})",
@@ -23,11 +23,8 @@ def __random_explanation_median(numbers: list, identifier: int | None) -> str:
     explanations = [
         f"The median of the numbers {lst_str}",
         f"The middle value of the numbers {lst_str}",
-        f"Calculation: median({lst_str})",
         f"The value at the center of the sorted numbers {lst_str}",
-        f"The value that separates the data set {lst_str} into two halves",
         f"The result of calculating the median of the elements {lst_str}",
-        f"The middle value of the dataset {lst_str}",
         f"The median value of the numbers {lst_str}",
         f"The value that lies in the middle of the ordered numbers {lst_str}",
         f"The value obtained by sorting the numbers {lst_str} and taking the middle",

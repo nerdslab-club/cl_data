@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_square_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_integer()
+        x = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##square({x})",
@@ -22,13 +22,11 @@ def __random_explanation_square(f: float, identifier: int | None) -> str:
     explanations = [
         f"The square of the number {f}",
         f"The result of squaring {f}",
-        f"Calculation: square({f})",
         f"The value obtained by multiplying {f} by itself",
         f"The outcome of calculating the square of {f}",
         f"The squared value of {f}",
         f"The result of squaring the number {f}",
         f"The computed result of squaring {f}",
-        f"The value of {f} squared",
         f"The product of {f} and itself",
         f"The squared result of the number {f}",
         f"The outcome of evaluating square({f})",

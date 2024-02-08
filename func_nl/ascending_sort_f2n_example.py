@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_ascending_sort_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        lst = RandomValueGenerator.generate_random_list()
+        lst = RandomValueGenerator.generate_random_list(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##ascending_sort({lst})",
@@ -23,7 +23,6 @@ def __random_explanation_ascending_sort(lst: list, identifier: int | None) -> st
     explanations = [
         f"The list {lst_str} sorted in ascending order",
         f"The sorted version of the list {lst_str}",
-        f"Calculation: ascending_sort({lst_str})",
         f"The list {lst_str} arranged in increasing order",
         f"The outcome of sorting the elements in the list {lst_str}",
         f"The result of arranging the numbers in {lst_str} in ascending order",

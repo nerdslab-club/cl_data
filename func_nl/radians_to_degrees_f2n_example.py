@@ -9,7 +9,7 @@ from cl_data.src.utility import Utility
 def create_f2n_radians_to_degrees_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float(0.0, 2 * math.pi)
+        x = RandomValueGenerator.generate_random_float(0.0, 2 * math.pi, seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##radians_to_degrees({x})",
@@ -23,7 +23,6 @@ def __random_explanation_radians_to_degrees(x: float, identifier: int | None) ->
     explanations = [
         f"Convert {x} radians to degrees",
         f"The value of {x} radians in degrees",
-        f"Calculation: radians_to_degrees({x})",
         f"The equivalent degrees for {x} radians",
         f"Converting {x} radians to degrees",
         f"The degree measure for {x} radians",

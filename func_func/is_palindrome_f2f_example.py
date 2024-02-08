@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2f_is_palindrome_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        str1 = RandomValueGenerator.generate_random_string()
+        str1 = RandomValueGenerator.generate_random_string(seed=(None if identifier is None else identifier+i))
         choice_one = __random_io_operation(str1, (None if identifier is None else identifier+i))
         choice_two = __random_io_operation(str1, (None if identifier is None else identifier+i), choice_one)
         examples.append(

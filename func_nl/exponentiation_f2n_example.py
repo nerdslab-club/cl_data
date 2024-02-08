@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2n_exponentiation_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        base = RandomValueGenerator.generate_random_float()
-        exponent = RandomValueGenerator.generate_random_float()
+        base = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
+        exponent = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##exponentiation({base},{exponent})",
@@ -29,7 +29,6 @@ def __random_explanation_exp(base: float, exponent: float, identifier: int | Non
         f"The result of {base} raised to the power of {exponent}",
         f"Calculation: {base} ^ {exponent}",
         f"{base} raised to {exponent}",
-        f"{base} raised to the {exponent}th power",
         f"The value of {base} ^ ({exponent})",
         f"{base} to the power of {exponent} is",
         f"{base} raised to the exponent {exponent}",

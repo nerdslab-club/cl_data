@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_cube_root_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float()
+        x = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##cube_root({x})",
@@ -22,7 +22,6 @@ def __random_explanation_cube_root(x: float, identifier: int | None) -> str:
     explanations = [
         f"The cube root of the number {x}",
         f"The result of finding the cube root of {x}",
-        f"Calculation: cube_root({x})",
         f"The value obtained by taking the cube root of {x}",
         f"The outcome of calculating the cube root of {x}",
         f"The cube root value of {x}",

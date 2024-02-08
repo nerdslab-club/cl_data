@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2n_combination_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        n = RandomValueGenerator.generate_random_integer()
-        r = random.randint(1, n+1)
+        n = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        r = RandomValueGenerator.generate_random_integer(1, n+1, seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##combination({n}, {r})",
@@ -23,14 +23,12 @@ def __random_explanation_combination(n: int, r: int, identifier: int | None) -> 
     explanations = [
         f"The number of combinations of {r} items taken from a set of {n} items",
         f"The result of calculating the combinations of {r} items from a set of {n} items",
-        f"Calculation: combination({n}, {r})",
         f"The count of possible selections of {r} items from a set of {n} items",
         f"The outcome of finding the number of combinations of {r} items from a set of {n} items",
         f"The total ways to choose {r} items from a set of {n} items",
         f"The result of determining the combinations of {r} items chosen from {n} items",
         f"The computed result of calculating the combinations of {r} items from a set of {n} items",
         f"The number of possible groups of {r} items from a set of {n} items",
-        f"The outcome of evaluating combination({n}, {r})",
         f"The value obtained by calculating the combinations of {r} items from {n} items",
         f"The result of evaluating combination({n}, {r})",
         f"The count of selections of {r} items picked from a set of {n} items",

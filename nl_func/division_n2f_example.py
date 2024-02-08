@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_n2f_division_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_float()
-        num2 = RandomValueGenerator.generate_random_float()
+        num1 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
+        num2 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
@@ -25,15 +25,12 @@ def __random_explanation(f1: float, f2: float, identifier: int | None) -> str:
         f"{f1} divided by {f2}",
         f"{f1} over {f2}",
         f"The result of {f1} divided by {f2}",
-        f"{f1} divided by {f2}, what is it",
         f"Calculation: {f1} / {f2}",
-        f"{f1} divided by {f2}, equals",
         f"Taking {f1} and dividing by {f2}",
         f"{f1} divided by {f2}, the answer",
         f"{f1} and {f2} division",
         f"The division of {f1} and {f2}",
         f"{f1} divided by {f2} is",
-        f"{f1} divided by {f2} is equal to",
         f"{f1} and {f2} divided, the result",
         f"{f1} divided by {f2}, find the result",
         f"Quotient: {f1} / {f2}",

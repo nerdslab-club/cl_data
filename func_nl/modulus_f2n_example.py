@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2n_modulus_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer()
-        num2 = RandomValueGenerator.generate_random_integer()
+        num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        num2 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##modulus({num1},{num2})",
@@ -32,7 +32,6 @@ def __random_explanation_modulus(x: int, y: int, identifier: int | None) -> str:
         f"Calculation: {x} % {y}",
         f"The remainder after dividing {x} by {y}",
         f"{x} modulus {y}",
-        f"{x} % {y} equals",
         f"The modulo result of {x} divided by {y}",
         f"The remainder of {x} divided by {y}",
         f"The value of {x} % {y}",

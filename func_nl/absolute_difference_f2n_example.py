@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2n_absolute_difference_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float()
-        y = RandomValueGenerator.generate_random_float()
+        x = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
+        y = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##absolute_difference({x}, {y})",
@@ -22,13 +22,10 @@ def create_f2n_absolute_difference_example(count: int, identifier: int | None):
 def __random_explanation_absolute_difference(x: float, y: float, identifier: int | None) -> str:
     explanations = [
         f"The absolute difference between {x} and {y}",
-        f"absolute_difference({x}, {y})",
         f"The positive value of the difference between {x} and {y}",
-        f"Calculation: absolute_difference({x}, {y})",
         f"The distance between {x} and {y}",
         f"The non-negative value of the difference between {x} and {y}",
         f"The absolute value of the subtraction of {x} from {y}",
-        f"The magnitude of the difference between {x} and {y}",
         f"The result of calculating the absolute difference between {x} and {y}",
         f"The absolute positive value of the subtraction of {y} from {x}",
         f"The value of the absolute difference between {x} and {y}",

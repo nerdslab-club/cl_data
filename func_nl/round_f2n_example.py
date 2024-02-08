@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_round_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float()
+        x = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##round({x})",
@@ -22,9 +22,7 @@ def __random_explanation_round(f: float, identifier: int | None) -> str:
     explanations = [
         f"The integer closest to {f} after rounding",
         f"The nearest whole number to {f}",
-        f"Calculation: round({f})",
         f"The integer that is closest to {f} and has the same magnitude",
-        f"The number rounded to the nearest integer value",
         f"The integer that is nearest to {f} after rounding",
         f"The value of {f} rounded to the nearest whole number",
         f"The integer value that is nearest to {f}",

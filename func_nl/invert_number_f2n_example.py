@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_invert_number_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        number = RandomValueGenerator.generate_random_float()
+        number = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##invert_number({number})",
@@ -22,16 +22,12 @@ def __random_explanation_invert_number(x: float, identifier: int | None) -> str:
     explanations = [
         f"The multiplicative inverse of the number {x}",
         f"The result of calculating the reciprocal of the number {x}",
-        f"Calculation: invert_number({x})",
         f"The reciprocal value of the number {x}",
         f"The outcome of finding the multiplicative inverse of the number {x}",
         f"The number that, when multiplied by {x}, results in 1",
         f"The result of determining the inverse of the number {x}",
-        f"The computed result of calculating the multiplicative inverse of the number {x}",
         f"The value that, when multiplied by {x}, equals 1",
-        f"The outcome of evaluating invert_number({x})",
         f"The value obtained by finding the reciprocal of the number {x}",
-        f"The result of evaluating invert_number({x})",
         f"The value that, when multiplied by {x}, gives the result 1",
         f"The computed reciprocal value of the number {x}",
         f"The value that, when multiplied by {x}, gives the outcome 1",

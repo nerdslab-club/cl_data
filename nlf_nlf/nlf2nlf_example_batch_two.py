@@ -131,10 +131,6 @@ def __get_batch_two_example_pair(identifier: int | None):
             f"The integer square root of {random_int_two} is ##isqrt({random_int_two})",
         ),
         (
-            f"pow_mod({random_int_one},{random_int_two},{random_int_three})",
-            f"The modular exponentiation of {random_int_one} to the power of {random_int_two} modulo {random_int_three} is ##pow_mod({random_int_one},{random_int_two},{random_int_three})",
-        ),
-        (
             f"ceil({random_float})",
             f"The ceiling of a random value is ##ceil({random_float})",
         ),
@@ -339,24 +335,8 @@ def __get_batch_two_example_pair(identifier: int | None):
             f"The square of the sum of {random_int_one} and {random_int_two} is ##a_plus_b_whole_square({random_int_one}, {random_int_two})"
         ),
         (
-            f"a_squared_plus_2ab_plus_b_squared({random_int_one}, {random_int_two})",
-            f"The expression {random_int_one} squared plus 2 times {random_int_one} times {random_int_two} plus {random_int_two} squared is ##a_squared_plus_2ab_plus_b_squared({random_int_one}, {random_int_two})"
-        ),
-        (
-            f"a_minus_b_whole_squared_plus_4ab({random_int_one}, {random_int_two})",
-            f"The square of the difference of {random_int_one} and {random_int_two} plus 4 times {random_int_one} times {random_int_two} is ##a_minus_b_whole_squared_plus_4ab({random_int_one}, {random_int_two})"
-        ),
-        (
             f"a_minus_b_whole_squared({random_int_one}, {random_int_two})",
             f"The square of the difference of {random_int_one} and {random_int_two} is ##a_minus_b_whole_squared({random_int_one}, {random_int_two})"
-        ),
-        (
-            f"a_squared_minus_2ab_plus_b_squared({random_int_one}, {random_int_two})",
-            f"The expression {random_int_one} squared minus 2 times {random_int_one} times {random_int_two} plus {random_int_two} squared is ##a_squared_minus_2ab_plus_b_squared({random_int_one}, {random_int_two})"
-        ),
-        (
-            f"a_plus_b_whole_squared_minus_4ab({random_int_one}, {random_int_two})",
-            f"The square of the sum of {random_int_one} and {random_int_two} minus 4 times {random_int_one} times {random_int_two} is ##a_plus_b_whole_squared_minus_4ab({random_int_one}, {random_int_two})"
         ),
         (
             f"a_squared_plus_b_squared({random_int_one}, {random_int_two})",
@@ -369,38 +349,6 @@ def __get_batch_two_example_pair(identifier: int | None):
         (
             f"positive_2ab({random_int_one}, {random_int_two})",
             f"Positive 2 times {random_int_one} times {random_int_two} is ##positive_2ab({random_int_one}, {random_int_two})"
-        ),
-        (
-            f"x_plus_a_times_x_plus_b({random_int_one}, {random_int_two}, {random_int_three})",
-            f"The result of {random_int_one} plus {random_int_two} times {random_int_three} is ##x_plus_a_times_x_plus_b({random_int_one}, {random_int_two}, {random_int_three})"
-        ),
-        (
-            f"x_squared_plus_a_plus_b_times_x_plus_ab({random_int_one}, {random_int_two}, {random_int_three})",
-            f"The result of {random_int_one} squared plus {random_int_two} plus {random_int_three} times the sum of {random_int_one} and {random_int_two} is ##x_squared_plus_a_plus_b_times_x_plus_ab({random_int_one}, {random_int_two}, {random_int_three})"
-        ),
-        (
-            f"a_cubed_plus_b_cubed({random_int_one}, {random_int_two})",
-            f"The sum of {random_int_one} cubed and {random_int_two} cubed is ##a_cubed_plus_b_cubed({random_int_one}, {random_int_two})"
-        ),
-        (
-            f"a_plus_b_whole_cubed_minus_3ab_times_a_plus_b({random_int_one}, {random_int_two})",
-            f"The cube of the sum of {random_int_one} and {random_int_two} minus 3 times the product of {random_int_one} and {random_int_two} is ##a_plus_b_whole_cubed_minus_3ab_times_a_plus_b({random_int_one}, {random_int_two})"
-        ),
-        (
-            f"a_plus_b_times_a_squared_minus_ab_plus_b_squared({random_int_one}, {random_int_two})",
-            f"The product of the sum of {random_int_one} and {random_int_two} and the difference of {random_int_one} squared plus {random_int_two} squared is ##a_plus_b_times_a_squared_minus_ab_plus_b_squared({random_int_one}, {random_int_two})"
-        ),
-        (
-            f"a_cubed_minus_b_cubed({random_int_one}, {random_int_two})",
-            f"The difference of {random_int_one} cubed minus {random_int_two} cubed is ##a_cubed_minus_b_cubed({random_int_one}, {random_int_two})"
-        ),
-        (
-            f"a_minus_b_whole_cubed_plus_3ab_times_a_minus_b({random_int_one}, {random_int_two})",
-            f"The cube of the difference of {random_int_one} and {random_int_two} plus 3 times the product of {random_int_one} and {random_int_two} is ##a_minus_b_whole_cubed_plus_3ab_times_a_minus_b({random_int_one}, {random_int_two})"
-        ),
-        (
-            f"a_minus_b_times_a_squared_plus_ab_plus_b_squared({random_int_one}, {random_int_two})",
-            f"The product of the difference of {random_int_one} and {random_int_two} and the sum of {random_int_one} squared plus {random_int_two} squared is ##a_minus_b_times_a_squared_plus_ab_plus_b_squared({random_int_one}, {random_int_two})"
         ),
     ]
     if identifier is not None:

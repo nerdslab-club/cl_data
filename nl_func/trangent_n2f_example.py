@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_n2f_tangent_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        angle = RandomValueGenerator.generate_random_float(0, 360, 1) 
+        angle = RandomValueGenerator.generate_random_float(0, 360, 1, seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": __random_explanation_tangent(angle, (None if identifier is None else identifier+i)),
@@ -26,23 +26,16 @@ def __random_explanation_tangent(angle: float, identifier: int | None) -> str:
         f"Calculate tangent for {angle_degrees} degrees",
         f"Tangent function applied to {angle_degrees}",
         f"Tangent of angle {angle_degrees}",
-        f"Tangent({angle_degrees}), what is it",
         f"The result of tan({angle_degrees})",
         f"Find the tangent of {angle_degrees} degrees",
         f"Tangent value when angle is {angle_degrees} degrees",
-        f"Angle: {angle_degrees}, tangent",
         f"Tangent of {angle_degrees}, tell me",
-        f"Tan({angle_degrees}), the answer",
-        f"Calculate tan({angle_degrees})",
         f"The tangent for angle {angle_degrees}",
         f"What is tan({angle_degrees})",
         f"Tangent of {angle_degrees}, result",
-        f"Tan({angle_degrees}), find the value",
         f"The tangent value for angle {angle_degrees}",
         f"Tangent of angle {angle_degrees}, what does it give",
-        f"Find tan({angle_degrees})",
         f"Tangent function for angle {angle_degrees}",
-        f"Tangent of {angle_degrees} degrees, what is the result",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

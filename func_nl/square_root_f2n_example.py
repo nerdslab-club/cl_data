@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_square_root_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        number = RandomValueGenerator.generate_random_float()
+        number = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##square_root({number})",
@@ -27,14 +27,11 @@ def __random_explanation_sqrt(f: float, identifier: int | None) -> str:
         f"The result of taking the square root of {f}",
         f"Calculation: √ {f}",
         f"The square root of {f} is",
-        f"The positive square root of {f}",
         f"The value of √ {f}",
-        f"The non-negative square root of {f}",
-        f"The square root of {f} equals?",
+        f"The square root of {f} gives",
         f"The radical of {f}",
         f"The square root of {f} is approximately",
         f"The principal square root of {f}",
-        f"The square root of {f} gives",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

@@ -7,7 +7,7 @@ from cl_data.src.utility import Utility
 def create_n2f_radians_to_degrees_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        radians = RandomValueGenerator.generate_random_float(0.0, 2 * 3.14159)
+        radians = RandomValueGenerator.generate_random_float(0.0, 2 * 3.14159, seed=(None if identifier is None else identifier+i))
         examples.append({
             "inputStr": __random_explanation(radians, (None if identifier is None else identifier+i)),
             "outputStr": f"##radians_to_degrees({radians})",
@@ -27,7 +27,6 @@ def __random_explanation(radians: float, identifier: int | None) -> str:
         f"{radians} radians represented in degrees",
         f"{radians} radians, what is it in degrees",
         f"Calculation: {radians} radians to degrees",
-        f"{radians} radians in degrees, what does it give",
         f"{radians} radians to degrees, find the result",
         f"Degrees: {radians} radians",
         f"Let's convert {radians} radians to degrees",
@@ -39,10 +38,8 @@ def __random_explanation(radians: float, identifier: int | None) -> str:
         f"{radians} radians to degrees, find the answer",
         f"Transformation: {radians} radians to degrees",
         f"{radians} radians represented as degrees",
-        f"The degrees for {radians} radians, what is it",
         f"Convert {radians} radians to degrees and tell the result",
         f"Let's find the degrees for {radians} radians",
-        f"{radians} radians, what will be its degrees",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

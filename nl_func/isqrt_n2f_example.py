@@ -7,7 +7,7 @@ from cl_data.src.utility import Utility
 def create_n2f_isqrt_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num = RandomValueGenerator.generate_random_integer()
+        num = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
         examples.append({
             "inputStr": __random_explanation(num, (None if identifier is None else identifier+i)),
             "outputStr": f"##isqrt({num})",
@@ -22,7 +22,6 @@ def __random_explanation(a: int, identifier: int | None) -> str:
         f"Square root rounded down for {a}",
         f"Calculate the integer square root of {a}",
         f"Finding ISQRT for {a}",
-        f"Square root of {a} (integer part)",
         f"The whole number part of the square root of {a}",
         f"ISQRT calculation: {a}",
         f"The greatest integer less than or equal to the square root of {a}",
@@ -32,7 +31,6 @@ def __random_explanation(a: int, identifier: int | None) -> str:
         f"The whole part of the square root when you have {a}",
         f"Whole number square root of {a}",
         f"The integer part of the square root of {a}",
-        f"The greatest whole number that is less than or equal to the square root of {a}",
         f"The largest integer less than or equal to the square root of {a}",
         f"Let's determine the ISQRT of {a}",
         f"The greatest integer part of the square root of {a}",

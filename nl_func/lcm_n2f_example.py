@@ -7,8 +7,8 @@ from cl_data.src.utility import Utility
 def create_n2f_lcm_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer()
-        num2 = RandomValueGenerator.generate_random_integer()
+        num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        num2 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
         examples.append({
             "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
             "outputStr": f"##lcm({num1}, {num2})",
@@ -21,13 +21,10 @@ def __random_explanation(a: int, b: int, identifier: int | None) -> str:
         f"The least common multiple of {a} and {b}",
         f"LCM of {a} and {b}",
         f"Find the least common multiple of {a} and {b}",
-        f"The result of finding LCM({a}, {b})",
         f"Calculate the least common multiple of {a} and {b}",
         f"Finding LCM for {a} and {b}",
         f"{a} and {b}, what is their least common multiple",
-        f"LCM calculation: {a} and {b}",
         f"The smallest number that is a multiple of both {a} and {b}",
-        f"LCM({a}, {b}), what does it give",
         f"The LCM for {a} and {b}",
         f"Let's find the least common multiple of {a} and {b}",
         f"Find the LCM for {a} and {b}",

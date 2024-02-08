@@ -9,8 +9,8 @@ from cl_data.src.utility import Utility
 def create_f2n_lcm_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_integer()
-        y = RandomValueGenerator.generate_random_integer()
+        x = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        y = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##lcm({x}, {y})",
@@ -24,7 +24,6 @@ def __random_explanation_lcm(x: int, y: int, identifier: int | None) -> str:
     explanations = [
         f"The least common multiple of {x} and {y}",
         f"The smallest multiple that is divisible by both {x} and {y}",
-        f"Calculation: lcm({x}, {y})",
         f"The lowest common multiple of {x} and {y}",
         f"The smallest positive integer divisible by both {x} and {y}",
         f"The least common multiple for the numbers {x} and {y}",

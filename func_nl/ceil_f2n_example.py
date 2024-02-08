@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_ceil_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float()
+        x = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##ceil({x})",
@@ -22,7 +22,6 @@ def __random_explanation_ceil(x: float, identifier: int | None) -> str:
     explanations = [
         f"The smallest integer greater than or equal to {x}",
         f"The smallest whole number that is not less than {x}",
-        f"Calculation: ceil({x})",
         f"The integer immediately above {x}",
         f"The smallest integer that is equal to or larger than {x}",
         f"The smallest integer that is not smaller than {x}",

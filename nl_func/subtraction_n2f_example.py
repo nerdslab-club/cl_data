@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_n2f_subtraction_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer()
-        num2 = RandomValueGenerator.generate_random_integer(0, num1)  # Ensure num2 is less than or equal to num1
+        num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        num2 = RandomValueGenerator.generate_random_integer(0, num1, seed=(None if identifier is None else identifier+i+1))  # Ensure num2 is less than or equal to num1
         examples.append(
             {
                 "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
@@ -25,15 +25,11 @@ def __random_explanation(x: int, y: int, identifier: int | None) -> str:
         f"{x} minus {y}",
         f"Deducting {y} from {x}",
         f"The result of {x} minus {y}",
-        f"{x} minus {y} what is it",
         f"Calculation: {x} - {y}",
-        f"{x} minus {y} equals",
         f"Taking away {y} from {x}",
         f"{y} subtracted from {x}",
         f"The subtraction of {y} from {x}",
         f"{x} minus {y} is",
-        f"{x} minus {y} is equal to",
-        f"{y} subtracted from {x} what does it give",
         f"{x} and {y} subtracted the result",
         f"{x} less {y} the answer",
         f"{x} take away {y} find the answer",

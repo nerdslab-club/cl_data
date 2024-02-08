@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_circle_area_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        radius = RandomValueGenerator.generate_random_float()
+        radius = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##circle_area({radius})",
@@ -22,12 +22,10 @@ def __random_explanation_circle_area(radius: float, identifier: int | None) -> s
     explanations = [
         f"The area of a circle with radius {radius}",
         f"The result of calculating the area of a circle with radius {radius}",
-        f"Calculation: circle_area({radius})",
         f"The area enclosed by a circle with radius {radius}",
         f"The outcome of finding the area of a circle with radius {radius}",
         f"The region covered by a circle with radius {radius}",
         f"The result of determining the circle area with radius {radius}",
-        f"The computed result of calculating the area of a circle with radius {radius}",
         f"The space inside a circle with radius {radius}",
         f"The outcome of evaluating circle_area({radius})",
         f"The value obtained by finding the area of a circle with radius {radius}",

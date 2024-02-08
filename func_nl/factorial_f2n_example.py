@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_factorial_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_integer()
+        x = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##factorial({x})",
@@ -20,17 +20,13 @@ def create_f2n_factorial_example(count: int, identifier: int | None):
 
 def __random_explanation_factorial(x: int, identifier: int | None) -> str:
     explanations = [
-        f"The factorial of {x}",
-        f"factorial({x})",
+        f"The value of {x} factorial",
         f"The product of all positive integers up to {x}",
-        f"Calculation: factorial({x})",
         f"The value obtained by multiplying all integers from 1 to {x}",
         f"The outcome of multiplying all numbers from 1 to {x}",
         f"The result of the product of numbers from 1 to {x}",
         f"The factorial value of {x}",
         f"The total of multiplying integers from 1 to {x}",
-        f"The value of {x} factorial",
-        f"The computed result of {x}!",
         f"The result of calculating the factorial of {x}",
         f"The value achieved by multiplying numbers from 1 to {x}",
         f"The product of all positive integers less than or equal to {x}",

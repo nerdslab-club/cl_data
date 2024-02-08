@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_n2f_modulus_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer()
-        num2 = RandomValueGenerator.generate_random_integer()
+        num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        num2 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
@@ -24,15 +24,11 @@ def __random_explanation(a: int, b: int, identifier: int | None) -> str:
         f"The remainder when {a} is divided by {b}",
         f"Finding the modulus of {a} divided by {b}",
         f"The modulus of {a} when divided by {b}",
-        f"{a} modulo {b}, what is it",
         f"Calculate the remainder when {a} is divided by {b}",
         f"The number {a} mod {b}",
         f"The result of {a} modulo {b}",
-        f"The remainder when {a} is divided by {b}, what is it",
         f"Calculation: {a} % {b}",
-        f"The remainder of {a} divided by {b}, equals",
         f"The remaining value when {a} is divided by {b}",
-        f"The remainder when {a} is divided by {b}, find it",
         f"The result when {a} modulo {b}",
         f"Let's find the remainder when {a} is divided by {b}",
         f"Find the modulus of {a} divided by {b}",

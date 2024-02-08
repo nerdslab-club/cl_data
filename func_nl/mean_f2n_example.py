@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_mean_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        numbers = RandomValueGenerator.generate_random_list()
+        numbers = RandomValueGenerator.generate_random_list(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##mean({numbers})",
@@ -23,15 +23,13 @@ def __random_explanation_mean(numbers: list, identifier: int | None) -> str:
     explanations = [
         f"The mean of the numbers {lst_str}",
         f"The average value of the numbers {lst_str}",
-        f"Calculation: mean({lst_str})",
         f"The value obtained by averaging the numbers {lst_str}",
         f"The outcome of finding the average of the elements {lst_str}",
         f"The result of calculating the mean of the numbers {lst_str}",
+        f"The computed result of finding the mean of {lst_str}",
         f"The average value of the data set {lst_str}",
         f"The arithmetic mean of the numbers {lst_str}",
-        f"The result of summing the numbers and dividing by the count",
         f"The average obtained by summing and dividing the numbers {lst_str}",
-        f"The computed result of finding the mean of {lst_str}",
         f"The result of averaging the values {lst_str}",
         f"The value calculated by adding and dividing the numbers {lst_str}",
         f"The average value of the list {lst_str}",

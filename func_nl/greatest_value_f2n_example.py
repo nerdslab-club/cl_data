@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2n_greatest_value_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float()
-        y = RandomValueGenerator.generate_random_float()
+        x = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
+        y = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##greatest_value({x}, {y})",
@@ -23,7 +23,6 @@ def __random_explanation_greatest_value(x: float, y: float, identifier: int | No
     explanations = [
         f"The greater of {x} and {y}",
         f"The larger value between {x} and {y}",
-        f"Calculation: greatest_value({x}, {y})",
         f"The higher of the two numbers {x} and {y}",
         f"The maximum value between {x} and {y}",
         f"The greater number among {x} and {y}",

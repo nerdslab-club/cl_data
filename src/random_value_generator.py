@@ -22,6 +22,8 @@ class RandomValueGenerator:
         """
         if seed is not None:
             random.seed(seed)
+        else:
+            random.seed(54)
 
         random_list = [
             random.randint(start_range, end_range - 1) for _ in range(length)
@@ -44,6 +46,8 @@ class RandomValueGenerator:
         """
         if seed is not None:
             random.seed(seed)
+        else:
+            random.seed(54)
 
         random_int = random.randint(start_range, end_range - 1)
         return random_int
@@ -66,6 +70,8 @@ class RandomValueGenerator:
         """
         if seed is not None:
             random.seed(seed)
+        else:
+            random.seed(54)
 
         random_float = round(random.uniform(start_range, end_range), round_to)
         return random_float
@@ -84,6 +90,8 @@ class RandomValueGenerator:
         """
         if seed is not None:
             random.seed(seed)
+        else:
+            random.seed(54)
 
         random_bool = random.choice([True, False])
         return random_bool
@@ -103,6 +111,8 @@ class RandomValueGenerator:
         length = RandomValueGenerator.generate_random_integer(2, 20)
         if seed is not None:
             random.seed(seed)
+        else:
+            random.seed(54)
 
         random_binary_string = ""
         for _ in range(length):
@@ -119,6 +129,8 @@ class RandomValueGenerator:
         """
         if seed is not None:
             random.seed(seed)
+        else:
+            random.seed(54)
         return "".join(
             random.choice("abccbadeffeghihgjklmnonmlkjpqrstuuuvwxwvyvz")
             for _ in range(RandomValueGenerator.generate_random_integer(2, 16))

@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_n2f_multiplication_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_float()
-        num2 = RandomValueGenerator.generate_random_float()
+        num1 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
+        num2 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
@@ -25,14 +25,11 @@ def __random_explanation(f2: float, f3: float, identifier: int | None) -> str:
         f"{f2} times {f3}",
         f"{f2} multiplied by {f3}",
         f"The result of {f2} times {f3}",
-        f"{f2} multiplied by {f3}, what is it",
         f"Calculation: {f2} * {f3}",
-        f"{f2} times {f3}, equals",
         f"Taking {f2} and multiplying by {f3}",
         f"{f2} and {f3} product",
         f"The multiplication of {f2} and {f3}",
         f"{f2} times {f3} is",
-        f"{f2} times {f3} is equal to",
         f"The product of {f2} and {f3}",
         f"{f2} and {f3} multiplied, the result",
         f"{f2} multiplied by {f3}, the answer",

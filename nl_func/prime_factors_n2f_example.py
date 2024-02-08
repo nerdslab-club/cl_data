@@ -7,7 +7,7 @@ from cl_data.src.utility import Utility
 def create_n2f_prime_factors_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num = RandomValueGenerator.generate_random_integer()
+        num = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
         examples.append({
             "inputStr": __random_explanation(num, (None if identifier is None else identifier+i)),
             "outputStr": f"##prime_factors({num})",
@@ -23,27 +23,17 @@ def __random_explanation(x: int, identifier: int | None) -> str:
         f"Finding prime factors for {x}",
         f"The list of prime numbers that divide {x}",
         f"prime factors calculation: {x}",
-        f"The prime factors of {x}, what are they",
-        f"The prime factors of {x}, what does it give",
         f"Let's find the prime factors of {x}",
         f"Find the prime factors for {x}",
         f"The prime factors of {x}, result is",
         f"Calculating the prime factors of {x}",
-        f"The list of prime numbers that divide {x}, what are they",
-        f"The prime factors of {x}, what is their value",
         f"Let's determine the prime factors of {x}",
-        f"The list of prime numbers that divide {x}, what are they exactly",
         f"{x}, what are its prime factors",
         f"Finding the prime factors of {x}",
-        f"The prime factors of {x}, what is their value",
         f"Find the prime factors of {x} and provide the result",
-        f"prime factors({x}), what does it yield",
         f"The prime factors of {x}, ignoring order",
-        f"The list of prime numbers that divide {x}, what is it",
         f"Calculate the prime factors of {x}, find the answer",
-        f"The prime factors of {x}, what does it give",
         f"Let's find the list of prime numbers that divide {x}",
-        f"{x}, its prime factors, what are they",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

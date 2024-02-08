@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2n_nth_root_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float()
-        m = RandomValueGenerator.generate_random_integer(1, 10)
+        x = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
+        m = RandomValueGenerator.generate_random_integer(1, 10, seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##nth_root({x}, {m})",
@@ -23,7 +23,6 @@ def __random_explanation_nth_root(x: float, m: int, identifier: int | None) -> s
     explanations = [
         f"The {m}th root of the number {x}",
         f"The result of finding the {m}th root of {x}",
-        f"Calculation: nth_root({x}, {m})",
         f"The value obtained by taking the {m}th root of {x}",
         f"The outcome of calculating the {m}th root of {x}",
         f"The {m}th root value of {x}",

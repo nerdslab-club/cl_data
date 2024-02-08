@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_floor_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float()
+        x = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##floor({x})",
@@ -22,7 +22,6 @@ def __random_explanation_floor(x: float, identifier: int | None) -> str:
     explanations = [
         f"The largest integer less than or equal to {x}",
         f"The greatest whole number that is not greater than {x}",
-        f"Calculation: floor({x})",
         f"The integer immediately below {x}",
         f"The largest integer that is equal to or smaller than {x}",
         f"The largest integer that is not larger than {x}",

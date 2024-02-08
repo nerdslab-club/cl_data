@@ -7,7 +7,7 @@ from cl_data.src.utility import Utility
 def create_n2f_ceil_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num = RandomValueGenerator.generate_random_float()
+        num = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
         examples.append({
             "inputStr": __random_explanation(num, (None if identifier is None else identifier+i)),
             "outputStr": f"##ceil({num})",
@@ -23,15 +23,11 @@ def __random_explanation(f1: float, identifier: int | None) -> str:
         f"Find the ceiling of {f1}",
         f"{f1}, rounded up to the nearest integer",
         f"ceil calculation: {f1}",
-        f"The smallest integer greater than or equal to {f1}, what is it",
         f"Find the ceil for {f1}",
         f"Rounding {f1} up",
-        f"{f1}, what is its ceiling",
         f"The smallest whole number not less than {f1}, find the answer",
-        f"The smallest integer greater than or equal to {f1}, what is its value",
         f"Rounding up operation for {f1}",
         f"Let's determine the ceiling of {f1}",
-        f"The smallest whole number not less than {f1}, what is it",
         f"Find the ceiling of {f1} and provide the result",
     ]
     if identifier is not None:

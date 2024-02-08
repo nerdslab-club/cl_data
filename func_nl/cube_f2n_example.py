@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_cube_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float()
+        x = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": f"##cube({x})",
@@ -22,7 +22,6 @@ def __random_explanation_cube(x: float, identifier: int | None) -> str:
     explanations = [
         f"The cube of the number {x}",
         f"The result of cubing {x}",
-        f"Calculation: cube({x})",
         f"The value obtained by raising {x} to the power of 3",
         f"The outcome of calculating the cube of {x}",
         f"The cubed value of {x}",

@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_f2f_cubed_plus_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer()
-        num2 = RandomValueGenerator.generate_random_integer()
+        num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        num2 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
         choice_one = __random_io_operation(num1, num2, (None if identifier is None else identifier+i))
         choice_two = __random_io_operation(num1, num2, (None if identifier is None else identifier+i), choice_one)
         examples.append(

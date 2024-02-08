@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_isqrt_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_integer()
+        x = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##isqrt({x})",
@@ -22,7 +22,6 @@ def __random_explanation_isqrt(x: int, identifier: int | None) -> str:
     explanations = [
         f"The integer square root of {x}",
         f"The largest integer that, when squared, is less than or equal to {x}",
-        f"Calculation: isqrt({x})",
         f"The floor value of the square root of {x}",
         f"The greatest integer whose square is less than or equal to {x}",
         f"The square root of {x} rounded down to the nearest integer",

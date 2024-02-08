@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_prime_factors_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_integer()
+        x = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##prime_factors({x})",
@@ -24,7 +24,6 @@ def __random_explanation_prime_factors(n: int, identifier: int | None) -> str:
     explanations = [
         f"The prime factors of {n}",
         f"The factors of {n} that are prime numbers",
-        f"Calculation: prime_factors({n})",
         f"The prime numbers that divide {n}",
         f"The list of prime factors for {n}",
         f"The result of finding the prime factors of {n}",
@@ -34,7 +33,6 @@ def __random_explanation_prime_factors(n: int, identifier: int | None) -> str:
         f"The result of decomposing {n} into prime factors",
         f"The prime numbers that can divide {n}",
         f"The outcome of determining the prime factors of {n}",
-        f"The prime factors of the number {n} are",
         f"The prime factors of the integer {n}",
         f"The prime numbers that are divisors of {n}",
         f"The list of prime divisors for the value {n}",

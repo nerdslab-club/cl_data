@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_product_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        numbers = RandomValueGenerator.generate_random_list()
+        numbers = RandomValueGenerator.generate_random_list(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##product({numbers})",
@@ -23,7 +23,6 @@ def __random_explanation_product(vector: list, identifier: int | None) -> str:
     explanations = [
         f"The product of the numbers {lst_str}",
         f"The result of multiplying the numbers {lst_str}",
-        f"Calculation: product({vector})",
         f"The value obtained by multiplying the numbers {lst_str}",
         f"The outcome of multiplying the elements in the list {lst_str}",
         f"The total value of multiplying the numbers {lst_str}",
@@ -40,7 +39,6 @@ def __random_explanation_product(vector: list, identifier: int | None) -> str:
         f"The computed result of the product of {lst_str}",
         f"The product of the elements {lst_str} is",
         f"The product value of the list {lst_str}",
-        f"The result of product({vector}) is",
         f"The value from the multiplication of {lst_str} is",
         f"The calculated result of multiplying the numbers {lst_str}",
         f"The value achieved by product({vector}) is",

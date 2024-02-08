@@ -7,7 +7,7 @@ from cl_data.src.utility import Utility
 def create_n2f_median_example(count: int, identifier: int | None, max_list_length: int = 5):
     examples = []
     for i in range(count):
-        numbers = RandomValueGenerator.generate_random_list()
+        numbers = RandomValueGenerator.generate_random_list(seed=(None if identifier is None else identifier+i))
         examples.append({
             "inputStr": __random_explanation(numbers, (None if identifier is None else identifier+i)),
             "outputStr": f"##median({numbers})",
@@ -25,27 +25,18 @@ def __random_explanation(list_str: list, identifier: int | None) -> str:
         f"Calculating the median for the numbers {list_str}",
         f"The median value of the numbers {list_str}",
         f"MEDIAN calculation: {list_str}",
-        f"The median of the list {list_str}, what is it",
-        f"The median of the numbers {list_str}, what does it give",
         f"Let's find the median of the numbers {list_str}",
         f"Find the MEDIAN for the list {list_str}",
         f"The median of the list {list_str}, result is",
         f"Calculating the median of the numbers {list_str}",
         f"The result of finding the median of the numbers {list_str}",
-        f"The median of the list {list_str}, what is its value",
         f"Let's determine the median of the numbers {list_str}",
         f"The median value of the numbers in the list: {list_str}",
-        f"{list_str}, what is their median",
         f"Finding the median of the numbers {list_str}",
-        f"The median of the list {list_str}, what is its value",
         f"Find the median of the numbers {list_str} and provide the result",
-        f"The median of the numbers {list_str}, ignoring order",
         f"The result of finding the median of the elements in the list {list_str}",
-        f"The median value of the numbers {list_str}, what is it",
         f"Calculate the median of the list {list_str}, find the answer",
-        f"The median of the numbers {list_str}, what does it give",
         f"Let's find the result of finding the median of the numbers {list_str}",
-        f"{list_str}, their median, what is the result",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

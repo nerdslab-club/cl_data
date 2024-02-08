@@ -8,7 +8,7 @@ from cl_data.src.utility import Utility
 def create_f2n_absolute_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_float()
+        x = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
         examples.append(
             {
                 "inputStr": f"##absolute({x})",
@@ -22,7 +22,6 @@ def __random_explanation_absolute(x: float, identifier: int | None) -> str:
     explanations = [
         f"The absolute value of the number {x}",
         f"The result of taking the absolute value of {x}",
-        f"Calculation: absolute({x})",
         f"The magnitude of the number {x}",
         f"The non-negative value of {x}",
         f"The outcome of calculating the absolute value of {x}",

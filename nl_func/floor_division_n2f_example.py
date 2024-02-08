@@ -8,8 +8,8 @@ from cl_data.src.utility import Utility
 def create_n2f_floor_division_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer()
-        num2 = RandomValueGenerator.generate_random_integer()
+        num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        num2 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
         examples.append(
             {
                 "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
@@ -25,11 +25,8 @@ def __random_explanation(a: int, b: int, identifier: int | None) -> str:
         f"{a} floor divided by {b}",
         f"{a} divided by {b} using floor division",
         f"The result of {a} floor divided by {b}",
-        f"{a} divided by {b} using floor division, what is it",
         f"Calculation: {a} // {b}",
-        f"{a} floor divided by {b}, equals",
         f"Taking {a} and floor dividing by {b}",
-        f"{a} divided by {b} with floor division, the answer",
         f"Quotient when {a} is floor divided by {b}",
         f"{a} and {b} floor division",
         f"The floor division of {a} and {b}",
