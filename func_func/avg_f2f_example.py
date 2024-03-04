@@ -38,6 +38,6 @@ def __random_io(list1: list, identifier: int | None, prev_choice=None) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_f2f_average_example(2), TaskTypes.FUNC_TO_FUNC_TRANSLATION
+            create_f2f_average_example(2, None), TaskTypes.FUNC_TO_FUNC_TRANSLATION
         )
     )

@@ -42,7 +42,7 @@ def __random_explanation(f1: float, identifier: int | None) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_n2f_circle_area_example(2),
+            create_n2f_circle_area_example(2, None),
             TaskTypes.NL_TO_FUNC_TRANSLATION
         )
     )

@@ -5,7 +5,7 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_nlf2nlf_batch_one_example(count: int, identifier: int | None):
+def create_nlf2nlf_batch_eight_example(count: int, identifier: int | None):
     examples = []
     for i in range(count):
         example = __get_batch_one_example_pair((None if identifier is None else identifier+i))
@@ -29,30 +29,6 @@ def __get_batch_one_example_pair(identifier: int | None):
     random_float = RandomValueGenerator.generate_random_float()
 
     examples = [
-        (
-            f"{random_int_one} * {random_int_four}",
-            f"The result of multiplying {random_int_one} by {random_int_four} is ##multiplication({random_int_one},{random_int_four})",
-        ),
-        (
-            f"{random_int_two} + {random_int_three}",
-            f"The result of adding {random_int_two} and {random_int_three} is ##addition({random_int_two},{random_int_three})",
-        ),
-        (
-            f"{random_int_three} - {random_int_one}",
-            f"The result of subtracting {random_int_three} from {random_int_one} is ##subtraction({random_int_one},{random_int_three})",
-        ),
-        (
-            f"{random_int_two} / {random_int_one}",
-            f"The result of dividing {random_int_two} by {random_int_one} is ##division({random_int_two},{random_int_one})",
-        ),
-        (
-            f"What is the total when you add {random_int_two} and {random_int_three}",
-            f"The answer is ##addition({random_int_two},{random_int_three})",
-        ),
-        (
-            f"If you have {random_int_one} cookies and you eat {random_int_four} of them how many are left",
-            f"You have ##subtraction({random_int_one},{random_int_four}) cookies remaining",
-        ),
         (
             f"Imagine you want to split {random_int_three} candies among {random_int_one} children How many candies will each child receive",
             f"Each children will receive ##division({random_int_three},{random_int_one}) candies",
@@ -223,6 +199,6 @@ def __get_batch_one_example_pair(identifier: int | None):
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_nlf2nlf_batch_one_example(2, 34), TaskTypes.NL_TO_NL_TRANSLATION
+            create_nlf2nlf_batch_eight_example(2, 34), TaskTypes.NL_TO_NL_TRANSLATION
         )
     )

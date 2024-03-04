@@ -103,6 +103,6 @@ N.B. subCategory: "default" is used to indicate using default router for list.<b
 N.B. subCategory: "placeholder" is used to indicate using placeholder tag for list.<br>
 N.B. no space in function please, other than between params.<br>
 N.B. no space in array/list please. <br>
-N.B. $$ -> IO Execute, ## -> IO Represent R Execute, @@ -> IOR Placeholder, && -> IOR Represent
+N.B. $$ -> IO Execute, ## -> IO Represent R Execute, @@ -> IOR Placeholder, && -> IOR Represent  
 N.B. && -> IOR Represent is for model writing code for use. For other party to use them.
 
