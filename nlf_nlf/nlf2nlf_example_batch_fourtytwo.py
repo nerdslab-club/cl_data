@@ -26,7 +26,7 @@ def __get_batch_one_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you add {random_int_two} to {random_float}, what is the sum",
+            f"If you add {random_int_two} to {random_float} what is the sum",
             f"The sum of {random_int_two} and {random_float} is ##addition({random_int_two},{random_float})",
         )
     ]

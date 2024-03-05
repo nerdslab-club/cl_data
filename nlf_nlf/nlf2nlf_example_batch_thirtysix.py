@@ -26,7 +26,7 @@ def __get_batch_one_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you evenly distribute {random_int_three} candies among {random_int_one} children, how many candies does each child receive",
+            f"If you evenly distribute {random_int_three} candies among {random_int_one} children how many candies does each child receive",
             f"Each child will receive ##division({random_int_three},{random_int_one}) candies",
         )
     ]

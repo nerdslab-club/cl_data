@@ -27,7 +27,7 @@ def __get_batch_one_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"When you increase {random_float} by {random_int_three}, what is the new value",
+            f"When you increase {random_float} by {random_int_three} what is the new value",
             f"The new value after increasing {random_float} by {random_int_three} is ##addition({random_float},{random_int_three})",
         )
     ]

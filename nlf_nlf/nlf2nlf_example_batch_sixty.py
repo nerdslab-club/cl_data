@@ -20,8 +20,8 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the arcsine of a random value, what is the arcsine value",
-            f"The arcsine value of the random value is ##arcsine({random_arc_int})",
+            f"what is the arcsine of {random_arc_int}",
+            f"The arcsine value of {random_arc_int} is ##arcsine({random_arc_int})",
         )
     ]
     if identifier is not None:

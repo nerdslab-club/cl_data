@@ -19,9 +19,6 @@ def create_nlf2nlf_batch_one_example(count: int, identifier: int | None):
 
 
 def __get_batch_one_example_pair(identifier: int | None):
-    random_list = Utility.remove_spaces(
-        str(RandomValueGenerator.generate_random_list())
-    )
     random_int_one = RandomValueGenerator.generate_random_integer()
     random_int_two = random_int_one + RandomValueGenerator.generate_random_integer()
     random_int_three = random_int_two + RandomValueGenerator.generate_random_integer()

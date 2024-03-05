@@ -19,7 +19,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you have {random_int_two} pizzas and want to share them equally among {random_int_one} friends, how many pizzas will each friend get",
+            f"If you have {random_int_two} pizzas and want to share them equally among {random_int_one} friends how many pizzas will each friend get",
             f"Each friend will receive ##division({random_int_two},{random_int_one}) pizzas",
         ),
     ]

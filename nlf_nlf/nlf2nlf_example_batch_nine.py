@@ -26,7 +26,7 @@ def __get_batch_one_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"You have {random_int_two} boxes and each box holds {random_int_four} pencils How many pencils do you have in total",
+            f"You have {random_int_two} boxes and each box holds {random_int_four} pencils how many pencils do you have in total",
             f"I have ##multiplication({random_int_two},{random_int_four}) pencils in total",
         )
     ]

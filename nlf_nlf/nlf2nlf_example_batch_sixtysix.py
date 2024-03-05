@@ -22,7 +22,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the base 10 logarithm of {random_int_three}, what is the result",
+            f"If you want to find the base 10 logarithm of {random_int_three} what is the result",
             f"The result of the base 10 logarithm is ##logarithm_base_10({random_int_three})",
         )
     ]

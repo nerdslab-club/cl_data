@@ -20,8 +20,8 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the arctangent of a random value, what is the arctangent value",
-            f"The arctangent value of the random value is ##arctangent({random_arc_int})",
+            f"what is the arctangent of {random_arc_int}",
+            f"The arctangent value of {random_arc_int} is ##arctangent({random_arc_int})",
         )
     ]
     if identifier is not None:

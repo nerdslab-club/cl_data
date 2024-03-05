@@ -22,7 +22,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the hyperbolic tangent of {random_int_three}, what is the hyperbolic tangent value",
+            f"If you want to find the hyperbolic tangent of {random_int_three} what is the hyperbolic tangent value",
             f"The hyperbolic tangent value of {random_int_three} is ##hyperbolic_tangent({random_int_three})",
         )
     ]

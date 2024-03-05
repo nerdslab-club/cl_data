@@ -20,7 +20,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the hyperbolic sine of {random_int_one}, what is the hyperbolic sine value",
+            f"If you want to find the hyperbolic sine of {random_int_one} what is the hyperbolic sine value",
             f"The hyperbolic sine value of {random_int_one} is ##hyperbolic_sine({random_int_one})",
         )
     ]

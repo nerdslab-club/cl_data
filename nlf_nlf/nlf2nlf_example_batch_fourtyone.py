@@ -26,7 +26,7 @@ def __get_batch_one_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"Suppose you have {random_int_one} teams, and each team has {random_int_three} members How many members are there in total",
+            f"Suppose you have {random_int_one} teams and each team has {random_int_three} members How many members are there in total",
             f"The total number of members is ##multiplication({random_int_one},{random_int_three})",
         )
     ]

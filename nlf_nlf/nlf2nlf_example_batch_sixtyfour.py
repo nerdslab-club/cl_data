@@ -21,7 +21,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the hyperbolic cosine of {random_int_two}, what is the hyperbolic cosine value",
+            f"If you want to find the hyperbolic cosine of {random_int_two} what is the hyperbolic cosine value",
             f"The hyperbolic cosine value of {random_int_two} is ##hyperbolic_cosine({random_int_two})",
         )
     ]

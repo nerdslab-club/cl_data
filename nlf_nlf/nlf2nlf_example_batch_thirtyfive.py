@@ -25,7 +25,7 @@ def __get_batch_one_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you consume {random_int_four} out of {random_int_one} cookies, how many cookies do you have left",
+            f"If you consume {random_int_four} out of {random_int_one} cookies how many cookies do you have left",
             f"You have ##subtraction({random_int_one},{random_int_four}) cookies remaining",
         )
     ]

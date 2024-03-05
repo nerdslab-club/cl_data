@@ -20,7 +20,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you have an angle of {random_int_one} degrees, what is the equivalent value in radians",
+            f"If you have an angle of {random_int_one} degrees what is the equivalent value in radians",
             f"The conversion of {random_int_one} degrees to radians is ##radians_to_degrees({random_int_one})",
         )
     ]

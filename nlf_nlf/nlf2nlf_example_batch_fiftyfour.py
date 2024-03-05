@@ -20,7 +20,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you have {random_int_three} cookies and want to divide them into groups of {random_int_one} cookies each, how many full groups can you make",
+            f"If you have {random_int_three} cookies and want to divide them into groups of {random_int_one} each how many full groups can you make",
             f"You can make ##floor_division({random_int_three},{random_int_one}) full groups of cookies",
         )
     ]

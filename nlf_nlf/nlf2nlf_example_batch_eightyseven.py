@@ -20,8 +20,8 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"What is the rectified linear unit (ReLU) of a random value",
-            f"The rectified linear unit (ReLU) of a random value is ##relu({random_float})"
+            f"What is the rectified linear unit of {random_float}",
+            f"The rectified linear unit of {random_float} is ##relu({random_float})"
         )
     ]
     if identifier is not None:

@@ -22,7 +22,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the tangent of an angle of {random_int_three} degrees, what is the tangent value",
+            f"If you want to find the tangent of an angle of {random_int_three} degrees what is the tangent value",
             f"The tangent value of the angle is ##tangent({random_int_three})",
         )
     ]

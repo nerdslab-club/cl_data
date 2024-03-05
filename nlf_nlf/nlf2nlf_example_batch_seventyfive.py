@@ -20,7 +20,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you have a random number, what is the closest integer to it",
+            f"If you have a random number what is the closest integer to it",
             f"The rounded value of the random number is ##round({random_float})",
         )
     ]

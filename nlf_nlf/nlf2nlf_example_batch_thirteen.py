@@ -25,7 +25,7 @@ def __get_batch_one_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"Suppose you have {random_int_one} groups and each group consists of {random_int_three} students How many students are there in total",
+            f"Suppose you have {random_int_one} groups and each group consists of {random_int_three} students how many students are there in total",
             f"In total there are ##multiplication({random_int_one},{random_int_three}) students",
         )
     ]

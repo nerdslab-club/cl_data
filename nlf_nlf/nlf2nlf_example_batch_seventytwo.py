@@ -21,7 +21,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the integer square root of {random_int_two}, what is it",
+            f"If you want to find the integer square root of {random_int_two} what is it",
             f"The integer square root of {random_int_two} is ##isqrt({random_int_two})",
         )
     ]

@@ -25,7 +25,7 @@ def __get_batch_one_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you take {random_int_three} and divide it by {random_int_one}, what is the quotient",
+            f"If you take {random_int_three} and divide it by {random_int_one} what is the quotient",
             f"The quotient after dividing {random_int_three} by {random_int_one} is ##division({random_int_three},{random_int_one})",
         )
     ]

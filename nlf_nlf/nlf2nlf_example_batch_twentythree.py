@@ -25,7 +25,7 @@ def __get_batch_one_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you split {random_int_two} equally among {random_int_four} people, how much does each person get",
+            f"If you split {random_int_two} equally among {random_int_four} people how much does each person get",
             f"Each person receives ##division({random_int_two},{random_int_four})",
         )
     ]

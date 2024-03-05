@@ -21,7 +21,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the greatest common divisor of {random_int_one} and {random_int_two}, what is it",
+            f"If you want to find the greatest common divisor of {random_int_one} and {random_int_two} what is it",
             f"The greatest common divisor of {random_int_one} and {random_int_two} is ##gcd({random_int_one},{random_int_two})",
         )
     ]

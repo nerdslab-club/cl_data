@@ -23,7 +23,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the least common multiple of {random_int_three} and {random_int_four}, what is it",
+            f"If you want to find the least common multiple of {random_int_three} and {random_int_four} what is it",
             f"The least common multiple of {random_int_three} and {random_int_four} is ##lcm({random_int_three},{random_int_four})",
         )
     ]

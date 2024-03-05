@@ -21,7 +21,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you want to find the base 2 logarithm of {random_int_two}, what is the result",
+            f"If you want to find the base 2 logarithm of {random_int_two} what is the result",
             f"The result of the base 2 logarithm is ##logarithm_base_2({random_int_two})",
         )
     ]

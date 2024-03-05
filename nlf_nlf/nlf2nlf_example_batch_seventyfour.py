@@ -20,7 +20,7 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"If you have a random value, what is the largest integer smaller than or equal to it",
+            f"If you have a random value what is the largest integer smaller than or equal to it",
             f"The floor of the random value is ##floor({random_float})",
         )
     ]

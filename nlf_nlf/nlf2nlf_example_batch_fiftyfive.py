@@ -16,12 +16,11 @@ def create_nlf2nlf_batch_fiftyfive_example(count: int, identifier: int | None):
 def __get_batch_two_example_pair(identifier: int | None):
     random_int_one = RandomValueGenerator.generate_random_integer()
     random_int_two = random_int_one + RandomValueGenerator.generate_random_integer()
-    random_int_three = random_int_two + RandomValueGenerator.generate_random_integer()
     random_int_four = RandomValueGenerator.generate_random_integer()
 
     examples = [
         (
-            f"If you have {random_int_four} apples and want to pack them into boxes of {random_int_two} apples each, how many apples will be left unpacked",
+            f"If you have {random_int_four} apples and pack them into boxes of {random_int_two} each how many will be left unpacked",
             f"The remainder of apples left unpacked is ##modulus({random_int_four},{random_int_two})",
         )
     ]

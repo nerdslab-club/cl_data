@@ -27,7 +27,7 @@ def __get_batch_one_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"When you subtract {random_int_four} from {random_int_three}, what is the outcome",
+            f"When you subtract {random_int_four} from {random_int_three} what is the outcome",
             f"The outcome after subtracting {random_int_four} from {random_int_three} is ##subtraction({random_int_three},{random_int_four})",
         )
     ]
