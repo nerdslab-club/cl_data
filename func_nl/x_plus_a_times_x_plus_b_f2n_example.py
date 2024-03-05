@@ -22,6 +22,7 @@ def create_f2n_x_plus_a_times_x_plus_b_example(count: int, identifier: int | Non
 
 def __random_explanation_x_plus_a_times_x_plus_b(n, a, b, identifier: int | None) -> str:
     explanations = [
+        f"The outcome of evaluating x_plus_a_times_x_plus_b({n}, {a}, {b})",
         f"Calculating the value of ({n} + {a}) * ({n} + {b})",
         f"The result of evaluating ({n} + {a}) * ({n} + {b})",
         f"Calculation: x_plus_a_times_x_plus_b({n}, {a}, {b})",
@@ -42,7 +43,6 @@ def __random_explanation_x_plus_a_times_x_plus_b(n, a, b, identifier: int | None
         f"The value of ({n} + {a}) times ({n} + {b}) is",
         f"The computed value of ({n} + {a}) * ({n} + {b})",
         f"The calculated outcome of ({n} + {a}) * ({n} + {b})",
-        f"The outcome of evaluating x_plus_a_times_x_plus_b({n}, {a}, {b})",
         f"The outcome of determining the product of ({n} + {a}) and ({n} + {b})",
         f"The outcome of evaluating x_plus_a_times_x_plus_b({n}, {a}, {b})",
     ]

@@ -18,11 +18,11 @@ def create_n2f_negative_2ab_example(count: int, identifier: int | None):
 
 def __random_explanation(a: int, b: int, identifier: int | None) -> str:
     explanations = [
+        f"Performing the negative_2ab operation for {a} and {b}",
         f"Calculate -2({a} * {b})",
         f"Determine the result of -2ab",
         f"Find the expression -2({a} * {b})",
         f"The result of calculating -2ab",
-        f"Performing the negative_2ab operation for {a} and {b}",
         f"The expression -2({a} * {b})",
         f"The result after calculating -2ab, what is it",
         f"Determine -2ab",

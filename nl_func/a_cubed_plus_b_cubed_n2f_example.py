@@ -18,11 +18,11 @@ def create_n2f_a_cubed_plus_b_cubed_example(count: int, identifier: int | None):
 
 def __random_explanation(a: int, b: int, identifier: int | None) -> str:
     explanations = [
+        f"Performing the a_cubed_plus_b_cubed operation for {a} and {b}",
         f"Calculate {a}^3 + {b}^3",
         f"Determine the result of {a}^3 + {b}^3",
         f"Find the expression {a}^3 + {b}^3",
         f"The result of calculating {a}^3 + {b}^3",
-        f"Performing the a_cubed_plus_b_cubed operation for {a} and {b}",
         f"The expression {a}^3 + {b}^3",
         f"The result after calculating {a}^3 + {b}^3, what is it",
         f"Determine {a}^3 + {b}^3",

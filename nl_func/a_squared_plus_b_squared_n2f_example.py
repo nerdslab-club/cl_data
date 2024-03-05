@@ -18,11 +18,11 @@ def create_n2f_a_squared_plus_b_squared_example(count: int, identifier: int | No
 
 def __random_explanation(a: int, b: int, identifier: int | None) -> str:
     explanations = [
+        f"Performing the a_squared_plus_b_squared operation for {a} and {b}",
         f"Calculate {a}^2 + {b}^2",
         f"Determine the result of {a}^2 + {b}^2",
         f"Find the expression {a}^2 + {b}^2",
         f"The result of calculating {a}^2 + {b}^2",
-        f"Performing the a_squared_plus_b_squared operation for {a} and {b}",
         f"The expression {a}^2 + {b}^2",
         f"The result after calculating {a}^2 + {b}^2, what is it",
         f"Determine {a}^2 + {b}^2",

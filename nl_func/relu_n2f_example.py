@@ -17,10 +17,10 @@ def create_n2f_relu_example(count: int, identifier: int | None):
 
 def __random_explanation(x: float, identifier: int | None) -> str:
     explanations = [
-        f"Apply the Rectified Linear Unit (ReLU) activation to {x}",
+        f"Calculate the ReLU activation for {x}",
+        f"Apply the Rectified Linear Unit activation to {x}",
         f"Use ReLU activation on {x}",
         f"The result of applying ReLU activation to {x}",
-        f"Calculate the ReLU activation for {x}",
         f"Applying ReLU to {x}",
         f"The value after ReLU activation: {x}",
         f"RELU activation calculation: {x}",

@@ -23,12 +23,12 @@ def create_f2n_a_minus_b_whole_squared_plus_4ab_example(count: int, identifier: 
 
 def __random_explanation_a_minus_b_whole_squared_plus_4ab(a, b, identifier: int | None) -> str:
     explanations = [
+        f"The outcome of evaluating a_minus_b_whole_squared_plus_4ab({a}, {b})",
         f"Calculating the value of ({a} - {b})^2 + 4*{a}*{b}",
         f"a_minus_b_whole_squared_plus_4ab({a}, {b})",
         f"The result of evaluating ({a} - {b})^2 + 4*{a}*{b}",
         f"Calculation: a_minus_b_whole_squared_plus_4ab({a}, {b})",
         f"The expression ({a} - {b})^2 + 4*{a}*{b}",
-        f"The outcome of evaluating a_minus_b_whole_squared_plus_4ab({a}, {b})",
         f"The result obtained by calculating ({a} - {b})^2 + 4*{a}*{b}",
         f"The value of ({a} - {b}) squared plus 4 times {a} times {b}",
         f"The computed result of evaluating ({a} - {b})^2 + 4*{a}*{b}",

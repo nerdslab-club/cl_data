@@ -21,16 +21,16 @@ def create_f2n_a_cubed_minus_b_cubed_example(count: int, identifier: int | None)
 
 def __random_explanation_a_cubed_minus_b_cubed(a, b, identifier: int | None) -> str:
     explanations = [
-        f"Calculating the value of {a}^3 - {b}^3",
+        f"The value of {a} cubed minus {b} cubed",
         f"a_cubed_minus_b_cubed({a}, {b})",
         f"The result of evaluating {a}^3 - {b}^3",
         f"Calculation: a_cubed_minus_b_cubed({a}, {b})",
         f"The expression {a}^3 - {b}^3",
         f"The outcome of evaluating a_cubed_minus_b_cubed({a}, {b})",
         f"The result obtained by calculating {a}^3 - {b}^3",
-        f"The value of {a} cubed minus {b} cubed",
         f"The computed result of evaluating {a}^3 - {b}^3",
         f"The difference between {a} cubed and {b} cubed",
+        f"Calculating the value of {a}^3 - {b}^3",
         f"The outcome of determining {a}^3 - {b}^3",
         f"The numerical value of {a} cubed minus {b} cubed",
         f"The result of evaluating a_cubed_minus_b_cubed({a}, {b})",

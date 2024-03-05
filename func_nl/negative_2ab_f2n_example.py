@@ -21,6 +21,7 @@ def create_f2n_negative_2ab_example(count: int, identifier: int | None):
 
 def __random_explanation_negative_2ab(x, y, identifier: int | None) -> str:
     explanations = [
+        f"The outcome of evaluating negative_2ab({x}, {y})",
         f"Calculating the value of -2 * {x} * {y}",
         f"The result of evaluating -2 * {x} * {y}",
         f"Calculation: negative_2ab({x}, {y})",
@@ -41,7 +42,6 @@ def __random_explanation_negative_2ab(x, y, identifier: int | None) -> str:
         f"The value of -2 * {x} times {y} is",
         f"The computed value of -2 * {x} * {y}",
         f"The calculated outcome of -2 * {x} times {y}",
-        f"The outcome of evaluating negative_2ab({x}, {y})",
         f"The outcome of determining the product of -2 times {x} times {y}",
         f"The outcome of evaluating negative_2ab({x}, {y})",
     ]

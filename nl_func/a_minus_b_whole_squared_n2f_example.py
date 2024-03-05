@@ -18,11 +18,11 @@ def create_n2f_a_minus_b_whole_squared_example(count: int, identifier: int | Non
 
 def __random_explanation(a: int, b: int, identifier: int | None) -> str:
     explanations = [
+        f"Performing the a_minus_b_whole_squared operation for {a} and {b}",
         f"Calculate ({a} - {b})^2",
         f"Determine the result of ({a} - {b})^2",
         f"Find the expression ({a} - {b})^2",
         f"The result of calculating ({a} - {b})^2",
-        f"Performing the a_minus_b_whole_squared operation for {a} and {b}",
         f"The expression ({a} - {b})^2",
         f"The result after calculating ({a} - {b})^2, what is it",
         f"Determine ({a} - {b})^2",

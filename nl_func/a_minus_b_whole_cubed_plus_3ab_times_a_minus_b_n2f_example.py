@@ -18,11 +18,11 @@ def create_n2f_a_minus_b_whole_cubed_plus_3ab_times_a_minus_b_example(count: int
 
 def __random_explanation(a: int, b: int, identifier: int | None) -> str:
     explanations = [
+        f"Performing the a_minus_b_whole_cubed_plus_3ab_times_a_minus_b operation for {a} and {b}",
         f"Calculate ({a} - {b})^3 + 3({a} * {b}) * ({a} - {b})",
         f"Determine the result of ({a} - {b})^3 + 3({a} * {b}) * ({a} - {b})",
         f"Find the expression ({a} - {b})^3 + 3({a} * {b}) * ({a} - {b})",
         f"The result of calculating ({a} - {b})^3 + 3({a} * {b}) * ({a} - {b})",
-        f"Performing the a_minus_b_whole_cubed_plus_3ab_times_a_minus_b operation for {a} and {b}",
         f"The expression ({a} - {b})^3 + 3({a} * {b}) * ({a} - {b})",
         f"The result after calculating ({a} - {b})^3 + 3({a} * {b}) * ({a} - {b}), what is it",
         f"Determine ({a} - {b})^3 + 3({a} * {b}) * ({a} - {b})",

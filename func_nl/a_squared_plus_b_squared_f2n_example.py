@@ -22,6 +22,7 @@ def create_f2n_a_squared_plus_b_squared_example(count: int, identifier: int | No
 
 def __random_explanation_a_squared_plus_b_squared(a, b, identifier: int | None) -> str:
     explanations = [
+        f"The sum of {a} squared and {b} squared",
         f"Calculating the value of {a}^2 + {b}^2",
         f"a_squared_plus_b_squared({a}, {b})",
         f"The result of evaluating {a}^2 + {b}^2",
@@ -31,7 +32,6 @@ def __random_explanation_a_squared_plus_b_squared(a, b, identifier: int | None) 
         f"The result obtained by calculating {a}^2 + {b}^2",
         f"The value of {a} squared plus {b} squared",
         f"The computed result of evaluating {a}^2 + {b}^2",
-        f"The sum of {a} squared and {b} squared",
         f"The outcome of determining {a}^2 + {b}^2",
         f"The numerical value of {a} squared plus {b} squared",
         f"The result of evaluating a_squared_plus_b_squared({a}, {b})",

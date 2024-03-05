@@ -26,7 +26,7 @@ def create_f2n_check_same_string_example(count: int, identifier: int | None):
 
 def __random_explanation_check_same_string(str1, str2, identifier: int | None) -> str:
     explanations = [
-        f"Checking if the strings '{str1}' and '{str2}' are the same",
+        f"Checking if the strings {str1} and {str2} are the same",
         f"check_same_string('{str1}', '{str2}')",
         f"Determining if the strings '{str1}' and '{str2}' are equal",
         f"Calculation: check_same_string('{str1}', '{str2}')",

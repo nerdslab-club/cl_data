@@ -20,6 +20,8 @@ def create_f2n_ceil_example(count: int, identifier: int | None):
 
 def __random_explanation_ceil(x: float, identifier: int | None) -> str:
     explanations = [
+        f"The integer just above {x}",
+        f"The ceil value of {x} is",
         f"The smallest integer greater than or equal to {x}",
         f"The smallest whole number that is not less than {x}",
         f"The integer immediately above {x}",
@@ -32,7 +34,6 @@ def __random_explanation_ceil(x: float, identifier: int | None) -> str:
         f"The smallest integer equal to or greater than {x}",
         f"The smallest integer larger than {x} is",
         f"The smallest integer greater than or equal to the input value {x}",
-        f"The integer just above {x}",
         f"The smallest whole number greater than or equal to {x}",
         f"The smallest integer not less than {x}",
         f"The smallest integer larger than or equal to the value {x}",
@@ -43,7 +44,6 @@ def __random_explanation_ceil(x: float, identifier: int | None) -> str:
         f"The smallest integer greater than {x} is",
         f"The smallest integer that is greater than or equal to {x}",
         f"The smallest integer that is at least {x}",
-        f"The ceil value of {x} is",
         f"The result of calculating ceil({x}) is",
         f"The next integer above {x}",
     ]

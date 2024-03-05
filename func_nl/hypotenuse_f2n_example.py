@@ -21,6 +21,7 @@ def create_f2n_hypotenuse_example(count: int, identifier: int | None):
 
 def __random_explanation_hypotenuse(a: float, b: float, identifier: int | None) -> str:
     explanations = [
+        f"The outcome of evaluating hypotenuse({a}, {b})",
         f"The length of the hypotenuse in a right triangle with perpendicular sides of lengths {a} and {b}",
         f"The result of calculating the length of the hypotenuse for a right triangle with sides {a} and {b}",
         f"Calculation: hypotenuse({a}, {b})",
@@ -30,7 +31,6 @@ def __random_explanation_hypotenuse(a: float, b: float, identifier: int | None) 
         f"The result of determining the hypotenuse length for a right triangle with legs {a} and {b}",
         f"The computed result of calculating the hypotenuse length for a right triangle with sides {a} and {b}",
         f"The length of the slanted side in a right triangle with legs {a} and {b}",
-        f"The outcome of evaluating hypotenuse({a}, {b})",
         f"The value obtained by finding the length of the hypotenuse for a right triangle with legs {a} and {b}",
         f"The result of evaluating hypotenuse({a}, {b})",
         f"The length of the inclined side in a right triangle with legs {a} and {b}",

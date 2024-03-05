@@ -17,8 +17,8 @@ def create_n2f_is_power_of_two_example(count: int, identifier: int | None):
 
 def __random_explanation(a: int, identifier: int | None) -> str:
     explanations = [
-        f"Determine if the integer {a} is a power of two",
         f"Check if {a} is a power of two",
+        f"Determine if the integer {a} is a power of two",
         f"Is {a} a power of two",
         f"Verify whether {a} is a power of two",
         f"Checking if {a} is a power of two",

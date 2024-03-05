@@ -18,7 +18,7 @@ def create_f2n_get_pi_example(count: int, identifier: int | None):
 
 def __random_explanation_get_pi(identifier: int | None) -> str:
     explanations = [
-        "The mathematical constant pi (π)",
+        "The mathematical constant pi",
         "get_pi()",
         "The value of pi (π)",
         "Calculation: get_pi()",

@@ -21,6 +21,7 @@ def create_f2n_positive_2ab_example(count: int, identifier: int | None):
 
 def __random_explanation_positive_2ab(a, b, identifier: int | None) -> str:
     explanations = [
+        f"The outcome of evaluating positive_2ab({a}, {b})",
         f"Calculating the value of 2 * {a} * {b}",
         f"The result of evaluating 2 * {a} * {b}",
         f"Calculation: positive_2ab({a}, {b})",
@@ -41,7 +42,6 @@ def __random_explanation_positive_2ab(a, b, identifier: int | None) -> str:
         f"The value of 2 * {a} times {b} is",
         f"The computed value of 2 * {a} * {b}",
         f"The calculated outcome of 2 * {a} times {b}",
-        f"The outcome of evaluating positive_2ab({a}, {b})",
         f"The outcome of determining the product of 2 times {a} times {b}",
         f"The outcome of evaluating positive_2ab({a}, {b})",
     ]

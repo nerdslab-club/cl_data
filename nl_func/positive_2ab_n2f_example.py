@@ -18,9 +18,9 @@ def create_n2f_positive_2ab_example(count: int, identifier: int | None):
 
 def __random_explanation(a: int, b: int, identifier: int | None) -> str:
     explanations = [
+        f"Performing the positive_2ab operation for {a} and {b}",
         f"Calculate 2({a} * {b})",
         f"Find the expression 2({a} * {b})",
-        f"Performing the positive_2ab operation for {a} and {b}",
         f"The expression 2({a} * {b})",
         f"The result after calculating positive_2ab for {a} and {b}",
         f"The expression 2({a} * {b}), what is its value?",

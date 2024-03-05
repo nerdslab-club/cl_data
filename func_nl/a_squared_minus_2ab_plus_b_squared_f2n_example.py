@@ -23,12 +23,12 @@ def create_f2n_a_squared_minus_2ab_plus_b_squared_example(count: int, identifier
 
 def __random_explanation_a_squared_minus_2ab_plus_b_squared(a, b, identifier: int | None) -> str:
     explanations = [
+        f"The outcome of evaluating a_squared_minus_2ab_plus_b_squared({a}, {b})",
         f"Calculating the value of {a}^2 - 2*{a}*{b} + {b}^2",
         f"a_squared_minus_2ab_plus_b_squared({a}, {b})",
         f"The result of evaluating {a}^2 - 2*{a}*{b} + {b}^2",
         f"Calculation: a_squared_minus_2ab_plus_b_squared({a}, {b})",
         f"The expression {a}^2 - 2*{a}*{b} + {b}^2",
-        f"The outcome of evaluating a_squared_minus_2ab_plus_b_squared({a}, {b})",
         f"The result obtained by calculating {a}^2 - 2*{a}*{b} + {b}^2",
         f"The value of {a} squared minus 2 times {a} times {b} plus {b} squared",
         f"The computed result of evaluating {a}^2 - 2*{a}*{b} + {b}^2",

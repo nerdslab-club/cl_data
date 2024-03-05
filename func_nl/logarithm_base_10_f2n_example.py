@@ -20,6 +20,7 @@ def create_f2n_logarithm_base_10_example(count: int, identifier: int | None):
 
 def __random_explanation_logarithm_base_10(m: float, identifier: int | None) -> str:
     explanations = [
+        f"The value of log10({m})",
         f"The base-10 logarithm of {m}",
         f"The value of the base-10 logarithm function for {m}",
         f"Calculation: logarithm_base_10({m})",
@@ -28,7 +29,6 @@ def __random_explanation_logarithm_base_10(m: float, identifier: int | None) -> 
         f"The logarithm corresponding to base 10 for {m}",
         f"The value of the logarithm function with base 10 at {m}",
         f"The logarithm function with base 10 applied to the input {m}",
-        f"The value of log10({m})",
         f"The logarithm function with base 10 evaluated at {m}",
         f"The logarithm function output for {m}",
         f"The result of the base-10 logarithm function at {m}",

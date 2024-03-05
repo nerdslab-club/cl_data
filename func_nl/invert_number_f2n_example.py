@@ -20,8 +20,8 @@ def create_f2n_invert_number_example(count: int, identifier: int | None):
 
 def __random_explanation_invert_number(x: float, identifier: int | None) -> str:
     explanations = [
+        f"The reciprocal of the number {x}",
         f"The multiplicative inverse of the number {x}",
-        f"The result of calculating the reciprocal of the number {x}",
         f"The reciprocal value of the number {x}",
         f"The outcome of finding the multiplicative inverse of the number {x}",
         f"The number that, when multiplied by {x}, results in 1",

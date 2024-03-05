@@ -20,9 +20,9 @@ def create_f2n_floor_example(count: int, identifier: int | None):
 
 def __random_explanation_floor(x: float, identifier: int | None) -> str:
     explanations = [
+        f"The integer immediately below {x}",
         f"The largest integer less than or equal to {x}",
         f"The greatest whole number that is not greater than {x}",
-        f"The integer immediately below {x}",
         f"The largest integer that is equal to or smaller than {x}",
         f"The largest integer that is not larger than {x}",
         f"The largest integer less than {x}",

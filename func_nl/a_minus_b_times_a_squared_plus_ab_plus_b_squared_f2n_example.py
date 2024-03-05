@@ -23,6 +23,7 @@ def create_f2n_a_minus_b_times_a_squared_plus_ab_plus_b_squared_example(count: i
 
 def __random_explanation_a_minus_b_times_a_squared_plus_ab_plus_b_squared(a, b, identifier: int | None) -> str:
     explanations = [
+        f"The result derived from evaluating a_minus_b_times_a_squared_plus_ab_plus_b_squared({a}, {b})"
         f"Calculating the value of ({a} - {b}) * ({a}^2 + {a} * {b} + {b}^2)",
         f"a_minus_b_times_a_squared_plus_ab_plus_b_squared({a}, {b})",
         f"The result of evaluating ({a} - {b}) * ({a}^2 + {a} * {b} + {b}^2)",
@@ -37,7 +38,6 @@ def __random_explanation_a_minus_b_times_a_squared_plus_ab_plus_b_squared(a, b, 
         f"The numerical value of ({a} - {b}) times ({a}^2 + {a} * {b} + {b}^2)",
         f"The result of evaluating a_minus_b_times_a_squared_plus_ab_plus_b_squared({a}, {b})",
         f"The value of ({a} - {b}) * ({a}^2 + {a} * {b} + {b}^2) is",
-        f"The result derived from evaluating a_minus_b_times_a_squared_plus_ab_plus_b_squared({a}, {b})",
         f"The calculated result of ({a} - {b}) times ({a}^2 + {a} * {b} + {b}^2)",
         f"The value of ({a} - {b}) times ({a}^2 + {a} * {b} + {b}^2) is",
         f"The value of ({a} - {b}) * ({a}^2 + {a} * {b} + {b}^2) equals",

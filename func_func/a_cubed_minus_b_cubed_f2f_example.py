@@ -11,7 +11,7 @@ def create_f2f_cubed_minus_example(count: int, identifier: int | None):
         num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
         num2 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
         choice_one = __random_io_operation(num1, num2, (None if identifier is None else identifier+i))
-        choice_two = __random_io_operation(num1, num2, (None if identifier is None else identifier+i), choice_one)
+        choice_two = __random_io_operation(num1, num2, (None if identifier is None else identifier+i+1), choice_one)
         examples.append(
             {
                 "inputStr": Utility.remove_spaces(choice_one),
@@ -28,12 +28,11 @@ def __random_io_operation(num1: int, num2: int, identifier: int | None, prev_cho
         f"##a_minus_b_times_a_squared_plus_ab_plus_b_squared({num1}, {num2})",
     ]
 
-    if prev_choice is not None:
-        explanations.remove(prev_choice)
-
     if identifier is not None:
         return explanations[identifier % len(explanations)]
     else:
+        if prev_choice is not None:
+            explanations.remove(prev_choice)
         return random.choice(explanations)
 
 

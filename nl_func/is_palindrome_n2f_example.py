@@ -17,7 +17,7 @@ def create_n2f_is_palindrome_example(count: int, identifier: int | None):
 
 def __random_explanation(word: str, identifier: int | None) -> str:
     explanations = [
-        f"Determine if the string '{word}' is a palindrome",
+        f"Determine if the string {word} is a palindrome",
         f"Check if '{word}' is a palindrome",
         f"Is '{word}' a palindrome",
         f"Verify whether '{word}' is a palindrome",

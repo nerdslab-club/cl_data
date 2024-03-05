@@ -21,12 +21,12 @@ def create_f2n_a_minus_b_whole_squared_example(count: int, identifier: int | Non
 
 def __random_explanation_a_minus_b_whole_squared(a, b, identifier: int | None) -> str:
     explanations = [
+        f"The outcome of evaluating a_minus_b_whole_squared({a}, {b})",
         f"Calculating the value of ({a} - {b})^2",
         f"a_minus_b_whole_squared({a}, {b})",
         f"The result of evaluating ({a} - {b})^2",
         f"Calculation: a_minus_b_whole_squared({a}, {b})",
         f"The expression ({a} - {b})^2",
-        f"The outcome of evaluating a_minus_b_whole_squared({a}, {b})",
         f"The result obtained by calculating ({a} - {b})^2",
         f"The value of ({a} - {b}) squared",
         f"The computed result of evaluating ({a} - {b})^2",

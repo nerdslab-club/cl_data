@@ -17,9 +17,9 @@ def create_n2f_euler_totient_example(count: int, identifier: int | None):
 
 def __random_explanation(a: int, identifier: int | None) -> str:
     explanations = [
+        f"Find the Euler's totient value for {a}",
         f"Calculate the Euler's totient function value for {a}",
         f"Determine the result of Euler's totient function for {a}",
-        f"Find the Euler's totient value for {a}",
         f"The result of applying Euler's totient function to {a}",
         f"Performing Euler's totient function operation for {a}",
         f"The Euler's totient value for {a}",

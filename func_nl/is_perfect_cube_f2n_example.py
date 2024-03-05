@@ -24,8 +24,8 @@ def create_f2n_is_perfect_cube_example(count: int, identifier: int | None):
 def __random_explanation_is_perfect_cube(x: int, is_perfect_cube_result: bool, identifier: int | None) -> str:
     cube_str = "a perfect cube" if is_perfect_cube_result else "not a perfect cube"
     explanations = [
-        f"Whether {x} is {cube_str}",
         f"Checking if {x} is a perfect cube",
+        f"Whether {x} is {cube_str}",
         f"Calculation: is_perfect_cube({x})",
         f"Whether the integer {x} is a perfect cube",
         f"Determining if the value {x} is a perfect cube",

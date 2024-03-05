@@ -17,7 +17,7 @@ def create_n2f_reverse_string_example(count: int, identifier: int | None):
 
 def __random_explanation(input_str: str, identifier: int | None) -> str:
     explanations = [
-        f"Reverse the string '{input_str}'",
+        f"Reverse the string {input_str}",
         f"REVERSE_STRING('{input_str}')",
         f"Flip the characters in the string '{input_str}'",
         f"Invert the order of characters in '{input_str}'",

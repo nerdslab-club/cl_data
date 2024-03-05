@@ -20,7 +20,7 @@ def create_f2n_int_to_float_example(count: int, identifier: int | None):
 
 def __random_explanation_int_to_float(n: int, identifier: int | None) -> str:
     explanations = [
-        f"The floating-point representation of the integer {n}",
+        f"The floating point representation of the integer {n}",
         f"The result of converting the integer value {n} to a floating-point value",
         f"Calculation: int_to_float({n})",
         f"The decimal representation of the integer {n}",

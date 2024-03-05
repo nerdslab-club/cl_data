@@ -18,7 +18,7 @@ def create_n2f_check_same_string_example(count: int, identifier: int | None):
 
 def __random_explanation(str1: str, str2: str, identifier: int | None) -> str:
     explanations = [
-        f"Check if the strings '{str1}' and '{str2}' are the same",
+        f"Check if the strings {str1} and {str2} are the same",
         f"Determine if '{str1}' is the same as '{str2}'",
         f"Verify if the strings '{str1}' and '{str2}' are identical",
         f"Check if '{str1}' is equal to '{str2}'",

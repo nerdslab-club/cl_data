@@ -20,7 +20,8 @@ def create_f2n_isqrt_example(count: int, identifier: int | None):
 
 def __random_explanation_isqrt(x: int, identifier: int | None) -> str:
     explanations = [
-        f"The integer square root of {x}",
+        f"The isqrt value of {x} is",
+        f"The square root of {x}",
         f"The largest integer that, when squared, is less than or equal to {x}",
         f"The floor value of the square root of {x}",
         f"The greatest integer whose square is less than or equal to {x}",
@@ -39,7 +40,6 @@ def __random_explanation_isqrt(x: int, identifier: int | None) -> str:
         f"The whole number part of the square root of {x} is",
         f"The largest integer that, when squared, is less than or equal to {x} is",
         f"The value of isqrt({x}) is",
-        f"The isqrt value of {x} is",
         f"The floor square root of {x} is",
         f"The integer square root of {x} is",
     ]

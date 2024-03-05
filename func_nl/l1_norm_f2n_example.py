@@ -22,7 +22,7 @@ def __random_explanation_l1_norm(vector, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in vector)
 
     explanations = [
-        f"The L1 norm (Manhattan norm) of the vector {lst_str}",
+        f"The L1 norm of the vector {lst_str}",
         f"The result of calculating the L1 norm of the vector {lst_str}",
         f"Calculation: l1_norm({vector})",
         f"The Manhattan norm value of the vector {lst_str}",

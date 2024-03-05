@@ -20,8 +20,8 @@ def create_f2n_relu_example(count: int, identifier: int | None):
 
 def __random_explanation_relu(f: float, identifier: int | None) -> str:
     explanations = [
-        f"The Rectified Linear Unit (ReLU) activation of {f}",
         f"The result of applying ReLU to {f}",
+        f"The Rectified Linear Unit (ReLU) activation of {f}",
         f"Calculation: relu({f})",
         f"The output of the ReLU activation function for the input {f}",
         f"The outcome of applying the ReLU activation to {f}",

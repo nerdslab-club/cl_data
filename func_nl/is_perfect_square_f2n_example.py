@@ -29,8 +29,8 @@ def __random_explanation_is_perfect_square(
         "a perfect square" if is_perfect_square_result else "not a perfect square"
     )
     explanations = [
-        f"Whether {x} is {square_str}",
         f"Checking if {x} is a perfect square",
+        f"Whether {x} is {square_str}",
         f"Calculation: is_perfect_square({x})",
         f"Whether the integer {x} is a perfect square",
         f"Determining if the value {x} is a perfect square",

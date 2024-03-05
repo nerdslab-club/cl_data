@@ -24,6 +24,7 @@ def create_f2n_x_squared_plus_a_plus_b_times_x_plus_ab_example(count: int, ident
 
 def __random_explanation_x_squared_plus_a_plus_b_times_x_plus_ab(n, a, b, identifier: int | None) -> str:
     explanations = [
+        f"The outcome of evaluating x_squared_plus_a_plus_b_times_x_plus_ab({n}, {a}, {b})",
         f"Calculating the value of {n}^2 + ({a} + {b}) * ({n} + {a} * {b})",
         f"The result of evaluating {n}^2 + ({a} + {b}) * ({n} + {a} * {b})",
         f"Calculation: x_squared_plus_a_plus_b_times_x_plus_ab({n}, {a}, {b})",
@@ -44,7 +45,6 @@ def __random_explanation_x_squared_plus_a_plus_b_times_x_plus_ab(n, a, b, identi
         f"The value of {n}^2 plus the product of ({a} + {b}) and ({n} + {a} * {b}) is",
         f"The computed value of {n}^2 + ({a} + {b}) * ({n} + {a} * {b})",
         f"The calculated outcome of {n}^2 + ({a} + {b}) * ({n} + {a} * {b})",
-        f"The outcome of evaluating x_squared_plus_a_plus_b_times_x_plus_ab({n}, {a}, {b})",
         f"The outcome of determining the sum of {n} squared and the product of ({a} + {b}) and ({n} + {a} * {b})",
         f"The outcome of evaluating x_squared_plus_a_plus_b_times_x_plus_ab({n}, {a}, {b})",
     ]

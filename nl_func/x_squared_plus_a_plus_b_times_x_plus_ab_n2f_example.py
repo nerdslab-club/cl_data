@@ -19,11 +19,11 @@ def create_n2f_x_squared_plus_a_plus_b_times_x_plus_ab_example(count: int, ident
 
 def __random_explanation(x: int, a: int, b: int, identifier: int | None) -> str:
     explanations = [
+        f"Performing the x_squared_plus_a_plus_b_times_x_plus_ab operation for {x}, {a}, and {b}",
         f"Calculate {x}^2 + ({a} + {b}) * ({x} + {a * b})",
         f"Determine the result of {x}^2 + ({a} + {b}) * ({x} + {a * b})",
         f"Find the expression {x}^2 + ({a} + {b}) * ({x} + {a * b})",
         f"The result of calculating {x}^2 + ({a} + {b}) * ({x} + {a * b})",
-        f"Performing the x_squared_plus_a_plus_b_times_x_plus_ab operation for {x}, {a}, and {b}",
         f"The expression {x}^2 + ({a} + {b}) * ({x} + {a * b})",
         f"The result after calculating {x}^2 + ({a} + {b}) * ({x} + {a * b}), what is it",
         f"Determine {x}^2 + ({a} + {b}) * ({x} + {a * b})",

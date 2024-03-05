@@ -22,7 +22,7 @@ def __random_explanation_l2_norm(vector, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in vector)
 
     explanations = [
-        f"The L2 norm (Euclidean norm) of the vector {lst_str}",
+        f"The L2 norm of the vector {lst_str}",
         f"The result of calculating the L2 norm of the vector {lst_str}",
         f"Calculation: l2_norm({vector})",
         f"The Euclidean norm value of the vector {lst_str}",

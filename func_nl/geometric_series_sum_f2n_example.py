@@ -22,7 +22,7 @@ def create_f2n_geometric_series_sum_example(count: int, identifier: int | None):
 
 def __random_explanation_geometric_series_sum(a: float, r: float, n: int, identifier: int | None) -> str:
     explanations = [
-        f"The sum of a geometric series with initial term {a}, common ratio {r}, and {n} terms",
+        f"The sum of a geometric series with initial term {a} common ratio {r} and {n} terms",
         f"The result of calculating the sum of the geometric series with initial term {a}, common ratio {r}, and {n} terms",
         f"Calculation: geometric_series_sum({a}, {r}, {n})",
         f"The total sum of a geometric sequence with initial term {a}, ratio {r}, and {n} terms",

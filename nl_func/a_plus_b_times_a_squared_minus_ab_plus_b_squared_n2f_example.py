@@ -18,11 +18,11 @@ def create_n2f_a_plus_b_times_a_squared_minus_ab_plus_b_squared_example(count: i
 
 def __random_explanation(a: int, b: int, identifier: int | None) -> str:
     explanations = [
+        f"Performing the a_plus_b_times_a_squared_minus_ab_plus_b_squared operation for {a} and {b}",
         f"Calculate ({a} + {b}) * ({a}^2 - {a * b} + {b}^2)",
         f"Determine the result of ({a} + {b}) * ({a}^2 - {a * b} + {b}^2)",
         f"Find the expression ({a} + {b}) * ({a}^2 - {a * b} + {b}^2)",
         f"The result of calculating ({a} + {b}) * ({a}^2 - {a * b} + {b}^2)",
-        f"Performing the a_plus_b_times_a_squared_minus_ab_plus_b_squared operation for {a} and {b}",
         f"The expression ({a} + {b}) * ({a}^2 - {a * b} + {b}^2)",
         f"The result after calculating ({a} + {b}) * ({a}^2 - {a * b} + {b}^2), what is it",
         f"Determine ({a} + {b}) * ({a}^2 - {a * b} + {b}^2)",

@@ -18,6 +18,7 @@ def create_n2f_a_cubed_minus_b_cubed_example(count: int, identifier: int | None)
 
 def __random_explanation(a: int, b: int, identifier: int | None) -> str:
     explanations = [
+        f"The value of {a} cubed minus {b} cubed",
         f"Calculate {a}^3 - {b}^3",
         f"Determine the result of {a}^3 - {b}^3",
         f"Find the expression {a}^3 - {b}^3",

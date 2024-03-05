@@ -21,7 +21,7 @@ def create_f2n_length_example(count: int, identifier: int | None):
 def __random_explanation_length(vector: list, identifier: int | None) -> str:
     lst_str = " , ".join(str(num) for num in vector)
     explanations = [
-        f"The length (number of elements) of the list {lst_str}",
+        f"The length of the list {lst_str}",
         f"The result of calculating the length of the list {lst_str}",
         f"The number of elements in the list {lst_str}",
         f"The outcome of finding the length of the list {lst_str}",

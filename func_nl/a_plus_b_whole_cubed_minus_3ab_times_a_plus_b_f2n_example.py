@@ -23,12 +23,12 @@ def create_f2n_a_plus_b_whole_cubed_minus_3ab_times_a_plus_b_example(count: int,
 
 def __random_explanation_a_plus_b_whole_cubed_minus_3ab_times_a_plus_b(a, b, identifier: int | None) -> str:
     explanations = [
+        f"The outcome of evaluating a_plus_b_whole_cubed_minus_3ab_times_a_plus_b({a}, {b})",
         f"Calculating the value of ({a} + {b})^3 - 3 * {a} * {b} * ({a} + {b})",
         f"a_plus_b_whole_cubed_minus_3ab_times_a_plus_b({a}, {b})",
         f"The result of evaluating ({a} + {b})^3 - 3 * {a} * {b} * ({a} + {b})",
         f"Calculation: a_plus_b_whole_cubed_minus_3ab_times_a_plus_b({a}, {b})",
         f"The expression ({a} + {b})^3 - 3 * {a} * {b} * ({a} + {b})",
-        f"The outcome of evaluating a_plus_b_whole_cubed_minus_3ab_times_a_plus_b({a}, {b})",
         f"The result obtained by calculating ({a} + {b})^3 - 3 * {a} * {b} * ({a} + {b})",
         f"The value of ({a} + {b}) cubed minus 3 times {a} times {b} times ({a} + {b})",
         f"The computed result of evaluating ({a} + {b})^3 - 3 * {a} * {b} * ({a} + {b})",
