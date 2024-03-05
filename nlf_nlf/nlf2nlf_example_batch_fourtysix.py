@@ -20,24 +20,15 @@ def create_nlf2nlf_batch_fourtysix_example(count: int, identifier: int | None):
 
 
 def __get_batch_one_example_pair(identifier: int | None):
-    random_list = Utility.remove_spaces(
-        str(RandomValueGenerator.generate_random_list())
-    )
     random_int_one = RandomValueGenerator.generate_random_integer()
     random_int_two = random_int_one + RandomValueGenerator.generate_random_integer()
     random_int_three = random_int_two + RandomValueGenerator.generate_random_integer()
-    random_int_four = RandomValueGenerator.generate_random_integer()
-    random_float = RandomValueGenerator.generate_random_float()
 
     examples = [
         (
             f"If you divide {random_int_three} by {random_int_one}, what is the quotient",
             f"The quotient after dividing {random_int_three} by {random_int_one} is ##division({random_int_three},{random_int_one})",
-        ),
-        (
-            f"If you have {random_int_two} boxes, and each box contains {random_int_four} pencils, how many pencils are there in total",
-            f"The total number of pencils is ##multiplication({random_int_two},{random_int_four})",
-        ),
+        )
     ]
     if identifier is not None:
         return examples[identifier % len(examples)]
