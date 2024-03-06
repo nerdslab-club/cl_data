@@ -6,7 +6,7 @@ class RandomValueGenerator:
         pass
 
     @staticmethod
-    def generate_random_list(length=4, start_range=1, end_range=99, seed=54):
+    def generate_random_list(length=3, start_range=1, end_range=99, seed=54):
         """
         Generate a random list of numbers.
 
