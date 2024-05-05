@@ -5,11 +5,11 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2n_multiplication_example(count: int, identifier: int | None):
+def create_f2n_multiplication_example(count: int, identifier: int | None, seed: int):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
-        num2 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
+        num1 = RandomValueGenerator.generate_random_float(seed=seed)
+        num2 = RandomValueGenerator.generate_random_float(seed=seed+1)
         examples.append(
             {
                 "inputStr": f"##multiplication({num1},{num2})",
@@ -23,10 +23,10 @@ def __random_explanation(m: float, n: float, identifier: int | None) -> str:
     explanations = [
         f"Multiplying {m} with {n}",
         f"{m} * {n}",
-        f"The result of multiplying {m} and {n}",
-        f"{m} times {n} equals",
         f"{m} multiplied by {n}",
         f"The product of {m} and {n}",
+
+        f"The result of multiplying {m} and {n}",
         f"Calculation: {m} * {n}",
         f"The total when {m} is multiplied by {n}",
         f"{m} and {n} multiplied together",

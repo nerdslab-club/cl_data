@@ -5,10 +5,10 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_tangent_example(count: int, identifier: int | None):
+def create_n2f_tangent_example(count: int, identifier: int | None, seed: int,):
     examples = []
     for i in range(count):
-        angle = RandomValueGenerator.generate_random_float(0, 360, 1, seed=(None if identifier is None else identifier+i))
+        angle = RandomValueGenerator.generate_random_float(0, 360, 1, seed=seed)
         examples.append(
             {
                 "inputStr": __random_explanation_tangent(angle, (None if identifier is None else identifier+i)),
@@ -21,7 +21,12 @@ def create_n2f_tangent_example(count: int, identifier: int | None):
 def __random_explanation_tangent(angle: float, identifier: int | None) -> str:
     angle_degrees = round(angle, 2)  # Round the angle to two decimal places
     explanations = [
-        f"Tangent of {angle_degrees} degrees",
+        f"tangent value for {angle} degrees",
+        f"tangent of {angle} degrees",
+        f"tan of {angle} degrees",
+        f"tangent({angle}) value",
+
+        f"tangent of {angle_degrees} degrees",
         f"The tangent value for {angle_degrees} degrees",
         f"Calculate tangent for {angle_degrees} degrees",
         f"Tangent function applied to {angle_degrees}",

@@ -5,11 +5,11 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2n_division_example(count: int, identifier: int | None):
+def create_f2n_division_example(count: int, identifier: int | None, seed: int):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
-        num2 = RandomValueGenerator.generate_random_float(0.1, num1, seed=(None if identifier is None else identifier+i+1))  # To ensure no division by zero
+        num1 = RandomValueGenerator.generate_random_float(seed=seed)
+        num2 = RandomValueGenerator.generate_random_float(0.1, num1, seed=seed+1)  # To ensure no division by zero
         examples.append(
             {
                 "inputStr": f"##division({num1},{num2})",
@@ -25,17 +25,17 @@ def create_f2n_division_example(count: int, identifier: int | None):
 
 def __random_explanation(x: float, y: float, identifier: int | None) -> str:
     explanations = [
-        f"Dividing {x} by {y}",
+        f"dividing {x} by {y}",
         f"{x} / {y}",
+        f"{x} over {y}",
         f"The result of dividing {x} by {y}",
+
         f"{x} divided by {y} equals",
         f"The quotient of {x} and {y}",
         f"{x} divided by {y} results in",
         f"Calculation: {x} / {y}",
         f"{x} divided by {y}",
-        f"{x} over {y}",
         f"{x} divided by {y} gives",
-        f"{x} over {y} is",
     ]
     if identifier is not None:
         return explanations[identifier % len(explanations)]

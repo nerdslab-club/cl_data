@@ -63,7 +63,13 @@ class F2FSamples:
     def get_length_of_sample_generators(self):
         return len(self.f2f_example_generators)
 
-    def get_next_random_sample(self, batch_size: int, generator_index: int | None, identifier: int | None):
+    def get_next_random_sample(
+            self,
+            batch_size: int,
+            generator_index: int | None,
+            identifier: int | None,
+            seed: int,
+    ):
         if generator_index is not None:
             random_generator_index = generator_index
         else:
@@ -71,7 +77,7 @@ class F2FSamples:
         selected_generator = list(self.f2f_example_generators.values())[
             random_generator_index
         ]
-        list_of_samples = selected_generator(batch_size, identifier)
+        list_of_samples = selected_generator(batch_size, identifier, seed)
         for my_dict in list_of_samples:
             my_dict[Constants.TASK_TYPE] = F2FSamples.TASK_TYPE.value
         return list_of_samples
@@ -90,17 +96,17 @@ class F2FSamples:
 
     def __set_f2f_example_generators(self):
         self.f2f_example_generators = {
-            "average": create_f2f_average_example,
             "permutation": create_f2f_permutation_example,
             "combination": create_f2f_combination_example,
             "circle_area": create_f2f_circle_area_example,
             "gcd": create_f2f_gcd_example,
             "exponentiation": create_f2f_exponentiation_example,
             "lcm": create_f2f_lcm_example,
-            "multiplication": create_f2f_multiplication_example,
             "square_root": create_f2f_square_root_example,
             "cube": create_f2f_cube_example,
             "isqrt": create_f2f_isqrt_example,
+            "square": create_f2f_square_example,
+
             "modulus": create_f2f_modulus_example,
             "cubed_minus": create_f2f_cubed_minus_example,
             "cubed_plus": create_f2f_cubed_plus_example,
@@ -108,12 +114,13 @@ class F2FSamples:
             "squared_plus": create_f2f_squared_plus_example,
             "polynomial": create_f2f_polynomial_example,
             "absolute_difference": create_f2f_absolute_difference_example,
-            "square": create_f2f_square_example,
             "trigonometry": create_f2f_trigonometry_example,
-
             "a_squared_plus_b_squared": create_f2f_a_squared_plus_b_squared_example,
-            "absolute": create_f2f_absolute_example,
+            "multiplication": create_f2f_multiplication_example,
+
+            "average": create_f2f_average_example,
             "addition": create_f2f_addition_example,
+            "absolute": create_f2f_absolute_example,
             "ceil": create_f2f_ceil_example,
             "cube_root": create_f2f_cube_root_example,
             "cosine_similarity": create_f2f_cosine_similarity_example,

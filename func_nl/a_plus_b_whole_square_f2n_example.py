@@ -5,11 +5,11 @@ from cl_data.src.utility import Utility
 from cl_data.src.random_value_generator import RandomValueGenerator
 
 
-def create_f2n_a_plus_b_whole_square_example(count: int, identifier: int | None):
+def create_f2n_a_plus_b_whole_square_example(count: int, identifier: int | None, seed: int):
     examples = []
     for i in range(count):
-        a = RandomValueGenerator.generate_random_integer()
-        b = RandomValueGenerator.generate_random_integer()
+        a = RandomValueGenerator.generate_random_integer(seed=seed)
+        b = RandomValueGenerator.generate_random_integer(seed=seed+1)
         examples.append(
             {
                 "inputStr": f"##a_plus_b_whole_square({a}, {b})",
@@ -21,18 +21,20 @@ def create_f2n_a_plus_b_whole_square_example(count: int, identifier: int | None)
 
 def __random_explanation_a_plus_b_whole_square(a, b, identifier: int | None) -> str:
     explanations = [
-        f"Calculating the square of the sum of {a} and {b}",
+        f"square of the sum of {a} and {b}",
+        f"computed square of the sum of {a} and {b}",
+        f"value of squaring {a} plus {b}",
+        f"numerical value of squaring {a} plus {b}",
+
         f"a_plus_b_whole_square({a}, {b})",
         f"The result of squaring the sum of {a} and {b}",
         f"Calculation: a_plus_b_whole_square({a}, {b})",
         f"The square of the sum of {a} and {b}",
         f"The outcome of evaluating a_plus_b_whole_square({a}, {b})",
-        f"The result obtained by squaring the sum of {a} and {b}",
         f"The square value of {a} plus {b}",
         f"The computed result of calculating the square of the sum of {a} and {b}",
         f"The square of the sum of the numbers {a} and {b}",
         f"The outcome of determining the square of the sum of {a} and {b}",
-        f"The numerical value of squaring {a} plus {b}",
         f"The result of evaluating a_plus_b_whole_square({a}, {b})",
         f"The square of the sum of {a} and {b} equals",
         f"The result derived from evaluating a_plus_b_whole_square({a}, {b})",

@@ -5,11 +5,11 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2n_gcd_example(count: int, identifier: int | None):
+def create_f2n_gcd_example(count: int, identifier: int | None, seed: int):
     examples = []
     for i in range(count):
-        x = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
-        y = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
+        x = RandomValueGenerator.generate_random_integer(seed=seed)
+        y = RandomValueGenerator.generate_random_integer(seed=seed+1)
         examples.append(
             {
                 "inputStr": f"##gcd({x}, {y})",
@@ -21,9 +21,11 @@ def create_f2n_gcd_example(count: int, identifier: int | None):
 
 def __random_explanation_gcd(x: int, y: int, identifier: int | None) -> str:
     explanations = [
-        f"The greatest common divisor of {x} and {y}",
-        f"The largest number that divides both {x} and {y}",
-        f"The highest common factor of {x} and {y}",
+        f"greatest common divisor of {x} and {y}",
+        f"largest number that divides both {x} and {y}",
+        f"highest common factor of {x} and {y}",
+        f"maximum factor that divides both {x} and {y}",
+
         f"The greatest common factor of {x} and {y}",
         f"The greatest common divisor for the numbers {x} and {y}",
         f"The result of calculating the greatest common divisor for {x} and {y}",
@@ -31,7 +33,6 @@ def __random_explanation_gcd(x: int, y: int, identifier: int | None) -> str:
         f"The common divisor of {x} and {y} with the highest value",
         f"The largest divisor shared by {x} and {y}",
         f"The greatest common divisor of the integers {x} and {y}",
-        f"The maximum factor that divides both {x} and {y}",
         f"The greatest divisor that divides both {x} and {y}",
         f"The greatest number that can divide both {x} and {y}",
         f"The highest value divisor that divides {x} and {y}",

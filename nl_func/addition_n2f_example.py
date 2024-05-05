@@ -52,6 +52,6 @@ def __random_explanation(a: int, b: int, identifier: int | None) -> str:
 if __name__ == "__main__":
     print(
         Utility.create_sample_from_example(
-            create_n2f_addition_example(2), TaskTypes.NL_TO_FUNC_TRANSLATION
+            create_n2f_addition_example(1, 1), TaskTypes.NL_TO_FUNC_TRANSLATION
         )
     )

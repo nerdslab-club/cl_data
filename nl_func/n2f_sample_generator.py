@@ -120,7 +120,13 @@ class N2FSamples:
     def get_length_of_sample_generators(self):
         return len(self.n2f_example_generators)
 
-    def get_next_random_sample(self, batch_size: int, generator_index: int | None, identifier: int | None):
+    def get_next_random_sample(
+            self,
+            batch_size: int,
+            generator_index: int | None,
+            identifier: int | None,
+            seed: int,
+    ):
         if generator_index is not None:
             random_generator_index = generator_index
         else:
@@ -128,7 +134,7 @@ class N2FSamples:
         selected_generator = list(self.n2f_example_generators.values())[
             random_generator_index
         ]
-        list_of_samples = selected_generator(batch_size, identifier)
+        list_of_samples = selected_generator(batch_size, identifier, seed)
         for my_dict in list_of_samples:
             my_dict[Constants.TASK_TYPE] = N2FSamples.TASK_TYPE.value
         return list_of_samples
@@ -147,6 +153,41 @@ class N2FSamples:
 
     def __set_n2f_example_generators(self):
         self.n2f_example_generators = {
+            "cosine": create_n2f_cosine_example,
+            "tangent": create_n2f_tangent_example,
+            "gcd": create_n2f_gcd_example,
+            "lcm": create_n2f_lcm_example,
+            "circle_area": create_n2f_circle_area_example,
+            "cube": create_n2f_cube_example,
+            "square": create_n2f_square_example,
+            "smallest_value": create_n2f_smallest_value_example,
+            "cube_root": create_n2f_cube_root_example,
+            "greatest_value": create_n2f_greatest_value_example,
+
+            "absolute_difference": create_n2f_absolute_difference_example,
+            "prime_factors": create_n2f_prime_factors_example,
+            "nth_root": create_n2f_nth_root_example,
+            "product": create_n2f_product_example,
+            "factorial": create_n2f_factorial_example,
+            "ascending_sort": create_n2f_ascending_sort_example,
+            "descending_sort": create_n2f_descending_sort_example,
+            "permutation": create_n2f_permutation_example,
+            "combination": create_n2f_combination_example,
+            "average": create_n2f_average_example,
+            "sum": create_n2f_sum_example,
+            "length": create_n2f_length_example,
+            "mean": create_n2f_mean_example,
+            "median": create_n2f_median_example,
+            "pow_mod": create_n2f_pow_mod_example,
+            "ceil": create_n2f_ceil_example,
+            "floor": create_n2f_floor_example,
+            "round": create_n2f_round_example,
+            "absolute": create_n2f_absolute_example,
+            "invert_number": create_n2f_invert_number_example,
+            "degrees_to_radians": create_n2f_degrees_to_radians_example,
+            "radians_to_degrees": create_n2f_radians_to_degrees_example,
+            "isqrt": create_n2f_isqrt_example,
+
             "addition": create_n2f_addition_example,
             "subtraction": create_n2f_subtraction_example,
             "multiplication": create_n2f_multiplication_example,
@@ -157,39 +198,6 @@ class N2FSamples:
             "modulus": create_n2f_modulus_example,
             "logarithm": create_n2f_logarithm_example,
             "sine": create_n2f_sine_example,
-            "cosine": create_n2f_cosine_example,
-            "tangent": create_n2f_tangent_example,
-            "gcd": create_n2f_gcd_example,
-            "lcm": create_n2f_lcm_example,
-            "absolute_difference": create_n2f_absolute_difference_example,
-            "greatest_value": create_n2f_greatest_value_example,
-            "smallest_value": create_n2f_smallest_value_example,
-            "product": create_n2f_product_example,
-            "factorial": create_n2f_factorial_example,
-            "ascending_sort": create_n2f_ascending_sort_example,
-            "descending_sort": create_n2f_descending_sort_example,
-            "circle_area": create_n2f_circle_area_example,
-            "permutation": create_n2f_permutation_example,
-            "combination": create_n2f_combination_example,
-            "average": create_n2f_average_example,
-            "sum": create_n2f_sum_example,
-            "length": create_n2f_length_example,
-            "mean": create_n2f_mean_example,
-            "median": create_n2f_median_example,
-            "cube": create_n2f_cube_example,
-            "cube_root": create_n2f_cube_root_example,
-            "square": create_n2f_square_example,
-            "nth_root": create_n2f_nth_root_example,
-            "pow_mod": create_n2f_pow_mod_example,
-            "ceil": create_n2f_ceil_example,
-            "floor": create_n2f_floor_example,
-            "round": create_n2f_round_example,
-            "prime_factors": create_n2f_prime_factors_example,
-            "absolute": create_n2f_absolute_example,
-            "invert_number": create_n2f_invert_number_example,
-            "degrees_to_radians": create_n2f_degrees_to_radians_example,
-            "radians_to_degrees": create_n2f_radians_to_degrees_example,
-            "isqrt": create_n2f_isqrt_example,
 
             "arcsine": create_n2f_arcsine_example,
             "arccosine": create_n2f_arccosine_example,

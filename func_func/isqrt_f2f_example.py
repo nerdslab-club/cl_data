@@ -5,10 +5,10 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2f_isqrt_example(count: int, identifier: int | None):
+def create_f2f_isqrt_example(count: int, identifier: int | None, seed: int,):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
+        num1 = RandomValueGenerator.generate_random_integer(seed=seed)
         choice_one = __random_io_operation(num1, (None if identifier is None else identifier+i))
         choice_two = __random_io_operation(num1, (None if identifier is None else identifier+i), choice_one)
         examples.append(
@@ -24,7 +24,7 @@ def __random_io_operation(num1: int, identifier: int | None, prev_choice=None) -
     explanations = [
         f"##isqrt({num1})",
         f"##floor(##square_root({num1}))",
-        f"##floor(##nth_root({num1}, 2))",
+        # f"##floor(##nth_root({num1}, 2))",
     ]
 
     if prev_choice is not None:

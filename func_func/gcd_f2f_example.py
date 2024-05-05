@@ -5,11 +5,11 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2f_gcd_example(count: int, identifier: int | None):
+def create_f2f_gcd_example(count: int, identifier: int | None,  seed: int,):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
-        num2 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i+1))
+        num1 = RandomValueGenerator.generate_random_integer(seed=seed)
+        num2 = RandomValueGenerator.generate_random_integer(seed=seed+1)
         choice_one = __random_io_operation(num1, num2, (None if identifier is None else identifier+i))
         choice_two = __random_io_operation(num1, num2, (None if identifier is None else identifier+i), choice_one)
         examples.append(

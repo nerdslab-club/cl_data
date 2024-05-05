@@ -18,13 +18,14 @@ def create_n2f_nth_root_example(count: int, identifier: int | None):
 
 def __random_explanation(x: float, n: int, identifier: int | None) -> str:
     explanations = [
+        f"taking the {n} -th root of {x}",
+        f"{n} -th root value of {x}",
         f"Calculate the {n} -th root of the number {x}",
         f"Find the {n} -th root value for the number {x}",
         f"The result of taking the {n} -th root of {x}",
         f"Performing the {n} -th root operation on the number {x}",
         f"The {n} -th root of the number {x}",
         f"NTH_ROOT calculation: {x}, {n}",
-        f"Let's find the {n} -th root value of {x}",
         f"{n} -th root of {x}, result is",
         f"Calculating the {n} -th root for the number {x}",
         f"The {n} -th root result after taking the {n} -th root of {x}",
@@ -33,7 +34,6 @@ def __random_explanation(x: float, n: int, identifier: int | None) -> str:
         f"{n} -th root {x} and provide the result",
         f"NTH_ROOT({x}, {n}), what does it yield",
         f"The {n} -th root value of {x}, ignoring order",
-        f"The result after taking the {n} -th root of {x}",
         f"Calculate the {n} -th root of {x}, find the answer",
         f"Let's find the result after taking the {n} -th root of {x}",
     ]

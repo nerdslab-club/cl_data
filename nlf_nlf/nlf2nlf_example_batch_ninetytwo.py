@@ -20,8 +20,8 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"What is the square of a random value",
-            f"The square of a random value is ##square({random_float})"
+            f"What is the square of {random_float}",
+            f"The square of {random_float} is ##square({random_float})"
         )
     ]
     if identifier is not None:

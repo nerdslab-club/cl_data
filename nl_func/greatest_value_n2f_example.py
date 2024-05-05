@@ -4,11 +4,11 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_greatest_value_example(count: int, identifier: int | None):
+def create_n2f_greatest_value_example(count: int, identifier: int | None, seed: int,):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
-        num2 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
+        num1 = RandomValueGenerator.generate_random_float(seed=seed)
+        num2 = RandomValueGenerator.generate_random_float(seed=seed+1)
         examples.append({
             "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
             "outputStr": f"##greatest_value({num1}, {num2})",
@@ -18,6 +18,11 @@ def create_n2f_greatest_value_example(count: int, identifier: int | None):
 
 def __random_explanation(f1: float, f2: float, identifier: int | None) -> str:
     explanations = [
+        f"greater value between {f1} and {f2}",
+        f"maximum value between {f1} and {f2}",
+        f"Which is greater {f1} or {f2}",
+        f"Finding the greater of {f1} and {f2}",
+
         f"The greater value between {f1} and {f2}",
         f"Find the greatest value between {f1} and {f2}",
         f"The larger value between {f1} and {f2}",

@@ -115,7 +115,13 @@ class Nl2NlSamples:
     def get_length_of_sample_generators(self):
         return len(self.nlf2nlf_example_generators)
 
-    def get_next_random_sample(self, batch_size: int, generator_index: int | None, identifier: int | None):
+    def get_next_random_sample(
+            self,
+            batch_size: int,
+            generator_index: int | None,
+            identifier: int | None,
+            seed: int,
+    ):
         if generator_index is not None:
             random_generator_index = generator_index
         else:
@@ -125,7 +131,7 @@ class Nl2NlSamples:
         selected_generator = list(self.nlf2nlf_example_generators.values())[
             random_generator_index
         ]
-        list_of_samples = selected_generator(batch_size, identifier)
+        list_of_samples = selected_generator(batch_size, identifier, seed)
         for my_dict in list_of_samples:
             my_dict[Constants.TASK_TYPE] = Nl2NlSamples.TASK_TYPE.value
         return list_of_samples
@@ -146,13 +152,15 @@ class Nl2NlSamples:
         self.nlf2nlf_example_generators = {
             "batch_one": create_nlf2nlf_batch_one_example,
             "batch_two": create_nlf2nlf_batch_two_example,
-            "batch_three": create_nlf2nlf_batch_three_example,
-            "batch_four": create_nlf2nlf_batch_four_example,
-            "batch_five": create_nlf2nlf_batch_five_example,
             "batch_six": create_nlf2nlf_batch_six_example,
+            "batch_four": create_nlf2nlf_batch_four_example,
             "batch_seven": create_nlf2nlf_batch_seven_example,
+            "batch_eighty": create_nlf2nlf_batch_eighty_example,
+            "batch_three": create_nlf2nlf_batch_three_example,
+            "batch_five": create_nlf2nlf_batch_five_example,
             "batch_eight": create_nlf2nlf_batch_eight_example,
             "batch_nine": create_nlf2nlf_batch_nine_example,
+
             "batch_ten": create_nlf2nlf_batch_ten_example,
             "batch_eleven": create_nlf2nlf_batch_eleven_example,
             "batch_twelve": create_nlf2nlf_batch_twelve_example,
@@ -223,7 +231,6 @@ class Nl2NlSamples:
             "batch_seventyseven": create_nlf2nlf_batch_seventyseven_example,
             "batch_seventyeight": create_nlf2nlf_batch_seventyeight_example,
             "batch_seventynine": create_nlf2nlf_batch_seventynine_example,
-            "batch_eighty": create_nlf2nlf_batch_eighty_example,
             "batch_eightyone": create_nlf2nlf_batch_eightyone_example,
             "batch_eightytwo": create_nlf2nlf_batch_eightytwo_example,
             "batch_eightythree": create_nlf2nlf_batch_eightythree_example,

@@ -4,11 +4,11 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_smallest_value_example(count: int, identifier: int | None):
+def create_n2f_smallest_value_example(count: int, identifier: int | None, seed: int,):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
-        num2 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i+1))
+        num1 = RandomValueGenerator.generate_random_float(seed=seed)
+        num2 = RandomValueGenerator.generate_random_float(seed=seed+1)
         examples.append({
             "inputStr": __random_explanation(num1, num2, (None if identifier is None else identifier+i)),
             "outputStr": f"##smallest_value({num1}, {num2})",
@@ -18,11 +18,12 @@ def create_n2f_smallest_value_example(count: int, identifier: int | None):
 
 def __random_explanation(x: float, y: float, identifier: int | None) -> str:
     explanations = [
-        f"The smaller value between {x} and {y}",
+        f"smaller value between {x} and {y}",
+        f"minimum value between {x} and {y}",
+        f"Which is smaller {x} or {y}",
+        f"Finding the lesser of {x} and {y}",
+
         f"Find the smallest value between {x} and {y}",
-        f"The minimum value between {x} and {y}",
-        f"Calculate the smallest value between {x} and {y}",
-        f"Finding smallest value for {x} and {y}",
         f"The value less than or equal to both {x} and {y}",
         f"The minimum value between {x} and {y}",
         f"Let's find the smallest value between {x} and {y}",

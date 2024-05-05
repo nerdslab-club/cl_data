@@ -20,8 +20,8 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"What is the absolute value of a random number",
-            f"The absolute value of a random number is ##absolute({random_float})"
+            f"What is the absolute value of {random_float}",
+            f"absolute value of {random_float} is ##absolute({random_float})"
         )
     ]
     if identifier is not None:

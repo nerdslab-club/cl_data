@@ -5,10 +5,10 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_nlf2nlf_batch_seven_example(count: int, identifier: int | None):
+def create_nlf2nlf_batch_seven_example(count: int, identifier: int | None, seed: int,):
     examples = []
     for i in range(count):
-        example = __get_batch_one_example_pair((None if identifier is None else identifier+i))
+        example = __get_batch_one_example_pair((None if identifier is None else identifier+i), seed)
         examples.append(
             {
                 "inputStr": example[0],
@@ -18,15 +18,29 @@ def create_nlf2nlf_batch_seven_example(count: int, identifier: int | None):
     return examples
 
 
-def __get_batch_one_example_pair(identifier: int | None):
-    random_int_one = RandomValueGenerator.generate_random_integer()
-    random_int_four = RandomValueGenerator.generate_random_integer()
+def __get_batch_one_example_pair(identifier: int | None, seed: int,):
+    random_int_one = RandomValueGenerator.generate_random_integer(seed=seed)
+    random_int_two = random_int_one + 8
+    random_int_three = random_int_two + RandomValueGenerator.generate_random_integer(seed=seed)
+    random_float = RandomValueGenerator.generate_random_float(seed=seed)
 
     examples = [
         (
-            f"If you have {random_int_one} cookies and you eat {random_int_four} of them how many are left",
-            f"You have ##subtraction({random_int_one},{random_int_four}) cookies remaining",
-        )
+            f"area of a circle with radius {random_float}",
+            f"area of a circle with radius {random_float} is ##circle_area({random_float})"
+        ),
+        (
+            f"permutation of {random_int_two} items taken {random_int_one} at a time",
+            f"permutation of {random_int_two} items taken {random_int_one} at a time is ##permutation({random_int_two},{random_int_one})"
+        ),
+        (
+            f"combination of {random_int_three} items taken {random_int_one} at a time",
+            f"combination of {random_int_three} items taken {random_int_one} at a time is ##combination({random_int_three},{random_int_one})"
+        ),
+        (
+            f"What is the sigmoid value for {random_float}",
+            f"sigmoid value for {random_float} is ##sigmoid({random_float})"
+        ),
     ]
     if identifier is not None:
         return examples[identifier % len(examples)]

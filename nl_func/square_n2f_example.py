@@ -4,10 +4,10 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_square_example(count: int, identifier: int | None):
+def create_n2f_square_example(count: int, identifier: int | None, seed: int,):
     examples = []
     for i in range(count):
-        num = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
+        num = RandomValueGenerator.generate_random_float(seed=seed)
         examples.append({
             "inputStr": __random_explanation(num, (None if identifier is None else identifier+i)),
             "outputStr": f"##square({num})",
@@ -17,12 +17,16 @@ def create_n2f_square_example(count: int, identifier: int | None):
 
 def __random_explanation(f1: float, identifier: int | None) -> str:
     explanations = [
+        f"square of the number {f1}",
+        f"squaring the number {f1}",
+        f"square value of {f1}",
+        f"square({f1})",
+
         f"Calculate the square of the number {f1}",
         f"Find the square value for the number {f1}",
         f"The result of squaring the number {f1}",
         f"Perform the square operation on the number {f1}",
         f"Squaring the number {f1}",
-        f"The square of the number {f1}",
         f"Let's square the number {f1}",
         f"Square the number {f1}, result is",
         f"Calculating the square for the number {f1}",

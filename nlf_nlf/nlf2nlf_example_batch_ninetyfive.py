@@ -20,8 +20,8 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"What is the cube of a random value",
-            f"The cube of a random value is ##cube({random_float})"
+            f"What is the cube of {random_float}",
+            f"cube of {random_float} is ##cube({random_float})"
         )
     ]
     if identifier is not None:

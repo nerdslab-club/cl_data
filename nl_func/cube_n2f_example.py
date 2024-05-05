@@ -4,10 +4,10 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_n2f_cube_example(count: int, identifier: int | None):
+def create_n2f_cube_example(count: int, identifier: int | None, seed: int,):
     examples = []
     for i in range(count):
-        num = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
+        num = RandomValueGenerator.generate_random_float(seed=seed)
         examples.append({
             "inputStr": __random_explanation(num, (None if identifier is None else identifier+i)),
             "outputStr": f"##cube({num})",
@@ -17,12 +17,14 @@ def create_n2f_cube_example(count: int, identifier: int | None):
 
 def __random_explanation(f1: float, identifier: int | None) -> str:
     explanations = [
+        f"cube value for the number {f1}",
+        f"cubing the number {f1}",
+        f"cube value of {f1}",
+        f"cube({f1})",
+
         f"Calculate the cube of the number {f1}",
-        f"Find the cube value for the number {f1}",
-        f"The result of cubing the number {f1}",
         f"Performing the cube operation on the number {f1}",
         f"The cube of the number {f1}",
-        f"Let's find the cube value of {f1}",
         f"Cube the number {f1}, result is",
         f"Calculating the cube for the number {f1}",
         f"The cubed result after cubing the number {f1}",

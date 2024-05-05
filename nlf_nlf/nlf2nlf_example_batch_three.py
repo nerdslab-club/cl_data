@@ -5,10 +5,10 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_nlf2nlf_batch_three_example(count: int, identifier: int | None):
+def create_nlf2nlf_batch_three_example(count: int, identifier: int | None, seed: int,):
     examples = []
     for i in range(count):
-        example = __get_batch_one_example_pair((None if identifier is None else identifier+i))
+        example = __get_batch_one_example_pair((None if identifier is None else identifier+i), seed)
         examples.append(
             {
                 "inputStr": example[0],
@@ -18,16 +18,30 @@ def create_nlf2nlf_batch_three_example(count: int, identifier: int | None):
     return examples
 
 
-def __get_batch_one_example_pair(identifier: int | None):
-    random_int_one = RandomValueGenerator.generate_random_integer()
-    random_int_two = random_int_one + RandomValueGenerator.generate_random_integer()
-    random_int_three = random_int_two + RandomValueGenerator.generate_random_integer()
+def __get_batch_one_example_pair(identifier: int | None, seed: int,):
+    random_int_one = RandomValueGenerator.generate_random_integer(seed=seed)
+    random_int_two = random_int_one + 9
+    random_int_three = random_int_two + RandomValueGenerator.generate_random_integer(seed=seed)
+    random_float = RandomValueGenerator.generate_random_float(seed=seed)
 
     examples = [
         (
-            f"{random_int_two} + {random_int_three}",
-            f"The result of adding {random_int_two} and {random_int_three} is ##addition({random_int_two},{random_int_three})",
+            f"rectified linear unit of {random_float}",
+            f"rectified linear unit of {random_float} is ##relu({random_float})"
+        ),
+        (
+            f"Is {random_int_one} a perfect cube",
+            f"{random_int_one} perfect cube ##is_perfect_cube({random_int_one})"
+        ),
+        (
+            f"What are the prime factors of {random_int_three}",
+            f"prime factors of {random_int_three} are ##prime_factors({random_int_three})"
+        ),
+        (
+            f"Is {random_int_one} a perfect square",
+            f"{random_int_one} perfect square ##is_perfect_square({random_int_one})"
         )
+
     ]
     if identifier is not None:
         return examples[identifier % len(examples)]

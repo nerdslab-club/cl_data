@@ -17,11 +17,11 @@ def create_n2f_prime_factors_example(count: int, identifier: int | None):
 
 def __random_explanation(x: int, identifier: int | None) -> str:
     explanations = [
+        f"The list of prime numbers that divide {x}",
         f"The prime factors of {x}",
         f"Find the prime factors of {x}",
         f"Calculate the prime factors of {x}",
         f"Finding prime factors for {x}",
-        f"The list of prime numbers that divide {x}",
         f"prime factors calculation: {x}",
         f"Let's find the prime factors of {x}",
         f"Find the prime factors for {x}",

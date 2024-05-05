@@ -120,7 +120,13 @@ class F2NSamples:
     def get_length_of_sample_generators(self):
         return len(self.f2n_example_generators)
 
-    def get_next_random_sample(self, batch_size: int, generator_index: int | None, identifier: int | None):
+    def get_next_random_sample(
+            self,
+            batch_size: int,
+            generator_index: int | None,
+            identifier: int | None,
+            seed: int,
+    ):
         if generator_index is not None:
             random_generator_index = generator_index
         else:
@@ -128,7 +134,7 @@ class F2NSamples:
         selected_generator = list(self.f2n_example_generators.values())[
             random_generator_index
         ]
-        list_of_samples = selected_generator(batch_size, identifier)
+        list_of_samples = selected_generator(batch_size, identifier, seed)
         for my_dict in list_of_samples:
             my_dict[Constants.TASK_TYPE] = F2NSamples.TASK_TYPE.value
         return list_of_samples
@@ -151,21 +157,23 @@ class F2NSamples:
             "subtraction": create_f2n_subtraction_example,
             "multiplication": create_f2n_multiplication_example,
             "division": create_f2n_division_example,
-            "exponentiation": create_f2n_exponentiation_example,
+            "gcd": create_f2n_gcd_example,
             "square_root": create_f2n_square_root_example,
             "floor_division": create_f2n_floor_division_example,
             "modulus": create_f2n_modulus_example,
-            "logarithm": create_f2n_logarithm_example,
+            "factorial": create_f2n_factorial_example,
+            "a_plus_b_whole_square": create_f2n_a_plus_b_whole_square_example,
+
             "sine": create_f2n_sine_example,
+            "logarithm": create_f2n_logarithm_example,
+            "exponentiation": create_f2n_exponentiation_example,
             "cosine": create_f2n_cosine_example,
             "tangent": create_f2n_tangent_example,
-            "gcd": create_f2n_gcd_example,
             "lcm": create_f2n_lcm_example,
             "absolute_difference": create_f2n_absolute_difference_example,
             "greatest_value": create_f2n_greatest_value_example,
             "smallest_value": create_f2n_smallest_value_example,
             "product": create_f2n_product_example,
-            "factorial": create_f2n_factorial_example,
             "ascending_sort": create_f2n_ascending_sort_example,
             "descending_sort": create_f2n_descending_sort_example,
             "circle_area": create_f2n_circle_area_example,
@@ -229,7 +237,6 @@ class F2NSamples:
             "hyperbolic_cosine": create_f2n_hyperbolic_cosine_example,
             "hyperbolic_tangent": create_f2n_hyperbolic_tangent_example,
             "calculate_dot_product": create_f2n_calculate_dot_product_example,
-            "a_plus_b_whole_square": create_f2n_a_plus_b_whole_square_example,
             "a_squared_plus_2ab_plus_b_squared": create_f2n_a_squared_plus_2ab_plus_b_squared_example,
             "a_minus_b_whole_squared_plus_4ab": create_f2n_a_minus_b_whole_squared_plus_4ab_example,
             "a_minus_b_whole_squared": create_f2n_a_minus_b_whole_squared_example,

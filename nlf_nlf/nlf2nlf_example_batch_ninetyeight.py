@@ -26,28 +26,12 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples = [
         (
-            f"What is the area of a circle with radius {random_float}",
-            f"The area of a circle with radius {random_float} is ##circle_area({random_float})"
-        ),
-        (
             f"What is the maximum value in the numbers {lst_str}",
             f"The maximum value in the numbers {lst_str} is ##max_value([{random_list}])"
         ),
         (
             f"What is the minimum value in the numbers {lst_str}",
             f"The minimum value in the numbers {lst_str} is ##min_value([{random_list}])"
-        ),
-        (
-            f"What is the permutation of {random_int_four} items taken {random_int_two} at a time",
-            f"The permutation of {random_int_four} items taken {random_int_two} at a time is ##permutation({random_int_four},{random_int_two})"
-        ),
-        (
-            f"What is the combination of {random_int_three} items taken {random_int_one} at a time",
-            f"The combination of {random_int_three} items taken {random_int_one} at a time is ##combination({random_int_three},{random_int_one})"
-        ),
-        (
-            f"What is the sigmoid function value for {random_float}",
-            f"The sigmoid function value for {random_float} is ##sigmoid({random_float})"
         ),
         (
             f"What is the sum of the numbers {lst_str}",

@@ -5,11 +5,11 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2n_floor_division_example(count: int, identifier: int | None):
+def create_f2n_floor_division_example(count: int, identifier: int | None, seed: int):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
-        num2 = RandomValueGenerator.generate_random_integer(1, num1+1, seed=(None if identifier is None else identifier+i+1))  # To ensure non-zero denominator
+        num1 = RandomValueGenerator.generate_random_integer(seed=seed)
+        num2 = RandomValueGenerator.generate_random_integer(1, num1+1, seed=seed+1)  # To ensure non-zero denominator
         examples.append(
             {
                 "inputStr": f"##floor_division({num1},{num2})",
@@ -25,13 +25,13 @@ def create_f2n_floor_division_example(count: int, identifier: int | None):
 
 def __random_explanation_floor_div(x: int, y: int, identifier: int | None) -> str:
     explanations = [
-        f"The floor division of {x} by {y}",
+        f"floor division of {x} by {y}",
         f"{x} // {y}",
-        f"The result of floor dividing {x} by {y}",
-        f"{x} divided by {y} using floor division",
-        f"Calculation: {x} // {y}",
-        f"The floor quotient of {x} and {y}",
         f"{x} floor divided by {y}",
+        f"result of floor dividing {x} by {y}",
+
+        f"{x} divided by {y} using floor division",
+        f"The floor quotient of {x} and {y}",
         f"{x} divided by {y} using the floor division operator",
         f"The integer division result of {x} by {y}",
         f"{x} divided by {y} using floor division gives",

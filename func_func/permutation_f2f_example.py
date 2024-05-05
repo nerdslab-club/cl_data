@@ -5,11 +5,15 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2f_permutation_example(count: int, identifier: int | None):
+def create_f2f_permutation_example(
+        count: int,
+        identifier: int | None,
+        seed: int,
+):
     examples = []
     for i in range(count):
-        n = RandomValueGenerator.generate_random_integer(seed=(None if identifier is None else identifier+i))
-        r = RandomValueGenerator.generate_random_integer(1, n + 1, seed=(None if identifier is None else identifier+i+1))
+        n = RandomValueGenerator.generate_random_integer(seed=seed)
+        r = RandomValueGenerator.generate_random_integer(1, n + 1, seed=seed + 1)
         choice_one = __random_io_permutation(n, r, (None if identifier is None else identifier+i))
         choice_two = __random_io_permutation(n, r, (None if identifier is None else identifier+i), choice_one)
         examples.append(
@@ -23,7 +27,7 @@ def create_f2f_permutation_example(count: int, identifier: int | None):
 
 def __random_io_permutation(n: int, r: int, identifier: int | None, prev_choice=None) -> str:
     explanations = [
-        f"##permutation({n},{r}))",
+        f"##permutation({n},{r})",
         f"##multiplication(##combination({n},{r}), ##factorial({r}))",
     ]
     if prev_choice is not None:

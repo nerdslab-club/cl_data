@@ -5,10 +5,10 @@ from cl_data.src.random_value_generator import RandomValueGenerator
 from cl_data.src.utility import Utility
 
 
-def create_f2f_square_root_example(count: int, identifier: int | None):
+def create_f2f_square_root_example(count: int, identifier: int | None, seed: int,):
     examples = []
     for i in range(count):
-        num1 = RandomValueGenerator.generate_random_float(seed=(None if identifier is None else identifier+i))
+        num1 = RandomValueGenerator.generate_random_float(seed=seed)
         choice_one = __random_io_square_root(num1, (None if identifier is None else identifier+i))
         choice_two = __random_io_square_root(num1, (None if identifier is None else identifier+i), choice_one)
         examples.append(
@@ -24,9 +24,9 @@ def __random_io_square_root(num1: float, identifier: int | None, prev_choice=Non
     explanations = [
         f"##square_root({num1})",
         f"##exponentiation({num1}, 0.5)",
-        f"##exponentiation({num1}, ##invert_number(2))",
-        f"##invert_number(##exponentiation({num1}, -0.5))",
-        f"##nth_root({num1}, 2)",
+        # f"##exponentiation({num1}, ##invert_number(2))",
+        # f"##invert_number(##exponentiation({num1}, -0.5))",
+        # f"##nth_root({num1}, 2)",
     ]
     if prev_choice is not None:
         explanations.remove(prev_choice)

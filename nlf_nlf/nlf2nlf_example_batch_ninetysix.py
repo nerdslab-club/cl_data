@@ -20,8 +20,8 @@ def __get_batch_two_example_pair(identifier: int | None):
 
     examples =[
         (
-            f"What is the cube root of {random_int_four}",
-            f"The cube root of {random_int_four} is ##cube_root({random_int_four})"
+            f"cube root of {random_int_four}",
+            f"cube root of {random_int_four} is ##cube_root({random_int_four})"
         )
     ]
     if identifier is not None:
